@@ -24,8 +24,16 @@
             android:text="@string/cutom_view" />
 
         <Button
+            android:id="@+id/btn_"
             style="@style/main_item_txt_style"
             android:text="@string/event_dispatch" />
+
+
+        <Button
+            android:id="@+id/btn_other_lib"
+            style="@style/main_item_txt_style"
+            android:text="@string/other_lib" />
+
 
     </LinearLayout>
 

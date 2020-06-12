@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">06-drawing</string>
+    <string name="avatar">Avatar</string>
+    <string name="dashboard">Dashboard</string>
 </resources>

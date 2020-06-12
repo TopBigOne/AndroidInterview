@@ -5,4 +5,5 @@
     <string name="handler">Handler</string>
     <string name="cutom_view">自定义 View</string>
     <string name="event_dispatch">事件分发</string>
+    <string name="other_lib">第三方库</string>
 </resources>
