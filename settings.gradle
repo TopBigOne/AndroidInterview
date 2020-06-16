@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':java_thread', ':java_base', ':06-drawing', ':Algorithm'
 rootProject.name='Interview'
