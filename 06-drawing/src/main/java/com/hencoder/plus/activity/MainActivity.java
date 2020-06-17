@@ -9,6 +9,8 @@ import android.widget.Button;
 
 import com.hencoder.plus.R;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBtnAvatarView;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mBtnAvatarView.setOnClickListener(this);
         mBtnAvatarDashBoard.setOnClickListener(this);
+       Thread
 
     }
 

@@ -33,6 +33,7 @@ public class Dashboard extends View {
     private Path               mDash  = new Path();
     private PathDashPathEffect mEffect;
 
+
     public Dashboard(Context context) {
         super(context);
     }
@@ -81,7 +82,7 @@ public class Dashboard extends View {
                 (getWidth() >> 1) + RADIUS, (getHeight() >> 1) + RADIUS,
                 90 + ANGLE >> 1, 360 - ANGLE,
                 false, mPaint);
-        // 话指针
+        // 画指针
         canvas.drawLine((getWidth() >> 1), (getHeight() >> 1),
                 (float) Math.cos(Math.toRadians(getAngleFromMark(5))) * LENGTH + (getWidth() >> 1),
                 (float) Math.sin(Math.toRadians(getAngleFromMark(5))) * LENGTH + (getHeight() >> 1)
