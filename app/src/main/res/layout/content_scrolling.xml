@@ -7,7 +7,7 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ScrollingActivity"
+    tools:context=".activity.ScrollingActivity"
     tools:showIn="@layout/activity_scrolling">
 
     <LinearLayout
@@ -29,10 +29,18 @@
             android:text="@string/event_dispatch" />
 
 
-        <Button
+       <Button
             android:id="@+id/btn_other_lib"
             style="@style/main_item_txt_style"
             android:text="@string/other_lib" />
+
+
+          <Button
+            android:id="@+id/constraint_demo_activity"
+            style="@style/main_item_txt_style"
+            android:text="@string/constraintdemo" />
+
+
 
 
     </LinearLayout>
