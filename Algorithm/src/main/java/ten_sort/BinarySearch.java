@@ -9,7 +9,6 @@ import java.util.Arrays;
  * @Desc : 二分查找
  */
 public class BinarySearch {
-
     public static void main(String[] args) {
         int[] rawData = {12, 4, 6, 2, 7, 1, 3, 8};
         Arrays.sort(rawData);
@@ -17,7 +16,6 @@ public class BinarySearch {
         int index = getIndex4(12, rawData);
         System.out.println("index:" + index);
     }
-
 
     /**
      * @param key
