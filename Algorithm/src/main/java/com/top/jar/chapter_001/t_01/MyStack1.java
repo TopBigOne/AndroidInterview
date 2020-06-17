@@ -1,4 +1,4 @@
-package com.top.jar.chapter_001;
+package com.top.jar.chapter_001.t_01;
 
 import java.util.Stack;
 
