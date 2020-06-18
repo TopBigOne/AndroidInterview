@@ -8,6 +8,9 @@ package com.android.base;
  */
 public class TT {
     public static void main(String[] args) {
+        TT tt = new TT();
+
+
 
     }
 }

@@ -3,7 +3,6 @@ package com.android.java_thread;
 
 import org.openjdk.jol.info.ClassLayout;
 
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Phaser;
 
 public class PhaserDemo {
@@ -12,6 +11,12 @@ public class PhaserDemo {
     public static void main(String[] args) {
         Object o = new Object();
         System.out.println(ClassLayout.parseInstance(o).toPrintable());
+
+
+
+        int i= 1;
+        int result = (++i)+(++i) ;
+        System.out.println("result :"+result);
 
 
     }

@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mBtnAvatarView.setOnClickListener(this);
         mBtnAvatarDashBoard.setOnClickListener(this);
-       Thread
 
     }
 
