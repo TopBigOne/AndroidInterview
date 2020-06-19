@@ -1,5 +1,6 @@
 package com.top.jar.chapter_001.t_04.zuo;
 
+import com.top.jar.chapter_001.t_04.pet.Cat;
 import com.top.jar.chapter_001.t_04.pet.Dog;
 import com.top.jar.chapter_001.t_04.pet.Pet;
 
@@ -39,11 +40,15 @@ public class DogCatQueue {
 
     public Pet pollAll() {
         if (!mDogQueue.isEmpty() && !mCatQueue.isEmpty()) {
+            // poll dog；
             if (mDogQueue.peek().getCount() < mCatQueue.peek().getCount()) {
                 return mDogQueue.poll().getPet();
             }
+            // poll cat;
             return mCatQueue.poll().getPet();
+
         } else if (!mDogQueue.isEmpty()) {
+            // cat queue ie empty.
             return mDogQueue.poll().getPet();
         } else if (!mCatQueue.isEmpty()) {
             return mCatQueue.poll().getPet();
@@ -52,11 +57,69 @@ public class DogCatQueue {
         throw new RuntimeException("err,queue is empty.");
     }
 
-    public Dog pollDog(){
+    public Dog pollDog() {
         if (mDogQueue.isEmpty()) {
             throw new RuntimeException("queue is empty.");
         }
         return (Dog) mDogQueue.poll().getPet();
+    }
+
+
+    /**
+     * 队列是否为空？
+     *
+     * @return
+     */
+    public boolean isEmpty() {
+        return mDogQueue.isEmpty() && mCatQueue.isEmpty();
+    }
+
+    public boolean isDogQueueEmpty() {
+        if (mDogQueue == null) {
+            throw new RuntimeException("Dog queue is empty.");
+        }
+        return mDogQueue.isEmpty();
+    }
+
+
+    public boolean isCatQueueEmpty() {
+        if (mCatQueue == null) {
+            throw new RuntimeException("Cat queue is empty");
+        }
+
+        return mCatQueue.isEmpty();
+    }
+
+
+    public static void main(String[] args) {
+        DogCatQueue petQueue = new DogCatQueue();
+
+        Cat catOne = new Cat("cat");
+        Cat catTwo = new Cat("cat");
+        Cat catThree = new Cat("cat");
+        Cat catFour = new Cat("cat");
+        petQueue.add(catOne);
+        petQueue.add(catTwo);
+        petQueue.add(catThree);
+        petQueue.add(catFour);
+
+        Dog dogOne = new Dog("dog");
+        Dog dogTwo = new Dog("dog");
+        Dog dogThree = new Dog("dog");
+        Dog dogFour = new Dog("dog");
+        petQueue.add(dogOne);
+        petQueue.add(dogTwo);
+        petQueue.add(dogThree);
+        petQueue.add(dogFour);
+
+
+        boolean isEmpty = petQueue.isEmpty();
+        System.out.println(" is empty :" + isEmpty);
+        Pet pet = petQueue.pollAll();
+        String type = pet.getType();
+        System.out.println("poll pet type : "+ type);
+
+
     }
 
 
