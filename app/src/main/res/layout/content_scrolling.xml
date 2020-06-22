@@ -24,23 +24,24 @@
             android:text="@string/cutom_view" />
 
         <Button
-            android:id="@+id/btn_"
+            android:id="@+id/btn_dispatch_event"
             style="@style/main_item_txt_style"
             android:text="@string/event_dispatch" />
 
-
-       <Button
+        <Button
             android:id="@+id/btn_other_lib"
             style="@style/main_item_txt_style"
             android:text="@string/other_lib" />
 
-
-          <Button
+        <Button
             android:id="@+id/constraint_demo_activity"
             style="@style/main_item_txt_style"
             android:text="@string/constraintdemo" />
 
-
+        <Button
+            android:id="@+id/btn_adb"
+            style="@style/main_item_txt_style"
+            android:text="@string/command_adb" />
 
 
     </LinearLayout>

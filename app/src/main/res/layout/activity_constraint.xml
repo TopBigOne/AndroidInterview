@@ -8,9 +8,8 @@
 
     <Button
         android:id="@+id/constraint_example_1"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:height="40dp"
         android:text="constraint_example_1"
         app:layout_constraintBaseline_toBaselineOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

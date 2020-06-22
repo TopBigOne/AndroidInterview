@@ -46,5 +46,6 @@
     <string name="equals">=</string>
     <string name="subtract">−</string>
     <string name="constraintdemo">ConstraintDemo</string>
+    <string name="command_adb">command adb</string>
 
 </resources>
