@@ -12,8 +12,6 @@ public class PhaserDemo {
         Object o = new Object();
         System.out.println(ClassLayout.parseInstance(o).toPrintable());
 
-
-
         int i= 1;
         int result = (++i)+(++i) ;
         System.out.println("result :"+result);
