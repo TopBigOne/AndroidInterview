@@ -1,4 +1,4 @@
-package ten_sort;
+package ten_sort.search;
 
 import java.util.Arrays;
 
@@ -13,7 +13,9 @@ public class BinarySearch {
         int[] rawData = {12, 4, 6, 2, 7, 1, 3, 8};
         Arrays.sort(rawData);
         System.out.println(" after sort arr:" + Arrays.toString(rawData));
-        int index = getIndex4(12, rawData);
+        // int index = getIndex4(12, rawData);
+        int index = getIndex6(rawData, 12);
+
         System.out.println("index:" + index);
     }
 
@@ -113,6 +115,20 @@ public class BinarySearch {
             } else if (target > rawData[mid]) {
                 low = mid + 1;
             } else return mid;
+        }
+
+        return -1;
+    }
+
+
+    public static int getIndex6(int[] raw, int target) {
+        int low = 0;
+        int high = raw.length - 1;
+        while (low < high) {
+            int mid = low + (low + high) >> 1;
+            if (target > raw[mid]) high = mid + 1;
+            else if (target <= raw[mid]) low = mid - 1;
+            else return mid;
         }
 
         return -1;
