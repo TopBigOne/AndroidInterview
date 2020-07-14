@@ -6,6 +6,9 @@ import android.os.Message;
 
 import androidx.annotation.NonNull;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+
 /**
  * @author : Jakarta
  * @version :
@@ -20,6 +23,7 @@ public class HandlerDemo {
     public void test() {
         HandlerThread handlerThread = new HandlerThread();
         handlerThread.start();
+       // HashMap
 
         // 也要看看 ThreadLocal
         ThreadLocal threadLocal = new ThreadLocal();
@@ -37,15 +41,12 @@ public class HandlerDemo {
             message.what = 345;
             handler.sendEmptyMessage(0);
 
-
             handler = new Handler() {
                 @Override
                 public void handleMessage(@NonNull Message msg) {
                     super.handleMessage(msg);
                     int what = msg.what;
                     System.out.println("what:" + what);
-
-
                 }
             };
 
