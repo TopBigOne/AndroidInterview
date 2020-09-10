@@ -10,6 +10,8 @@ public class I_Jar_Jar {
     public static void main(String[] args) {
         testOne();
         testTwo();
+        testThree();
+        testFour();
     }
 
     public static void testOne() {
@@ -26,5 +28,17 @@ public class I_Jar_Jar {
 
     }
 
+    public static void testThree() {
+        int i = 1;
+        int a = ++i;
+        System.out.println("a :" + a);
+
+    }
+
+    public static void testFour() {
+        int i = 1;
+        int a = ++i;
+        System.out.println("a :" + a);
+    }
 
 }

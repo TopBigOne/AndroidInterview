@@ -26,13 +26,12 @@ public class ListNoGeneric {
         List<Integer> a3 = a1;
         a1.add(new Integer(333));
         // 下方两行代码编译出错，不允许增加非 Integer 类型进入集合；
-
-
-*/
+      */
     }
 
     private static void iteratorData(java.lang.String a1, List list) {
         for (Object o : list) {
+
             System.out.println("a1: " + o);
 
         }
