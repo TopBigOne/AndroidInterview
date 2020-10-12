@@ -1,39 +1,55 @@
 package com.jar.yu;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.MessageQueue;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.HashMap;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.jar.yu.dialog.QuestionDialog;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 
 /*
  *  1:在 子线程中调用
  * */
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity:";
+    private static final String                    TAG               = "MainActivity:";
+    public static final  int                       MESSAGE_TYPE_SYNC = 1;
+    public static final  int                       MESSAGE_TYPE_ASYN = 2;
+    private              UpdateTextThreadTwoThread mDialogThredTwo;
 
     private Handler mHandler = new Handler();
+    private Handler mWorkThreadHandler;
 
-    DialogThred               mDialogThred;
-    UpdateTextThreadTwoThread mDialogThredTwo;
-    Button                    buttonTwo;
-    Button                    buttonThree;
-    Button                    buttonFive;
+    private DialogThred mDialogThred;
+    private Button      buttonTwo;
+    private Button      buttonThree;
+    private Button      buttonFive;
+    private Button      buttonSix;
+
     private Button                       buttonOne;
     private DirectCreatHandlerThread     mDirectCreatHandlerThread;
     private CreatHandlerWithLooperThread mCreatHandlerWithLooperThread;
     ReceiveMsgFromMainThread mReceiveMsgFromMainThread;
     private Button buttonFour;
+    private Button buttonSeven;
+    private Button buttonEight;
+    private Button buttonNine;
+    private Button buttonTen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +63,40 @@ public class MainActivity extends AppCompatActivity {
         buttonThree = (Button) findViewById(R.id.btn_three);
         buttonFour = (Button) findViewById(R.id.btn_four);
         buttonFive = (Button) findViewById(R.id.btn_five);
+
+        buttonSix = (Button) findViewById(R.id.btn_six);
+        buttonSeven = (Button) findViewById(R.id.btn_seven);
+        buttonEight = (Button) findViewById(R.id.btn_eight);
+        buttonNine = (Button) findViewById(R.id.btn_nine);
+        buttonTen = (Button) findViewById(R.id.btn_ten);
         mDialogThredTwo.start();
         mReceiveMsgFromMainThread.start();
         initEvent();
+        initWorkThreadHandler();
+    }
+
+
+    private void initWorkThreadHandler() {
+        new Thread() {
+            @Override
+            public void run() {
+                Looper.prepare();
+                mWorkThreadHandler = new Handler() {
+                    @Override
+                    public void handleMessage(@NonNull Message msg) {
+                        if (msg.what == MESSAGE_TYPE_SYNC) {
+                            Log.d(TAG, "收到普通消息");
+                        } else if (msg.what == MESSAGE_TYPE_ASYN) {
+                            Log.d(TAG, "收到异步消息");
+                        }
+                    }
+                };
+                Looper.loop();
+
+            }
+        }.start();
+
+
     }
 
     private void initThread() {
@@ -67,14 +114,12 @@ public class MainActivity extends AppCompatActivity {
                 mDialogThred.start();
             }
         });
-
         buttonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
-
 
         buttonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +165,106 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonSix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestAQuestion();
+            }
+        });
+
+        // 发送同步屏障
+        buttonSeven.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View v) {
+                sendSyncBarrier();
+            }
+        });
+
+        buttonEight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    remoceSyncBarrier();
+                }
+            }
+        });
+
+        buttonNine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendSyncMessage();
+            }
+        });
+        buttonTen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+                    sendAsyncMessage();
+                }
+            }
+        });
+
+
+
+
+    }
+
+    private int token = -1;
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void sendSyncBarrier() {
+        Log.d(TAG, "  sendSyncBarrier --插入同步屏障...  ");
+        MessageQueue queue = mWorkThreadHandler.getLooper().getQueue();
+        try {
+            Method method = MessageQueue.class.getDeclaredMethod("postSyncBarrier");
+            method.setAccessible(true);
+            token = (int) method.invoke(queue);
+
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            Log.d(TAG, "sendSyncBarrier:  "+e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 移除屏障
+     */
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void remoceSyncBarrier() {
+        Log.d(TAG, "remoceSyncBarrier: 移除同步屏障.... ");
+        MessageQueue queue = mWorkThreadHandler.getLooper().getQueue();
+        try {
+            Method method = MessageQueue.class.getDeclaredMethod("removeSyncBarrier",int.class);
+            method.setAccessible(true);
+            method.invoke(queue, token);
+
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            Log.d(TAG, "remoceSyncBarrier:  "+e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * 发送同步消息
+     */
+    public void sendSyncMessage() {
+        Log.d(TAG, "sendSyncMessage: 插入普通消息 ");
+        Message message = Message.obtain();
+        message.what = MESSAGE_TYPE_SYNC;
+        mWorkThreadHandler.sendMessageDelayed(message, 1000);
+    }
+     /**
+     * 往消息队列插入异步消息
+     */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
+    public void sendAsyncMessage() {
+        Log.d(TAG, "sendAsyncMessage: 插入异步消息 ");
+        Message message = Message.obtain();
+        message.setAsynchronous(true);
+        message.what = MESSAGE_TYPE_ASYN;
+        mWorkThreadHandler.sendMessageDelayed(message, 1000);
     }
 
 
@@ -220,6 +365,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.e(TAG, "onResume()---");
+    }
+
+    private void requestAQuestion() {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                // 模拟服务器请求，返回问题
+                String title = "Long time no see！";
+                showQuestionInDialog(title);
+            }
+        }.start();
+    }
+
+    private void showQuestionInDialog(String title) {
+        Looper.prepare(); // 增加部分
+
+        QuestionDialog questionDialog = new QuestionDialog(this);
+        questionDialog.show(title);
+        Looper.loop(); // 增加部分
     }
 
 
