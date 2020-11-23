@@ -4,7 +4,7 @@ package ten_sort.other;
  * @author : Jakarta
  * @version :
  * @Date : 2020-06-16 14:32
- * @Desc :
+ * @Desc : 位运算
  */
 public class BitOperation {
     public static void main(String[] args) {
