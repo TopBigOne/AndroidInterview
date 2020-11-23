@@ -4,11 +4,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
+
 /**
  * @author : Jakarta
  * @version :
  * @Date : 2020-06-29 10:21
- * @Desc :
+ * @Desc :  这就是 lock
+ *
+ *
  */
 public class TempLock  implements Lock {
     @Override
