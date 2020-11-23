@@ -10,6 +10,8 @@ package com.android.base;
  * ~ : ~0 = 1,~1 = 0;
  * ^ : 0^0 = 0,1^1= 0,1^0 = 1,0^1 = 1;
  */
+
+
 public class BitArithmetic {
     public static void main(String[] args) {
         int a = 5 & 3;
@@ -17,7 +19,5 @@ public class BitArithmetic {
         System.out.println("~5 :" + ~5);
         System.out.println("~1 :" + ~1);
         System.out.println("0^0 :" + (0^0));
-
-
     }
 }
