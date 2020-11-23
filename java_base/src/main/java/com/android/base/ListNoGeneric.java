@@ -31,9 +31,7 @@ public class ListNoGeneric {
 
     private static void iteratorData(java.lang.String a1, List list) {
         for (Object o : list) {
-
             System.out.println("a1: " + o);
-
         }
 
     }
