@@ -1,10 +1,10 @@
-package com.top.jar.chapter_001.t_08;
+package com.top.jar;
 
 /**
  * @author : Jakarta
  * @version :
  * @Date : 2020-06-23 23:32
- * @Desc :
+ * @Desc : 公用的树节点
  */
 public class Node {
     public int  value;

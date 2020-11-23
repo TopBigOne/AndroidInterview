@@ -24,25 +24,26 @@ import java.lang.reflect.Method;
 
 /*
  *  1:在 子线程中调用
+ *
  * */
 
 public class MainActivity extends AppCompatActivity {
-    private static final String                    TAG               = "MainActivity:";
-    public static final  int                       MESSAGE_TYPE_SYNC = 1;
-    public static final  int                       MESSAGE_TYPE_ASYN = 2;
-    private              UpdateTextThreadTwoThread mDialogThredTwo;
+    private static final String TAG = "MainActivity:";
+    public static final int MESSAGE_TYPE_SYNC = 1;
+    public static final int MESSAGE_TYPE_ASYN = 2;
+    private UpdateTextThreadTwoThread mDialogThredTwo;
 
     private Handler mHandler = new Handler();
     private Handler mWorkThreadHandler;
 
     private DialogThred mDialogThred;
-    private Button      buttonTwo;
-    private Button      buttonThree;
-    private Button      buttonFive;
-    private Button      buttonSix;
+    private Button buttonTwo;
+    private Button buttonThree;
+    private Button buttonFive;
+    private Button buttonSix;
 
-    private Button                       buttonOne;
-    private DirectCreatHandlerThread     mDirectCreatHandlerThread;
+    private Button buttonOne;
+    private DirectCreatHandlerThread mDirectCreatHandlerThread;
     private CreatHandlerWithLooperThread mCreatHandlerWithLooperThread;
     ReceiveMsgFromMainThread mReceiveMsgFromMainThread;
     private Button buttonFour;
@@ -185,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    remoceSyncBarrier();
+                    removeSyncBarrier();
                 }
             }
         });
@@ -206,8 +207,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
     }
 
     private int token = -1;
@@ -222,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
             token = (int) method.invoke(queue);
 
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            Log.d(TAG, "sendSyncBarrier:  "+e.getMessage());
+            Log.d(TAG, "sendSyncBarrier:  " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -231,16 +230,16 @@ public class MainActivity extends AppCompatActivity {
      * 移除屏障
      */
     @RequiresApi(api = Build.VERSION_CODES.M)
-    private void remoceSyncBarrier() {
+    private void removeSyncBarrier() {
         Log.d(TAG, "remoceSyncBarrier: 移除同步屏障.... ");
         MessageQueue queue = mWorkThreadHandler.getLooper().getQueue();
         try {
-            Method method = MessageQueue.class.getDeclaredMethod("removeSyncBarrier",int.class);
+            Method method = MessageQueue.class.getDeclaredMethod("removeSyncBarrier", int.class);
             method.setAccessible(true);
             method.invoke(queue, token);
 
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            Log.d(TAG, "remoceSyncBarrier:  "+e.getMessage());
+            Log.d(TAG, "remoceSyncBarrier:  " + e.getMessage());
             e.printStackTrace();
         }
 
@@ -255,7 +254,8 @@ public class MainActivity extends AppCompatActivity {
         message.what = MESSAGE_TYPE_SYNC;
         mWorkThreadHandler.sendMessageDelayed(message, 1000);
     }
-     /**
+
+    /**
      * 往消息队列插入异步消息
      */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
