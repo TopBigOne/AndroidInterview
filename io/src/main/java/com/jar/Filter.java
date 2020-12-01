@@ -31,6 +31,8 @@ public class Filter {
                 System.out.println("result:" + integer);
             }
         });
-
     }
+
+
+
 }
