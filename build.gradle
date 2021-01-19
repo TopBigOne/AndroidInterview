@@ -21,6 +21,13 @@ buildscript {
     }
 }
 
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+
+
 allprojects {
     repositories {
         google()

@@ -25,12 +25,11 @@ public class Demo_3 {
 
 
     // 备忘录大小
-    final int MAX = 100;
-
+    final  int MAX = 100;
     // 特殊值
-    final int NIL = -1;
+    final long NIL = -1;
     // 备忘录数组
-    int lookup[] = new int[MAX];
+    long[] lookup = new long[MAX];
 
     public void initializeTable() {
         for (int i = 0; i < MAX; i++) {
@@ -39,7 +38,12 @@ public class Demo_3 {
     }
 
 
-    int fib(int n) {
+    /**
+     * 个人感觉，还是有递归的成分
+     * @param n
+     * @return
+     */
+    long fib(int n) {
         if (lookup[n] == NIL) {
             if (n <= 1) {
                 lookup[n] = n;
