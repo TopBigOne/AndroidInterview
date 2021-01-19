@@ -1,5 +1,7 @@
-package com.jar.structure;
+package com.jar.structure.list;
 
+
+import com.jar.structure.Node;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -11,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class LinkedList {
 
-    private Node          mNode;
+    private Node mNode;
     private AtomicInteger size = new AtomicInteger();
 
     public LinkedList() {

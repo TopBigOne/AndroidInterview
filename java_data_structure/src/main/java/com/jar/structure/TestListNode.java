@@ -1,5 +1,7 @@
 package com.jar.structure;
 
+import com.jar.structure.list.LinkedList;
+
 /**
  * @author : Jakarta
  * @version :
@@ -18,7 +20,6 @@ public class TestListNode {
         linkedList.addTailElement(0);
 
         printNode(linkedList);
-
         linkedList.deleteElement(2);
         System.out.println("删除 2：");
         printNode(linkedList);
