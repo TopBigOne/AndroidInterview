@@ -1,8 +1,6 @@
 package dynamic_programming.leet_code_116;
 
 
-import dynamic_programming.leet_code_114.UniquePaths;
-
 /**
  * @author : dev
  * @version :
@@ -11,9 +9,9 @@ import dynamic_programming.leet_code_114.UniquePaths;
  */
 public class Test {
     public static void main(String[] args) {
-        int A[] = {2, 3, 1, 1, 4};
-        JumoGame jumoGame = new JumoGame();
-        boolean result = jumoGame.canJump(A);
+        int[] a = {2, 3, 1, 1, 4};
+        JumpGame jumpGame = new JumpGame();
+        boolean result = jumpGame.canJump(a);
         System.out.println("result : " + result);
     }
 }

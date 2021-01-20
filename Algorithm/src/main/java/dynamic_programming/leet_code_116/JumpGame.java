@@ -7,9 +7,9 @@ package dynamic_programming.leet_code_116;
  * @Date :  1/18/21 1:30 AM
  * @Desc :
  */
-public class JumoGame {
-    public boolean canJump(int[] A) {
-        int n = A.length;
+public class JumpGame {
+    public boolean canJump(int[] a) {
+        int n = a.length;
         boolean[] f = new boolean[n];
         // initialization
         f[0] = true;
@@ -18,7 +18,7 @@ public class JumoGame {
             // previous stone i;
             // last junp is from i to j;
             for (int i = 0; i < j; i++) {
-                if (f[i] && i + A[i] >= j) {
+                if (f[i] && i + a[i] >= j) {
                     f[j] = true;
                     break;
                 }
