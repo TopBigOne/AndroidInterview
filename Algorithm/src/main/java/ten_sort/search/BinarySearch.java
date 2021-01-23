@@ -129,6 +129,26 @@ public class BinarySearch {
             else if (target <= raw[mid]) low = mid - 1;
             else return mid;
         }
+        return -1;
+    }
+
+    public static int getIndex7(int[] raw, int target) {
+        int low = 0;
+        int high = raw.length - 1;
+
+        while (low < high) {
+            int mid = low + (low + high) >> 1;
+            // 在右侧
+            if (target > raw[mid]) {
+                high = mid + 1;
+            } else if (target <= raw[mid]) {
+                // 在左侧
+                low = mid - 1;
+
+            } else {
+                return mid;
+            }
+        }
 
         return -1;
     }
