@@ -14,7 +14,7 @@ public class Test {
         int[] salaries = {5, 1, 8, 4, 6, 3, 2, 4};
 
         OptSalary optSalary = new OptSalary();
-        int maxSalary = optSalary.maxSalary6(startTime, overTime, salaries);
+        int maxSalary = optSalary.maxSalary7(startTime, overTime, salaries);
         System.out.println("maxSalary : " + maxSalary);
 
     }

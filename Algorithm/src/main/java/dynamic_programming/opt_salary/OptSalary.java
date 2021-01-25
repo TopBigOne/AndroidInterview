@@ -223,6 +223,7 @@ public class OptSalary {
             }
             pre[i] = tempIndex;
         }
+
         System.out.println("pres[] :" + Arrays.toString(pre));
         int[] opts = new int[n + 1];
         for (int i = 1; i <= n; i++) {
@@ -230,6 +231,38 @@ public class OptSalary {
         }
         opts[0] = 0;
         return opts[n];
+    }
+
+
+    public int maxSalary7(int[] startTime, int[] overTime, int[] salaries) {
+        int n = startTime.length;
+        int[] pre = new int[n];
+
+        for (int i = 1; i < n; i++) {
+            int maxIndex = 0;
+            for (int j = 0; j < n; j++) {
+                if (i < j) {
+                    continue;
+                }
+                // 注意，等于也是可以的；上一个任务的结束时间，就是下一个任务的结束时间；
+                if (startTime[i] >= overTime[j]) {
+                    maxIndex = j + 1;
+                }
+            }
+            pre[i] = maxIndex;
+        }
+
+        System.out.println("做当前任务时，上一个可执行任务的数据集：" + Arrays.toString(pre));
+
+        int[] opts = new int[n + 1];
+        opts[0] = 0;
+        for (int i = 1; i <= n; i++) {
+            opts[i] = Math.max(opts[i - 1], salaries[i - 1] + opts[pre[i - 1]]);
+        }
+
+        return opts[n];
+
+
     }
 
 
