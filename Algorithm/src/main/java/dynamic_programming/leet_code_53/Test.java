@@ -10,7 +10,7 @@ public class Test {
     public static void main(String[] args) {
         int[] raws = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         MaximumSubArray maximumSubArray = new MaximumSubArray();
-        int result = maximumSubArray.maxSubArray3(raws);
+        int result = maximumSubArray.maxSubArray4(raws);
         System.out.println("result: " + result);
 
     }

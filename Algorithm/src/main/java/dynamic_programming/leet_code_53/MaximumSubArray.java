@@ -56,12 +56,31 @@ public class MaximumSubArray {
     }
 
 
+    /**
+     * 最大子序列
+     *
+     * @param nums
+     * @return
+     */
     public int maxSubArray3(int[] nums) {
         int length = nums.length;
         int result = nums[0];
         int sum = nums[0];
         for (int i = 1; i < length; i++) {
             sum = Math.max(sum + nums[i], nums[i]);
+            if (sum > result) {
+                result = sum;
+            }
+        }
+        return result;
+    }
+
+    public int maxSubArray4(int[] nums) {
+        int length = nums.length;
+        int result = 0;
+        int sum = nums[0];
+        for (int i = 1; i < length; i++) {
+            sum = Math.max(nums[i] + sum, nums[i]);
             if (sum > result) {
                 result = sum;
             }
