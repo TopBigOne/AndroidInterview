@@ -93,50 +93,6 @@ public class MaximumSubArray {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public int maxSubArray5(int [] nums){
         int length = nums.length;
         int sum = nums[0];
