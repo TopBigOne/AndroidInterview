@@ -1,6 +1,7 @@
 package dynamic_programming.leet_code_53;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 
 /**
  * @author : dev
@@ -86,5 +87,67 @@ public class MaximumSubArray {
             }
         }
         return result;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public int maxSubArray5(int [] nums){
+        int length = nums.length;
+        int sum = nums[0];
+        int result = 0;
+
+        for (int i = 1; i < length; i++) {
+            sum = Math.max(nums[i]+sum,nums[i]);
+            if (sum>result) {
+                result = sum;
+            }
+        }
+       return result;
     }
 }
