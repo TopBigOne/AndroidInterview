@@ -185,4 +185,68 @@ public class UniquePathsWithObstacles {
 
     }
 
+    public int uniquePathWithObstacles9(int[][] obstacleGrid) {
+        int n = obstacleGrid.length;
+        int m = obstacleGrid[0].length;
+        int[] f = new int[m];
+        f[0] = obstacleGrid[0][0] == 0 ? 1 : 0;
+        for (int[] ints : obstacleGrid) {
+            for (int i = 0; i < m; i++) {
+                if (ints[i] == 1) {
+                    f[i] = 0;
+                    continue;
+                }
+                if (i - 1 >= 0 && ints[i - 1] == 0) {
+                    f[i] += f[i - 1];
+                }
+            }
+        }
+
+        return f[m - 1];
+    }
+
+    public int uniquePathWithObstacles10(int[][] obstacleGrid) {
+        int n = obstacleGrid.length;
+        int m = obstacleGrid[0].length;
+        int[] f = new int[m];
+        f[0] = obstacleGrid[0][0] == 0 ? 1 : 0;
+        for (int[] ints : obstacleGrid) {
+            for (int i = 0; i < m; i++) {
+                if (ints[i] == 1) {
+                    f[i] = 0;
+                    continue;
+                }
+                if (i - 1 >= 0 && ints[i - 1] == 0) {
+                    f[i] += f[i - 1];
+                }
+            }
+        }
+        return f[m - 1];
+    }
+
+
+    public int uniqueMathWithObstacles11(int [][] obstacleGrid){
+        int n = obstacleGrid.length;
+        int m = obstacleGrid[0].length;
+        int [] f = new int[m];
+        f[0] = obstacleGrid[0][0] ==0 ? 1:0;
+        for (int[] ints : obstacleGrid) {
+            for (int i = 0; i < m; i++) {
+                if (ints[i]==1) {
+                    f[i] =0;
+                    continue;
+                }
+                if (i-1>=0&&ints[i-1]==0) {
+                    f[i]+=f[i-1];
+                }
+            }
+        }
+
+        return f[m-1];
+
+
+    }
+
+
+
 }
