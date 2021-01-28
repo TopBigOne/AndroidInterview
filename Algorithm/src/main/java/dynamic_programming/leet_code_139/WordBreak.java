@@ -213,4 +213,27 @@ public class WordBreak {
         return dp[length];
     }
 
+
+
+
+    public boolean wordBreak10(String s ,List<String> wordDict){
+        int length = s.length();
+        boolean [] dp = new boolean[length+1];
+        dp[0] = true;
+        for (String word : wordDict) {
+            hash.put(word,true);
+        }
+        for (int i = 1; i <=length; i++) {
+            for (int j = i-1; j >=0; j--) {
+                dp[i]= dp[j] &&check(s.substring(j,i));
+                if (dp[i]) {
+                    break;
+                }
+
+            }
+
+        }
+
+        return dp[length];
+    }
 }
