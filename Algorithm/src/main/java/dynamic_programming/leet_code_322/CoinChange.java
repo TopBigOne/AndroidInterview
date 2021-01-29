@@ -1,10 +1,8 @@
 package dynamic_programming.leet_code_322;
 
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil;
-
 import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.net.Inet4Address;
 import java.util.Arrays;
 
 
@@ -144,6 +142,7 @@ public class CoinChange {
     //-----------------5---------------end
 
 
+    //-----------------6---------------start
     public int coinChange6(int[] coins, int amount) {
         if (amount == 0) {
             return 0;
@@ -164,6 +163,53 @@ public class CoinChange {
         }
         for (int i = amount / coins[index]; i >= 0 && count + i < res; i--) {
             minCoin6(coins, amount - (i * coins[index]), index - 1, count + i);
+        }
+    }
+
+    //-----------------7---------------start
+    public int coinChange7(int[] coins, int amount) {
+        if (amount == 0) {
+            return 0;
+        }
+        Arrays.sort(coins);
+        minCoin7(coins, amount, coins.length - 1, 0);
+        return res == Integer.MAX_VALUE ? -1 : res;
+    }
+
+    private void minCoin7(int[] coins, int amount, int index, int count) {
+        if (amount == 0) {
+            res = Math.min(res, count);
+            return;
+        }
+        if (index < 0) {
+            return;
+        }
+        for (int i = amount / coins[index]; i >= 0 && i + count < res; i--) {
+            minCoin7(coins, amount - (i * coins[index]), index - 1, count + i);
+        }
+    }
+
+    //-----------------7---------------end
+    //-----------------8---------------start
+    public int coinChange8(int[] coins, int amount) {
+        if (amount == 0) {
+            return 0;
+        }
+        Arrays.sort(coins);
+        minCoin8(coins, amount, coins.length - 1, 0);
+        return res == Integer.MAX_VALUE ? -1 : res;
+    }
+
+    private void minCoin8(int[] coins, int amount, int index, int count) {
+        if (amount == 0) {
+            res = Math.min(res, count);
+            return;
+        }
+        if (index < 0) {
+            return;
+        }
+        for (int i = amount / coins[index]; i >= 0 && i + count < res; i--) {
+            minCoin8(coins, amount - (i * coins[index]), index - 1, count + i);
         }
     }
 
