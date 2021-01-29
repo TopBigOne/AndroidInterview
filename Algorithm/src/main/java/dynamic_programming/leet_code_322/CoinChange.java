@@ -3,6 +3,7 @@ package dynamic_programming.leet_code_322;
 
 import java.lang.reflect.Array;
 import java.net.Inet4Address;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 
@@ -210,6 +211,32 @@ public class CoinChange {
         }
         for (int i = amount / coins[index]; i >= 0 && i + count < res; i--) {
             minCoin8(coins, amount - (i * coins[index]), index - 1, count + i);
+        }
+    }
+    //-----------------8---------------end
+
+    //-----------------9---------------start
+    public int coinChange9(int [] coins,int amount){
+        if (amount==0) {
+            return 0;
+        }
+        Arrays.sort(coins);
+        minCoin9(coins,amount,coins.length-1,0);
+        return  res==Integer.MAX_VALUE ? -1:res;
+
+    }
+
+    private void minCoin9(int[] coins, int amount, int index, int count) {
+        if (amount==0) {
+            res = Math.min(res,count);
+            return;
+        }
+        if(index<0){
+            return;
+        }
+        // core logic
+        for(int i = amount/coins[index];i>=0&&count+i<res;i--){
+            minCoin9(coins,amount-(i*coins[index]),index-1,count+i);
         }
     }
 

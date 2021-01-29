@@ -13,7 +13,7 @@ public class Test {
         CoinChange coinChange = new CoinChange();
         int[] coins = {1, 2, 5};
         int amount = 11;
-        int result = coinChange.coinChange8(coins, amount);
+        int result = coinChange.coinChange9(coins, amount);
         System.out.println("result : " + result);
 
     }
