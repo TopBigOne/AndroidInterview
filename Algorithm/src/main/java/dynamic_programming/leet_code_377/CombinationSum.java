@@ -1,5 +1,10 @@
 package dynamic_programming.leet_code_377;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+import jdk.nashorn.internal.ir.IfNode;
+
 /**
  * @author : dev
  * @version :
@@ -151,6 +156,37 @@ public class CombinationSum {
 
 
     public int combination9(int[] nums, int target) {
+        int[] dp = new int[target + 1];
+        dp[0] = 1;
+        for (int i = 1; i <= target; i++) {
+            for (int num : nums) {
+                if (num <= i) {
+                    dp[i] += dp[i - num];
+                }
+            }
+
+        }
+        return dp[target];
+    }
+
+
+    public int combination10(int[] nums, int target) {
+        int[] dp = new int[target + 1];
+        dp[0] = 1;
+        for (int i = 1; i <= target; i++) {
+            for (int num : nums) {
+                if (num <= i) {
+                    dp[i] += dp[i - num];
+                }
+            }
+
+        }
+        System.out.println("dp[]:" + Arrays.toString(dp));
+        return dp[target];
+    }
+
+
+    public int combination11(int[] nums, int target) {
         int[] dp = new int[target + 1];
         dp[0] = 1;
         for (int i = 1; i <= target; i++) {

@@ -11,7 +11,7 @@ public class Test {
         int[] nums = {1, 2, 3};
         int target = 4;
         CombinationSum combinationSum = new CombinationSum();
-        int combination = combinationSum.combination9(nums, target);
+        int combination = combinationSum.combination11(nums, target);
         System.out.println("result:"+combination);
 
     }
