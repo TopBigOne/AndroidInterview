@@ -195,9 +195,22 @@ public class CombinationSum {
                     dp[i] += dp[i - num];
                 }
             }
-
         }
         return dp[target];
+    }
+
+    public int combination12(int[] nums, int amount) {
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+        for (int i = 1; i <= amount; i++) {
+            for (int num : nums) {
+                if (num <= i) {
+                    dp[i] += dp[i - num];
+                }
+            }
+
+        }
+        return dp[amount];
     }
 
 
