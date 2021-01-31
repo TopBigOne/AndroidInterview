@@ -8,10 +8,10 @@ package dynamic_programming.leet_code_53;
  */
 public class Test {
     public static void main(String[] args) {
-        int[] raws = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+//        int[] raws = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int[] raws = {1};
         MaximumSubArray maximumSubArray = new MaximumSubArray();
-        int result = maximumSubArray.maxSubArray5(raws);
+        int result = maximumSubArray.maxSubArray9(raws);
         System.out.println("result: " + result);
-
     }
 }

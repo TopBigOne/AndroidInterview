@@ -1,19 +1,16 @@
 package dynamic_programming.leet_code_139;
 
 
-import java.io.EOFException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-
-import sun.security.provider.Sun;
 
 
 /**
  * @author : dev
  * @version :
  * @Date :  1/28/21 12:57 AM
- * @Desc :
+ * @Desc : https://leetcode-cn.com/problems/word-break/
  */
 public class WordBreak {
     public HashMap<String, Boolean> hash = new HashMap<>(16);
@@ -214,24 +211,79 @@ public class WordBreak {
     }
 
 
-
-
-    public boolean wordBreak10(String s ,List<String> wordDict){
+    public boolean wordBreak10(String s, List<String> wordDict) {
         int length = s.length();
-        boolean [] dp = new boolean[length+1];
+        boolean[] dp = new boolean[length + 1];
         dp[0] = true;
         for (String word : wordDict) {
-            hash.put(word,true);
+            hash.put(word, true);
         }
-        for (int i = 1; i <=length; i++) {
-            for (int j = i-1; j >=0; j--) {
-                dp[i]= dp[j] &&check(s.substring(j,i));
+        for (int i = 1; i <= length; i++) {
+            for (int j = i - 1; j >= 0; j--) {
+                dp[i] = dp[j] && check(s.substring(j, i));
+                if (dp[i]) {
+                    break;
+                }
+            }
+        }
+        return dp[length];
+    }
+
+    public boolean wordBreak11(String s, List<String> wordDict) {
+        int length = s.length();
+        boolean[] dp = new boolean[length + 1];
+        dp[0] = true;
+        // 遍历 word 数据集合，放进 map 中；
+        for (String word : wordDict) {
+            hash.put(word, true);
+        }
+        // 开始遍历
+        for (int i = 1; i <= length; i++) {
+            // 注意，这里用倒序
+            for (int j = i - 1; j >= 0; j--) {
+                dp[i] = dp[j] && check(s.substring(j, i));
                 if (dp[i]) {
                     break;
                 }
 
             }
+        }
+        return dp[length];
+    }
 
+    public boolean wordBreak13(String s, List<String> wordDict) {
+        for (String word : wordDict) {
+            hash.put(word, true);
+        }
+        int length = s.length();
+        boolean[] dp = new boolean[length + 1];
+        dp[0] = true;
+        for (int i = 1; i <= length; i++) {
+            for (int j = i - 1; j >= 0; j--) {
+                dp[i] = dp[j] && check(s.substring(j, i));
+                if (dp[i]) {
+                    break;
+                }
+            }
+        }
+        return dp[length];
+    }
+
+
+    public boolean wordBreak14(String s, List<String> wordDict) {
+        for (String word : wordDict) {
+            hash.put(word, true);
+        }
+        int length = s.length();
+        boolean[] dp = new boolean[length + 1];
+        dp[0] = true;
+        for (int i = 1; i <= length; i++) {
+            for (int j = i - 1; j >= 0; j--) {
+                dp[i] = dp[j] && check(s.substring(j, i));
+                if (dp[i]) {
+                    break;
+                }
+            }
         }
 
         return dp[length];

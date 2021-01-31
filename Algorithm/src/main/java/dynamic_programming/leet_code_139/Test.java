@@ -18,7 +18,7 @@ public class Test {
         wordDict.add("leet");
         wordDict.add("code");
         WordBreak wordBreak = new WordBreak();
-        boolean result = wordBreak.wordBreak10(s, wordDict);
+        boolean result = wordBreak.wordBreak14(s, wordDict);
         System.out.println("result : " + result);
     }
 

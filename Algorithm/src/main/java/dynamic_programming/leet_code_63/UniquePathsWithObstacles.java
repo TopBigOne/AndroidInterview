@@ -1,5 +1,6 @@
 package dynamic_programming.leet_code_63;
 
+import java.security.PublicKey;
 import java.util.Arrays;
 
 
@@ -13,9 +14,7 @@ import java.util.Arrays;
  * <p>
  * 现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？
  * <p>
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/unique-paths-ii
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ *
  * <p>
  * [
  * [0,0,0],
@@ -225,28 +224,74 @@ public class UniquePathsWithObstacles {
     }
 
 
-    public int uniqueMathWithObstacles11(int [][] obstacleGrid){
+    public int uniqueMathWithObstacles11(int[][] obstacleGrid) {
         int n = obstacleGrid.length;
         int m = obstacleGrid[0].length;
-        int [] f = new int[m];
-        f[0] = obstacleGrid[0][0] ==0 ? 1:0;
+        int[] f = new int[m];
+        f[0] = obstacleGrid[0][0] == 0 ? 1 : 0;
         for (int[] ints : obstacleGrid) {
             for (int i = 0; i < m; i++) {
-                if (ints[i]==1) {
-                    f[i] =0;
+                if (ints[i] == 1) {
+                    f[i] = 0;
                     continue;
                 }
-                if (i-1>=0&&ints[i-1]==0) {
-                    f[i]+=f[i-1];
+                if (i - 1 >= 0 && ints[i - 1] == 0) {
+                    f[i] += f[i - 1];
                 }
             }
         }
+        return f[m - 1];
 
-        return f[m-1];
+    }
+
+    public int uniqueMathObstacles12(int[][] obstacleGrid) {
+        int n = obstacleGrid.length;
+        int m = obstacleGrid[0].length;
+        int[] f = new int[m];
+        f[0] = obstacleGrid[0][0] == 0 ? 1 : 0;
+        // 遍历行
+        for (int[] ints : obstacleGrid) {
+            // 遍历每一行的每一列
+            for (int i = 0; i < m; i++) {
+                if (ints[i] == 1) {
+                    f[i] = 0;
+                    continue;
+                }
+                if (i - 1 >= 0 && ints[i - 1] == 0) {
+                    f[i] += f[i - 1];
+                }
+            }
+        }
+        return f[m - 1];
 
 
     }
 
+    public int uniquePathWithObstacles13(int[][] obstacleGrid) {
+        int n = obstacleGrid.length;
+        int m = obstacleGrid[0].length;
+        int[] f = new int[m];
+
+        f[0] = obstacleGrid[0][0] == 0 ? 1 : 0;
+        // loop row
+        for (int[] ints : obstacleGrid) {
+            // loop cloumn
+            for (int i = 0; i < m; i++) {
+                // ints[i]==1 ，表示遇到了障碍物；
+                if (ints[i] == 1) {
+                    f[i] = 0;
+                    continue;
+                }
+                // i-1>=0 ,也是可以的！
+                if (i - 1 >= 0 && ints[i - 1] == 0) {
+                    f[i] += f[i - 1];
+                }
+            }
+        }
+
+        return f[m - 1];
+
+    }
 
 
 }

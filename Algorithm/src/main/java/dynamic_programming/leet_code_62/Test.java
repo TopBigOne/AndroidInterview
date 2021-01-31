@@ -11,7 +11,7 @@ package dynamic_programming.leet_code_62;
 public class Test {
     public static void main(String[] args) {
         UniquePaths uniquePaths = new UniquePaths();
-        int result = uniquePaths.uniquePath2(1, 3);
+        int result = uniquePaths.uniquePath9(3, 2);
         System.out.println("result " + result);
     }
 }

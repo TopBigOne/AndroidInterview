@@ -29,7 +29,7 @@ public class MaximumSubArray {
      * @param nums
      * @return
      */
-    public int maxSubArray(int[] nums) {
+    public int maxSubArray1(int[] nums) {
         int length = nums.length;
         int[] f = new int[length];
         //初始化边界
@@ -78,7 +78,7 @@ public class MaximumSubArray {
 
     public int maxSubArray4(int[] nums) {
         int length = nums.length;
-        int result = 0;
+        int result =  nums[0];
         int sum = nums[0];
         for (int i = 1; i < length; i++) {
             sum = Math.max(nums[i] + sum, nums[i]);
@@ -89,21 +89,75 @@ public class MaximumSubArray {
         return result;
     }
 
-
-
-
-
-    public int maxSubArray5(int [] nums){
+    public int maxSubArray5(int[] nums) {
         int length = nums.length;
         int sum = nums[0];
-        int result = 0;
+        int result =  nums[0];
 
+        for (int i = 1; i < length; i++) {
+            sum = Math.max(nums[i] + sum, nums[i]);
+            if (sum > result) {
+                result = sum;
+            }
+        }
+        return result;
+    }
+
+
+    public int maxSubArray6(int[] nums) {
+        int length = nums.length;
+        int sum = nums[0];
+        int result =  nums[0];
+        for (int i = 1; i < length; i++) {
+            sum = Math.max(nums[i] + sum, nums[i]);
+            if (sum > result) {
+                result = sum;
+            }
+
+        }
+        return result;
+    }
+
+    public int maxSubArray7(int[] nums) {
+        int length = nums.length;
+        int sum = nums[0];
+        int result =  nums[0];
+        for (int i = 1; i < length; i++) {
+            sum = Math.max(nums[i] + sum, nums[i]);
+            if (sum > result) {
+                result = sum;
+            }
+        }
+        return result;
+    }
+
+    public int maxSubArray8(int[] nums) {
+        int length = nums.length;
+        int sum = nums[0];
+        int result =  nums[0];
+        for (int i = 1; i < length; i++) {
+            sum = Math.max(nums[i] + sum, nums[i]);
+            if (sum > result) {
+                result = sum;
+            }
+        }
+
+        return result;
+    }
+
+    public int maxSubArray9(int [] nums){
+        int length = nums.length;
+        int sum = nums[0];
+        int result = nums[0];
         for (int i = 1; i < length; i++) {
             sum = Math.max(nums[i]+sum,nums[i]);
             if (sum>result) {
                 result = sum;
             }
+
         }
        return result;
     }
+
+
 }

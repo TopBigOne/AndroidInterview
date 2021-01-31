@@ -11,11 +11,12 @@ package dynamic_programming.leet_code_63;
 public class Test {
     public static void main(String[] args) {
         UniquePathsWithObstacles uniquePathsWithObstacles = new UniquePathsWithObstacles();
-        int[][] raw = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}, {0, 0, 0}};
-        int result = uniquePathsWithObstacles.uniqueMathWithObstacles11(raw);
+        int[][] raw = {
+                        {0, 0, 0},
+                        {0, 1, 0},
+                        {0, 0, 0},
+                        {0, 0, 0}};
+        int result = uniquePathsWithObstacles.uniquePathWithObstacles13(raw);
         System.out.println("result : " + result);
     }
-
-
-
 }
