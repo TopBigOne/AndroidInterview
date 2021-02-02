@@ -93,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * 初始化工作线程
+     */
     private void initWorkThreadHandler() {
         new Thread() {
             @Override
@@ -281,7 +284,6 @@ public class MainActivity extends AppCompatActivity {
         message.what = MESSAGE_TYPE_ASYN;
         mWorkThreadHandler.sendMessageDelayed(message, 1000);
     }
-
 
     static class DialogThred extends Thread {
         private Context mContext;
