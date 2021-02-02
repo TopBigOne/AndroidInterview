@@ -72,8 +72,24 @@ public class MainActivity extends AppCompatActivity {
         buttonTen = (Button) findViewById(R.id.btn_ten);
         mDialogThredTwo.start();
         mReceiveMsgFromMainThread.start();
+        SubThread subThread = new SubThread();
+        subThread.run2();
+
+        //new Handler().post();
+        System.out.println("jar--B");
         initEvent();
         initWorkThreadHandler();
+    }
+
+    class SubThread implements Runnable{
+        @Override
+        public void run() {
+            System.out.println("jar--A:current thread:"+Thread.currentThread().getName());
+        }
+
+        public void run2() {
+            System.out.println("run2#jar--A:current thread:"+Thread.currentThread().getName());
+        }
     }
 
 
