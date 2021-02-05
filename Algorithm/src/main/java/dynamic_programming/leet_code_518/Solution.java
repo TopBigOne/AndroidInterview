@@ -158,4 +158,52 @@ public class Solution {
         return dp[amount];
     }
 
+
+    public int change7(int amount, int[] coins) {
+        int length = coins.length;
+        if (length == 0) {
+            if (amount == 0) {
+                return 1;
+
+            }
+            return 0;
+        }
+        int dp[] = new int[amount + 1];
+        dp[0] = 1;
+        for (int i = coins[0]; i <= amount; i += coins[0]) {
+            dp[i] = 1;
+        }
+        for (int i = 1; i < length; i++) {
+            for (int j = coins[i]; j <= amount; j++) {
+                dp[j] += dp[j - coins[i]];
+            }
+        }
+
+        return dp[amount];
+
+    }
+
+    public int change8(int amount,int [] coins){
+        int length = coins.length;
+        if(length==0){
+            if(amount==0){
+                return 1;
+            }
+            return 0;
+        }
+        int [] dp  = new int[amount+1];
+        dp[0] = 1;
+
+        for(int i = coins[0];i<=amount;i+=coins[0]){
+            dp[i] = 1;
+        }
+        for(int i = 1;i<length;i++){
+            for(int j = coins[i];j<=amount;j++){
+                dp[j]+=dp[j-coins[i]];
+            }
+        }
+        return dp[amount];
+    }
+
+
 }
