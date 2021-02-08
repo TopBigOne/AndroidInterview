@@ -1,13 +1,8 @@
 package com.top.jar.chapter_003.t_01;
 
-import com.top.jar.Node;
+import com.top.jar.TreeNode;
 
-import java.awt.HeadlessException;
 import java.util.Stack;
-import java.util.concurrent.RecursiveTask;
-import java.util.stream.StreamSupport;
-
-import javax.xml.transform.Source;
 
 /**
  * 非递归遍历二叉树
@@ -19,12 +14,12 @@ public class TraverseTree {
      *
      * @param head
      */
-    public void preOrderUnRecur(Node head) {
+    public void preOrderUnRecur(TreeNode head) {
         if (head == null) {
             return;
         }
         // 自己新建一个栈
-        Stack<Node> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         // 将 head 放入栈中；
         stack.add(head);
         // 栈不为空
@@ -46,12 +41,12 @@ public class TraverseTree {
      *
      * @param head
      */
-    public void inOrderUnRecur(Node head) {
+    public void inOrderUnRecur(TreeNode head) {
         System.out.println("in-order");
         if (head == null) {
             return;
         }
-        Stack<Node> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         while (!stack.isEmpty() || head != null) {
             if (head != null) {
                 // 一直 put----head
@@ -73,12 +68,12 @@ public class TraverseTree {
      *
      * @param head
      */
-    public static void posOrderUnRecur1(Node head) {
+    public static void posOrderUnRecur1(TreeNode head) {
         if (head == null) {
             return;
         }
-        Stack<Node> s1 = new Stack<>();
-        Stack<Node> s2 = new Stack<>();
+        Stack<TreeNode> s1 = new Stack<>();
+        Stack<TreeNode> s2 = new Stack<>();
         s1.push(head);
         while (!s1.isEmpty()) {
             head = s1.pop();
@@ -104,13 +99,13 @@ public class TraverseTree {
      *
      * @param head
      */
-    public void posOrderUnRecur2(Node head) {
+    public void posOrderUnRecur2(TreeNode head) {
         if (head == null) {
             return;
         }
-        Stack<Node> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(head);
-        Node c = null;
+        TreeNode c = null;
         while (!stack.isEmpty()) {
             c = stack.peek();
             if (c.left != null && head != c.left && head != c.right) {
@@ -131,13 +126,13 @@ public class TraverseTree {
      * 打印二叉树的边界节点
      * @param head
      */
-    public void printEdgel1(Node head) {
+    public void printEdgel1(TreeNode head) {
         if (head == null) {
             return;
         }
 
         int height = getHeight(head, 0);
-        Node[][] edgeMap = new Node[height][2];
+        TreeNode[][] edgeMap = new TreeNode[height][2];
         setEdgeMap(head, 0, edgeMap);
         // 打印边界
         for (int i = 0; i != edgeMap.length; i++) {
@@ -154,14 +149,14 @@ public class TraverseTree {
         }
     }
 
-    private int getHeight(Node head, int i) {
+    private int getHeight(TreeNode head, int i) {
         if (head == null) {
             return 1;
         }
         return Math.max(getHeight(head.left, i + 1), getHeight(head.right, i + 1));
     }
 
-    private void setEdgeMap(Node head, int i, Node[][] edgeMap) {
+    private void setEdgeMap(TreeNode head, int i, TreeNode[][] edgeMap) {
         if (head == null) {
             return;
         }
@@ -171,7 +166,7 @@ public class TraverseTree {
         setEdgeMap(head.right, 1 + i, edgeMap);
     }
 
-    private void printLeafNotInMap(Node head, int i, Node[][] m) {
+    private void printLeafNotInMap(TreeNode head, int i, TreeNode[][] m) {
         if (head == null) {
             return;
         }

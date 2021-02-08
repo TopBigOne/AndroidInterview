@@ -10,13 +10,11 @@ import java.util.concurrent.locks.Lock;
  * @version :
  * @Date : 2020-06-29 10:21
  * @Desc :  这就是 lock
- *
- *
  */
-public class TempLock  implements Lock {
+public class TempLock implements Lock {
     @Override
     public void lock() {
-        
+
     }
 
     @Override
@@ -43,4 +41,27 @@ public class TempLock  implements Lock {
     public Condition newCondition() {
         return null;
     }
+
+
+    public int tt(int n) {
+        int temp = 0;
+        int pre = 1;
+        int res = 2;
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1 || n == 2) {// /Users/dev/Downloads/android_frameworks_base-quartz/media/jni/android_media_MediaScanner.cpp
+            return res;
+        }
+        for (int i = 3; i < n; i++) {
+            temp = res;
+            res += pre;
+            pre = temp;
+        }
+        return res;
+
+
+    }
+
+
 }
