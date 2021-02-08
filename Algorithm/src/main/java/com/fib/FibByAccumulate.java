@@ -23,7 +23,6 @@ public class FibByAccumulate {
             temp = res;
             res += pre;
             pre = temp;
-
         }
         return res;
     }
