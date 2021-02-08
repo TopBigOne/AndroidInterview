@@ -1,4 +1,4 @@
-package dp.leet_code_322;
+package dp.packsack.leet_code_322;
 
 /**
  * @author : dev

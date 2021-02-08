@@ -1,10 +1,10 @@
-package dp.leet_code_70;
+package dp.recursive.leet_code_70;
 
 /**
  * @author : dev
  * @version :
  * @Date :  2/1/21 11:10 PM
- * @Desc :
+ * @Desc : 递推类型的 dp
  * 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
  * <p>
  * 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？

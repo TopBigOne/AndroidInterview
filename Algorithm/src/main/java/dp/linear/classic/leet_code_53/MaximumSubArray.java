@@ -1,4 +1,4 @@
-package dp.leet_code_53;
+package dp.linear.classic.leet_code_53;
 
 import java.util.Arrays;
 

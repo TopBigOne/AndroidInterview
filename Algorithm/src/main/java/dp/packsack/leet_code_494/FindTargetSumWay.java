@@ -1,4 +1,4 @@
-package dp.leet_code_494;
+package dp.packsack.leet_code_494;
 
 /**
  * @author : dev
