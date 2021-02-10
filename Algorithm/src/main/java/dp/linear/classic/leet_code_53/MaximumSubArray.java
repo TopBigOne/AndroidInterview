@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author : dev
  * @version :
  * @Date :  1/25/21 11:41 PM
- * @Desc : https://leetcode-cn.com/problems/maximum-subarray/
+ * @Desc :   最大和的连续子数组 ：https://leetcode-cn.com/problems/maximum-subarray/
  * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
  * <p>
  * 示例:
@@ -77,7 +77,7 @@ public class MaximumSubArray {
 
     public int maxSubArray4(int[] nums) {
         int length = nums.length;
-        int result =  nums[0];
+        int result = nums[0];
         int sum = nums[0];
         for (int i = 1; i < length; i++) {
             sum = Math.max(nums[i] + sum, nums[i]);
@@ -91,7 +91,7 @@ public class MaximumSubArray {
     public int maxSubArray5(int[] nums) {
         int length = nums.length;
         int sum = nums[0];
-        int result =  nums[0];
+        int result = nums[0];
 
         for (int i = 1; i < length; i++) {
             sum = Math.max(nums[i] + sum, nums[i]);
@@ -106,7 +106,7 @@ public class MaximumSubArray {
     public int maxSubArray6(int[] nums) {
         int length = nums.length;
         int sum = nums[0];
-        int result =  nums[0];
+        int result = nums[0];
         for (int i = 1; i < length; i++) {
             sum = Math.max(nums[i] + sum, nums[i]);
             if (sum > result) {
@@ -120,7 +120,7 @@ public class MaximumSubArray {
     public int maxSubArray7(int[] nums) {
         int length = nums.length;
         int sum = nums[0];
-        int result =  nums[0];
+        int result = nums[0];
         for (int i = 1; i < length; i++) {
             sum = Math.max(nums[i] + sum, nums[i]);
             if (sum > result) {
@@ -133,7 +133,7 @@ public class MaximumSubArray {
     public int maxSubArray8(int[] nums) {
         int length = nums.length;
         int sum = nums[0];
-        int result =  nums[0];
+        int result = nums[0];
         for (int i = 1; i < length; i++) {
             sum = Math.max(nums[i] + sum, nums[i]);
             if (sum > result) {
@@ -144,18 +144,46 @@ public class MaximumSubArray {
         return result;
     }
 
-    public int maxSubArray9(int [] nums){
+    public int maxSubArray9(int[] nums) {
         int length = nums.length;
         int sum = nums[0];
         int result = nums[0];
         for (int i = 1; i < length; i++) {
-            sum = Math.max(nums[i]+sum,nums[i]);
-            if (sum>result) {
+            sum = Math.max(nums[i] + sum, nums[i]);
+            if (sum > result) {
                 result = sum;
             }
-
         }
-       return result;
+        return result;
+    }
+
+    public int maxSubArray10(int[] nums) {
+        int length = nums.length;
+        int sum = nums[0];
+        int result = nums[0];
+        for (int i = 1; i < length; i++) {
+            sum = Math.max(nums[i], nums[i] + sum);
+            if (sum > result) {
+                result = sum;
+            }
+        }
+        return result;
+    }
+
+    public int maxSubArray11(int[] nums) {
+        int length = nums.length;
+        int sum = nums[0];
+        int result = nums[0];
+
+        for (int i = 1; i < length; i++) {
+            sum = Math.max(nums[i] + sum, nums[i]);
+            if (sum > result) {
+                result = sum;
+            }
+        }
+        return result;
+
+
     }
 
 
