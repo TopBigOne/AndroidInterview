@@ -1,6 +1,6 @@
-package link_list.chapter_206;
+package linked_list.leetcode_206;
 
-import link_list.ListNode;
+import linked_list.ListNode;
 
 /**
  * @author : dev

@@ -1,9 +1,7 @@
-package link_list.chapter_206;
+package linked_list.leetcode_206;
 
 
-import java.util.List;
-
-import link_list.ListNode;
+import linked_list.ListNode;
 
 /**
  * @author : dev
@@ -113,6 +111,33 @@ public class ReverseLinkList {
             pre = temp;
         }
 
+        return curr;
+    }
+
+
+    public ListNode reverseListNode9(ListNode head) {
+        ListNode curr = null;
+        ListNode pre = head;
+        while (pre != null) {
+            ListNode temp = pre.next;
+            pre.next = curr;
+            curr = pre;
+            pre = temp;
+
+        }
+        return curr;
+
+    }
+
+    public ListNode reverseListNode10(ListNode head) {
+        ListNode curr = null;
+        ListNode pre = head;
+        while (pre != null) {
+            ListNode temp = pre.next;
+            pre.next = curr;
+            curr = pre;
+            pre = temp;
+        }
         return curr;
     }
 
