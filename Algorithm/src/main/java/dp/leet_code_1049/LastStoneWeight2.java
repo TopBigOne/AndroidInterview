@@ -156,21 +156,65 @@ public class LastStoneWeight2 {
         return sum - (dp[target] << 1);
     }
 
-    public  int lastStoneWight8(int [] stones){
+    public int lastStoneWight8(int[] stones) {
         int sum = 0;
-        for(int stone :stones ){
-            sum+=stone;
+        for (int stone : stones) {
+            sum += stone;
         }
+        int target = sum >> 1;
+        int[] dp = new int[target + 1];
+        for (int stone : stones) {
+            for (int i = target; i >= stone; i--) {
+                dp[i] = Math.max(dp[i], dp[i - stone] + stone);
+            }
+        }
+        return sum - (dp[target] << 1);
+    }
+
+    public int lastStoneWight9(int[] stones) {
+        int sum = 0;
+        for (int stone : stones) {
+            sum += stone;
+        }
+        int target = sum >> 1;
+        int[] dp = new int[target + 1];
+        for (int stone : stones) {
+            for (int i = target; i >= stone; i--) {
+                dp[i] = Math.max(dp[i], dp[i - stone] + stone);
+            }
+        }
+        return sum - (dp[target] << 1);
+    }
+
+    public int lastStoneWight10(int[] stones) {
+        int sum = 0;
+        for (int stone : stones) {
+            sum += stone;
+        }
+        int target = sum >> 1;
+        int[] dp = new int[target + 1];
+        for (int stone : stones) {
+            for (int i = target; i >= stone; i--) {
+                dp[i] = Math.max(dp[i], dp[i - stone] + stone);
+            }
+        }
+
+        return sum - (dp[target] << 1);
+    }
+
+    public int lastStoneWight11(int[] stones) {
+        int sum = 0;
+        for (int stone : stones) sum += stone;
         int target = sum >>1;
         int [] dp = new int[target+1];
-        for(int stone : stones){
+        for (int stone : stones) {
             for(int i = target;i>=stone;i--){
                 dp[i] = Math.max(dp[i],dp[i-stone]+stone);
-            }
-
+             }
         }
-        return  sum-(dp[target]<<1);
+        return sum-(dp[target]<<1);
 
     }
+
 
 }
