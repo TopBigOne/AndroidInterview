@@ -1,8 +1,92 @@
 apply plugin: 'java-library'
 
+ext.reactiveStreamsVersion = "1.0.3"
+
+ext.reactiveStreamsVersion = "1.0.3"
+ext.junitVersion = "4.13.1"
+ext.testNgVersion = "7.3.0"
+ext.mockitoVersion = "3.7.7"
+ext.jmhLibVersion = "1.21"
+ext.jmhGradleVersion = "0.5.2"
+ext.guavaVersion = "30.1-jre"
+ext.jacocoVersion = "0.8.4"
+ext.animalSnifferVersion = "1.5.2"
+ext.licenseVersion = "0.15.0"
+ext.jfrogExtractorVersion = "4.20.0"
+ext.bndVersion = "5.2.0"
+ext.checkstyleVersion = "8.26"
+ext.vanniktechPublishPlugin = "0.13.0"
+
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.13'
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.7.7'
+
+
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+
+    testImplementation "org.reactivestreams:reactive-streams-tck:$reactiveStreamsVersion"
+    testImplementation "org.testng:testng:$testNgVersion"
+    testImplementation "com.google.guava:guava:$guavaVersion"
+
+    api "org.reactivestreams:reactive-streams:$reactiveStreamsVersion"
+    //jmh "org.reactivestreams:reactive-streams:$reactiveStreamsVersion"
+
 }
 
-sourceCompatibility = "8"
-targetCompatibility = "8"
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-parameters";
+}
+
+//
+//animalsniffer {
+//    annotation = "io.reactivex.rxjava3.internal.util.SuppressAnimalSniffer"
+//}
+
+test {
+    testLogging {
+        // showing skipped occasionally should prevent CI timeout due to lack of standard output
+        events = ["skipped", "failed"] // "started", "passed"
+        // showStandardStreams = true
+        exceptionFormat = "full"
+
+        debug.events = ["skipped", "failed"]
+        debug.exceptionFormat = "full"
+
+        info.events = ["failed", "skipped"]
+        info.exceptionFormat = "full"
+
+        warn.events = ["failed", "skipped"]
+        warn.exceptionFormat = "full"
+    }
+
+    maxHeapSize = "1200m"
+
+    if (System.getenv("CI") == null) {
+        maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+    }
+}
+
+task testng(type: Test) {
+    useTestNG()
+    testLogging {
+        events = ["skipped", "failed"]
+        exceptionFormat = "full"
+
+        debug.events = ["skipped", "failed"]
+        debug.exceptionFormat = "full"
+
+        info.events = ["failed", "skipped"]
+        info.exceptionFormat = "full"
+
+        warn.events = ["failed", "skipped"]
+        warn.exceptionFormat = "full"
+    }
+}
+

@@ -22,7 +22,7 @@ import io.reactivex.rxjava3.disposables.*;
 import io.reactivex.rxjava3.internal.disposables.*;
 import io.reactivex.rxjava3.internal.functions.Functions;
 import io.reactivex.rxjava3.internal.queue.MpscLinkedQueue;
-import io.reactivex.rxjava3.internal.schedulers.ExecutorScheduler.ExecutorWorker.*;
+//import io.reactivex.rxjava3.internal.schedulers.ExecutorScheduler.ExecutorWorker.*;
 import io.reactivex.rxjava3.plugins.RxJavaPlugins;
 import io.reactivex.rxjava3.schedulers.*;
 
@@ -65,11 +65,11 @@ public final class ExecutorScheduler extends Scheduler {
             }
 
             if (interruptibleWorker) {
-                InterruptibleRunnable interruptibleTask = new InterruptibleRunnable(decoratedRun, null);
+                ExecutorWorker.InterruptibleRunnable interruptibleTask = new ExecutorWorker.InterruptibleRunnable(decoratedRun, null);
                 executor.execute(interruptibleTask);
                 return interruptibleTask;
             } else {
-                BooleanRunnable br = new BooleanRunnable(decoratedRun);
+                ExecutorWorker.BooleanRunnable br = new ExecutorWorker.BooleanRunnable(decoratedRun);
                 executor.execute(br);
                 return br;
             }
