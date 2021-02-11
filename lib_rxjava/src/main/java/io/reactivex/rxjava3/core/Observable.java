@@ -10571,6 +10571,7 @@ public abstract class Observable<@NonNull T> implements ObservableSource<T> {
     }
 
     /**
+     * 内部线程切换
      * Returns an {@code Observable} to perform the current {@code Observable}'s emissions and notifications on a specified {@link Scheduler},
      * asynchronously with an unbounded buffer of configurable "island size" and optionally delays {@code onError} notifications.
      * <p>
@@ -13182,6 +13183,7 @@ public abstract class Observable<@NonNull T> implements ObservableSource<T> {
     }
 
     /**
+     * 订阅线程
      * Asynchronously subscribes {@link Observer}s to the current {@code Observable} on the specified {@link Scheduler}.
      * <p>
      * <img width="640" height="305" src="https://raw.github.com/wiki/ReactiveX/RxJava/images/rx-operators/subscribeOn.v3.png" alt="">
@@ -13203,6 +13205,7 @@ public abstract class Observable<@NonNull T> implements ObservableSource<T> {
     @NonNull
     public final Observable<T> subscribeOn(@NonNull Scheduler scheduler) {
         Objects.requireNonNull(scheduler, "scheduler is null");
+        //返回ObservableCreate对象
         return RxJavaPlugins.onAssembly(new ObservableSubscribeOn<>(this, scheduler));
     }
 
