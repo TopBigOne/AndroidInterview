@@ -1,6 +1,5 @@
-package string;
+package string.kmp;
 
-import java.util.Random;
 
 /**
  * @author : dev
@@ -8,7 +7,7 @@ import java.util.Random;
  * @Date :  11/26/20 11:43 PM
  * @Desc :KMP 算法
  */
-public class KmpDemo {
+public class KMP {
    static String rawStr = "4352436fgfegfre";
    static String matchStr = "fgfe";
 
@@ -16,7 +15,6 @@ public class KmpDemo {
 
         int result = getIndexOf(rawStr,matchStr);
         System.out.println("result : "+result);
-
 
     }
 
