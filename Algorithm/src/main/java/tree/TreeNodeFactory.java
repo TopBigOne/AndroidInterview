@@ -18,7 +18,7 @@ public class TreeNodeFactory {
     }
 
     public static TreeNode build(String str) {
-        java.util.Queue<TreeNode> nodeQueue = new java.util.LinkedList<TreeNode>();
+        java.util.Queue<TreeNode> nodeQueue = new java.util.LinkedList<>();
         String[] split = str.split(",");
         Integer[] arr = new Integer[split.length];
         for (int i = 0, len = split.length; i < len; i++) {
