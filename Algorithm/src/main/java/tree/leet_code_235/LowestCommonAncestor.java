@@ -101,6 +101,26 @@ public class LowestCommonAncestor {
             return null;
         }
         return leftNode == null ? rightNode : leftNode;
+    }
+
+    public TreeNode lowestCommonAncestor5(TreeNode root ,TreeNode p ,TreeNode q){
+        if (root ==null) {
+            return null;
+        }
+        if (p==root||q==root) {
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor5(root.left,p,q);
+        TreeNode right = lowestCommonAncestor5(root.right,p,q);
+        if (left!=null&&right!=null) {
+            return  root;
+        }
+        if(left==null&&right==null){
+            return null;
+        }
+        return left==null ? right :left;
+
+
 
     }
 
