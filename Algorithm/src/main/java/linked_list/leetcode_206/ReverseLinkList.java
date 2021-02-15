@@ -4,6 +4,7 @@ package linked_list.leetcode_206;
 import java.util.List;
 
 import linked_list.ListNode;
+import sun.tools.jstat.Literal;
 
 /**
  * @author : dev
@@ -166,6 +167,19 @@ public class ReverseLinkList {
             pre = temp;
         }
         return curr;
+    }
+
+    public ListNode reverseListNode13(ListNode head){
+        ListNode curr = null;
+        ListNode pre = head;
+        while (pre != null) {
+            ListNode temp = pre.next;
+            pre.next = curr;
+            curr = pre;
+            pre = temp;
+        }
+        return curr;
+
     }
 
 
