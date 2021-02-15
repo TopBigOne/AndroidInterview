@@ -1,13 +1,15 @@
 package linked_list.leetcode_206;
 
 
+import java.util.List;
+
 import linked_list.ListNode;
 
 /**
  * @author : dev
  * @version :
  * @Date :  1/25/21 5:19 PM
- * @Desc : 反转链表
+ * @Desc : 反转链表（https://leetcode-cn.com/problems/reverse-linked-list/）
  */
 public class ReverseLinkList {
     public ListNode reverseList(ListNode head) {
@@ -130,6 +132,31 @@ public class ReverseLinkList {
     }
 
     public ListNode reverseListNode10(ListNode head) {
+        ListNode curr = null;
+        ListNode pre = head;
+        while (pre != null) {
+            ListNode temp = pre.next;
+            pre.next = curr;
+            curr = pre;
+            pre = temp;
+        }
+        return curr;
+    }
+
+    public ListNode reverseListNode11(ListNode head) {
+        ListNode curr = null;
+        ListNode pre = head;
+        while (pre != null) {
+            ListNode temp = pre.next;
+            pre.next = curr;
+            curr = pre;
+            pre = temp;
+        }
+
+        return curr;
+    }
+
+    public ListNode reverseListNode12(ListNode head) {
         ListNode curr = null;
         ListNode pre = head;
         while (pre != null) {
