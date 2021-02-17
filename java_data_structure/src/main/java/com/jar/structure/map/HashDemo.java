@@ -7,5 +7,8 @@ package com.jar.structure.map;
  * @Desc :
  */
 public class HashDemo {
+    public static void main(String[] args) {
+
+    }
 
 }
