@@ -7,5 +7,9 @@ package com.jar.oom;
  * @Desc :
  */
 interface Run {
-    void execute() throws IllegalAccessException;
+    /**
+     * 执行
+     * @throws IllegalAccessException
+     */
+    void execute();
 }
