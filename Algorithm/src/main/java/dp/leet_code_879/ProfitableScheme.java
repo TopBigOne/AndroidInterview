@@ -4,7 +4,7 @@ package dp.leet_code_879;
  * @author : dev
  * @version :
  * @Date :  2/6/21 12:11 AM
- * @Desc : https://leetcode-cn.com/problems/profitable-schemes/solution/leetcode-01bei-bao-zong-jie-by-pedantic-einstein/
+ * @Desc : 盈利计划 （https://leetcode-cn.com/problems/profitable-schemes/）
  * <p>
  * 01背包题目总结
  * 分为最优解和最优解和两种类型。
@@ -27,7 +27,7 @@ package dp.leet_code_879;
  * <p>
  * 题解：https://leetcode-cn.com/problems/profitable-schemes/solution/bei-bao-wen-ti-zhi-ying-li-ji-hua-by-a-fei-8/
  */
-public class Solution {
+public class ProfitableScheme {
     /**
      * @param G      工人数量
      * @param P
@@ -220,9 +220,195 @@ public class Solution {
         return sum;
     }
 
+    public int profitableSchems9(int G, int P, int[] group, int[] profit) {
+        int mod = 1000_000_007;
+        int length = group.length;
+        int[][] dp = new int[G + 1][P + 1];
+        dp[0][0] = 1;
+        for (int i = 1; i <= length; i++) {
+            int g = group[i - 1];
+            int p = profit[i - 1];
+            for (int j = G; j >= g; j--) {
+                for (int k = P; k >= 0; k--) {
+                    int nk = Math.max(k - p, 0);
+                    dp[j][k] = (dp[j][k] + dp[j - g][nk]) % mod;
+                }
+            }
+        }
+
+        int sum = 0;
+        for (int i = 0; i <= G; i++) {
+            sum = (dp[i][P] + sum) % mod;
+        }
+        return sum;
+    }
+
+    public int profitableSchemes9(int G, int P, int[] group, int[] profit) {
+        int mod = 1000_000_007;
+        int length = group.length;
+        int[][] dp = new int[G + 1][P + 1];
+        dp[0][0] = 1;
+        for (int i = 1; i <= length; i++) {
+            int g = group[i - 1];
+            int p = profit[i - 1];
+            for (int j = G; j >= g; j--) {
+                for (int k = P; k >= 0; k--) {
+                    int nk = Math.max(k - p, 0);
+                    dp[j][k] = (dp[j][k] + dp[j - g][nk]) % mod;
+                }
+            }
+        }
+
+        int sum = 0;
+        for (int i = 0; i <= G; i++) {
+            sum = (dp[i][P] + sum) % mod;
+        }
+
+        return sum;
+    }
+
+    public int protitableSchemes10(int G, int P, int[] group, int[] profit) {
+        int mod = 1000_000_007;
+        int length = group.length;
+
+        int[][] dp = new int[G + 1][P + 1];
+        dp[0][0] = 1;
+        for (int i = 1; i <= length; i++) {
+            int g = group[i - 1];
+            int p = profit[i - 1];
+
+            for (int j = G; j >= g; j--) {
+                for (int k = P; k >= 0; k--) {
+                    int nk = Math.max(k - p, 0);
+                    dp[j][k] = (dp[j][k] + dp[j - g][nk]) % mod;
+                }
+            }
+        }
+
+        int sum = 0;
+        for (int i = 0; i <= G; i++) {
+            sum = (dp[i][P] + sum) % mod;
+        }
+        return sum;
+
+    }
+
+    public int protiableSchemes11(int G, int P, int[] group, int[] profit) {
+        int mod = 1000_000_007;
+        int length = group.length;
+        int[][] dp = new int[G + 1][P + 1];
+        dp[0][0] = 1;
+        for (int i = 1; i <= length; i++) {
+            int g = group[i - 1];
+            int p = profit[i - 1];
+            for (int j = G; j >= g; j--) {
+                for (int k = P; k >= 0; k--) {
+                    int nk = Math.max(k - p, 0);
+                    dp[j][k] = (dp[j][k] + dp[j - g][nk]) % mod;
+                }
+            }
+        }
+
+        int sum = 0;
+        for (int i = 0; i <= G; i++) {
+            sum = (dp[i][P] + sum) % mod;
+        }
+        return sum;
+    }
+
+    public int profitableSchemes12(int G, int P, int[] group, int[] profit) {
+        int mod = 1000_000_007;
+        int length = group.length;
+        int[][] dp = new int[G + 1][P + 1];
+        dp[0][0] = 1;
+        for (int i = 1; i <= length; i++) {
+            int g = group[i - 1];
+            int p = profit[i - 1];
+            for (int j = G; j >= g; j--) {
+                for (int k = P; k >= 0; k--) {
+                    int nk = Math.max(k - p, 0);
+                    dp[j][k] = (dp[j][k] + dp[j - g][nk]) % mod;
+                }
+            }
+        }
+        int sum = 0;
+        for (int i = 0; i <= G; i++) {
+            sum = (dp[i][P] + sum) % mod;
+        }
+        return sum;
+    }
+
+    public int profitableSchemes13(int G, int P, int[] group, int[] profit) {
+        int mod = 1000_000_007;
+        int length = group.length;
+        int[][] dp = new int[G + 1][P + 1];
+        dp[0][0] = 1;
+        for (int i = 1; i <= length; i++) {
+            int g = group[i - 1];
+            int p = profit[i - 1];
+            for (int j = G; j >= g; j--) {
+                for (int k = P; k >= 0; k--) {
+                    int nk = Math.max(k - p, 0);
+                    dp[j][k] = (dp[j][k] + dp[j - g][nk]) % mod;
+                }
+
+            }
+        }
+        int sum = 0;
+        for (int i = 0; i <= G; i++) {
+            sum = (dp[i][P] + sum) % mod;
+        }
+        return sum;
+    }
+
+    public int profitableScheme14(int G, int P, int[] group, int[] profit) {
+        int mod = 1000_000_007;
+        int[][] dp = new int[G + 1][P + 1];
+        dp[0][0] = 1;
+        int length = group.length;
+        for (int i = 1; i <= length; i++) {
+            int g = group[i - 1];
+            int p = profit[i - 1];
+            for (int j = G; j >= g; j--) {
+                for (int k = P; k >= 0; k--) {
+                    int nk = Math.max(k - p, 0);
+                    dp[j][k] = (dp[j][k] + dp[j - g][nk]) % mod;
+                }
+            }
+        }
+        int sum = 0;
+        for (int i = 0; i <= G; i++) {
+            sum = (dp[i][P] + sum) % mod;
+        }
+        return sum;
+    }
+
+    public int profitableSchemes15(int G, int P, int[] group, int[] profit) {
+        int mod = 1000_000_007;
+        int[][] dp = new int[G + 1][P + 1];
+        dp[0][0] = 1;
+        int length = group.length;
+        for (int i = 1; i <= length; i++) {
+            int g = group[i - 1];
+            int p = profit[i - 1];
+            for (int j = G; j >= g; j--) {
+                for (int k = P; k >= 0; k--) {
+                    int nk = Math.max(k - p, 0);
+                    dp[j][k] = (dp[j][k] + dp[j - g][nk]) % mod;
+                }
+
+            }
+        }
+
+        int sum = 0;
+        for (int i = 0; i <= G; i++) {
+            sum = (dp[i][P] + sum) % mod;
+        }
+
+        return sum;
 
 
-
+    }
 
 
 }
