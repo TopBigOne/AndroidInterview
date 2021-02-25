@@ -1,6 +1,5 @@
-package tree.leet_code_199;
+package tree.bfs.leet_code_116;
 
-import java.util.Objects;
 
 import tree.Node;
 
@@ -8,7 +7,7 @@ import tree.Node;
  * @author : dev
  * @version :
  * @Date :  2/20/21 12:13 AM
- * @Desc :
+ * @Desc : 填充每个节点的下一个右侧节点指针
  * 题解（https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/solution/bfshe-di-gui-zui-hou-liang-chong-ji-bai-liao-100-2/）
  */
 public class FillConnect {
