@@ -1,13 +1,9 @@
-package tree.leet_code_102;
-
-import org.omg.PortableInterceptor.INACTIVE;
+package tree.bfs.leet_code_102;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeMap;
 
-import ten_sort.lock.TempLock;
 import tree.TreeNode;
 
 /**
