@@ -1,12 +1,10 @@
-package tree.leet_code_637;
+package tree.bfs.leet_code_637;
 
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
-import sun.security.provider.Sun;
 import tree.TreeNode;
 
 /**
