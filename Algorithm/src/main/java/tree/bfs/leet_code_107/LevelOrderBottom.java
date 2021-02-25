@@ -1,6 +1,4 @@
-package tree.leet_code_107;
-
-import com.sun.org.apache.xalan.internal.xsltc.compiler.util.ResultTreeType;
+package tree.bfs.leet_code_107;
 
 import java.util.ArrayList;
 import java.util.Collections;
