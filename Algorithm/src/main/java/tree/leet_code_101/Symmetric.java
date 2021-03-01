@@ -1,4 +1,4 @@
-package tree.bfs.leet_code_101;
+package tree.leet_code_101;
 
 import java.util.Objects;
 

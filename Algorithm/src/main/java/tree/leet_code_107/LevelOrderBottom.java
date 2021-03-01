@@ -1,4 +1,4 @@
-package tree.bfs.leet_code_107;
+package tree.leet_code_107;
 
 import java.util.ArrayList;
 import java.util.Collections;
