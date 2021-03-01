@@ -1,7 +1,5 @@
 package com.top.jar.chapter_004;
 
-import javafx.application.Preloader;
-
 /**
  * @author : dev
  * @version :
