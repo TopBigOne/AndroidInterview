@@ -1,9 +1,6 @@
 package com.android.java_thread.leet_1114;
 
-import com.sun.istack.internal.Nullable;
-
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author : dev
