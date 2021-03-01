@@ -1,6 +1,7 @@
 package linked_list.leetcode_206;
 
 
+
 import linked_list.ListNode;
 
 /**
@@ -190,22 +191,6 @@ public class ReverseLinkList {
         }
 
         return curr;
-    }
-
-
-    public ListNode reverListNode15(ListNode head) {
-        ListNode curr = null;
-        ListNode pre = head;
-        while (pre != null) {
-            ListNode temp = pre.next;
-            pre.next = curr;
-            curr = pre;
-            pre = temp;
-
-        }
-
-        return curr;
-
     }
 
 
