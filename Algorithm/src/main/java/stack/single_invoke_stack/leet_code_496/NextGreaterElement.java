@@ -1,4 +1,4 @@
-package stack.leet_code_496;
+package stack.single_invoke_stack.leet_code_496;
 
 import java.util.Deque;
 import java.util.HashMap;

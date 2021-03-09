@@ -1,3 +1,5 @@
+include ':java_class_loader'
+include ':java_reflect'
 include ':07_rxandroid'
 include ':lib_rxandroid'
 include ':lib_rxjava'

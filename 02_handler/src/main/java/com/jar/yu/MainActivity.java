@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonSix;
 
     private Button buttonOne;
-    private DirectCreatHandlerThread mDirectCreatHandlerThread;
-    private CreatHandlerWithLooperThread mCreatHandlerWithLooperThread;
+    private DirectCreateHandlerThread mDirectCreateHandlerThread;
+    private CreateHandlerWithLooperThread mCreateHandlerWithLooperThread;
     ReceiveMsgFromMainThread mReceiveMsgFromMainThread;
     private Button buttonFour;
     private Button buttonSeven;
@@ -120,9 +120,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initThread() {
         mDialogThred = new DialogThred(this);
-        mDirectCreatHandlerThread = new DirectCreatHandlerThread();
+        mDirectCreateHandlerThread = new DirectCreateHandlerThread();
         mDialogThredTwo = new UpdateTextThreadTwoThread(this);
-        mCreatHandlerWithLooperThread = new CreatHandlerWithLooperThread();
+        mCreateHandlerWithLooperThread = new CreateHandlerWithLooperThread();
         mReceiveMsgFromMainThread = new ReceiveMsgFromMainThread(this);
     }
 
@@ -152,20 +152,20 @@ public class MainActivity extends AppCompatActivity {
         buttonThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDirectCreatHandlerThread.start();
+                mDirectCreateHandlerThread.start();
             }
         });
         buttonThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDirectCreatHandlerThread.start();
+                mDirectCreateHandlerThread.start();
             }
         });
 
         buttonFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCreatHandlerWithLooperThread.start();
+                mCreateHandlerWithLooperThread.start();
             }
         });
 
@@ -331,14 +331,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    static class DirectCreatHandlerThread extends Thread {
+    static class DirectCreateHandlerThread extends Thread {
         @Override
         public void run() {
             Handler handler = new Handler();
         }
     }
 
-    static class CreatHandlerWithLooperThread extends Thread {
+    static class CreateHandlerWithLooperThread extends Thread {
         @Override
         public void run() {
             Looper.prepare();

@@ -1,7 +1,6 @@
 package linked_list.leetcode_206;
 
 
-
 import linked_list.ListNode;
 
 /**
@@ -191,6 +190,81 @@ public class ReverseLinkList {
         }
 
         return curr;
+    }
+
+
+    public ListNode reverseListNode15(ListNode head) {
+        ListNode curr = null;
+        ListNode pre = head;
+        while (pre != null) {
+            ListNode temp = pre.next;
+            pre.next = curr;
+            curr = pre;
+            pre = temp;
+        }
+        return curr;
+
+    }
+
+
+    public ListNode reverseListNode16(ListNode head) {
+        ListNode curr = null;
+        ListNode pre = head;
+        while (pre != null) {
+            ListNode temp = pre.next;
+            pre.next = curr;
+            curr = pre;
+            pre = temp;
+        }
+        return curr;
+    }
+
+
+    public ListNode reverseListNode17(ListNode head) {
+        ListNode curr = null;
+        ListNode pre = head;
+        while (pre != null) {
+            ListNode temp = pre.next;
+            pre.next = curr;
+            curr = pre;
+            pre = temp;
+        }
+
+        return curr;
+    }
+
+    public ListNode reverseListNode18(ListNode head) {
+        // 当前节点
+        ListNode curr = null;
+
+        // 当前节点的前一个节点
+        ListNode pre = head;
+        while (pre != null) {
+            // 保存当前节点的后续节点，防止链表断开
+            ListNode temp = pre.next;
+            pre.next = curr;
+            curr = pre;
+            pre = temp;
+        }
+
+        return curr;
+    }
+
+    public ListNode reverseListNode19(ListNode head) {
+        // 当前节点
+        ListNode pre = null;
+
+        // 当前节点的前一个节点
+        ListNode curr = head;
+        while (curr != null) {
+            // 保存当前节点的后续节点，防止链表断开
+            ListNode temp = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = temp;
+        }
+
+        return pre;
     }
 
 

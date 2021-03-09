@@ -3,7 +3,6 @@ package stack.leet_code_94;
 import com.top.jar.TreeNode;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -24,7 +23,7 @@ public class InorderTraversal {
             return;
         }
         helper(list, root.left);
-        list.add(root.value);
+        list.add(root.val);
         helper(list, root.right);
     }
 
@@ -33,7 +32,7 @@ public class InorderTraversal {
             return;
         }
         helper2(list, root.left);
-        list.add(root.value);
+        list.add(root.val);
         helper2(list, root.right);
 
     }
@@ -43,7 +42,7 @@ public class InorderTraversal {
             return;
         }
         helper3(list, root.left);
-        list.add(root.value);
+        list.add(root.val);
         helper3(list, root.right);
     }
 }

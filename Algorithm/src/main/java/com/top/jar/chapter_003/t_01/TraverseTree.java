@@ -25,7 +25,7 @@ public class TraverseTree {
         // 栈不为空
         while (!stack.isEmpty()) {
             head = stack.pop();
-            System.out.print("head.value: " + head.value);
+            System.out.print("head.value: " + head.val);
             if (head.right != null) {
                 stack.push(head.right);
             }
@@ -57,7 +57,7 @@ public class TraverseTree {
                 // head 为空
                 // 就出栈中弹出一个
                 head = stack.pop();
-                System.out.println(head.value + "");
+                System.out.println(head.val + "");
             }
         }
         System.out.println();
@@ -89,7 +89,7 @@ public class TraverseTree {
         // 遍历s2 ,打印结果
         while (!s2.isEmpty()) {
 
-            System.out.println(s2.pop().value + " ");
+            System.out.println(s2.pop().val + " ");
         }
 
     }
@@ -113,7 +113,7 @@ public class TraverseTree {
             } else if (c.right != null && head != c.right) {
                 stack.push(c.right);
             } else {
-                System.out.println(stack.pop().value + "");
+                System.out.println(stack.pop().val + "");
                 head = c;
             }
         }
@@ -143,7 +143,7 @@ public class TraverseTree {
         // 打印右边界，但是不是左边界的节点
         for (int i = edgeMap.length - 1; i != -1; i--) {
             if (edgeMap[i][0] != edgeMap[i][1]) {
-                System.out.print(edgeMap[i][i].value + "");
+                System.out.print(edgeMap[i][i].val + "");
             }
             System.out.println();
         }
@@ -171,7 +171,7 @@ public class TraverseTree {
             return;
         }
         if (head.left == null && head.right == null && head != m[1][0] && head!=m[1][1]) {
-            System.out.print(head.value+ "");
+            System.out.print(head.val + "");
         }
         printLeafNotInMap(head.left,i+1,m);
         printLeafNotInMap(head.right,i+1,m);

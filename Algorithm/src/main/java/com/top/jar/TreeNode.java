@@ -7,11 +7,11 @@ package com.top.jar;
  * @Desc : 公用的树节点
  */
 public class TreeNode {
-    public int  value;
+    public int val;
     public TreeNode left;
     public TreeNode right;
 
     public TreeNode(int data) {
-        this.value = data;
+        this.val = data;
     }
 }
