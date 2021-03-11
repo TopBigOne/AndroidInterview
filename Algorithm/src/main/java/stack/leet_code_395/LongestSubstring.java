@@ -20,14 +20,22 @@ public class LongestSubstring {
                 int u = cs[i] - 'a';
                 cnt[u]++;
                 // 如果添加到cnt 之后，为1，说明字符总数+1；
-                if (cnt[u] == 1) tot++;
-                if (cnt[u] == k) sum++;
+                if (cnt[u] == 1) {
+                    tot++;
+                }
+                if (cnt[u] == k) {
+                    sum++;
+                }
                 while (tot > p) {
                     int t = cs[j++] - 'a';
                     cnt[t]--;
                     // 如果添加到cnt之后为0 ，说明字符总数-1；
-                    if (cnt[t] == 0) tot--;
-                    if (cnt[t] == k - 1) sum--;
+                    if (cnt[t] == 0) {
+                        tot--;
+                    }
+                    if (cnt[t] == k - 1) {
+                        sum--;
+                    }
                 }
                 if (tot == sum) {
                     ans = Math.max(ans, i - j + 1);
@@ -49,15 +57,23 @@ public class LongestSubstring {
             for (int i = 0, j = 0, tot = 0, sum = 0; i < len; i++) {
                 int u = cs[i] - 'a';
                 cnt[u]++;
-                if (cnt[u] == 1) tot++;
-                if (cnt[u] == k) sum++;
+                if (cnt[u] == 1) {
+                    tot++;
+                }
+                if (cnt[u] == k) {
+                    sum++;
+                }
 
                 while (tot > p) {
                     int t = cs[j++] - 'a';
                     cnt[t]--;
                     // 如果添加到cnt 之后为0，说明字符总数-1；
-                    if (cnt[t] == 0) tot--;
-                    if (cnt[t] == k - 1) sum--;
+                    if (cnt[t] == 0) {
+                        tot--;
+                    }
+                    if (cnt[t] == k - 1) {
+                        sum--;
+                    }
                 }
                 if (tot == sum) {
                     ans = Math.max(ans, i - j + 1);
@@ -82,14 +98,22 @@ public class LongestSubstring {
                 int u = cs[i] - 'a';
                 cnt[u]++;
 
-                if (cnt[u] == 1) tot++;
-                if (cnt[u] == k) sum++;
+                if (cnt[u] == 1) {
+                    tot++;
+                }
+                if (cnt[u] == k) {
+                    sum++;
+                }
 
                 while (tot > p) {
                     int t = cs[j++] - 'a';
                     cnt[t]--;
-                    if (cnt[t] == 0) tot--;
-                    if (cnt[t] == k - 1) sum--;
+                    if (cnt[t] == 0) {
+                        tot--;
+                    }
+                    if (cnt[t] == k - 1) {
+                        sum--;
+                    }
                 }
                 if (tot == sum) {
                     ans = Math.max(ans, i - j + 1);
@@ -124,8 +148,12 @@ public class LongestSubstring {
                 while (tot > p) {
                     int t = cs[j++] - 'a';
                     cnt[t]--;
-                    if (cnt[t] == 0) tot--;
-                    if (cnt[t] == k - 1) sum--;
+                    if (cnt[t] == 0) {
+                        tot--;
+                    }
+                    if (cnt[t] == k - 1) {
+                        sum--;
+                    }
                 }
 
                 if (tot == sum) {
@@ -143,34 +171,36 @@ public class LongestSubstring {
         int len = s.length();
         int limit = 26;
         char[] cs = s.toCharArray();
-        int [] cnt = new int[limit];
+        int[] cnt = new int[limit];
         int result = 0;
         for (int p = 0; p < limit; p++) {
-            Arrays.fill(cnt,0);
-            for (int i = 0,j = 0,tot = 0,sum = 0; i < len; i++) {
-                int u = cs[i]-'a';
-                cnt[u] ++;
-                if(cnt[u]==1) tot++;
-                if(cnt[u]==k) sum++;
-                while (p>tot){
-                    int t = cs[j++]-'a';
+            Arrays.fill(cnt, 0);
+            for (int i = 0, j = 0, tot = 0, sum = 0; i < len; i++) {
+                int u = cs[i] - 'a';
+                cnt[u]++;
+                if (cnt[u] == 1) {
+                    tot++;
+                }
+                if (cnt[u] == k) {
+                    sum++;
+                }
+                while (p > tot) {
+                    int t = cs[j++] - 'a';
                     cnt[t]--;
-                    if(cnt[t]==0) tot--;
-                    if(cnt[t]==k-1) sum--;
+                    if (cnt[t] == 0) {
+                        tot--;
+                    }
+                    if (cnt[t] == k - 1) {
+                        sum--;
+                    }
                 }
 
-               if(tot==sum){
-                   result = Math.max(result,i-j+1);
-               }
+                if (tot == sum) {
+                    result = Math.max(result, i - j + 1);
+                }
             }
         }
         return result;
-
-
-
-
-
-
 
 
     }
@@ -222,30 +252,72 @@ public class LongestSubstring {
         int limit = 26;
         int len = s.length();
         int result = 0;
-        char [] cs = s.toCharArray();
-        int [] cnt = new int [limit];
-        for(int p = 0;p<limit;p++){
-            Arrays.fill(cnt,0);
-            for(int i = 0,j = 0,tot = 0,sum = 0;i<len;i++){
-                int u = cs[i]-'a';
+        char[] cs = s.toCharArray();
+        int[] cnt = new int[limit];
+        for (int p = 0; p < limit; p++) {
+            Arrays.fill(cnt, 0);
+            for (int i = 0, j = 0, tot = 0, sum = 0; i < len; i++) {
+                int u = cs[i] - 'a';
                 cnt[u]++;
-                if(cnt[u]==1) tot++;
-                if(cnt[u]==k) sum++;
-                while(tot>p){
-                    int t = cs[j++] -'a';
+                if (cnt[u] == 1) {
+                    tot++;
+                }
+                if (cnt[u] == k) {
+                    sum++;
+                }
+                while (tot > p) {
+                    int t = cs[j++] - 'a';
                     cnt[t]--;
-                    if(cnt[t]==0) tot--;
-                    if(cnt[t]==k-1) sum--;
+                    if (cnt[t] == 0) {
+                        tot--;
+                    }
+                    if (cnt[t] == k - 1) {
+                        sum--;
+                    }
                 }
-                if(tot==sum){
-                    result = Math.max(result,i-j+1);
+                if (tot == sum) {
+                    result = Math.max(result, i - j + 1);
                 }
-
-
             }
 
         }
 
+        return result;
+
+    }
+
+    public int longestSubstring8(String s, int k) {
+        int limit = 26;
+        int result = 0;
+        int len = s.length();
+        char[] cs = s.toCharArray();
+        int[] cnt = new int[limit];
+        for (int p = 0; p < limit; p++) {
+            Arrays.fill(cnt, 0);
+            for (int i = 0, j = 0, tot = 0, sum = 0; i < len; i++) {
+                int u = cs[i] - 'a';
+                cnt[u]++;
+                if (cnt[u] == 1) {
+                    tot++;
+                }
+                if (cnt[u] == k) {
+                    sum++;
+                }
+                while (tot > p) {
+                    int t = cs[j++] - 'a';
+                    cnt[t]--;
+                    if (cnt[t] == 0) {
+                        tot--;
+                    }
+                    if (cnt[t] == k - 1) {
+                        sum--;
+                    }
+                }
+                if (tot == sum) {
+                    result = Math.max(result, i - j + 1);
+                }
+            }
+        }
         return result;
 
 
