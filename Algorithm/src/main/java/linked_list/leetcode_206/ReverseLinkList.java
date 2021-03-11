@@ -1,6 +1,8 @@
 package linked_list.leetcode_206;
 
 
+import com.sun.org.apache.xpath.internal.objects.XNull;
+
 import linked_list.ListNode;
 
 /**
@@ -264,6 +266,31 @@ public class ReverseLinkList {
             curr = temp;
         }
 
+        return pre;
+    }
+
+
+    public ListNode reverseNode20(ListNode head) {
+        ListNode pre = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode temp = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = temp;
+        }
+        return pre;
+    }
+
+    public ListNode reverseNode21(ListNode head){
+        ListNode pre = null;
+        ListNode curr = head;
+        while (curr!=null){
+            ListNode temp = curr.next;
+            curr.next  = pre;
+            pre = curr;
+            curr = temp;
+        }
         return pre;
     }
 
