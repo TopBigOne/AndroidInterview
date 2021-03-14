@@ -1,7 +1,6 @@
 package linked_list.leetcode_206;
 
 
-import com.sun.org.apache.xpath.internal.objects.XNull;
 
 import linked_list.ListNode;
 
