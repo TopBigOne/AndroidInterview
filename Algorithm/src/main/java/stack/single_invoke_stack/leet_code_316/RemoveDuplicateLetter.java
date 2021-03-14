@@ -49,6 +49,47 @@ public class RemoveDuplicateLetter {
             stringBuilder.insert(0, stack.removeLast());
         }
         return stringBuilder.toString();
+    }
+
+    public String removeDuplicateLetter(String s) {
+        int length = s.length();
+        if (length < 2) {
+            return s;
+        }
+        char[] charArray = s.toCharArray();
+
+        int[] lastIndex = new int[26];
+        for (int i = 0; i < length; i++) {
+            int i2 = charArray[i] - 'a';
+            System.out.println("i2 : " + i2);
+            lastIndex[i2] = i;
+        }
+        Deque<Character> stack = new ArrayDeque<>(length);
+        stack.addLast('a');
+        boolean[] visited = new boolean[26];
+        for (int i = 0; i < length; i++) {
+            char currentChar = charArray[i];
+            if (visited[currentChar - 'a']) {
+                continue;
+            }
+            Character lastChar;
+            while ((lastChar = stack.peekLast()) != null
+                    && currentChar < lastChar
+                    && lastIndex[lastChar - 'a'] > i) {
+                char top = stack.removeLast();
+                visited[top - 'a'] = false;
+            }
+            stack.addLast(currentChar);
+            visited[currentChar - 'a'] = true;
+
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        int size = stack.size();
+        for (int i = 0; i < size - 1; i++) {
+            stringBuilder.insert(0, stack.removeLast());
+        }
+        return stringBuilder.toString();
+
 
     }
 
