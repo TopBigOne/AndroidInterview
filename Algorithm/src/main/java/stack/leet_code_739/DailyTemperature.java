@@ -92,4 +92,22 @@ public class DailyTemperature {
     }
 
 
+  public int[] dailyTemperature5(int[] T) {
+        int length = T.length;
+        int[] result = new int[length];
+        Deque<Integer> stack = new ArrayDeque<>(16);
+        for (int i = length - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && T[i] >= T[stack.peek()]) {
+                stack.pop();
+            }
+            result[i] = stack.isEmpty() ? 0 : stack.peek() - i;
+            stack.push(i);
+
+        }
+        return result;
+    }
+
+
+
+
 }
