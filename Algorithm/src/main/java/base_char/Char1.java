@@ -1,4 +1,4 @@
-package char_demo;
+package base_char;
 
 /**
  * @author : dev
