@@ -2,6 +2,7 @@ package com.jar.yu.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
@@ -76,4 +77,7 @@ public class QuestionDialog extends Dialog {
         mTvTitle.setText(title);
         show();
     }
+
+
+
 }

@@ -2,6 +2,10 @@ package com.jar.yu;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -408,5 +412,27 @@ public class MainActivity extends AppCompatActivity {
         Looper.loop(); // 增加部分
     }
 
+
+    public Bitmap sourceBitmap(){
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test);
+        Matrix matrix = new Matrix();
+        matrix.postRotate(-90);
+
+        Bitmap tempBitmap = Bitmap.createBitmap(bitmap,0,0,3,2,matrix,false);
+        return tempBitmap;
+
+    }
+
+    /**
+     * 座位状态
+     */
+    enum SeatStatus{
+        /*可选*/
+        ENABLE,
+        /*锁定*/
+        LOCK,
+        /*占用*/
+        EXCLUSIVE
+    }
 
 }
