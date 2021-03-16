@@ -174,7 +174,7 @@ public class RemoveKDigit {
         return resLength == 0 ? "0" : res.toString();
     }
 
-    public String removeKdigists(String num, int k) {
+    public String removeKdigists7(String num, int k) {
         int length = num.length();
         int m = length - k;
         StringBuilder res = new StringBuilder();
@@ -192,6 +192,28 @@ public class RemoveKDigit {
             res.deleteCharAt(0);
         }
         return resLength == 0 ? "0" : res.toString();
+    }
+
+    public  String removeKdigist3(String num,int k){
+        int length = num.length();
+        int m = length-k;
+        StringBuilder result = new StringBuilder();
+        int resLength ;
+        for (char c : num.toCharArray()) {
+            while (k!=0&&(resLength=result.length())!=0&& result.charAt(resLength-1)>c){
+                result.deleteCharAt(resLength-1);
+                k--;
+            }
+            result.append(c);
+        }
+        result.delete(m,result.length());
+        while ((resLength= result.length())!=0&&result.charAt(0)=='0'){
+            result.deleteCharAt(0);
+        }
+
+        return resLength==0? "0":result.toString();
+
+
     }
 
 
