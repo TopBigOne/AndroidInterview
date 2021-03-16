@@ -11,17 +11,17 @@ import java.util.Stack;
  * @Desc :
  */
 public class ReverseInt {
-    public int reverse(int x) {
-        if (x == 0) {
-            return 0;
-        }
-
-
-    }
+//    public int reverse(int x) {
+//        if (x == 0) {
+//            return 0;
+//        }
+//
+//
+//    }
 
 
     public static void main(String[] args) {
         ReverseInt reverseInt = new ReverseInt();
-        int result1 = reverseInt.reverse(9646324351);
+//        int result1 = reverseInt.reverse(9646324351);
     }
 }
