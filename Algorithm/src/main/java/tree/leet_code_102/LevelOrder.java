@@ -3,10 +3,12 @@ package tree.leet_code_102;
 import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeMap;
 
+import sun.awt.image.ImageWatched;
 import ten_sort.lock.TempLock;
 import tree.TreeNode;
 
@@ -78,6 +80,44 @@ public class LevelOrder {
 
         }
         return result;
+    }
+
+
+    public List<List<Integer>> levelOrder3(TreeNode root){
+        List<List<Integer>> result = new ArrayList<>();
+        if (root==null) {
+            return  result;
+        }
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> temp = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (node==null) {
+                    continue;
+                }
+
+                temp.add(node.val);
+
+                TreeNode l = node.left;
+                if (l != null) {
+                    queue.add(l);
+                }
+                TreeNode r = node.right;
+                if (r != null) {
+                    queue.add(r);
+                }
+
+            }
+
+            result.add(temp);
+
+        }
+        return  result;
+
+
     }
 
 
