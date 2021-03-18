@@ -1,21 +1,23 @@
 package stack.leet_code_85;
 
+import java.io.Closeable;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
  * @author : dev
  * @version :
- * @Date :  3/18/21 12:02 AM
- * @Desc : 85:最大矩形 (https://leetcode-cn.com/problems/maximal-rectangle/)
+ * @Date :  3/18/21 7:40 PM
+ * @Desc :
  */
-public class MaximalRectangle {
+public class MaximalRectangle2 {
     public int maximalRectangle(char[][] matrix) {
-        if (matrix == null || matrix.length == 0) {
+        int rows;
+        if (matrix == null || (rows = matrix.length) == 0) {
             return 0;
         }
-        int rows = matrix.length;
         int cols = matrix[0].length;
+
         int[][] grid = new int[rows][cols];
         buildHistogram(matrix, grid);
         int max = 0;
@@ -25,13 +27,14 @@ public class MaximalRectangle {
         return max;
     }
 
-    private void buildHistogram(char[][] matrix, int[][] grid) {
-        // 第一行，要特殊处理
-        for (int j = 0; j < matrix[0].length; j++) {
+    public void buildHistogram(char[][] matrix, int[][] grid) {
+        int cols = matrix[0].length;
+        for (int j = 0; j < cols; j++) {
             grid[0][j] = matrix[0][j] == '1' ? 1 : 0;
         }
-        for (int i = 1; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++) {
+        int rows = matrix.length;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 grid[i][j] = matrix[i][j] == '1' ? grid[i - 1][j] + 1 : 0;
             }
         }
@@ -48,11 +51,9 @@ public class MaximalRectangle {
             }
             stack.push(curIndex++);
         }
-        while (( stack.peek()) != null && stack.peek() != -1) {
+        while (stack.peek() != null && stack.peek() != -1) {
             max = Math.max(max, grid[bottom][stack.pop()] * (grid[bottom].length - stack.peek() - 1));
         }
         return max;
     }
-
-
 }
