@@ -11,15 +11,13 @@ public class FibByAccumulate {
         if (n <= 0) {
             return 0;
         }
-        if (n == 2) {
-            return n;
-        } else if (n == 1) {
+        if (n == 1 || n == 2) {
             return n;
         }
-        int temp;
-        int res = 2;
+        int temp = 0;
+        int res = 1;
         int pre = 1;
-        for (int i = 3; i < n; i++) {
+        for (int i = 3; i <= n; i++) {
             temp = res;
             res += pre;
             pre = temp;
@@ -29,8 +27,8 @@ public class FibByAccumulate {
 
     public static void main(String[] args) {
         FibByAccumulate accumulate = new FibByAccumulate();
-        int result = accumulate.fib(8);
-        System.out.println("result:"+result);
+        int result = accumulate.fib(45);
+        System.out.println("result:" + result);
     }
 
 }
