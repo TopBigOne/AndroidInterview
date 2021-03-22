@@ -1,7 +1,5 @@
 package stack.leet_code_503;
 
-import java.lang.reflect.Array;
-import java.net.Inet4Address;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
@@ -229,7 +227,6 @@ public class NextGreaterElement {
         return result;
     }
 
-
     public int[] nextGenerateElements11(int[] nums) {
         int length = nums.length;
         int[] result = new int[length];
@@ -275,7 +272,6 @@ public class NextGreaterElement {
         }
         return result;
     }
-
 
     public int[] nextGreaterElement14(int[] nums) {
         int length = nums.length;
