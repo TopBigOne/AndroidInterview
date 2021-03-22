@@ -1,9 +1,5 @@
 package stack.single_invoke_stack.leet_code_150;
 
-import com.sun.org.apache.bcel.internal.generic.POP;
-
-import org.omg.CORBA.INTERNAL;
-
 import java.util.Stack;
 
 /**
