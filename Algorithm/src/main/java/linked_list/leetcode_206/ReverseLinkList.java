@@ -1,14 +1,15 @@
 package linked_list.leetcode_206;
 
-
-
 import linked_list.ListNode;
 
 /**
  * @author : dev
  * @version :
  * @Date :  1/25/21 5:19 PM
- * @Desc : 反转链表（https://leetcode-cn.com/problems/reverse-linked-list/）
+ * @Desc : 206 反转链表（https://leetcode-cn.com/problems/reverse-linked-list/）
+ * 视频：https://www.bilibili.com/video/BV1Af4y1m7Ct?from=search&seid=13384506544605607285
+ *       https://www.bilibili.com/video/BV1U7411A75v/?spm_id_from=autoNext
+ * 留意一下 反转链表2，字节高频面试题：
  */
 public class ReverseLinkList {
     public ListNode reverseList(ListNode head) {
@@ -292,6 +293,20 @@ public class ReverseLinkList {
         }
         return pre;
     }
+
+
+    public ListNode reverseNode22(ListNode head){
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur!=null){
+            ListNode temp = cur.next;
+            cur.next= pre;
+            pre = cur;
+            cur = temp;
+        }
+        return  pre;
+    }
+
 
 
 }
