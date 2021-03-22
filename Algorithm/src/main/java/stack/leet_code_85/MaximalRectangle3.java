@@ -1,6 +1,5 @@
 package stack.leet_code_85;
 
-import com.sun.org.glassfish.external.amx.AMX;
 
 /**
  * @author : dev
@@ -19,13 +18,12 @@ public class MaximalRectangle3 {
         buildHistogram(matrix,grid);
         int max = 0;
         for (int i = 0; i < rows; i++) {
-            max = Math.max(max,maxRec(grid,i));
+          //  max = Math.max(max,maxRec(grid,i));
         }
         return max;
     }
 
     private void buildHistogram(char[][] matrix, int[][] grid) {
-
         int cols = matrix[0].length;
         for (int j = 0; j <cols; j++) {
             grid[0][j]  = matrix[0][j]=='1'? 1:0;
