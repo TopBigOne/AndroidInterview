@@ -21,7 +21,6 @@ import com.jar.yu.R;
  * @Desc :
  */
 public class QuestionDialog extends Dialog {
-
     private TextView mTvTitle;
     private Button   mBtnYes;
     private Button   mBtnNo;
