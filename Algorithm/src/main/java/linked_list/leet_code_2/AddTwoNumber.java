@@ -21,18 +21,21 @@ import java.util.List;
  */
 public class AddTwoNumber {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(-1);
-        ListNode pre = dummy;
+        ListNode pre = new ListNode(-1);
+        ListNode cur = pre;
         ListNode p1 = l1;
         ListNode p2 = l2;
         int carry = 0;
+
         while (p1 != null || p2 != null) {
             int x = p1 == null ? 0 : p1.val;
             int y = p2 == null ? 0 : p2.val;
             int sum = carry + x + y;
             carry = sum / 10;
-            pre.next = new ListNode(sum % 10);
-            pre = pre.next;
+            sum %= 10;
+            cur.next = new ListNode(sum);
+
+            cur = cur.next;
             if (p1 != null) {
                 p1 = p1.next;
             }
@@ -41,9 +44,9 @@ public class AddTwoNumber {
             }
         }
         if (carry > 0) {
-            pre.next = new ListNode(carry);
+            cur.next = new ListNode(carry);
         }
-        return dummy.next;
+        return pre.next;
     }
 
 
@@ -53,7 +56,7 @@ public class AddTwoNumber {
         ListNode pre = dummy;
         ListNode p1 = l1;
         ListNode p2 = l2;
-        System.out.println("before : dummy "+dummy);
+        System.out.println("before : dummy " + dummy);
 
         int carry = 0;
         while (p1 != null || p2 != null) {
@@ -64,11 +67,11 @@ public class AddTwoNumber {
             pre.next = new ListNode(sum % 10);
             // 将新节点的赋值给原来的节点；
             // pre 只保持一个节点
-            System.out.println("before pre  : "+pre);
-            System.out.println("before dummy: dummy "+dummy);
+            System.out.println("before pre  : " + pre);
+            System.out.println("before dummy: dummy " + dummy);
             pre = pre.next;
-            System.out.println("after  pre  : "+pre);
-            System.out.println("after dummy : dummy "+dummy);
+            System.out.println("after  pre  : " + pre);
+            System.out.println("after dummy : dummy " + dummy);
 
             if (p1 != null) {
                 p1 = p1.next;
@@ -86,22 +89,55 @@ public class AddTwoNumber {
 
         return dummy.next;
 
+
     }
+
+
+    public ListNode addTwoNumbers3(ListNode l1, ListNode l2) {
+        ListNode p1 = l1;
+        ListNode p2 = l2;
+        ListNode pre = new ListNode(-1);
+        ListNode cur = pre;
+        int carry = 0;
+        while (p1 != null || p2 != null) {
+            int x = p1 == null ? 0 : p1.val;
+            int y = p2 == null ? 0 : p2.val;
+            int sum = x + y + carry;
+            carry = sum / 10;
+            sum %= 10;
+            cur.next = new ListNode(sum);
+            cur = cur.next;
+            if (p2 != null) {
+                p2 = p2.next;
+            }
+            if (p1 != null) {
+                p1 = p1.next;
+            }
+
+        }
+        if (carry > 0) {
+            cur.next = new ListNode(carry);
+        }
+        return pre.next;
+    }
+
 
     public static void main(String[] args) {
         List<Integer> d = new ArrayList<>();
-        List<Integer> p= d;
+        List<Integer> p = d;
+
         p.add(1);
         p.add(3);
         p.add(5);
-        System.out.println("TTTTTTT:p:"+Arrays.toString(p.toArray()));
+        System.out.println("TTTTTTT:p:" + Arrays.toString(p.toArray()));
         d.remove(0);
 
-        System.out.println("TTTTTTT modify:d:"+Arrays.toString(d.toArray()));
+        System.out.println("TTTTTTT modify:d:" + Arrays.toString(d.toArray()));
+
+        System.out.println(5/10);
 
 
     }
-
 
 
 }
