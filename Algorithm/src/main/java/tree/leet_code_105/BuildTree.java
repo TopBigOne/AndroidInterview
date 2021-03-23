@@ -85,7 +85,6 @@ public class BuildTree {
         return root;
     }
 
-
     private TreeNode buildTreeHelper4(int[] preorder, int[] inorder, int stop) {
         if (pre == preorder.length) {
             return null;
@@ -102,6 +101,24 @@ public class BuildTree {
         return root;
 
     }
+
+    private TreeNode buildTreeHelp5(int []preorder,int [] inorder,int stop){
+        if (pre==preorder.length) {
+            return null;
+        }
+        if (inorder[in]==stop) {
+            in++;
+            return null;
+        }
+        int rootValue = preorder[pre++];
+        TreeNode root = new TreeNode(rootValue);
+
+        root.left = buildTreeHelp5(preorder,inorder,rootValue);
+        root.right = buildTreeHelp5(preorder,inorder, stop);
+        return root;
+
+    }
+
 
 
 }
