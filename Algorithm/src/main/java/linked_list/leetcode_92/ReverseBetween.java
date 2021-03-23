@@ -109,8 +109,83 @@ public class ReverseBetween {
             cur = next;
 
         }
+        return dummyNode.next;
+    }
+
+    public ListNode reverseBetween5(ListNode head, int left, int right) {
+        ListNode dummyNode = new ListNode(0);
+        dummyNode.next = head;
+        ListNode preNode = dummyNode;
+
+        // 从虚拟节点出发，走left-1步骤，到前继节点
+        for (int i = 0; i < left - 1; i++) {
+            preNode = preNode.next;
+        }
+
+        // tail 表示已经反转过的节点
+        ListNode tail = preNode.next;
+        // cur 表示即将反转的节点
+        ListNode cur = tail.next;
+        for (int i = 0; i < right - left; i++) {
+            ListNode next = cur.next;
+            cur.next = preNode.next;
+            preNode.next = cur;
+            tail.next = next;
+            cur = next;
+        }
 
         return dummyNode.next;
+    }
+
+    public ListNode reverseBetween6(ListNode head, int left, int right) {
+        ListNode dummyNode = new ListNode(0);
+        dummyNode.next = head;
+        ListNode preNode = dummyNode;
+        for (int i = 0; i < left - 1; i++) {
+            preNode = preNode.next;
+        }
+        // tail ,已经反转过得节点
+        ListNode tail = preNode.next;
+        // cur ，表示即将被反转的节点
+        ListNode cur = tail.next;
+        for (int i = 0; i < right - left; i++) {
+            ListNode next = cur.next;
+            cur.next = preNode.next;
+
+            preNode.next = cur;
+            cur = next;
+            tail.next = next;
+        }
+        return dummyNode.next;
+
+    }
+
+    public ListNode reverseBetween7(ListNode head, int left, int right) {
+        ListNode dummyNode = new ListNode(0);
+        dummyNode.next = head;
+        ListNode preNode = dummyNode;
+        for (int i = 0; i < left - 1; i++) {
+            preNode = preNode.next;
+        }
+
+        ListNode tail = preNode.next;
+        ListNode cur = tail.next;
+
+        for (int i = 0; i < right - left; i++) {
+            ListNode next = cur.next;
+            cur.next = preNode.next;
+            preNode.next = cur;
+            cur = next;
+            tail.next = next;
+        }
+        return dummyNode.next;
+
+    }
+
+
+
+
+    public ListNode reverseBetween8(ListNode head,int left ,int right){
 
 
     }
