@@ -1,9 +1,10 @@
 package com.top.jar;
 
+import tree.TreeNode;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 /**
  * 产生假数据的工具类
  */

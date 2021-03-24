@@ -181,13 +181,23 @@ public class ReverseBetween {
         return dummyNode.next;
 
     }
-
-
-
-
     public ListNode reverseBetween8(ListNode head,int left ,int right){
-
-
+        ListNode dummyNode = new ListNode(0);
+        dummyNode.next = head;
+        ListNode preNode = dummyNode;
+        for(int i = 0;i<left-1;i++){
+            preNode = preNode.next;
+        }
+        ListNode tail = preNode.next;
+        ListNode cur = tail.next;
+        for(int i = 0;i<right-left;i++){
+            ListNode next = cur.next;
+            cur.next = preNode.next;
+            preNode.next = cur;
+            cur = next;
+            tail.next = next;
+        }
+        return dummyNode.next;
     }
 
 

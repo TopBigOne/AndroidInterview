@@ -1,6 +1,7 @@
 package com.top.jar.chapter_003.t_01;
 
 import com.top.jar.MockDataUtils;
+import tree.TreeNode;
 
 public class TestTraverseTree {
     public static void main(String[] args) {
