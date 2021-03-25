@@ -1,5 +1,7 @@
 package stack.leet_code_17_21;
 
+import com.sun.corba.se.spi.activation.EndpointInfoListHelper;
+
 /**
  * @author : dev
  * @version :
@@ -163,41 +165,80 @@ public class Trap {
     }
 
     public int trap6(int[] height) {
-        int leftIndex = 0;
         int length = height.length;
+        int leftIndex = 0;
         int sum = 0;
         while (leftIndex < length) {
             int temp = 0;
             int rightIndex = length - 1;
             int leftHeight = height[leftIndex];
-            boolean isLight = height[rightIndex] > leftHeight; int leftIndex = 0;
-            int length = height.length;
-            int sum = 0;
-            while (leftIndex < length) {
-                int temp = 0;
-                int rightIndex = length - 1;
-                int leftHeight = height[leftIndex];
-                // 右边大于左边
-                boolean isLight = height[rightIndex] > leftHeight;
-                int rightHeight = height[rightIndex--];
-                int next = length;
-                while (leftIndex < rightIndex) {
-                    int innerRightHeight = height[rightIndex];
-                    if (innerRightHeight > leftHeight || innerRightHeight >= rightHeight) {
-                        temp = 0;
-                        next = rightIndex;
-                        isLight = innerRightHeight > leftHeight;
-                        rightHeight = innerRightHeight;
-                    } else {
-                        temp = temp + (isLight ? leftHeight - innerRightHeight : rightHeight - innerRightHeight);
-                    }
-                    rightIndex--;
+            int rightHeight = height[rightIndex--];
+            boolean isLight = rightHeight > leftHeight;
+            int next = length;
+            while (leftIndex < rightIndex) {
+                int innerRightHeight = height[rightIndex];
+                if (innerRightHeight > leftHeight || innerRightHeight > rightHeight) {
+                    temp = 0;
+                    next = rightIndex;
+                    isLight = innerRightHeight > leftHeight;
+                    rightHeight = innerRightHeight;
+                } else {
+                    temp = temp + (isLight ? leftHeight - innerRightHeight : rightHeight - innerRightHeight);
                 }
 
-                sum += temp;
-                leftIndex = next;
+                rightIndex--;
             }
-            return sum;
+            sum += temp;
+            leftIndex = next;
+        }
+
+        return sum;
+
+    }
+
+
+    public int trap7(int[] height) {
+        int length = height.length;
+        int leftIndex = 0;
+        int sum = 0;
+        while (leftIndex < length) {
+            int temp = 0;
+            int leftHeight = height[leftIndex];
+            int rightIndex = length - 1;
+            int rightHeight = height[rightIndex--];
+            int next = length;
+            boolean isLight = rightHeight > leftHeight;
+            while (leftIndex < rightIndex) {
+                int innerRightHeight = height[rightIndex];
+                if (innerRightHeight > leftHeight || innerRightHeight > rightHeight) {
+                    temp = 0;
+                    next = rightIndex;
+                    isLight = innerRightHeight > leftHeight;
+                    rightHeight = innerRightHeight;
+                } else {
+                    temp = temp + (isLight ? leftHeight - innerRightHeight : rightHeight - innerRightHeight);
+                }
+
+                rightIndex--;
+            }
+            sum += temp;
+            leftIndex = next;
+
+        }
+        return sum;
+    }
+
+
+    public int trap8(int[] height) {
+        int length = height.length;
+        int leftIndex = 0;
+        int sum = 0;
+
+        while (leftIndex < length) {
+            int temp = 0;
+            int rightIndex = length - 1;
+            int leftHeight = height[leftIndex];
+            boolean isLight = height[rightIndex] > leftHeight;
             int rightHeight = height[rightIndex--];
             int next = length;
             while (leftIndex < rightIndex) {
@@ -211,51 +252,79 @@ public class Trap {
                     temp = temp + (isLight ? leftHeight - innerRightHeight : rightHeight - innerRightHeight);
                 }
                 rightIndex--;
+
             }
             sum += temp;
             leftIndex = next;
         }
-
         return sum;
-
     }
 
-    public int trap7(int[] height) {
-
-    }
-
-    public int trap8(int[] height) {
+    public int trap9(int[] height) {
         int length = height.length;
         int leftIndex = 0;
         int sum = 0;
         while (leftIndex < length) {
             int temp = 0;
-            int rightIndex = length - 1;
             int leftHeight = height[leftIndex];
-            boolean isLight = height[rightIndex] > leftHeight;
+            int rightIndex = length - 1;
             int rightHeight = height[rightIndex--];
+            boolean isLight = rightHeight > leftHeight;
             int next = length;
             while (leftIndex < rightIndex) {
                 int innerRightHeight = height[rightIndex];
-                if (innerRightHeight > leftHeight || innerRightHeight >= rightHeight) {
-
+                if (innerRightHeight > leftHeight || innerRightHeight > rightHeight) {
                     temp = 0;
-                    next = rightHeight;
+                    next = rightIndex;
+                    isLight = innerRightHeight > leftHeight;
+                    rightHeight = innerRightHeight;
+
+
+                } else {
+                    temp = temp + (isLight ? leftHeight - innerRightHeight : rightHeight - innerRightHeight);
+
+                }
+
+                rightIndex--;
+            }
+            sum += temp;
+            // 左指针，也开始右移动
+            leftIndex = next;
+
+        }
+        return sum;
+    }
+
+
+    public int trap10(int[] height) {
+        int length = height.length;
+        int sum = 0;
+        int leftIndex = 0;
+        while (leftIndex < length) {
+            int temp = 0;
+            int rightIndex = length - 1;
+            int leftHeight = height[leftIndex];
+            int rightHeight = height[rightIndex--];
+            boolean isLight = rightHeight > leftHeight;
+            int next = length;
+            while (leftIndex < rightIndex) {
+                int innerRightHeight = height[rightIndex];
+                if (innerRightHeight > leftHeight || innerRightHeight > rightHeight) {
+                    temp = 0;
+                    next = rightIndex;
                     isLight = innerRightHeight > leftHeight;
                     rightHeight = innerRightHeight;
                 } else {
                     temp = temp + (isLight ? leftHeight - innerRightHeight : rightHeight - innerRightHeight);
                 }
                 rightIndex--;
-
             }
+
             sum += temp;
             leftIndex = next;
         }
 
-
         return sum;
     }
-
 
 }
