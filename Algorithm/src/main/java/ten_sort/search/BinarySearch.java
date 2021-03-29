@@ -135,7 +135,6 @@ public class BinarySearch {
     public static int getIndex7(int[] raw, int target) {
         int low = 0;
         int high = raw.length - 1;
-
         while (low < high) {
             int mid = low + (low + high) >> 1;
             // 在右侧
@@ -146,6 +145,59 @@ public class BinarySearch {
                 low = mid - 1;
 
             } else {
+                return mid;
+            }
+        }
+
+        return -1;
+    }
+
+    public static int getIndex8(int[] raw, int target) {
+        int low = 0;
+        int high = raw.length - 1;
+        while (low < high) {
+            // 位运算的优先级，是低于加减运算的
+            int mid = low + (high - low >> 1);
+            if (target > raw[mid]) {
+                high = mid + 1;
+            } else if (target < raw[mid]) {
+                low = mid - 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
+    }
+
+    public static int getIndex9(int[] raw, int target) {
+        int low = 0;
+        int high = raw.length - 1;
+        while (low < high) {
+            int mid = low + (high - low >> 1);
+            if (target > raw[mid]) {
+                high = mid + 1;
+            } else if (target < raw[mid]) {
+                low = mid - 1;
+            } else {
+                return mid;
+            }
+
+        }
+        return -1;
+    }
+
+
+    public static int getIndex10(int[] raw, int target) {
+        int low = 0;
+        int high = raw.length;
+        while (low < high) {
+            int mid = low + (high - low >> 1);
+            if (target > raw[mid]) {
+                high = mid + 1;
+            } else if (target < raw[mid]) {
+                low = mid - 1;
+            }
+            else {
                 return mid;
             }
         }
