@@ -19,10 +19,10 @@ import java.util.Arrays;
 public class MaximumSwap {
     /**
      * 解题思路:
-     * 将数组转为字符串数组方便遍历每一个数字
-     * 从后往前遍历，避免1993交换后出现9193而不是9913
-     * 用一个数组记录从后往前的每一个数对应的最大值的索引比如1993，从3开始遍历，最大值是3，3的索引是3，遍历到1时，在已经遍历过的元素中最大是9，所以maxArr[0]是9的索引2，最后maxArr =[2,2,2,3]
-     * 再从头遍历原数组，比如chars[0] = 1,和他应该对应的最大值chars[maxArr[0]] = chars[2] = 9不相等 则交换
+     * 1：将数组转为字符串数组方便遍历每一个数字
+     * 2：从后往前遍历，避免1993交换后出现9193而不是9913
+     * 3：用一个数组记录从后往前的每一个数对应的最大值的索引比如1993，从3开始遍历，最大值是3，3的索引是3，遍历到1时，在已经遍历过的元素中最大是9，所以maxArr[0]是9的索引2，最后maxArr =[2,2,2,3]
+     * 4：再从头遍历原数组，比如chars[0] = 1,和他应该对应的最大值chars[maxArr[0]] = chars[2] = 9不相等 则交换
      * 再举个例子98368，maxArr = [0,4,4,4,4],chars[0] = chars[maxArr[0]] = 9 跳过
      * chars[1] = 8, chars[maxArr[1]] = chars[4] = 8 相等 继续跳过
      * chars[2] = 3, chars[maxArr[3]] = chars[4] = 8 不相等，交换
@@ -34,15 +34,16 @@ public class MaximumSwap {
         char[] chars = Integer.toString(num).toCharArray();
         int length = chars.length;
 
-        int maxIdx = length - 1;
+        int maxIndex = length - 1;
 
         int[] maxArr = new int[length];
 
         for (int i = length - 1; i >= 0  ; i--) {
-            if (chars[i] > chars[maxIdx]) {
-                maxIdx = i;
+            if (chars[i] > chars[maxIndex]) {
+                // maxIndex 的值可以是：3，2，1，0
+                maxIndex = i;
             }
-            maxArr[i] = maxIdx;
+            maxArr[i] = maxIndex;
             System.out.println(Arrays.toString(maxArr));
         }
 
