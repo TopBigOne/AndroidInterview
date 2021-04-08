@@ -88,7 +88,6 @@ public class ReverseLinkList {
         return cur;
     }
 
-
     public ListNode reverseListNode7(ListNode head) {
         ListNode curr = null;
         ListNode pre = head;
@@ -102,7 +101,6 @@ public class ReverseLinkList {
         return curr;
     }
 
-
     public ListNode reverseListNode8(ListNode head) {
         ListNode curr = null;
         ListNode pre = head;
@@ -115,7 +113,6 @@ public class ReverseLinkList {
 
         return curr;
     }
-
 
     public ListNode reverseListNode9(ListNode head) {
         ListNode curr = null;
@@ -194,7 +191,6 @@ public class ReverseLinkList {
         return curr;
     }
 
-
     public ListNode reverseListNode15(ListNode head) {
         ListNode curr = null;
         ListNode pre = head;
@@ -208,7 +204,6 @@ public class ReverseLinkList {
 
     }
 
-
     public ListNode reverseListNode16(ListNode head) {
         ListNode curr = null;
         ListNode pre = head;
@@ -220,7 +215,6 @@ public class ReverseLinkList {
         }
         return curr;
     }
-
 
     public ListNode reverseListNode17(ListNode head) {
         ListNode curr = null;
@@ -269,7 +263,6 @@ public class ReverseLinkList {
         return pre;
     }
 
-
     public ListNode reverseNode20(ListNode head) {
         ListNode pre = null;
         ListNode curr = head;
@@ -294,7 +287,6 @@ public class ReverseLinkList {
         return pre;
     }
 
-
     public ListNode reverseNode22(ListNode head){
         ListNode pre = null;
         ListNode cur = head;
@@ -305,6 +297,20 @@ public class ReverseLinkList {
             cur = temp;
         }
         return  pre;
+    }
+
+    public ListNode reverseNode23(ListNode head){
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur!=null){
+            ListNode temp  = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = temp;
+        }
+
+        return  pre;
+
     }
 
 
