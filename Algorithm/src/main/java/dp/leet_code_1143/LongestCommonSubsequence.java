@@ -113,6 +113,7 @@ public class LongestCommonSubsequence {
             for (int j = 0; j < n; j++) {
                 char c1 = text1.charAt(i);
                 char c2 = text2.charAt(j);
+
                 if (c1 == c2) {
                     dp[i + 1][j + 1] = dp[i][j] + 1;
                     continue;
