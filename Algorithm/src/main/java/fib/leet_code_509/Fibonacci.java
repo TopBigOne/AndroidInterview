@@ -1,4 +1,4 @@
-package com.fib;
+package fib.leet_code_509;
 
 import java.util.concurrent.RecursiveTask;
 
