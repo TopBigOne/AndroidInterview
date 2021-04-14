@@ -27,18 +27,16 @@ public class MaximumSwap {
      * chars[1] = 8, chars[maxArr[1]] = chars[4] = 8 相等 继续跳过
      * chars[2] = 3, chars[maxArr[3]] = chars[4] = 8 不相等，交换
      * 只要交换完成则跳出循环
+     *
      * @param num
      * @return
      */
     public int maximumSwap(int num) {
         char[] chars = Integer.toString(num).toCharArray();
         int length = chars.length;
-
         int maxIndex = length - 1;
-
         int[] maxArr = new int[length];
-
-        for (int i = length - 1; i >= 0  ; i--) {
+        for (int i = length - 1; i >= 0; i--) {
             if (chars[i] > chars[maxIndex]) {
                 // maxIndex 的值可以是：3，2，1，0
                 maxIndex = i;
@@ -57,8 +55,210 @@ public class MaximumSwap {
         }
         return Integer.parseInt(new String(chars));
 
+    }
+
+    public int maximumSwap2(int num) {
+        char[] chars = Integer.toString(num).toCharArray();
+        int length = chars.length;
+        int maxIndex = length - 1;
+        int[] maxArr = new int[length];
+        for (int i = length - 1; i >= 0; i--) {
+            // 从后往前遍历，与最后一个值比较
+            if (chars[i] > chars[maxIndex]) {
+                maxIndex = i;
+            }
+            maxArr[i] = maxIndex;
+
+        }
+
+        for (int i = 0; i < length; i++) {
+            if (chars[maxArr[i]] != chars[i]) {
+                char temp = chars[maxArr[i]];
+                chars[maxArr[i]] = chars[i];
+                chars[i] = temp;
+                break;
+            }
+        }
+
+        return Integer.parseInt(new String(chars));
+    }
+
+    public int maximum5(int num) {
+        char[] chars = Integer.toString(num).toCharArray();
+        int length = chars.length;
+        int[] maxArr = new int[length];
+        int maxIndex = length - 1;
+        for (int i = length - 1; i >= 0; i--) {
+            if (chars[i] > chars[maxIndex]) {
+                maxIndex = i;
+            }
+            maxArr[i] = maxIndex;
+        }
+
+        for (int i = 0; i < length; i++) {
+            int maxCur = maxArr[i];
+            if (chars[maxCur] != chars[i]) {
+                char temp = chars[maxCur];
+                chars[maxCur] = chars[i];
+                chars[i] = temp;
+                break;
+            }
+        }
+
+        return Integer.parseInt(new String(chars));
+    }
+
+
+    public int maximumSwap3(int num) {
+        char[] chars = Integer.toString(num).toCharArray();
+        int length = chars.length;
+        int maxIndex = length - 1;
+        int[] maxArr = new int[length];
+        for (int i = length - 1; i >= 0; i--) {
+            if (chars[i] > chars[maxIndex]) {
+                maxIndex = i;
+            }
+            maxArr[i] = maxIndex;
+        }
+        for (int i = 0; i < length; i++) {
+            if (chars[maxArr[i]] != chars[i]) {
+                char temp = chars[maxArr[i]];
+                chars[maxArr[i]] = chars[i];
+                chars[i] = temp;
+            }
+        }
+        return Integer.parseInt(new String(chars));
+    }
+
+
+    public int maximumSwap4(int num) {
+        char[] chars = Integer.toString(num).toCharArray();
+        int length = chars.length;
+        int maxIndex = length - 1;
+        int[] maxArr = new int[length];
+        for (int i = length - 1; i >= 0; i--) {
+            if (chars[i] > chars[maxIndex]) {
+                maxIndex = i;
+            }
+            maxArr[i] = maxIndex;
+
+        }
+
+        for (int i = 0; i < length; i++) {
+            int maxCur = maxArr[i];
+            if (chars[maxCur] != chars[i]) {
+                char temp = chars[maxCur];
+                chars[maxCur] = chars[i];
+                chars[i] = temp;
+                break;
+            }
+        }
+        return Integer.parseInt(new String(chars));
+
+    }
+
+    public int maximum6(int num) {
+        char[] chars = Integer.toString(num).toCharArray();
+        int length = chars.length;
+        int[] maxArr = new int[length];
+        int maxIndex = length - 1;
+        for (int i = length - 1; i >= 0; i--) {
+            if (chars[i] > chars[maxIndex]) {
+                maxIndex = i;
+            }
+            maxArr[i] = maxIndex;
+        }
+
+        for (int i = 0; i < length; i++) {
+            int maxCur = maxArr[i];
+            if (chars[maxCur] != chars[i]) {
+                char temp = chars[maxCur];
+                chars[maxCur] = chars[i];
+                chars[i] = temp;
+                break;
+            }
+        }
+
+        return Integer.parseInt(new String(chars));
 
 
     }
+
+    public int maximum7(int num) {
+        char[] chars = Integer.toString(num).toCharArray();
+        int length = chars.length;
+        int[] maxArr = new int[length];
+        int maxIndex = length - 1;
+        for (int i = length - 1; i >= 0; i--) {
+            if (chars[i] > chars[maxIndex]) {
+                maxIndex = i;
+            }
+            maxArr[i] = maxIndex;
+        }
+
+        for (int i = 0; i < length; i++) {
+            int curMaxIndex = maxArr[i];
+            if (chars[curMaxIndex] != chars[i]) {
+                char temp = chars[curMaxIndex];
+                chars[curMaxIndex] = chars[i];
+                chars[i] = temp;
+                // 一定要做中断处理
+                break;
+            }
+        }
+        return Integer.parseInt(new String(chars));
+
+
+    }
+
+    public int maximum8(int num) {
+        char[] chars = Integer.toString(num).toCharArray();
+        int length = chars.length;
+        int[] maxArr = new int[length];
+        int maxIndex = length - 1;
+        for (int i = length - 1; i >= 0; i--) {
+            if (chars[i] > chars[maxIndex]) {
+                maxIndex = i;
+            }
+            maxArr[i] = maxIndex;
+        }
+        for (int i = 0; i < length; i++) {
+            int curMaxIndex = maxArr[i];
+
+            if (chars[curMaxIndex] != chars[i]) {
+                char temp = chars[curMaxIndex];
+                chars[curMaxIndex] = chars[i];
+                chars[i] = temp;
+                // 一定要做中断处理
+                break;
+            }
+        }
+        return Integer.parseInt(new String(chars));
+    }
+
+    public int maximum9(int num){
+        char[] chars = Integer.toString(num).toCharArray();
+        int length = chars.length;
+        int [] maxArr = new int[length];
+        int maxIndex = length-1;
+        for (int i = length-1; i >= 0; i--) {
+            if (chars[i]>chars[maxIndex]) {
+                maxIndex = i;
+            }
+            maxArr [i] = maxIndex;
+        }
+
+        for (int i = 0; i < length; i++) {
+            int curMaxIndex  = maxArr[i];
+            if(chars[curMaxIndex]!=chars[i]){
+                char temp = chars[curMaxIndex];
+                chars[curMaxIndex] = chars[i];
+                chars[i] = temp;
+                break;
+            }
+        }
+      return   Integer.parseInt(new String(chars));
+    }
+
 
 }
