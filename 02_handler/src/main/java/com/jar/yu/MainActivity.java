@@ -3,23 +3,15 @@ package com.jar.yu;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.os.MessageQueue;
+import android.os.*;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.jar.yu.dialog.QuestionDialog;
 
 import java.lang.reflect.InvocationTargetException;
@@ -83,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("jar--B");
         initEvent();
         initWorkThreadHandler();
+
     }
 
     class SubThread implements Runnable{
