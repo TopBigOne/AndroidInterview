@@ -1,4 +1,4 @@
-package com.fib.leet_code_172;
+package fib.leet_code_172;
 
 /**
  * @author : dev
