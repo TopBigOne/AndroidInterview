@@ -9,12 +9,7 @@ import tree.TreeNode;
  * @Date :  3/19/21 12:40 AM
  * @Desc : 105 : 从前序和中序遍历 构造二叉树（https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/）
  * 题解
- * <p>
- * <p>
- * <p>
- * <p>
- * <p>
- * <p>
+ * 还可以看一下，leetcode 上 offer 07（https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/）
  * 前序遍历 preorder = [3,9,20,15,7]
  * 中序遍历 inorder = [9,3,15,20,7]
  * 返回如下的二叉树：
