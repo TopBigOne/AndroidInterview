@@ -7,7 +7,8 @@ import tree.TreeNode;
  * @author : dev
  * @version :
  * @Date :  3/23/21 12:22 AM
- * @Desc :
+ *
+ * @Desc : 字节半年考了 21 次；
  */
 public class BuildTree4 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
@@ -31,4 +32,6 @@ public class BuildTree4 {
         root.right = buildHelpTree(preorder, inorder, stop);
         return root;
     }
+
+
 }
