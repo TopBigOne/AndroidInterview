@@ -11,7 +11,7 @@ import tree.util.XYLog;
  * @Date :  3/16/21 11:23 AM
  * @Desc :
  */
-public class rui {
+public class Rui {
     List<Integer> result = new ArrayList<>();
     public List<Integer> bfs(TreeNode tree) {
         ArrayList<TreeNode> treeNodes = new ArrayList<>();
@@ -55,7 +55,7 @@ public class rui {
         root.right.right.right= new TreeNode(30);
         XYLog.d(root);
 
-        rui rui = new rui();
+        Rui rui = new Rui();
         List<Integer> list = rui.bfs(root);
         System.out.println("result: "+list);
 
