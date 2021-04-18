@@ -10,7 +10,11 @@ import tree.TreeNode;
  * @author : dev
  * @version :
  * @Date :  2/14/21 9:53 PM
- * @Desc :通过 层级遍历 的方式实现 二叉树的 序列化与反序列化（https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/）
+ *
+ * @Desc : 字节半年出现了 8 次：
+ *
+ * 通过 层级遍历 的方式实现 二叉树的
+ * 序列化与反序列化（https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/）
  */
 public class CodecByLayer {
     public static final String SEP = ",";
