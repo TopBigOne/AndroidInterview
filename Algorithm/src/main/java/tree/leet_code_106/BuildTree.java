@@ -15,7 +15,6 @@ import tree.TreeNode;
  * 题解：https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/solution/hou-xu-bian-li-python-dai-ma-java-dai-ma-by-liwe-2/
  */
 public class BuildTree {
-
     private int[] postorder;
     private Map<Integer, Integer> hash;
 
