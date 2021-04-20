@@ -1,18 +1,12 @@
 package com.hencoder.plus.view;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PathDashPathEffect;
-import android.graphics.PathMeasure;
+import android.graphics.*;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-
 import com.hencoder.plus.Utils;
 
 import static com.hencoder.plus.Utils.dp2px;
@@ -72,7 +66,7 @@ public class Dashboard extends View {
                 (getHeight() >> 1) - RADIUS,
                 (getWidth() >> 1) + RADIUS,
                 (getHeight() >> 1) + RADIUS,
-                90 + ANGLE / 2,
+                90 + ANGLE>> 1,
                 360 - ANGLE,
                 false, mPaint);
 
@@ -87,6 +81,8 @@ public class Dashboard extends View {
                 (float) Math.cos(Math.toRadians(getAngleFromMark(5))) * LENGTH + (getWidth() >> 1),
                 (float) Math.sin(Math.toRadians(getAngleFromMark(5))) * LENGTH + (getHeight() >> 1)
                 , mPaint);
+
+
 
 
     }
