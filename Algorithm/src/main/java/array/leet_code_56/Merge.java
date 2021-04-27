@@ -104,7 +104,6 @@ public class Merge {
         if (intervals == null || intervals.length == 0) {
             return intervals;
         }
-
         Arrays.sort(intervals, (v1, v2) -> v1[0] - v2[0]);
         List<int[]> result = new ArrayList<>();
         result.add(intervals[0]);
@@ -117,7 +116,26 @@ public class Merge {
             result.add(intervals[i]);
         }
         return result.toArray(new int[result.size()][2]);
+    }
 
+
+    public int[][] merge6(int[][] intervals) {
+        if (intervals == null || intervals.length == 0) {
+            return intervals;
+        }
+        Arrays.sort(intervals, (v1, v2) -> v1[0] - v2[0]);
+        List<int[]> result = new ArrayList<>();
+        result.add(intervals[0]);
+        for (int i = 1; i < intervals.length; i++) {
+            int[] lastArray = result.get(result.size() - 1);
+            if (lastArray[1] >= intervals[i][0]) {
+                lastArray[1] = Math.max(lastArray[1], intervals[i][1]);
+                continue;
+            }
+            result.add(intervals[i]);
+        }
+
+        return result.toArray(new int[result.size()][2]);
     }
 
 
