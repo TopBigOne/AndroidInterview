@@ -19,8 +19,10 @@ package com.jar.jvm.static_extend;
 public class A {
     public static String staticStr = "A静态属性";
     public String nonStaticStr = "A非静态属性";
-    public static void staticMethod(){
+    public static String staticMethod(){
         System.out.println("A静态方法");
+
+        return "";
     }
     public void nonStaticMethod(){
         System.out.println("A非静态方法");

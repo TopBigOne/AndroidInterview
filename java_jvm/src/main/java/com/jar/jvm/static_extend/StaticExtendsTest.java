@@ -19,12 +19,15 @@ package com.jar.jvm.static_extend;
 public class StaticExtendsTest {
 
     public static void main(String[] args) {
-        System.out.println("-------------------------------new C():");
+        System.out.println("类C继承类A， 用类C来做测试:");
         //输出的结果都是父类中的非静态属性、静态属性和静态方法,推出静态属性和静态方法可以被继承
         C c = new C();
-        System.out.println(c.nonStaticStr);
-        System.out.println(c.staticStr);
-        c.staticMethod();
+        // C 类的非静态属性
+        System.out.println("c.nonStaticStr ："+c.nonStaticStr);
+        // C 类的静态属性
+        System.out.println("c.staticStr ： "+c.staticStr);
+        // C 类的
+        System.out.println("c.staticMethod() : "+c.staticMethod());
 
 
         System.out.println("------------------------------A c1 = new C():");
