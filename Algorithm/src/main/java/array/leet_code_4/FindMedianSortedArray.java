@@ -1,9 +1,5 @@
 package array.leet_code_4;
 
-import org.omg.CORBA.INTERNAL;
-
-import javax.sound.midi.Soundbank;
-
 /**
  * @author : dev
  * @version :
@@ -13,6 +9,10 @@ import javax.sound.midi.Soundbank;
  * 题解：https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-2/
  * <p>
  * https://blog.csdn.net/chen_xinjia/article/details/69258706
+ *
+ *
+ *
+ * 视频：https://www.youtube.com/watch?v=do7ibYtv5nk&t=193s
  */
 public class FindMedianSortedArray {
     public double findMedianSortedArrays(int[] A, int[] B) {
