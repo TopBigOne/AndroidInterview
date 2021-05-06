@@ -95,9 +95,23 @@ public class FirstMissingPositive {
     private int firstMissPositive4(int[] nums) {
         int len = nums.length;
         for (int i = 0; i < len; i++) {
-            int curValue = nums[i];
-            while (curValue > 0 && curValue <= len && nums[curValue - 1] != curValue) {
-                swap(nums, curValue - 1, i);
+            while (nums[i] > 0 && nums[i] <= len && nums[nums[i] - 1] != nums[i]) {
+                swap(nums, nums[i] - 1, i);
+            }
+        }
+        for (int i = 0; i < len; i++) {
+            if (nums[i] != i + 1) {
+                return i + 1;
+            }
+        }
+        return len + 1;
+    }
+
+    private int firstMissPositive5(int[] nums) {
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            while (nums[i] > 0 && nums[i] <= len && nums[nums[i] - 1] != nums[i]) {
+                swap(nums, nums[i] - 1, i);
             }
         }
 
@@ -106,9 +120,24 @@ public class FirstMissingPositive {
                 return i + 1;
             }
         }
+
         return len + 1;
+    }
 
 
+    private int firstMissPositive6(int[] nums) {
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            while (nums[i] > 0 && nums[i] <= len && nums[nums[i] - 1] != nums[i]) {
+                swap(nums, nums[i] - 1, i);
+            }
+        }
+        for (int i = 0; i < len; i++) {
+            if (nums[i] != i + 1) {
+                return i + 1;
+            }
+        }
+        return len + 1;
     }
 
 
