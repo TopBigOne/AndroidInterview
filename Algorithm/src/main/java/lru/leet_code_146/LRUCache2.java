@@ -94,7 +94,7 @@ public class LRUCache2 {
             // 尾节点的下一个节点为空
             tail.next = null;
             deletedNode.pre = null;
-
+            return;
         }
         // 移除链表中间某个位置的节点
         deletedNode.pre.next = deletedNode.next;
@@ -105,7 +105,7 @@ public class LRUCache2 {
 
     }
 
-    class Node {
+   static class Node {
         int key;
         int value;
         Node pre;
