@@ -8,7 +8,7 @@ import linked_list.ListNode;
  * @Date :  1/25/21 5:19 PM
  * @Desc : 206 反转链表（https://leetcode-cn.com/problems/reverse-linked-list/）
  * 视频：https://www.bilibili.com/video/BV1Af4y1m7Ct?from=search&seid=13384506544605607285
- *       https://www.bilibili.com/video/BV1U7411A75v/?spm_id_from=autoNext
+ * https://www.bilibili.com/video/BV1U7411A75v/?spm_id_from=autoNext
  * 留意一下 反转链表2，字节高频面试题：
  */
 public class ReverseLinkList {
@@ -275,44 +275,62 @@ public class ReverseLinkList {
         return pre;
     }
 
-    public ListNode reverseNode21(ListNode head){
+    public ListNode reverseNode21(ListNode head) {
         ListNode pre = null;
         ListNode curr = head;
-        while (curr!=null){
+        while (curr != null) {
             ListNode temp = curr.next;
-            curr.next  = pre;
+            curr.next = pre;
             pre = curr;
             curr = temp;
         }
         return pre;
     }
 
-    public ListNode reverseNode22(ListNode head){
+    public ListNode reverseNode22(ListNode head) {
         ListNode pre = null;
         ListNode cur = head;
-        while (cur!=null){
+        while (cur != null) {
             ListNode temp = cur.next;
-            cur.next= pre;
+            cur.next = pre;
             pre = cur;
             cur = temp;
         }
-        return  pre;
+        return pre;
     }
 
-    public ListNode reverseNode23(ListNode head){
+    public ListNode reverseNode23(ListNode head) {
         ListNode pre = null;
         ListNode cur = head;
-        while (cur!=null){
-            ListNode temp  = cur.next;
+        while (cur != null) {
+            ListNode temp = cur.next;
             cur.next = pre;
             pre = cur;
             cur = temp;
         }
 
-        return  pre;
-
+        return pre;
     }
 
+    public ListNode reverseNode24(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode pre = null;
+        ListNode curr = head;
+        while(curr!=null){
+            ListNode temp = curr.next;
+            // 当前节点的下一个节点，指向上一个节点；
+            curr.next = pre;
+            // 上一个节点，后移动一位，指向当前节点；
+            pre = curr;
+            // 当前节点，后移一位，指向下一个节点： ListNode temp = curr.next;
+            curr = temp;
+        }
+
+        return pre;
+    }
 
 
 }
