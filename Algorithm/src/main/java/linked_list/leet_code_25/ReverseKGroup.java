@@ -1,5 +1,7 @@
 package linked_list.leet_code_25;
 
+import java.util.List;
+
 import linked_list.ListNode;
 
 /**
@@ -8,7 +10,7 @@ import linked_list.ListNode;
  * @Date :  2021/5/6 20:26
  * @Desc :  K个一组反转链表：字节：36次：https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
  * 题解：https://leetcode-cn.com/problems/reverse-nodes-in-k-group/solution/tu-jie-kge-yi-zu-fan-zhuan-lian-biao-by-user7208t/
- *
+ * <p>
  * 视频：https://www.bilibili.com/video/BV1i44111721?from=search&seid=3623965927550448834
  */
 public class ReverseKGroup {
@@ -24,7 +26,6 @@ public class ReverseKGroup {
         // 初始换pre 和end
         ListNode pre = dummy;
         ListNode end = dummy;
-
 
         while (end.next != null) {
             // 循环k次，找到需要循环的链表的结尾，这里每次循环判断end是否等于空，因为如果为空，end.next 会报空指针异常
@@ -57,6 +58,94 @@ public class ReverseKGroup {
 
     }
 
+    public ListNode reverseKGroup2(ListNode head, int k) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode pre = dummy;
+        ListNode end = dummy;
+        while (end.next != null) {
+
+            for (int i = 0; i < k && end != null; i++) {
+                end = end.next;
+            }
+
+            if (end == null) {
+                break;
+            }
+            ListNode start = pre.next;
+            ListNode next = end.next;
+            end.next = null;
+            pre.next = reverse(start);
+            start.next = next;
+
+            pre = start;
+            end = pre;
+
+
+        }
+        return dummy.next;
+
+    }
+
+    public ListNode reverseKGroup3(ListNode head, int k) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode end = dummy;
+        while (end.next != null) {
+            for (int i = 0; i < k && end != null; i++) {
+                end = end.next;
+            }
+            if (end == null) {
+                break;
+            }
+            ListNode start = pre.next;
+            ListNode next = end.next;
+            end.next = null;
+            pre.next = reverse(start);
+            start.next = next;
+            pre = start;
+            end = pre;
+
+        }
+        return dummy.next;
+
+    }
+
+    public ListNode reverseKGroup4(ListNode head, int k) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode end = dummy;
+
+        while (end.next != null) {
+            for (int i = 0; i < k && end != null; i++) {
+                end = end.next;
+            }
+            if (end == null) {
+                break;
+            }
+            ListNode start = pre.next;
+            ListNode next = end.next;
+            end.next = null;
+            pre.next = reverse(start);
+            start.next = next;
+            pre = start;
+            end = pre;
+
+
+        }
+
+        return dummy.next;
+    }
+
     /**
      * 链表翻转
      *
@@ -79,7 +168,6 @@ public class ReverseKGroup {
         return pre;
 
     }
-
 
 
 }
