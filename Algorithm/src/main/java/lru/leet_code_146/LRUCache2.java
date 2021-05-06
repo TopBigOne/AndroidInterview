@@ -1,29 +1,23 @@
 package lru.leet_code_146;
 
-
 import java.util.HashMap;
 
 /**
  * @author : dev
  * @version :
- * @Date :  3/28/21 6:20 PM
- * @Desc : Lru Cache https://leetcode-cn.com/problems/lru-cache/solution/
- * 底层用的
- * <p>
- * <p>
- * 视频讲解（https://www.bilibili.com/video/BV13i4y1b7Qy/?spm_id_from=autoNext）
- * 类似题目：LFU
+ * @Date :  2021/5/6 14:30
+ * @Desc :  Lru Cache https://leetcode-cn.com/problems/lru-cache/solution/
+ * 字节：38次
  */
-public class LRUCache {
-    private int cap;
+public class LRUCache2 {
     private Node head;
     private Node tail;
+    private int capacity;
     private HashMap<Integer, Node> map;
 
-    public LRUCache(int capacity) {
-        this.cap = capacity;
+    public LRUCache2(int capacity) {
+        this.capacity = capacity;
         map = new HashMap<>(capacity);
-
     }
 
     public int get(int key) {
@@ -31,101 +25,97 @@ public class LRUCache {
         if (node == null) {
             return -1;
         }
-
+        // 存在
         int res = node.value;
-        // 移除当前 Node 所在的位置，
+        // 1: 移除当前node；
         remove(node);
-        // 将当前的使用的节点，放到头部
+        // 2: 将当前正在使用的节点，放在头部；
         appendHead(node);
         return res;
     }
 
     public void put(int key, int value) {
         Node node = map.get(key);
-        if (node == null) {
-            node = new Node(key, value);
-
-            // cache 没有满
-            if (map.size() < cap) {
-                appendHead(node);
-                map.put(key, node);
-                return;
-            }
-            // cache 已经满了,移除尾部
-            map.remove(tail.key);
-            remove(tail);
-
+        // 1:已经存在，
+        if (node != null) {
+            node.value = value;
+            remove(node);
+            appendHead(node);
+            return;
+        }
+        // 2:node 不存在，是一个新节点
+        node = new Node(key, value);
+        // 2.1:判断缓存大小
+        // 没有超过缓存大小，直接放入
+        if (map.size() < capacity) {
             appendHead(node);
             map.put(key, node);
             return;
-
         }
+        // 2.2 cache 已满了，移除尾部，再做添加
+        map.remove(tail.key);
+        remove(tail);
 
-        // node 已经存在
-        node.value = value;
-        remove(node);
         appendHead(node);
+        map.put(key, node);
+
     }
 
-    /**
-     * 头插法
-     *
-     * @param newNode 新插入的节点；
-     */
+
     private void appendHead(Node newNode) {
-        // 第一次添加的时候
+        // 第一次添加
         if (head == null) {
             head = tail = newNode;
             return;
         }
-
         // 头插法
         newNode.next = head;
         head.pre = newNode;
         head = newNode;
     }
 
-    /**
-     * 删除指定节点
-     *
-     * @param deletedNode
-     */
     private void remove(Node deletedNode) {
+        // 1： 就一个节点
         if (head == tail) {
             head = tail = null;
             return;
         }
-
+        // 2：移除头节点
         if (head == deletedNode) {
             head = head.next;
+            // help GC;
             deletedNode.next = null;
             return;
         }
-
+        // 3: 移除尾节点
         if (tail == deletedNode) {
+            // 前移一位
             tail = tail.pre;
+            // 尾节点的下一个节点为空
             tail.next = null;
             deletedNode.pre = null;
-            return;
-        }
 
-        // 删除的是中间节点
+        }
+        // 移除链表中间某个位置的节点
         deletedNode.pre.next = deletedNode.next;
         deletedNode.next.pre = deletedNode.pre;
         // help GC;
         deletedNode.pre = null;
         deletedNode.next = null;
+
     }
 
-    static class Node {
-        Node pre;
-        Node next;
+    class Node {
         int key;
         int value;
+        Node pre;
+        Node next;
 
-        Node(int key, int value) {
+        public Node(int key, int value) {
             this.key = key;
             this.value = value;
         }
     }
+
+
 }
