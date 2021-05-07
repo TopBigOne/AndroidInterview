@@ -1,7 +1,5 @@
 package linked_list.leet_code_25;
 
-import java.util.List;
-
 import linked_list.ListNode;
 
 /**
@@ -140,17 +138,73 @@ public class ReverseKGroup {
             pre = start;
             end = pre;
 
-
         }
 
         return dummy.next;
     }
 
+    public ListNode reverseKGroup5(ListNode head, int k) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode end = dummy;
+        while (end.next != null) {
+            for (int i = 0; i < k && end != null; i++) {
+                end = end.next;
+            }
+            if (end == null) {
+                break;
+            }
+            ListNode start = pre.next;
+            ListNode next = end.next;
+            end.next = null;
+            pre.next = reverse(start);
+            start.next = next;
+            pre = start;
+            end = pre;
+
+        }
+        return dummy.next;
+
+    }
+
+    public ListNode reverseKGroup6(ListNode head, int k) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode end = dummy;
+        while (end.next != null) {
+            for (int i = 0; i < k && end != null; i++) {
+                end = end.next;
+            }
+            if (end == null) {
+                break;
+            }
+
+            ListNode start = pre.next;
+            ListNode next = end.next;
+            end.next = null;
+            pre.next = reverse(start);
+            start.next = next;
+
+            pre = start;
+            end = pre;
+        }
+
+        return dummy.next;
+
+
+    }
+
+
     /**
      * 链表翻转
      *
      * @param head 头节点
-     * @return
+     * @return 反转以后的链表
      */
     private ListNode reverse(ListNode head) {
         if (head == null || head.next == null) {
@@ -166,7 +220,6 @@ public class ReverseKGroup {
         }
 
         return pre;
-
     }
 
 
