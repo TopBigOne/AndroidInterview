@@ -345,7 +345,6 @@ public class ReverseLinkList {
         }
 
         return pre;
-
     }
 
 
