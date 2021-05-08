@@ -1,5 +1,7 @@
 package linked_list.leet_code_19;
 
+import java.util.List;
+
 import linked_list.ListNode;
 
 /**
@@ -66,6 +68,73 @@ public class RemoveNthFromEnd {
         delNode.next = null;// help GC;
         return dummy.next;
 
+    }
+
+    /**
+     * @param head
+     * @param n    倒数第 n 个
+     * @return
+     */
+    public ListNode removeNthFromEnd3(ListNode head, int n) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode fast = dummy;
+        ListNode slow = dummy;
+        // 快指针向后移动 n+1 步
+        for (int i = 0; i <= n; i++) {
+            fast = fast.next;
+        }
+        // 快慢指针同时向后移动，直到快指针的下一个指针为 null；
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        // now，慢指针的下一个节点，就是要删除的节点
+        ListNode delNode = slow.next;
+        slow.next = delNode.next;
+        delNode.next = null;// help GC;
+        return dummy.next;
+
+    }
+
+    public ListNode removeNthFromEnd4(ListNode head, int n) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode fast = dummy;
+        ListNode slow = dummy;
+        for (int i = 0; i <= n; i++) {
+            fast = fast.next;
+        }
+
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        ListNode delNode = slow.next;
+        slow.next = delNode.next;
+        delNode.next = null;
+        return dummy.next;
+
+    }
+
+    public ListNode removeNthFromEnd5(ListNode head, int n) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode fast = dummy;
+        ListNode slow = dummy;
+        for (int i = 0; i < n + 1; i++) {
+            fast = fast.next;
+        }
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        ListNode delNode = slow.next;
+        slow.next = delNode.next;
+        delNode.next = null;// help GC;
+
+        return dummy.next;
     }
 
 
