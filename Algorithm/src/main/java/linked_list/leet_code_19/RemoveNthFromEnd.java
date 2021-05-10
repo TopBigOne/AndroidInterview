@@ -1,7 +1,5 @@
 package linked_list.leet_code_19;
 
-import java.util.List;
-
 import linked_list.ListNode;
 
 /**
@@ -12,6 +10,8 @@ import linked_list.ListNode;
  * ：https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
  * 输入：head = [1,2,3,4,5], n = 2
  * 输出：[1,2,3,5]
+ * <p>
+ * 使用快慢指针
  */
 public class RemoveNthFromEnd {
     public ListNode removeNthFromEnd(ListNode head, int n) {
@@ -133,6 +133,27 @@ public class RemoveNthFromEnd {
         ListNode delNode = slow.next;
         slow.next = delNode.next;
         delNode.next = null;// help GC;
+
+        return dummy.next;
+    }
+
+    public ListNode removeNthFromEnd6(ListNode head, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode fast = dummy;
+        ListNode slow = dummy;
+        for (int i = 0; i < n+1 && fast != null; i++) {
+            fast = fast.next;
+        }
+
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        ListNode delNode = slow.next;
+        slow.next = delNode.next;
+        delNode.next = null;
 
         return dummy.next;
     }
