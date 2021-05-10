@@ -42,7 +42,26 @@ public class Demo_01 {
             lock.unlock();
 
         }
-
-
     }
+
+
+    public void test2() {
+        ReentrantLock lock = new ReentrantLock();
+        lock.lock();
+        try {
+            try {
+                if (lock.tryLock(100, TimeUnit.MICROSECONDS)) {
+                    // do sth....
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                lock.unlock();
+            }
+        } finally {
+            lock.unlock();
+        }
+    }
+
+
 }
