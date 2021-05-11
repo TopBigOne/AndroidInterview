@@ -1,5 +1,7 @@
 package linked_list.leet_code_21;
 
+import java.util.List;
+
 import linked_list.ListNode;
 
 /**
@@ -33,6 +35,32 @@ public class MergeTwoLists {
 
         return dummy.next;
 
+
+    }
+
+    public ListNode mergeTwoList4(ListNode l1,ListNode l2){
+        if (l1==null) {
+            return l2;
+        }
+        if(l2==null){
+            return l1;
+        }
+        ListNode dummy = new ListNode(-1);
+        ListNode curr = dummy;
+
+        while (l1!=null&&l2!=null){
+            if(l1.val<l2.val){
+                curr.next= l1;
+                l1= l1.next;
+            }else {
+                curr.next= l2;
+                l2 = l2.next;
+            }
+            curr = curr.next;
+        }
+
+        curr.next = l1==null? l2:l1;
+        return dummy.next;
 
     }
 }
