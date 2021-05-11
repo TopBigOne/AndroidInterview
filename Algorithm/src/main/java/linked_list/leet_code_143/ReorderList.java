@@ -1,4 +1,4 @@
-package linked_list.leet_143;
+package linked_list.leet_code_143;
 
 import linked_list.ListNode;
 
@@ -6,7 +6,7 @@ import linked_list.ListNode;
  * @author : dev
  * @version :
  * @Date :  2021/5/10 20:57
- * @Desc : 字节半年：24次；143：重排链表 ：https://leetcode-cn.com/problems/reorder-list/
+ * @Desc : 字节半年：24次；中等-143：重排链表 ：https://leetcode-cn.com/problems/reorder-list/
  * 给定一个单链表 L：L0→L1→…→Ln-1→Ln ，
  * 将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→…
  * <p>
@@ -60,7 +60,7 @@ public class ReorderList {
      *
      * @param head
      */
-    public void reorderList(ListNode head) {
+    public void reorderList1(ListNode head) {
         if (head == null || head.next == null
                 || head.next.next == null) {
             return;
@@ -84,6 +84,7 @@ public class ReorderList {
             ListNode temp = newHead.next;
             newHead.next = head.next;
             head.next = newHead;
+
             head = newHead.next;
             newHead = temp;
         }
@@ -118,8 +119,8 @@ public class ReorderList {
         }
     }
 
-    public void reorderList3(ListNode head){
-        if (head==null||head.next==null||head.next.next==null) {
+    public void reorderList3(ListNode head) {
+        if (head == null || head.next == null || head.next.next == null) {
             return;
         }
         // 找中点，链表拆分成2个
@@ -132,7 +133,7 @@ public class ReorderList {
 
         ListNode newHead = slow.next;
         newHead = doReverse(newHead);
-        while (newHead!=null){
+        while (newHead != null) {
             ListNode temp = newHead.next;
             newHead.next = head.next;
             head.next = newHead;
@@ -142,7 +143,173 @@ public class ReorderList {
 
     }
 
+    public void reorderList4(ListNode head) {
+        if (head == null || head.next == null || head.next.next == null) {
+            return;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        ListNode newHead = slow.next;
+        slow.next = null;
+        newHead = doReverse(newHead);
+        while (newHead != null) {
+            ListNode temp = newHead.next;
+            newHead.next = head.next;
+            head.next = newHead;
 
+            head = newHead.next;
+            newHead = temp;
+        }
+    }
+
+    public void reorderList5(ListNode head) {
+        if (head == null || head.next == null || head.next.next == null) {
+            return;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        ListNode newHead = slow.next;
+        slow.next = null;
+        newHead = doReverse(newHead);
+
+        while (newHead != null) {
+            ListNode temp = newHead.next;
+            newHead.next = head.next;
+            head.next = newHead;
+
+            head = newHead.next;
+            newHead = temp;
+        }
+
+    }
+
+    public void reorderList6(ListNode head) {
+        if (head == null || head.next == null || head.next.next == null) {
+            return;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        ListNode newHead = slow.next;
+        slow.next = null;
+        // 第二个链表倒置
+        newHead = doReverse(newHead);
+        while (newHead != null) {
+            ListNode temp = newHead.next;
+            newHead.next = head.next;
+            head.next = newHead;
+            head = newHead.next;
+            newHead = temp;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void reorderList7(ListNode head){
+        if (head==null||head.next==null||head.next.next==null) {
+            return;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast.next!=null&&fast.next.next!=null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        ListNode newHead = slow.next;
+        slow.next = null;
+
+        newHead = doReverse(newHead);
+        while (newHead!=null){
+            ListNode temp = newHead.next;
+            newHead.next = head.next;
+            head.next = newHead;
+            head = newHead.next;
+            newHead = temp;
+        }
+
+    }
 
 
 }
