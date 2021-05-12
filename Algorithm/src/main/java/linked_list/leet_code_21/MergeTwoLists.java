@@ -1,7 +1,5 @@
 package linked_list.leet_code_21;
 
-import java.util.List;
-
 import linked_list.ListNode;
 
 /**
@@ -9,6 +7,8 @@ import linked_list.ListNode;
  * @version :
  * @Date :  2021/5/11 19:07
  * @Desc : 简单：合并两个有序链表  字节：34次：https://leetcode-cn.com/problems/merge-two-sorted-lists/
+ *
+ * 归并排序
  */
 public class MergeTwoLists {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
