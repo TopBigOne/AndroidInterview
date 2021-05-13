@@ -1,20 +1,19 @@
 package linked_list.leet_code_24;
 
-import com.top.jar.chapter_001.t_04.pet.Pet;
-
-import java.util.concurrent.CyclicBarrier;
-
 import linked_list.ListNode;
-import sun.text.resources.cldr.yav.FormatData_yav;
 
 /**
  * @author : dev
  * @version :
  * @Date :  4/17/21 1:55 PM
  * @Desc : 两两交换链表中的节点，使用非递归的方式，便于理解
+ * （https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/）
  * <p>
  * 视频讲解：
  * https://www.bilibili.com/video/BV13J411V7hG?from=search&seid=6008195535902271070
+ * <p>
+ * 图画的不错
+ * https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/liang-liang-jiao-huan-lian-biao-zhong-de-jie-di-65/
  */
 public class SwapPair2 {
     /**
@@ -117,15 +116,167 @@ public class SwapPair2 {
             future.next = cur;
             pre = pre.next.next;
 
-
         }
-
-
-
-
 
         return dummy.next;
     }
+
+    /**
+     * https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/tu-jie-24-liang-liang-jiao-huan-lian-bia-63fj/
+     *
+     * @param head
+     * @return
+     */
+    public ListNode swapPairs5(ListNode head) {
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+
+        ListNode pre = dummy;
+
+        while (pre.next != null && pre.next.next != null) {
+
+            ListNode node1 = pre.next;
+            ListNode node2 = node1.next;
+
+            pre.next = node2;
+            node1.next = node2.next;
+            node2.next = node1;
+            pre = node1;
+        }
+        return dummy.next;
+    }
+
+
+    /**
+     * https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/tu-jie-24-liang-liang-jiao-huan-lian-bia-63fj/
+     *
+     * @param head
+     * @return
+     */
+    public ListNode swapPairs6(ListNode head) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = head;
+        while (curr != null && curr.next != null) {
+            ListNode mark1 = curr.next;
+            ListNode mark2 = curr.next.next;
+            curr.next.next = curr;
+            curr.next = mark2;
+            pre.next = mark1;
+
+            pre = curr;
+            curr = mark2;
+        }
+        return dummy.next;
+    }
+
+    public ListNode swapPais7(ListNode head) {
+        // dummy 大法
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = head;
+        while (curr != null && curr.next != null) {
+            // 重新获取 mark1 和mark2
+            ListNode mark1 = curr.next;
+            ListNode mark2 = curr.next.next;
+            // 做交换：三步走；
+            curr.next.next = curr;
+            curr.next = mark2;
+            pre.next = mark1;
+
+            // pre 指针和curr 变量后移，ps: 因为是两两交换，指针肯定是往后移动两位
+            pre = curr;
+            curr = mark2;
+        }
+        return dummy.next;
+    }
+
+    public ListNode swapPairs8(ListNode head) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = head;
+
+        while (curr != null && curr.next != null) {
+            ListNode mark1 = curr.next;
+            ListNode mark2 = curr.next.next;
+            curr.next.next = curr;
+            curr.next = mark2;
+            pre.next = mark1;
+
+            pre = curr;
+            curr = mark2;
+        }
+        return dummy.next;
+    }
+
+
+    public ListNode swapPairs9(ListNode head) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = head;
+        while (curr != null && curr.next != null) {
+            ListNode mark1 = curr.next;
+            ListNode mark2 = curr.next.next;
+
+            // swap
+            curr.next.next = curr;
+            curr.next = mark2;
+            pre.next = mark1;
+
+            pre = curr;
+            curr = mark2;
+        }
+
+        return dummy.next;
+    }
+
+    public ListNode swapPairs11(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = head;
+        while (curr != null && curr.next != null) {
+            ListNode mark1 = curr.next;
+            ListNode mark2 = curr.next.next;
+
+            curr.next.next = curr;
+            curr.next = mark2;
+            pre.next = mark1;
+
+            // 平移
+            pre = curr;
+            curr = mark2;
+
+        }
+
+        return dummy.next;
+    }
+
+    public ListNode swapPairs13(ListNode head){
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = head;
+
+        while (curr!=null&&curr.next!=null){
+            ListNode mark1 = curr.next;
+            ListNode mark2 = curr.next.next;
+
+            curr.next.next = curr;
+            curr.next = mark2;
+            pre.next = mark1;
+
+            pre = curr;
+            curr = mark2;
+        }
+
+        return dummy.next;
+    }
+
 
 
 }
