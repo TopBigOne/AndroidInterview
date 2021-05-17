@@ -14,7 +14,7 @@ import linked_list.ListNode;
  * <p>
  * 输入：(6 -> 1 -> 7) + (2 -> 9 -> 5)，即617 + 295
  * 输出：9 -> 1 -> 2，即912
- *
+ * <p>
  * 题解：https://leetcode-cn.com/problems/sum-lists-lcci/solution/clian-biao-mo-ni-shou-gong-qiu-he-jian-dan-yi-dong/
  */
 public class AddTwoNumber {
@@ -47,6 +47,46 @@ public class AddTwoNumber {
             p = p.next;
         }
         return dummy.next;
+
+
+    }
+
+    public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(-1);
+        ListNode p1 = l1;
+        ListNode p2 = l2;
+        ListNode curr = dummy;
+        int carry = 0;
+        while (p1 != null || p2 != null) {
+            int sum = 0;
+
+            int x = p1 == null ? 0 : p1.val;
+            int y = p2 == null ? 0 : p2.val;
+            sum = x + y + carry;
+
+            // p1 和 p2 往后移动一个单位
+            if (p1 != null) {
+                p1 = p1.next;
+            }
+            if (p2 != null) {
+                p2 = p2.next;
+            }
+
+            // 计算进位
+            carry = sum / 10;
+            // 用10 对 sum 进行取余操作，并用这个余数 创建新节点
+            sum = sum % 10;
+            curr.next = new ListNode(sum);
+            curr = curr.next;
+
+        }
+
+        if(carry>0){
+            curr.next = new ListNode(carry);
+        }
+        return dummy.next;
+
+
     }
 
 
