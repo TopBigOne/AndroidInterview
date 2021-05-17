@@ -14,58 +14,40 @@ import linked_list.ListNode;
  * <p>
  * 输入：(6 -> 1 -> 7) + (2 -> 9 -> 5)，即617 + 295
  * 输出：9 -> 1 -> 2，即912
+ *
+ * 题解：https://leetcode-cn.com/problems/sum-lists-lcci/solution/clian-biao-mo-ni-shou-gong-qiu-he-jian-dan-yi-dong/
  */
 public class AddTwoNumber {
-    /**
-     * 先相加再反转
-     *
-     * @param l1
-     * @param l2
-     * @return
-     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        l1= doReverse(l1);
-        l2= doReverse(l2);
-
         ListNode dummy = new ListNode(-1);
-        ListNode curr = dummy;
         ListNode p1 = l1;
         ListNode p2 = l2;
-
+        ListNode p = dummy;
         int carry = 0;
-        while (p1 != null || p2 != null) {
-            int x = p1 == null ? 0 : p1.val;
-            int y = p2 == null ? 0 : p2.val;
-            int sum = carry + x + y;
-            carry = sum / 10;
-            curr.next = new ListNode(sum % 10);
-            curr = curr.next;
+
+        while (p1 != null || p2 != null || carry != 0) {
+            int sum = 0;
             if (p1 != null) {
+                sum += p1.val;
                 p1 = p1.next;
             }
             if (p2 != null) {
+                sum += p2.val;
                 p2 = p2.next;
             }
 
+            // 加上上一位的进位
+            sum += carry;
+            // 得到当前位 数字
+            ListNode temp = new ListNode(sum % 10);
+            // 得到当前为 对下一位的进位
+            carry = sum / 10;
+            // 当前位连接上去
+            p.next = temp;
+            p = p.next;
         }
-        if (carry > 0) {
-            curr.next = new ListNode(carry);
-        }
-
-        return doReverse(dummy.next);
-
+        return dummy.next;
     }
 
-    private ListNode doReverse(ListNode head) {
-        ListNode pre = null;
-        ListNode curr = head;
-        while (curr != null) {
-            ListNode temp = curr.next;
-            curr.next = pre;
-            pre = curr;
-            curr = temp;
-        }
-        return pre;
-    }
 
 }
