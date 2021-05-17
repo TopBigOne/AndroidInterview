@@ -1,7 +1,5 @@
 package linked_list.interview_02_02;
 
-import java.net.SocketTimeoutException;
-
 import linked_list.ListNode;
 
 /**
