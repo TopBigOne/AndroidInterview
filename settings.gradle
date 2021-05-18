@@ -1,3 +1,4 @@
+include ':hook_5'
 include ':java_annotation'
 include ':java_pattern'
 include ':java_collection'
