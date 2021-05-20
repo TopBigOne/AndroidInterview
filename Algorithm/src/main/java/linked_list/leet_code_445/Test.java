@@ -1,0 +1,29 @@
+package linked_list.leet_code_445;
+
+import linked_list.ListNode;
+
+/**
+ * @author : dev
+ * @version :
+ * @Date :  2021/5/20 18:25
+ * @Desc :
+ */
+public class Test {
+    public static void main(String[] args) {
+        ListNode l1 = new ListNode(7);
+        l1.next = new ListNode(2);
+        l1.next.next = new ListNode(4);
+        l1.next.next.next = new ListNode(3);
+
+        ListNode l2 = new ListNode(5);
+        l2.next = new ListNode(6);
+        l2.next.next = new ListNode(4);
+
+
+        AddTwoNumber addTwoNumber = new AddTwoNumber();
+        ListNode result = addTwoNumber.addTwoNumbers(l1, l2);
+
+        System.out.println("result : "+result);
+
+    }
+}
