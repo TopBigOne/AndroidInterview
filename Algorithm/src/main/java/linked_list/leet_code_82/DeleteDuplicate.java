@@ -7,7 +7,7 @@ import linked_list.ListNode;
  * @version :
  * @Date :  2021/5/18 20:50
  * @Desc :    leetcode 82: 删除排序链表中的重复元素：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/
- *
+ * <p>
  * 题解：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/solution/fu-xue-ming-zhu-di-gui-die-dai-yi-pian-t-wy0h/
  */
 public class DeleteDuplicate {
@@ -63,9 +63,55 @@ public class DeleteDuplicate {
             }
             curr = curr.next;
         }
+        return dummy.next;
+    }
+
+    public ListNode deleteDuplicate3(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = head;
+        while (curr != null) {
+            while (curr.next != null && curr.val == curr.next.val) {
+                curr = curr.next;
+            }
+
+            if (pre.next == curr) {
+                pre = pre.next;
+            } else {
+                pre.next = curr.next;
+            }
+            curr = curr.next;
+        }
 
         return dummy.next;
+    }
 
 
+    public ListNode deleteDuplicate4(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = head;
+
+        while (curr != null) {
+            while (curr.next != null && curr.next.val == curr.val) {
+                curr = curr.next;
+            }
+            if (pre.next == curr) {
+                pre = pre.next;
+            } else {
+                pre.next = curr.next;
+            }
+            curr = curr.next;
+        }
+
+        return dummy.next;
     }
 }
