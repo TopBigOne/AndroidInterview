@@ -1,4 +1,4 @@
-package linked_list.Leet_code_234;
+package linked_list.leet_code_234;
 
 import linked_list.ListNode;
 
