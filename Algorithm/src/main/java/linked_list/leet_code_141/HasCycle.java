@@ -16,7 +16,7 @@ public class HasCycle {
         }
         ListNode fast = head;
         ListNode slow = head;
-        while (fast != null && head.next != null) {
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
             if (slow == fast) {
@@ -25,4 +25,26 @@ public class HasCycle {
         }
         return false;
     }
+
+    public boolean heaCycle(ListNode head) {
+        if (head == null) {
+            return false;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if (slow == fast) {
+                return true;
+            }
+
+        }
+
+        return false;
+
+    }
+
+
 }
