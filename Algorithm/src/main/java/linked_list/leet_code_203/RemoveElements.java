@@ -26,8 +26,6 @@ public class RemoveElements {
         }
         return dummy.next;
     }
-
-
     public static void main(String[] args) {
         ListNode head = new ListNode(7);
         head.next = new ListNode(7);
@@ -44,6 +42,5 @@ public class RemoveElements {
         System.out.println("result : " + result);
 
     }
-
 
 }
