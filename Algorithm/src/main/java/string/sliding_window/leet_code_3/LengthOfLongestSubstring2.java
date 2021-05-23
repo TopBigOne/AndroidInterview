@@ -1,4 +1,4 @@
-package string.leet_code_3;
+package string.sliding_window.leet_code_3;
 
 import java.util.HashMap;
 import java.util.Map;

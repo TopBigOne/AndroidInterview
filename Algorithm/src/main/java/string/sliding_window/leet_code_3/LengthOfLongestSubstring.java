@@ -1,4 +1,4 @@
-package string.leet_code_3;
+package string.sliding_window.leet_code_3;
 
 import java.util.HashMap;
 
@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class LengthOfLongestSubstring {
     public int lengthOfLongestSubstring(String s) {
         if (s.length() == 0) return 0;
-        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> map = new HashMap<>();
         int max = 0;
         int left = 0;
         for (int i = 0; i < s.length(); i++) {
