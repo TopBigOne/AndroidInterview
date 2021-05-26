@@ -7,8 +7,17 @@ import java.util.Map;
  * @author : dev
  * @version :
  * @Date :  5/22/21 9:35 PM
- * @Desc : leetcode 76 ：最小窗口，困难，字节：26 次：https://leetcode-cn.com/problems/minimum-window-substring/
- * <p>
+ * @Desc : leetcode 76 ：最小覆盖子串，困难，字节：26 次：https://leetcode-cn.com/problems/minimum-window-substring/
+ * 给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 。
+ *
+ * 注意：如果 s 中存在这样的子串，我们保证它是唯一的答案。
+ *
+ *
+ * 示例 1：
+ *
+ * 输入：s = "ADOBECODEBANC", t = "ABC"
+ * 输出："BANC"
+ *
  * video: https://www.youtube.com/watch?v=WtSq5lAdg7M
  * <p>
  * <p>
@@ -362,6 +371,5 @@ public class MinWindow {
         }
         return result;
     }
-
 
 }
