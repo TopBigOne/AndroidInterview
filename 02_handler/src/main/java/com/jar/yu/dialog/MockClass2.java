@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
  * @Desc :
  */
 public class MockClass2  implements Handler.Callback {
-
     /**
      * Handler 的 call back
      * @param msg

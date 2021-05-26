@@ -11,6 +11,8 @@ public class Demo_01 {
 
     public void test() {
         synchronized (lock) {
+
+
             // do sth....
         }
     }

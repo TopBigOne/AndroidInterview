@@ -1,17 +1,16 @@
 package com.android.interview.activity;
 
 import android.os.Bundle;
-
-import com.android.interview.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import com.android.interview.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 public class ScrollingActivity extends AppCompatActivity  implements View.OnClickListener {
 
@@ -23,7 +22,6 @@ public class ScrollingActivity extends AppCompatActivity  implements View.OnClic
         initToolBar();
 
         initFloatingActionButton();
-
 
     }
 

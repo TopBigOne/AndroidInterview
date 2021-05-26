@@ -1,7 +1,5 @@
 package tree.leet_code_297;
 
-import org.omg.CORBA.INTERNAL;
-
 import java.util.LinkedList;
 
 import tree.TreeNode;
