@@ -1,12 +1,14 @@
 package string.sliding_window.leet_code_3;
 
 import java.util.HashMap;
-
 /**
  * @author : dev
  * @version :
- * @Date :  2021/4/5 23:27
- * @Desc : 无重复字符的最长子串
+ * @Date :  5/22/21 1:00 PM
+ * @Desc : leetcode :03 : 字节：56次中等 ：无重复最长子串 ：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+ * 输入: s = "abcabcbb"
+ * 输出: 3
+ * 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
  *
  * 题解：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/
  */
