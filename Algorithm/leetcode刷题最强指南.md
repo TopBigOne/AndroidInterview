@@ -48,35 +48,34 @@
 
 ###### Queue题目：
 
-    * Leetcode 225. Implement Stack using Queues
-​    * Leetcode 346. Moving Average from Data Stream
-​    * Leetcode 281. Zigzag Iterator
-​    * Leetcode 1429. First Unique Number
-​    * Leetcode 54. Spiral Matrix
-​    * Leetcode 362. Design Hit Counter
+* Leetcode 225. Implement Stack using Queues
+*    Leetcode 346. Moving Average from Data Stream
+*  Leetcode 281. Zigzag Iterator
+*  Leetcode 1429. First Unique Number
+*  Leetcode 54. Spiral Matrix Leetcode 
+* 362. Design Hit Counter
 
 ###### Stack题目：
 
-​    * Leetcode 232. Implement Queue using Stacks
-​    * Leetcode 150. Evaluate Reverse Polish Notation
-​    * Leetcode 224. Basic Calculator II (I, II, III, IV)
-​    * Leetcode 20. Valid Parentheses
-​    * Leetcode 1472. Design Browser History
-​    * Leetcode 1209. Remove All Adjacent Duplicates in String II
-​    * Leetcode 1249. Minimum Remove to Make Valid Parentheses
-​    * Leetcode 735. Asteroid Collision
+   * Leetcode 232. Implement Queue using Stacks
+   * Leetcode 150. Evaluate Reverse Polish Notation
+   * Leetcode 224. Basic Calculator II (I, II, III, IV)
+   * Leetcode 20. Valid Parentheses
+   * Leetcode 1472. Design Browser History
+   * Leetcode 1209. Remove All Adjacent Duplicates in String II
+   * Leetcode 1249. Minimum Remove to Make Valid Parentheses
+   * Leetcode 735. Asteroid Collision
 
 ###### Hashmap/ Hashset题目：
-
-​    *  Leetcode 1. Two Sum
-​    * Leetcode 146. LRU Cache (Python中可以使用OrderedDict来代替)
-​    * Leetcode 128. Longest Consecutive Sequence
-​    * Leetcode 73. Set Matrix Zeroes
-​    * Leetcode 380. Insert Delete GetRandom O(1)
-​    * Leetcode 49. Group Anagrams
-​    * Leetcode 350. Intersection of Two Arrays II
-​    * Leetcode 299. Bulls and Cows
-​    * Leetcode 348 Design Tic-Tac-Toe
+* Leetcode 1. Two Sum
+* Leetcode 146. LRU Cache (Python中可以使用OrderedDict来代替)
+* Leetcode 128. Longest Consecutive Sequence
+* Leetcode 73. Set Matrix Zeroes
+* Leetcode 380. Insert Delete GetRandom O(1)
+* Leetcode 49. Group Anagrams
+* Leetcode 350. Intersection of Two Arrays II
+* Leetcode 299. Bulls and Cows
+* Leetcode 348 Design Tic-Tac-Toe
 
 ###### Heap／Priority Queue题目：
 
@@ -115,13 +114,13 @@
 
    * Leetcode 240. Search a 2D Matrix II
 
-  ###### 隐式二分法：
-     * Leetcode 69. Sqrt(x)
-     * Leetcode 540. Single Element in a Sorted Array
-     * Leetcode 644. Maximum Average Subarray II
-     * Leetcode 528. Random Pick with Weight
-     * Leetcode 1300. Sum of Mutated Array Closest to Target
-     * Leetcode 1060. Missing Element in Sorted Array
+###### 隐式二分法：
+* Leetcode 69. Sqrt(x)
+* Leetcode 540. Single Element in a Sorted Array
+* Leetcode 644. Maximum Average Subarray II
+* Leetcode 528. Random Pick with Weight
+* Leetcode 1300. Sum of Mutated Array Closest to Target
+* Leetcode 1060. Missing Element in Sorted Array
 ###   双指针（2 Pointer）：
 
 ###### 基础知识：
@@ -139,20 +138,21 @@
 
 ###### 相向双指针：(以two sum为基础的一系列题)
 
-    * Leetcode 1. Two Sum (这里使用的是先排序的双指针算法，不同于hashmap做法)
-    * Leetcode 167. Two Sum II - Input array is sorted
-    * Leetcode 15. 3Sum
-    * Leetcode 16. 3Sum Closest
-    * Leetcode 18. 4Sum
-    * Leetcode 454. 4Sum II
-    * Leetcode 277. Find the Celebrity
-   同向双指针：（个人觉得最难的一类题）
-    * Leetcode 283. Move Zeroes
-    * Leetcode 26. Remove Duplicate Numbers in Array
-    * Leetcode 395. Longest Substring with At Least K Repeating Characters
-    * Leetcode 340. Longest Substring with At Most K Distinct Characters
-    * Leetcode 76. Minimum Window Substring
-    * Leetcode 3. Longest Substring Without Repeating Characters
+ * Leetcode 1. Two Sum (这里使用的是先排序的双指针算法，不同于hashmap做法)
+ * Leetcode 167. Two Sum II - Input array is sorted
+ * Leetcode 15. 3Sum
+ * Leetcode 16. 3Sum Closest
+ * Leetcode 18. 4Sum
+ * Leetcode 454. 4Sum II
+ * Leetcode 277. Find the Celebrity
+
+###### 同向双指针：（个人觉得最难的一类题）
+* Leetcode 283. Move Zeroes
+* Leetcode 26. Remove Duplicate Numbers in Array
+* Leetcode 395. Longest Substring with At Least K Repeating Characters
+* Leetcode 340. Longest Substring with At Most K Distinct Characters
+* Leetcode 76. Minimum Window Substring
+* Leetcode 3. Longest Substring Without Repeating Characters
 
 ### 宽度优先搜索（BFS）
 
@@ -171,35 +171,34 @@
 基于树的BFS：
 
  ##### 不需要专门一个set来记录访问过的节点
-
-      * Leetcode 102 Binary Tree Level Order Traversal
-      * Leetcode 103 Binary Tree Zigzag Level Order Traversal
-      * Leetcode 297 Serialize and Deserialize Binary Tree （很好的BFS和双指针结合的题）
-      * Leetcode 374 Binary Tree Vertical Order Traversal
+* Leetcode 102 Binary Tree Level Order Traversal
+* Leetcode 103 Binary Tree Zigzag Level Order Traversal
+* Leetcode 297 Serialize and Deserialize Binary Tree （很好的BFS和双指针结合的题）
+* Leetcode 374 Binary Tree Vertical Order Traversal
 
 基于图的BFS：
 
 （一般需要一个set来记录访问过的节点）
 
-      * Leetcode 200. Number of Islands
-      * Leetcode 133. Clone Graph
-      * Leetcode 127. Word Ladder
-      * Leetcode 490. The Maze
-      * Leetcode 323. Connected Component in Undirected Graph
-      * Leetcode 130. Surrounded Regions
-      * Leetcode 752. Open the Lock
-      * Leetcode 815. Bus Routes
-      * Leetcode 1091. Shortest Path in Binary Matrix
-      * Leetcode 542. 01 Matrix
-      * Leetcode 1293. Shortest Path in a Grid with Obstacles Elimination
+* Leetcode 200. Number of Islands
+* Leetcode 133. Clone Graph
+* Leetcode 127. Word Ladder
+* Leetcode 490. The Maze
+* Leetcode 323. Connected Component in Undirected Graph
+* Leetcode 130. Surrounded Regions
+* Leetcode 752. Open the Lock
+* Leetcode 815. Bus Routes
+* Leetcode 1091. Shortest Path in Binary Matrix
+* Leetcode 542. 01 Matrix
+* Leetcode 1293. Shortest Path in a Grid with Obstacles Elimination
 
 拓扑排序：
 
 （https://zh.wikipedia.org/wiki/%E6%8B%93%E6%92%B2%E6%8E%92%E5%BA%8F）
 
-      * Leetcode 207 Course Schedule （I, II）
-      * Leetcode 444 Sequence Reconstruction
-      * Leetcode 269 Alien Dictionary
+* Leetcode 207 Course Schedule （I, II）
+* Leetcode 444 Sequence Reconstruction
+* Leetcode 269 Alien Dictionary
 
 ### 深度优先搜索（DFS）
 
@@ -299,7 +298,6 @@ Leetcode 1335 Minimum Difficulty of a Job Schedule
 * 基础知识：前缀和本质上是在一个list当中，用O（N）的时间提前算好从第0个数字到第i个数字之和，在后续使用中可以在O（1）时间内计算出第i到第j个数字之和，一般很少单独作为一道题出现，而是很多题目中的用到的一个小技巧
 * 常见题目：
     * Leetcode 53 Maximum Subarray
-    
     * Leetcode 1423 Maximum Points You Can Obtain from Cards
     
 * Leetcode 1031 Maximum Sum of Two Non-Overlapping Subarrays
@@ -339,13 +337,12 @@ Leetcode 1335 Minimum Difficulty of a Job Schedule
 单调栈一般用于解决数组中找出每个数字的第一个大于／小于该数字的位置或者数字；单调队列只见过一道题需要使用；不论单调栈还是单调队列，单调的意思是保留在栈或者队列中的数字是单调递增或者单调递减的
 
 ###### 常见题目：
-
-        * Leetcode 85 Maximum Rectangle
-        * Leetcode 84 Largest Rectangle in Histogram
-        * Leetcode 739 Daily Temperatures
-        * Leetcode 901 Online Stock Span
-        * Leetcode 503 Next Greater Element II
-        * Leetcode 239 Sliding Window Maximum （唯一的单调队列题）
+ * Leetcode 85 Maximum Rectangle
+ * Leetcode 84 Largest Rectangle in Histogram
+ * Leetcode 739 Daily Temperatures
+ * Leetcode 901 Online Stock Span
+ * Leetcode 503 Next Greater Element II
+ * Leetcode 239 Sliding Window Maximum （唯一的单调队列题）
 扫描线算法（Sweep Line）
 
 ###### 基础知识：
@@ -354,17 +351,14 @@ Leetcode 1335 Minimum Difficulty of a Job Schedule
 
 ###### 常见题目：
 
-    * Leetcode 253 Meeting Room II（Meeting Room I也可以使用）
+* Leetcode 253 Meeting Room II（Meeting Room I也可以使用）
 
    * TreeMap
-
         * Leetcode 218 The Skyline Problem
-
         * Leetcode 759 Employee Free Time
 
 基础知识：基于红黑树（平衡二叉树）的一种树状 hashmap，增删查改均为logN复杂度，Python当中可以使用SortedDict替代
 常见题目：
-
    * Leetcode 729 My Calendar I
    * Leetcode 981 Time Based Key-Value Store
    * Leetcode 846 Hand of Straights
