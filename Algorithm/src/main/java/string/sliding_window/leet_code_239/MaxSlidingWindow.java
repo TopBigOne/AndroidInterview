@@ -6,7 +6,7 @@ import java.util.LinkedList;
  * @author : dev
  * @version :
  * @Date :  5/23/21 4:12 PM
- * @Desc : leetcode : 239 ,字节：9 次； hard:https://leetcode-cn.com/problems/sliding-window-maximum/submissions/
+ * @Desc : leetcode : 239 滑动窗口最大值,字节：9 次； hard:https://leetcode-cn.com/problems/sliding-window-maximum/submissions/
  * <p>
  * 是我的思维
  * 题解：https://leetcode-cn.com/problems/sliding-window-maximum/solution/dong-hua-yan-shi-dan-diao-dui-lie-239hua-hc5u/
@@ -161,18 +161,18 @@ public class MaxSlidingWindow {
         if (nums == null || (len = nums.length) == 0 || k < 1 || len < k) {
             return null;
         }
-        int [] res = new int[len-k+1];
+        int[] res = new int[len - k + 1];
         LinkedList<Integer> queue = new LinkedList<>();
         for (int right = 0; right < len; right++) {
-            while(!queue.isEmpty()&&nums[right]>=nums[queue.peekLast()]){
+            while (!queue.isEmpty() && nums[right] >= nums[queue.peekLast()]) {
                 queue.removeLast();
             }
             queue.addLast(right);
-            int left = right-k+1;
-            if(queue.peekFirst()<left){
+            int left = right - k + 1;
+            if (queue.peekFirst() < left) {
                 queue.removeFirst();
             }
-            if(right+1>=k){
+            if (right + 1 >= k) {
                 res[left] = nums[queue.peekFirst()];
             }
 
@@ -180,6 +180,56 @@ public class MaxSlidingWindow {
         return res;
     }
 
+    public int[] maxSlidingWindow7(int[] nums, int k) {
+        int len;
+        if (nums == null || (len = nums.length) == 0 || k < 1 || len < k) {
+            return null;
+        }
+        int[] res = new int[len - k + 1];
+        LinkedList<Integer> queue = new LinkedList<>();
+        for (int right = 0; right < len; right++) {
+            while (!queue.isEmpty() && nums[right] >= nums[queue.peekLast()]) {
+                queue.removeLast();
+            }
+            queue.addLast(right);
+            int left = right - k + 1;
+            if (queue.peekFirst() < left) {
+                queue.removeFirst();
+            }
+            if (right + 1 >= k) {
+                res[left] = nums[queue.peekFirst()];
+            }
+        }
+        return res;
+    }
+
+    public int[] maxSlidingWindow8(int[] nums, int k) {
+        int len;
+        if (nums == null || (len = nums.length) == 0 || len < k || k < 1) {
+            return null;
+        }
+        int[] res = new int[len - k + 1];
+        LinkedList<Integer> queue = new LinkedList<>();
+        for (int right = 0; right < len; right++) {
+            while (!queue.isEmpty() && nums[right] >= nums[queue.peekLast()]) {
+                queue.removeLast();
+            }
+            queue.addLast(right);
+
+            int left = right - k + 1;
+            if (queue.peekFirst() < left) {
+                queue.removeFirst();
+            }
+
+            if (right + 1 >= k) {
+                res[left] = nums[queue.peekFirst()];
+            }
+        }
+
+        return res;
+
+
+    }
 
 
 }
