@@ -8,13 +8,13 @@ package string.kmp;
  * @Desc :KMP 算法
  */
 public class KMP {
-   static String rawStr = "4352436fgfegfre";
-   static String matchStr = "fgfe";
+    static String rawStr = "4352436fgfegfre";
+    static String matchStr = "fgfe";
 
     public static void main(String[] args) {
 
-        int result = getIndexOf(rawStr,matchStr);
-        System.out.println("result : "+result);
+        int result = getIndexOf(rawStr, matchStr);
+        System.out.println("result : " + result);
 
     }
 

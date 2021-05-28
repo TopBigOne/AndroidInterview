@@ -1,7 +1,5 @@
 package tree.leet_code_199;
 
-import java.util.Objects;
-
 import tree.Node;
 
 /**
@@ -135,6 +133,12 @@ public class FillConnect {
         }
         return root;
     }
+
+    public Node connect6(Node root) {
+        // TODO: 2021/5/28  贝壳一面
+        return root;
+    }
+
 
 
 }

@@ -22,7 +22,6 @@ import java.lang.reflect.Method;
  *  1:在 子线程中调用
  *
  * */
-
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity:";
     public static final int MESSAGE_TYPE_SYNC = 1;
@@ -54,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.e(TAG, "onCreate:----- ");
         initThread();
+        System.out.println();
 
         buttonOne = (Button) findViewById(R.id.btn_one);
         buttonTwo = (Button) findViewById(R.id.btn_two);
@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         mDialogThredTwo.start();
         mReceiveMsgFromMainThread.start();
         SubThread subThread = new SubThread();
+
         subThread.run2();
 
         //new Handler().post();
@@ -82,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run() {
             System.out.println("jar--A:current thread:"+Thread.currentThread().getName());
+
+            
+
         }
 
         public void run2() {
@@ -345,6 +349,7 @@ public class MainActivity extends AppCompatActivity {
 
     static class ReceiveMsgFromMainThread extends Thread {
 
+
         private Context mContext;
 
         public Handler mHandler;
@@ -427,5 +432,7 @@ public class MainActivity extends AppCompatActivity {
         /*占用*/
         EXCLUSIVE
     }
+
+
 
 }
