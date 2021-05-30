@@ -4,11 +4,14 @@ package math.leet_code_07;
  * @author : dev
  * @version :
  * @Date :  3/27/21 10:45 PM
- * @Desc : 整数反转 (https://leetcode-cn.com/problems/reverse-integer/submissions/)
+ * @Desc :  leet code 07-整数反转  字节半年出现 22 ：(https://leetcode-cn.com/problems/reverse-integer/submissions/)
  * <p>
  * （https://leetcode-cn.com/problems/reverse-integer/solution/hua-jie-suan-fa-7-zheng-shu-fan-zhuan-by-guanpengc/）
  * <p>
  * https://leetcode-cn.com/problems/reverse-integer/solution/chi-xiao-dou-li-jie-gong-shi-tui-dao-jav-aauv/
+ *
+ * 不错的题解
+ * https://leetcode-cn.com/problems/reverse-integer/solution/tu-jie-7-zheng-shu-fan-zhuan-by-wang_ni_ma/
  */
 public class Reverse {
     // 7是2^31 - 1的个位数
@@ -131,15 +134,35 @@ public class Reverse {
         int result = 0;
         int digit = 0;
         while (x != 0) {
+            // 1:base corner （最小的最低为-7；最大值的最小位：8 ）
+            if (result < Integer.MIN_VALUE / 10 || result > Integer.MAX_VALUE / 10) {
+                return 0;
+            }
+
+            //2:除以 10，得余数
+            digit = x % 10;
+            // 3：除以 10 ，得商
+            x /= 10;
+            // 4：一步一步，开始组合反转以后的数；
+            result = result * 10 + digit;
+        }
+        return result;
+    }
+
+    public int reverse8(int x) {
+        int result = 0;
+        int digit = 0;
+        while (x != 0) {
             if (result < Integer.MIN_VALUE / 10 || result > Integer.MAX_VALUE / 10) {
                 return 0;
             }
 
             digit = x % 10;
-            x /= 10;
+            x = x / 10;
             result = result * 10 + digit;
         }
         return result;
+
     }
 
 
