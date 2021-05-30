@@ -47,5 +47,6 @@
     <string name="subtract">−</string>
     <string name="constraintdemo">ConstraintDemo</string>
     <string name="command_adb">command adb</string>
+    <string name="anr">anr</string>
 
 </resources>

@@ -43,7 +43,10 @@
             style="@style/main_item_txt_style"
             android:text="@string/command_adb" />
 
-
+        <Button
+            android:id="@+id/btn_anr"
+            style="@style/main_item_txt_style"
+            android:text="@string/anr" />
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>
