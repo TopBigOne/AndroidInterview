@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author : dev
  * @version :
  * @Date :  1/25/21 11:41 PM
- * @Desc :   最大和的连续子数组 ：https://leetcode-cn.com/problems/maximum-subarray/
+ * @Desc :   leetcode 53: 最大子序和 ：字节半年 27 次 ：https://leetcode-cn.com/problems/maximum-subarray/
  * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
  * <p>
  * 示例:
@@ -182,9 +182,53 @@ public class MaximumSubArray {
             }
         }
         return result;
-
-
     }
+
+    /**
+     * 数组的最大子序和
+     *
+     * @param nums
+     * @return
+     */
+    public int maxSubArray12(int[] nums) {
+        int length = nums.length;
+        int sum = nums[0];
+        int result = nums[0];
+
+        // 重点要从 1 开始；
+        for (int i = 1; i < length; i++) {
+            sum = Math.max(nums[i] + sum, nums[i]);
+            if (sum > result) {
+                result = sum;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 使用累加的方式
+     * @param nums
+     * @return
+     */
+    public int maxSubArray13(int [] nums){
+        int length = nums.length;
+        // 为了处理负数情况
+        int sum = nums[0];
+
+        // 结果，初始值为 数组的第 0 位置的值；
+        int result = nums[0];
+        for (int i = 1; i < length; i++) {
+            // 每次累加，都取最大值；
+            sum = Math.max(nums[i]+sum,nums[i]);
+            // 每次获取的最大值，还是要和当前结果做比较，若是sum 较大，就将 result 的值替换成 sum；
+            if(sum>result){
+                result = sum;
+            }
+        }
+        return result;
+    }
+
+
 
 
 }
