@@ -5,6 +5,8 @@ package string.sliding_window.leet_code_3;
  * @version :
  * @Date :  2021/5/25 10:45
  * @Desc : 无重复最长子串
+ *
+ * 一姐:https://www.youtube.com/watch?v=EbemoR4LooA&t=137s
  */
 public class LengthOfLongestSubstring5 {
     public int lengthOfLongestSubstring(String s) {
