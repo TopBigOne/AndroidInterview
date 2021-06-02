@@ -13,6 +13,20 @@ import linked_list.ListNode;
  * 题解：https://leetcode-cn.com/problems/reverse-linked-list-ii/solution/java-shuang-zhi-zhen-tou-cha-fa-by-mu-yi-cheng-zho/
  */
 public class ReverseBetween {
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+
+        ReverseBetween reverseBetween = new ReverseBetween();
+        ListNode result = reverseBetween.reverseBetween(head, 2, 4);
+
+        System.out.println("result : "+result);
+
+    }
     public ListNode reverseBetween(ListNode head, int left, int right) {
         ListNode dummyHead = new ListNode(0);
         dummyHead.next = head;

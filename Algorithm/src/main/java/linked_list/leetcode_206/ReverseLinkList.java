@@ -343,7 +343,6 @@ public class ReverseLinkList {
             pre = curr;
             curr = temp;
         }
-
         return pre;
     }
 
