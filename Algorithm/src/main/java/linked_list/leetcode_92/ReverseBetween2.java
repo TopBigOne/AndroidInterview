@@ -75,7 +75,6 @@ public class ReverseBetween2 {
             curr.next = pre.next;
             pre.next = curr;
             tail.next = temp;
-
             //
             curr = temp;
         }

@@ -14,7 +14,7 @@ import java.util.Arrays;
  */
 public class BaseFun {
     /**
-     * 两两交换
+     *  数组中，两两交换
      *
      * @param nums
      * @param index1
