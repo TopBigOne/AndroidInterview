@@ -14,6 +14,30 @@ import linked_list.ListNode;
  * leetcode : 599 : 两个链表的最小索引总和： https://leetcode-cn.com/problems/minimum-index-sum-of-two-lists/
  */
 public class IntersectionNode {
+    public static void main(String[] args) {
+        // common
+        ListNode c1 = new ListNode(7);
+        c1.next = new ListNode(8);
+        c1.next.next = new ListNode(9);
+
+
+        ListNode a1 = new ListNode(1);
+        a1.next = new ListNode(2);
+        a1.next.next = c1;
+
+
+        ListNode b1 = new ListNode(4);
+        b1.next = new ListNode(5);
+        b1.next.next = new ListNode(6);
+        b1.next.next.next = c1;
+
+        IntersectionNode intersectionNode = new IntersectionNode();
+        ListNode result = intersectionNode.getIntersectionNode(a1, b1);
+        System.out.println("result : " + result);
+
+
+    }
+
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) {
             return null;
@@ -21,6 +45,10 @@ public class IntersectionNode {
         ListNode pA = headA;
         ListNode pB = headB;
         while (pA != pB) {
+//            System.out.println("headA : "+headA);
+//            System.out.println("headB : "+headB);
+            System.out.println("pA:" + pA + " , pB:" + pB);
+            System.out.println();
             pA = pA == null ? headA : pA.next;
             pB = pB == null ? headB : pB.next;
         }
@@ -53,6 +81,22 @@ public class IntersectionNode {
 
         }
         return pA;
-
     }
+
+    public ListNode getIntersectionNode4(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        ListNode pA = headA;
+        ListNode pB = headB;
+
+        while (pA != pB) {
+            pA = pA == null ? headA : pA.next;
+            pB = pB == null ? headB : pB.next;
+
+        }
+        return pA;
+    }
+
+
 }
