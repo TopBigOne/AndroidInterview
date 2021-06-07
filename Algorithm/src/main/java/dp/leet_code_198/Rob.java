@@ -10,6 +10,8 @@ package dp.leet_code_198;
  * @Counter : 30
  * @Answer :
  * 1: 甜姨：https://leetcode-cn.com/problems/house-robber/solution/liang-ge-yue-0ji-chu-cong-an-mo-shi-zhuan-xing-zi-/
+ * <p>
+ * https://leetcode-cn.com/problems/house-robber/solution/dong-tai-gui-hua-jie-ti-si-bu-zou-xiang-jie-cjavap/
  */
 public class Rob {
 
@@ -62,22 +64,55 @@ public class Rob {
         return dp[len - 1];
     }
 
-    public  int rob3(int [] nums){
+    public int rob3(int[] nums) {
         int length = nums.length;
-        if (length==0) {
+        if (length == 0) {
             return 0;
         }
-        if (length==1) {
+        if (length == 1) {
             return nums[0];
         }
-        int [] dp =new int[length];
+        int[] dp = new int[length];
         dp[0] = nums[0];
-        dp[1] = Math.max(nums[0],nums[1]);
-        for(int i = 2;i<length;i++){
-            dp[i] =  Math.max(nums[i]+dp[i-2],dp[i-1]);
+        dp[1] = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < length; i++) {
+            dp[i] = Math.max(nums[i] + dp[i - 2], dp[i - 1]);
         }
 
-        return  dp[length-1];
+        return dp[length - 1];
+    }
+
+    /**
+     * 将空间复杂度，由O(n) 优化到了O(1)
+     *
+     * @param nums
+     * @return
+     */
+    public int rob4(int[] nums) {
+        // preDay 表示：dp[k-2]
+        int preDay = 0;
+        // currDay 表示dp[k-1]
+        int currDay = 0;
+        //  每次循环，计算"偷到当前房子为止的最大金额"
+        for (int num : nums) {
+            // 循环开始：currDay 表示dp[k-1],preDay 表示：dp[k-2]
+            int temp = Math.max(currDay, preDay + num);
+            preDay = currDay;
+            currDay = temp;
+            // 循环结束时，curr 表示dp[k],pre 表示dp[k-1]
+        }
+        return currDay;
+    }
+
+    public int rob5(int[] nums) {
+        int pre = 0;
+        int cur = 0;
+        for (int num : nums) {
+            int temp = Math.max(cur, pre + num);
+            pre = cur;
+            cur = temp;
+        }
+        return cur;
     }
 
 }
