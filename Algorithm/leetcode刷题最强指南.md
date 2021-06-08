@@ -314,7 +314,7 @@ Leetcode 1335 Minimum Difficulty of a Job Schedule
 
 ###### 常见题目：
 
-   * Leetcode 721 Accounts Merge
+        * Leetcode 721 Accounts Merge
         * 字典树（Trie）
         * Leetcode 547 Number of Provinces
         * Leetcode 737 Sentence Similarity II
@@ -329,8 +329,8 @@ Leetcode 1335 Minimum Difficulty of a Job Schedule
    * Leetcode 208 Implement Trie (Prefix Tree)
    * 单调栈与单调队列（Monotone Stack／Queue）
    * Leetcode 211 Design Add and Search Words Data Structure
-        * Leetcode 1268 Search Suggestions System
-        * Leetcode 79 Word Search
+   * Leetcode 1268 Search Suggestions System
+   * Leetcode 79 Word Search
 
 ###### 基础知识：
 
