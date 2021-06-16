@@ -10,8 +10,12 @@ package dp.leet_code_72;
  */
 public class MinDistance {
 
-    // 只讨论 word1 → word2
-
+    /**
+     * 只讨论 word1 → word2
+     * @param word1
+     * @param word2
+     * @return
+     */
     public int minDistance(String word1, String word2) {
         int len1 = word1.length();
         int len2 = word2.length();
