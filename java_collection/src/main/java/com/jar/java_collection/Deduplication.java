@@ -3,7 +3,6 @@ package com.jar.java_collection;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -30,8 +29,6 @@ public class Deduplication {
 
         System.out.println("去重以后的数据 : "+collect);
         System.out.println("--------------------------");
-
-
 
 
 
