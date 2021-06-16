@@ -63,5 +63,21 @@ public class TwoSum {
         return new int[]{-1, -1};
     }
 
+    public int[] task(int[] nums, int target) {
+        int length;
+        // base corner
+        if (nums == null || (length = nums.length) == 0) {
+            return nums;
+        }
+        Map<Integer, Integer> map = new HashMap<>(length);
+        for (int i = 0; i < length; i++) {
+            int temp = target - nums[i];
+            if (map.containsKey(temp)) {
+                return new int[]{i, map.get(temp)};
+            }
+            map.put(nums[i], i);
+        }
+        return null;
+    }
 
 }
