@@ -5,6 +5,9 @@ package array.leet_code_31;
  * @version :
  * @Date :  4/23/21 11:53 PM
  * @Desc : 下一个排列：（https://leetcode-cn.com/problems/next-permutation/）
+ * 题解：
+ * 一姐：https://www.youtube.com/watch?v=IbcQOdtmvpA
+ * 高频题解： https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/
  */
 public class NextPermutation {
     public void nextPermutation(int[] nums) {
@@ -13,6 +16,7 @@ public class NextPermutation {
         // 从后往前查找第一次出现 nums[i] < nums[i+1] 的位置
         int i = n - 2;
         for (; i >= 0 && nums[i] >= nums[i + 1]; i--) ;
+
         // if i == -1 nums 则整体逆序
         if (i >= 0) {
             // 此时 nums[i+1, n-1] 降序, 查找其中比 大于nums[i] 的 最小的值，可以直接 从后往前 逆向找
@@ -25,7 +29,14 @@ public class NextPermutation {
         reverse(nums, i + 1, n - 1);
     }
 
-    // nums[left, right] 逆序，查找其中 > target 的 最大下标
+    /**
+     * nums[left, right] 逆序，查找其中 > target 的 最大下标
+     * @param nums
+     * @param left
+     * @param right
+     * @param target
+     * @return
+     */
     private int binarySearch(int[] nums, int left, int right, int target) {
         while (left <= right) {
             int mid = (left + right) >>> 1;
@@ -38,11 +49,7 @@ public class NextPermutation {
         return right;
     }
 
-    private void swap(int[] nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
+
 
     private void reverse(int[] nums, int i, int j) {
         while (i < j) {
@@ -50,5 +57,11 @@ public class NextPermutation {
         }
     }
 
+
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
 
 }
