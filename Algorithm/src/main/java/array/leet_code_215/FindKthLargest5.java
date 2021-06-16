@@ -41,6 +41,9 @@ public class FindKthLargest5 extends BaseFun {
             }
             for (int i = k; i < len; i++) {
                 Integer topElement = minHeap.peek();
+                if (topElement==null) {
+                    continue;
+                }
                 if (nums[i] > topElement) {
                     minHeap.poll();
                     minHeap.add(nums[i]);
@@ -50,6 +53,8 @@ public class FindKthLargest5 extends BaseFun {
             }
             return minHeap.peek();
         }
+
+
         System.out.println("使用最大堆：");
         assert k > len - k;
         // 特列：开100；用量为len-k+1 的最大堆
