@@ -1,4 +1,4 @@
-package array.leet_code_01;
+package array.n_sum.leet_code_1;
 
 /**
  * @author : dev
