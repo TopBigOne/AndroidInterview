@@ -1,4 +1,4 @@
-package tan_xin.leet_code_135;
+package array.tan_xin.leet_code_135;
 
 /**
  * @author : dev

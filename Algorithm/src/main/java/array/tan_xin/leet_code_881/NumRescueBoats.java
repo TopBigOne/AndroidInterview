@@ -1,4 +1,4 @@
-package tan_xin.leet_code_881;
+package array.tan_xin.leet_code_881;
 
 import java.util.Arrays;
 
@@ -14,11 +14,7 @@ public class NumRescueBoats {
     public static void main(String[] args) {
 
         int[] nums = {1, 2, 2, 3};
-
-
     }
-
-
 
     public int numRescueBoats2(int[] people, int limit) {
         Arrays.sort(people);

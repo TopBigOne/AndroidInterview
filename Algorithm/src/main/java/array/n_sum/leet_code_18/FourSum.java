@@ -14,7 +14,6 @@ import java.util.List;
  * https://leetcode-cn.com/problems/4sum/solution/ji-bai-9994de-yong-hu-you-dai-ma-you-zhu-shi-by-yo/
  */
 public class FourSum {
-
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> result = new ArrayList<>();
         int length;
@@ -101,5 +100,4 @@ public class FourSum {
         }
         return result;
     }
-
 }
