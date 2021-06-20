@@ -13,55 +13,48 @@ package ten_sort.binary_search.leet_code_34;
  */
 public class SearchRange {
     public int[] searchRange(int[] nums, int target) {
-        int len = nums.length;
-        if (len == 0) {
+        int length = nums.length;
+        if (length == 0) {
             return new int[]{-1, -1};
         }
         int firstPosition = findFirstPosition(nums, target);
         if (firstPosition == -1) {
             return new int[]{-1, -1};
         }
-        int lastPosition = finLastPosition(nums, target);
+        int lastPosition = findLastPosition(nums, target);
         return new int[]{firstPosition, lastPosition};
-
     }
 
     private int findFirstPosition(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
         while (left < right) {
-            int mid = getMid(left, right);
-            int currentValue = nums[mid];
-            if (currentValue < target) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
                 left = mid + 1;
             } else {
                 right = mid;
             }
-            if (nums[left] == target) {
-                return left;
-            }
+        }
+
+        // 在 while 循环之外
+        if (nums[left] == target) {
+            return left;
         }
         return -1;
     }
 
-    private int finLastPosition(int[] nums, int target) {
+    public int findLastPosition(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
         while (left < right) {
-            int mid =  left +((right-left+1)>>1);
-            int currentValue = nums[mid];
-            if (currentValue > target) {
-                // 下一轮搜索区域 是[left...mid - 1];
+            int mid = left + (right - left + 1) / 2;
+            if (nums[mid] > target) {
                 right = mid - 1;
             } else {
-                // 下一轮搜索区间是[mid .. right];
                 left = mid;
             }
         }
         return left;
-    }
-
-    private int getMid(int left, int right) {
-        return left + ((right - left) >> 1);
     }
 }
