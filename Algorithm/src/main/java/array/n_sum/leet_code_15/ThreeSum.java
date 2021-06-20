@@ -1,4 +1,4 @@
-package array.leet_code_15;
+package array.n_sum.leet_code_15;
 
 import java.util.ArrayList;
 import java.util.Arrays;
