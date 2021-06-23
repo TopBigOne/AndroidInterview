@@ -62,10 +62,10 @@ typedef void* lib_base;
 
 namespace {
 
-static std::atomic<bool> g_linker_enabled(true);
+    static std::atomic<bool> g_linker_enabled(true);
 
 // Global lock on any GOT slot modification.
-static pthread_rwlock_t g_got_modification_lock = PTHREAD_RWLOCK_INITIALIZER;
+    static pthread_rwlock_t g_got_modification_lock = PTHREAD_RWLOCK_INITIALIZER;
 
 }
 
@@ -116,11 +116,11 @@ get_relocations(symbol sym, reloc* relocs_out, size_t relocs_out_len) {
 }
 
 int unsafe_patch_relocation_address(
-    prev_func* plt_got_entry,
-    hook_func new_value) {
+        prev_func* plt_got_entry,
+        hook_func new_value) {
   try {
     int rc =
-        sig_safe_write(plt_got_entry, reinterpret_cast<intptr_t>(new_value));
+            sig_safe_write(plt_got_entry, reinterpret_cast<intptr_t>(new_value));
 
     if (rc && errno == EFAULT) {
       // if we need to mprotect, it must be done under lock - don't want to
@@ -164,10 +164,10 @@ patch_relocation_address_for_hook(prev_func* plt_got_entry, plt_hook_spec* spec)
   if (hooks::is_hooked(got_addr)) {
     // No point in safety checks if we've already once hooked this GOT slot.
     hooks::HookInfo info {
-      .out_id = 0,
-      .got_address = got_addr,
-      .new_function = spec->hook_fn,
-      .previous_function = *plt_got_entry,
+            .out_id = 0,
+            .got_address = got_addr,
+            .new_function = spec->hook_fn,
+            .previous_function = *plt_got_entry,
     };
     auto ret = hooks::add(info);
     if (ret != hooks::ALREADY_HOOKED_APPENDED) {
@@ -179,10 +179,10 @@ patch_relocation_address_for_hook(prev_func* plt_got_entry, plt_hook_spec* spec)
 
   // We haven't hooked this slot yet. We also need to make a trampoline.
   hooks::HookInfo hook_info {
-    .out_id = 0,
-    .got_address = got_addr,
-    .new_function = spec->hook_fn,
-    .previous_function = *plt_got_entry,
+          .out_id = 0,
+          .got_address = got_addr,
+          .new_function = spec->hook_fn,
+          .previous_function = *plt_got_entry,
   };
   auto ret = hooks::add(hook_info);
   if (ret != hooks::NEW_HOOK) {
@@ -219,11 +219,7 @@ verify_got_entry_for_spec(prev_func* got_addr, plt_hook_spec* spec) {
   return true;
 }
 
-int hook_plt_method(const char* libname, const char* name,
-
-        int (*hook)(pthread_t *, const pthread_attr_t *, void *(*)(void *), void *);
-
-) {
+int hook_plt_method(const char* libname, const char* name, hook_func hook) {
   plt_hook_spec spec(name, hook);
   auto ret = hook_single_lib(libname, &spec, 1);
   if (ret == 0 && spec.hook_result == 1) {
@@ -263,8 +259,8 @@ int hook_single_lib(char const* libname, plt_hook_spec* specs, size_t num_specs)
 
         // Run sanity checks on what we parsed as the GOT slot.
         if (!verify_got_entry_for_spec(plt_got_entry, spec)) {
-           failures++;
-           continue;
+          failures++;
+          continue;
         }
 
         if (patch_relocation_address_for_hook(plt_got_entry, spec) == 0) {
@@ -280,9 +276,9 @@ int hook_single_lib(char const* libname, plt_hook_spec* specs, size_t num_specs)
 }
 
 int unhook_single_lib(
-    char const* libname,
-    plt_hook_spec* specs,
-    size_t num_specs) {
+        char const* libname,
+        plt_hook_spec* specs,
+        size_t num_specs) {
   int failures = 0;
 
   try {
@@ -305,8 +301,8 @@ int unhook_single_lib(
         }
         // Remove the entry for this GOT address and this particular hook.
         hooks::HookInfo info{
-            .got_address = addr,
-            .new_function = spec.hook_fn,
+                .got_address = addr,
+                .new_function = spec.hook_fn,
         };
         auto result = hooks::remove(info);
         if (result == hooks::REMOVED_STILL_HOOKED) {
@@ -323,8 +319,8 @@ int unhook_single_lib(
           // Restored the GOT slot, let's remove all knowledge about this
           // hook.
           hooks::HookInfo original_info{
-              .got_address = reinterpret_cast<uintptr_t>(plt_got_entry),
-              .new_function = original,
+                  .got_address = reinterpret_cast<uintptr_t>(plt_got_entry),
+                  .new_function = original,
           };
           if (hooks::remove(original_info) != hooks::REMOVED_FULLY) {
             abortWithReason("GOT slot modified while we were working on it");
@@ -343,10 +339,10 @@ int unhook_single_lib(
 }
 
 int hook_all_libs(
-    plt_hook_spec* specs,
-    size_t num_specs,
-    bool (*allowHookingLib)(char const* libname, void* data),
-    void* data) {
+        plt_hook_spec* specs,
+        size_t num_specs,
+        bool (*allowHookingLib)(char const* libname, void* data),
+        void* data) {
   if (refresh_shared_libs()) {
     // Could not properly refresh the cache of shared library data
     return -1;
@@ -364,8 +360,8 @@ int hook_all_libs(
 }
 
 int unhook_all_libs(
-    plt_hook_spec* specs,
-    size_t num_specs) {
+        plt_hook_spec* specs,
+        size_t num_specs) {
   int failures = 0;
 
   for (auto const& lib : allSharedLibs()) {
