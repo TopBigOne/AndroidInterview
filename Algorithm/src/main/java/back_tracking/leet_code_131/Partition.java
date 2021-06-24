@@ -13,7 +13,6 @@ import java.util.List;
  * 题解：https://leetcode-cn.com/problems/palindrome-partitioning/solution/hui-su-you-hua-jia-liao-dong-tai-gui-hua-by-liweiw/
  */
 public class Partition {
-
     public List<List<String>> partition(String s) {
         int len = s.length();
         List<List<String>> res = new ArrayList<>();
