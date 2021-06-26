@@ -1,11 +1,14 @@
-package array.leet_code_121;
-
+package dp.stock_problems.leet_code_121;
 /**
- * @author : dev
+ * @author :  dev
  * @version :
  * @Date :  2021/4/27 10:58
- * @Desc : 121-买卖股票的最佳时机 https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/submissions/
- *
+ * @Url : https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/submissions/
+ * @Level : easy medium hard
+ * @Desc :121-买卖股票的最佳时机
+ * @Counter : 28
+ * @Answer :
+ * 一姐： https://www.youtube.com/watch?v=TtBmqil3EMM&t=97s
  */
 public class MaxProfit {
     /**
@@ -58,6 +61,53 @@ public class MaxProfit {
         }
         return res;
     }
+
+    public int maxProfit3(int [] prices){
+        if(prices.length<2){
+            return  0;
+        }
+        // 买股票能获取的最大利润
+        int maxProfit = 0;
+        // 找到买股票最低的价格
+        int minPrice = Integer.MAX_VALUE;
+        for (int price : prices) {
+
+            minPrice = Math.min(minPrice,price);
+            maxProfit = Math.max(maxProfit,price-minPrice);
+        }
+        return maxProfit;
+    }
+
+
+    private  int maxProfit4(int [] prices){
+        if(prices.length<2){
+            return 0;
+        }
+        // 1: 卖股票能获取的最大利润
+        int maxProfit = 0;
+        // 2: 找到骨片的最低价格
+        int minPrice = Integer.MAX_VALUE;
+        for (int price : prices) {
+            minPrice = Math.min(minPrice,price);
+            maxProfit = Math.max(maxProfit,price-minPrice);
+        }
+        return  maxProfit;
+    }
+
+    private int maxProfit5(int [] prices){
+        if(prices.length<2){
+            return  0;
+        }
+        int maxProfit = 0;
+        int minPrice = Integer.MAX_VALUE;
+        for (int price : prices) {
+            minPrice = Math.min(minPrice,price);
+            maxProfit = Math.max(maxProfit,price-minPrice);
+        }
+        return maxProfit;
+    }
+
+
 
     public static void main(String[] args) {
         // [7,1,5,3,6,4]
