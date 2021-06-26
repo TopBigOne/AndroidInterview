@@ -11,7 +11,7 @@ import java.util.List;
  * @author : dev
  * @version :
  * @Date :  6/18/21 12:45 AM
- * @Desc : https://leetcode-cn.com/problems/combination-sum/
+ * @Desc : 组合总和 leetcode 39： https://leetcode-cn.com/problems/combination-sum/
  * 题解：https://leetcode-cn.com/problems/combination-sum/solution/hui-su-suan-fa-jian-zhi-python-dai-ma-java-dai-m-2/
  */
 public class CombinationSum {
