@@ -38,7 +38,6 @@ public class FindLength {
             max = Math.max(max, maxLen(A, i, B, 0, an - i));
         }
 
-
         return max;
     }
 
@@ -56,6 +55,5 @@ public class FindLength {
         }
 
         return count > 0 ? Math.max(max, count) : max;
-
     }
 }

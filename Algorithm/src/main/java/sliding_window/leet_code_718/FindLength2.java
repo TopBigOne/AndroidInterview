@@ -177,8 +177,75 @@ public class FindLength2 {
             }
             int maxLen = maxLength(numsA, numsB, aStart, bStart, len);
             max = Math.max(max, maxLen);
+        }
+        return max;
+    }
 
+    private int findLengthHelp7(int[] numsA, int[] numsB) {
+        int aLength = numsA.length;
+        int bLength = numsB.length;
+        int total = aLength + bLength - 1;
+        int max = 0;
+        for (int i = 0; i < total; i++) {
+            int aStart;
+            int bStart;
+            int len;
+            if (i < aLength) {
+                bStart = 0;
+                aStart = aLength - i - 1;
+                len = i + 1;
+            } else {
+                aStart = 0;
+                bStart = i - aLength + 1;
+                len = Math.max(bLength - bStart, aLength);
+            }
 
+            int maxLen = maxLength7(numsA, numsB, aStart, bStart, len);
+            max = Math.max(max, maxLen);
+        }
+        return max;
+
+    }
+
+    private int maxLength7(int[] numsA, int[] numsB, int aStart, int bStart, int len) {
+        int max = 0;
+        int count = 0;
+        for (int i = 0; i < len; i++) {
+            if (numsA[aStart + i] == numsB[bStart + i]) {
+                count++;
+                max = Math.max(max, count);
+                continue;
+            }
+            count = 0;
+        }
+        return max;
+    }
+
+    private int maxLength8(int[] numsA, int[] numsB, int aStart, int bStart, int len) {
+        int max = 0;
+        int count = 0;
+        for (int i = 0; i < len; i++) {
+            if (numsA[aStart + i] == numsB[bStart + i]) {
+                count++;
+                max = Math.max(max, count);
+                continue;
+            }
+            count = 0;
+
+        }
+        return max;
+    }
+
+    private int maxLength9(int[] numsA, int[] numsB, int aStart, int bStart, int len) {
+        int max = 0;
+        int count = 0;
+        for (int i = 0; i < len; i++) {
+            if (numsA[aStart + i] == numsB[bStart + i]) {
+                count++;
+                max = Math.max(max, count);
+                continue;
+            }
+            count = 0;
         }
         return max;
     }
