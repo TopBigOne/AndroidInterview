@@ -47,9 +47,7 @@ public class FirstMissingPositive {
                 return i + 1;
             }
         }
-
         return len + 1;
-
     }
 
     private void swap(int[] nums, int index1, int index2) {
