@@ -30,7 +30,8 @@ public class MinStack2 {
         // 如果出栈的值等于最小值，说明栈中的最小值已经出栈了,
         // 因为min的栈顶元素存放的就是最小值
         // 所以min栈元素 也要出栈
-        if (normal.pop()==getMin()) {//  这一步，两个操作
+        //  这一步，两个操作
+        if (normal.pop()==getMin()) {
             min.pop();
         }
     }
