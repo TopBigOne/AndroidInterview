@@ -200,7 +200,6 @@ public class FindMedianSortedArray {
         if (n1 > n2) {
             return findMedianSortedArrays5(nums2, nums1);
         }
-
         if (n1 == 0) {
             return ((double) nums2[(n2 - 1) >> 1] + (double) nums2[n2 >> 1]) / 2;
         }
