@@ -21,11 +21,13 @@ extern "C" JNIEXPORT jstring JNICALL
 Java_com_jar_ndk_MainActivity_getTxt(JNIEnv *env, jobject) {
     string hello = "jar jar";
     string s1 = "www.toutiao.cn";
-    unsigned  int size = s1.size();
-    cout<<"zhou_size"<<size<<endl;
-    printf("my_age %d",34);
+    unsigned int size = s1.size();
+    cout << "zhou_size" << size << endl;
+    printf("my_age %d", 34);
 
     LOGI("Something size %s=d", size);
 
     return env->NewStringUTF(hello.c_str());
 }
+
+
