@@ -27,5 +27,4 @@ public class BubbleSort extends BaseSort {
         printResult("bubble one: ", arr);
     }
 
-
 }
