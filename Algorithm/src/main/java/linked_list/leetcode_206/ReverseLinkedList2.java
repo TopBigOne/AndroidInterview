@@ -9,7 +9,7 @@ import linked_list.ListNode;
  * @Desc : 用递归反转链表
  * 没办法，字节考递归啊；
  * https://leetcode-cn.com/problems/reverse-linked-list/submissions/
- *
+ * <p>
  * 题解：https://leetcode-cn.com/problems/reverse-linked-list/solution/dong-hua-yan-shi-206-fan-zhuan-lian-biao-by-user74/
  */
 public class ReverseLinkedList2 {
@@ -35,7 +35,7 @@ public class ReverseLinkedList2 {
         ListNode cur = reverseList(head.next);
         // 如果链表是1->2->3->4->5，那么此时cur 就是5；
         head.next.next = head;
-        head .next = null;
+        head.next = null;
         return cur;
 
     }
@@ -52,10 +52,27 @@ public class ReverseLinkedList2 {
             return head;
         }
         ListNode curr = reverseList2(head.next);
-        System.out.println("curr value : "+curr.val+"， head value : "+head.val);
+        System.out.println("curr value : " + curr.val + "， head value : " + head.val);
         head.next.next = head;
-        head.next =null;
+        head.next = null;
         return curr;
+    }
+
+    /**
+     * 递归反转链表
+     *
+     * @param head
+     * @return
+     */
+    public ListNode reverseListNode3(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode curr = reverseListNode3(head);
+        curr.next.next = head;
+        head.next = null;
+        return curr;
+
     }
 
 

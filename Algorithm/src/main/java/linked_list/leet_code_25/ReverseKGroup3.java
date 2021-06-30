@@ -7,7 +7,7 @@ import linked_list.ListNode;
  * @version :
  * @Date :  2021/6/4 11:15
  * @Url :  K个一组反转链表：字节：36次：https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
- * @Level : easy medium hard
+ * @Level :   hard
  * @Desc :
  * @Counter :
  * @Answer :
