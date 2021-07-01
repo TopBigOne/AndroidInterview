@@ -22,4 +22,11 @@ public class Test {
 
 
     }
+
+
+    private static void test2(){
+        LRUCache lruCache = new LRUCache(100);
+        lruCache.put(1,2);
+
+    }
 }

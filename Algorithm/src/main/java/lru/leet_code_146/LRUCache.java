@@ -15,10 +15,10 @@ import java.util.HashMap;
  * 类似题目：LFU
  */
 public class LRUCache {
-    private int cap;
+    private final int cap;
     private Node head;
     private Node tail;
-    private HashMap<Integer, Node> map;
+    private final HashMap<Integer, Node> map;
 
     public LRUCache(int capacity) {
         this.cap = capacity;
