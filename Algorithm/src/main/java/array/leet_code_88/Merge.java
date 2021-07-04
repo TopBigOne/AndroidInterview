@@ -1,5 +1,7 @@
 package array.leet_code_88;
 
+import javax.swing.KeyStroke;
+
 /**
  * @author : dev
  * @version :
@@ -48,23 +50,47 @@ public class Merge {
         }
     }
 
-    public void merge3(int [] nums1,int m,int []nums2,int n){
-        int k = m+n-1;
-        int i = m-1;
-        int j =n-1;
-        while (i>=0&&j>=0){
-            if(nums1[i]>nums2[j]){
-                nums1[k--]=nums1[i--];
+    public void merge3(int[] nums1, int m, int[] nums2, int n) {
+        int k = m + n - 1;
+        int i = m - 1;
+        int j = n - 1;
+        while (i >= 0 && j >= 0) {
+            if (nums1[i] > nums2[j]) {
+                nums1[k--] = nums1[i--];
                 continue;
             }
             nums1[k--] = nums2[j--];
         }
 
-        while (j>=0){
+        while (j >= 0) {
             nums1[k--] = nums2[j--];
         }
-
     }
+
+    public void merge4(int[] nums1, int m, int[] nums2, int n) {
+        int len1 = m - 1;
+        int len2 = n - 1;
+        int len = m + n - 1;
+        while (len1 >= 0 && len2 >= 0) {
+            // 注意--符号在后面，表示此案进行计算再减1，这种缩写，缩短了代码
+            nums1[len--] = nums1[len1] > nums2[len2] ? nums1[len1--] : nums2[len2--];
+        }
+        System.arraycopy(nums2, 0, nums1, 0, len2 + 1);
+    }
+
+
+    public void merge5(int[] nums1, int m, int[] nums2, int n) {
+        int len1 = m - 1;
+        int len2 = n - 1;
+        int len = m + n - 1;
+
+        while (len1 >= 0 && len2 >= 0) {
+            nums1[len--] = nums1[len1] > nums2[len2] ? nums1[len1--] : nums2[len2--];
+        }
+        System.arraycopy(nums2, 0, nums1, 0, len2 + 1);
+    }
+
+
 
 
 }

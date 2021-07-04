@@ -1,5 +1,7 @@
 package linked_list.leet_code_21;
 
+import java.util.List;
+
 import linked_list.ListNode;
 
 /**
@@ -7,7 +9,7 @@ import linked_list.ListNode;
  * @version :
  * @Date :  2021/5/11 19:07
  * @Desc : 简单：合并两个有序链表  字节：34次：https://leetcode-cn.com/problems/merge-two-sorted-lists/
- *
+ * <p>
  * 归并排序
  */
 public class MergeTwoLists {
@@ -38,28 +40,57 @@ public class MergeTwoLists {
 
     }
 
-    public ListNode mergeTwoList4(ListNode l1,ListNode l2){
-        if (l1==null) {
+    public ListNode mergeTwoList4(ListNode l1, ListNode l2) {
+        if (l1 == null) {
             return l2;
         }
-        if(l2==null){
+        if (l2 == null) {
             return l1;
         }
         ListNode dummy = new ListNode(-1);
         ListNode curr = dummy;
 
-        while (l1!=null&&l2!=null){
-            if(l1.val<l2.val){
-                curr.next= l1;
-                l1= l1.next;
-            }else {
-                curr.next= l2;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                curr.next = l1;
+                l1 = l1.next;
+            } else {
+                curr.next = l2;
                 l2 = l2.next;
             }
             curr = curr.next;
         }
 
-        curr.next = l1==null? l2:l1;
+        curr.next = l1 == null ? l2 : l1;
+        return dummy.next;
+
+    }
+
+
+    public ListNode mergeTwoList5(ListNode l1, ListNode l2) {
+        // 1: base corner
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+
+        // 2: dummy 大法
+        ListNode dummy = new ListNode(-1);
+        ListNode curr = dummy;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                curr.next = l1;
+                l1 = l1.next;
+            } else {
+                curr.next = l2;
+                l2 = l2.next;
+            }
+            curr = curr.next;
+        }
+        // 3: 边界条件
+        curr.next = l1 == null ? l2 : l1;
         return dummy.next;
 
     }

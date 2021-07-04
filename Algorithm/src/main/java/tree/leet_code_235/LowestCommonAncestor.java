@@ -88,7 +88,7 @@ public class LowestCommonAncestor {
 
     public TreeNode lowestCommonAncestor4(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) return null;
-        if (root == p || root  == q) return root;
+        if (root == p || root == q) return root;
 
         TreeNode leftNode = lowestCommonAncestor4(root.left, p, q);
         TreeNode rightNode = lowestCommonAncestor4(root.right, p, q);
@@ -103,25 +103,58 @@ public class LowestCommonAncestor {
         return leftNode == null ? rightNode : leftNode;
     }
 
-    public TreeNode lowestCommonAncestor5(TreeNode root ,TreeNode p ,TreeNode q){
-        if (root ==null) {
+    public TreeNode lowestCommonAncestor5(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) {
             return null;
         }
-        if (p==root||q==root) {
+        if (p == root || q == root) {
             return root;
         }
-        TreeNode left = lowestCommonAncestor5(root.left,p,q);
-        TreeNode right = lowestCommonAncestor5(root.right,p,q);
-        if (left!=null&&right!=null) {
-            return  root;
+        TreeNode left = lowestCommonAncestor5(root.left, p, q);
+        TreeNode right = lowestCommonAncestor5(root.right, p, q);
+        if (left != null && right != null) {
+            return root;
         }
-        if(left==null&&right==null){
+        if (left == null && right == null) {
             return null;
         }
-        return left==null ? right :left;
+        return left == null ? right : left;
 
+    }
 
+    public TreeNode lowestCommonAncestor6(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) {
+            return null;
+        }
+        if (p == root || q == root) {
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor6(root.left, q, p);
+        TreeNode right = lowestCommonAncestor6(root.right, p, q);
+        if (left != null && right != null) {
+            return root;
+        }
+        if (left == null && right == null) {
+            return null;
+        }
+        return left == null ? right : left;
+    }
 
+    public TreeNode lowestCommonAncestor7(TreeNode root, TreeNode p, TreeNode q) {
+        // base corner
+        if (root == null) {
+            return null;
+        }
+        TreeNode left = lowestCommonAncestor7(root.left, p, q);
+        TreeNode right = lowestCommonAncestor7(root.right, p, q);
+
+        if (left == null && right == null) {
+            return null;
+        }
+        if (left != null && right != null) {
+            return root;
+        }
+        return left == null ? right : left;
     }
 
 

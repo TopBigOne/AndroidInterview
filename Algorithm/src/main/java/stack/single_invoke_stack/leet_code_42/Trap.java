@@ -1,5 +1,7 @@
 package stack.single_invoke_stack.leet_code_42;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 /**
@@ -7,6 +9,7 @@ import java.util.Stack;
  * @version :
  * @Date :  3/2/21 6:14 PM
  * @Desc : 接雨水（https://leetcode-cn.com/problems/trapping-rain-water/）
+ * 字节 34 次
  * <p>
  * 题解：https://leetcode-cn.com/problems/trapping-rain-water/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-8/
  */
@@ -202,16 +205,16 @@ public class Trap {
         int length = height.length;
         int current = 0;
         Stack<Integer> stack = new Stack<>();
-        while (current<length){
-            while (!stack.isEmpty()&&height[current]>height[stack.peek()]){
+        while (current < length) {
+            while (!stack.isEmpty() && height[current] > height[stack.peek()]) {
                 int h = height[stack.peek()];
                 stack.pop();
                 if (stack.isEmpty()) {
                     break;
                 }
-                int distance = current-stack.peek()-1;
-                int min = Math.min(height[stack.peek()],height[current]);
-                sum = sum +distance*(min-h);
+                int distance = current - stack.peek() - 1;
+                int min = Math.min(height[stack.peek()], height[current]);
+                sum = sum + distance * (min - h);
             }
             stack.push(current);
             current++;
@@ -245,6 +248,12 @@ public class Trap {
     }
 
 
+    /**
+     * 栈的解法
+     *
+     * @param height
+     * @return
+     */
     public int trap11(int[] height) {
         int sum = 0;
         int current = 0;
@@ -262,12 +271,107 @@ public class Trap {
                 sum = sum + distance * (min - h);
 
             }
-
             stack.push(current);
             current++;
         }
         return sum;
 
+    }
+
+    public int trap12(int[] height) {
+        int sum = 0;
+        int current = 0;
+        int length = height.length;
+        Deque<Integer> stack = new ArrayDeque<>();
+        while (current < length) {
+            // 如果栈不为空，并且当前指向的高度大于栈顶高度，就一直循环
+            while (!stack.isEmpty() && height[current] > height[stack.peek()]) {
+                // 取出要出栈的元素
+                int h = height[stack.peek()];
+                stack.pop();
+                if (stack.isEmpty()) {
+                    break;
+                }
+                // 两堵强之间的距离
+                int distance = current - stack.peek() - 1;
+                int min = Math.min(height[stack.peek()], height[current]);
+                sum = sum + distance * (min - h);
+            }
+            // 当前指向的墙入栈
+            stack.push(current);
+            // 指针后移动
+            current++;
+        }
+        return sum;
+    }
+
+    public int trap13(int[] height) {
+        int sum = 0;
+        int current = 0;
+        int length = height.length;
+        Deque<Integer> stack = new ArrayDeque<>();
+        while (current < length) {
+            while (!stack.isEmpty() && height[current] > height[stack.peek()]) {
+                int h = height[stack.peek()];
+                stack.pop();
+                if (stack.isEmpty()) {
+                    break;
+                }
+                int distance = current - stack.peek() - 1;
+                int min = Math.min(height[stack.peek()], height[current]);
+                sum = sum + distance * (min - h);
+
+            }
+            // 当前的墙体入栈
+            stack.push(current);
+            current++;
+        }
+        return sum;
+    }
+
+    public int trap14(int[] height) {
+        int sum = 0;
+        int currnet = 0;
+        int len = height.length;
+        Deque<Integer> stack = new ArrayDeque<>();
+        while (currnet < len) {
+            while (!stack.isEmpty() && height[currnet] > height[stack.peek()]) {
+                int h = height[stack.peek()];
+                stack.pop();
+                if (stack.isEmpty()) {
+                    break;
+                }
+                int distance = currnet - stack.peek() - 1;
+                int minHeight = Math.min(height[stack.peek()], height[currnet]);
+                sum = sum + distance * (minHeight - h);
+            }
+            stack.push(currnet);
+            currnet++;
+        }
+        return sum;
+    }
+
+    public int trap15(int[] height) {
+        int sum = 0;
+        int current = 0;
+        int len = height.length;
+        Deque<Integer> stack = new ArrayDeque<>();
+        while (current < len) {
+            while (!stack.isEmpty() && height[current] > height[stack.peek()]) {
+                int h = height[stack.peek()];
+                stack.pop();
+                if (stack.isEmpty()) {
+                    break;
+                }
+                int distance = current - stack.peek() - 1;
+                int minHeight = Math.min(height[current], height[stack.peek()]);
+                sum = sum + distance * (minHeight - h);
+            }
+
+            stack.push(current);
+            current++;
+        }
+        return sum;
 
     }
 

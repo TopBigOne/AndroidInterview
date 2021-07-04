@@ -1,5 +1,7 @@
 package linked_list.leet_code_160;
 
+import java.util.List;
+
 import linked_list.ListNode;
 
 /**
@@ -98,5 +100,34 @@ public class IntersectionNode {
         return pA;
     }
 
+    public ListNode getIntersectionNode5(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
 
+        }
+
+        ListNode pA = headA;
+        ListNode pB = headB;
+        while (pA != pB) {
+            pA = pA == null ? headB : pA.next;
+            pB = pB == null ? headA : pB.next;
+        }
+        return pA;
+    }
+
+    public ListNode getINtersectionNode6(ListNode headA, ListNode headB) {
+        // 1: base corner
+        if (headA == null || headB == null) {
+            return null;
+        }
+
+        // 判断等性的指针变量
+        ListNode pA = headA;
+        ListNode pB = headB;
+        while (pA != pB) {
+            pA = pA == null ? headB : pA.next;
+            pB = pB == null ? headA : pB.next;
+        }
+        return pA;
+    }
 }

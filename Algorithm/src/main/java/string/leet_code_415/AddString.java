@@ -5,6 +5,8 @@ package string.leet_code_415;
  * @version :
  * @Date :  5/30/21 11:16 PM
  * @Desc : leetcode  415 :字符串相加：字节半年 10 次：https://leetcode-cn.com/problems/add-strings/
+ *
+ * 题解：https://leetcode-cn.com/problems/add-strings/solution/add-strings-shuang-zhi-zhen-fa-by-jyd/
  */
 public class AddString {
 
@@ -48,7 +50,28 @@ public class AddString {
         }
 
         return String.valueOf(sb.reverse());
+    }
 
+    public String addStrings2(String nums1, String nums2) {
+        StringBuilder res = new StringBuilder();
+        int i = nums1.length() - 1;
+        int j = nums2.length() - 1;
+        int carry = 0;
+        while (i >= 0 || j >= 0) {
+            int x = i >= 0 ? nums1.charAt(i) - '0' : 0;
+            int y = j >= 0 ? nums2.charAt(j) - '0' : 0;
+            int sum = x + y + carry;
+            carry = sum / 10;
+            res.append(sum % 10);
+            i--;
+            j--;
+        }
+
+        if (carry == 1) {
+            res.append(1);
+        }
+
+        return res.reverse().toString();
     }
 
 }
