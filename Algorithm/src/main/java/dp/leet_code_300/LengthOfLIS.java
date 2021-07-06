@@ -97,14 +97,17 @@ public class LengthOfLIS {
         int[] dp = new int[length];
         Arrays.fill(dp, 1);
         System.out.println(Arrays.toString(nums));
+
         for (int rightIndex = 1; rightIndex < length; rightIndex++) {
+
             System.out.println("|---------------------------------------------------------------------|");
+
             for (int leftIndex = 0; leftIndex < rightIndex; leftIndex++) {
                 // 右边的数，大于左边的数，才有可能做 +1 操作
                 if (nums[rightIndex] > nums[leftIndex]) {
                     dp[rightIndex] = Math.max(dp[rightIndex], dp[leftIndex] + 1);
                 }
-                System.out.println("第"+leftIndex+"次: "+"nums[" + rightIndex + "]:" + nums[rightIndex] + ", nums[" + leftIndex + "]:" +nums[leftIndex]+",  当前 dp 状态："+ Arrays.toString(dp));
+                System.out.println("第" + leftIndex + "次: " + "nums[" + rightIndex + "]:" + nums[rightIndex] + ", nums[" + leftIndex + "]:" + nums[leftIndex] + ",  当前 dp 状态：" + Arrays.toString(dp));
             }
         }
 
@@ -115,6 +118,27 @@ public class LengthOfLIS {
         }
 
         return res;
+    }
+
+    public int lengthOfLIS5(int[] nums) {
+        int len = nums.length;
+        if (len < 2) {
+            return len;
+        }
+        int[] dp = new int[len];
+        for (int i = 1; i < len; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+        }
+        // 遍历数组，求最大值
+        int res = 0;
+        for (int i = 0; i < len; i++) {
+            res = Math.max(res, dp[i]);
+        }
+        return res+1;
     }
 
 
