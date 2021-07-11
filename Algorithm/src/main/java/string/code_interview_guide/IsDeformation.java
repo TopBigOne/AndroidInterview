@@ -22,9 +22,9 @@ public class IsDeformation {
         for (char c : charsOne) {
             map[c]++;
         }
-        System.out.println("map : "+Arrays.toString(map));
+        System.out.println("map : " + Arrays.toString(map));
         for (char c : charsTow) {
-            if(map[c]--==0){
+            if (map[c]-- == 0) {
                 return false;
             }
         }
@@ -35,28 +35,27 @@ public class IsDeformation {
     }
 
 
-
     public boolean isDeformation2(String str1, String str2) {
         if (str1 == null || str2 == null || str1.length() != str2.length()) {
             return false;
         }
         char[] charsOne = str1.toCharArray();
         char[] charsTow = str2.toCharArray();
-        Map<Character,Integer> map = new HashMap<>(256);
+        Map<Character, Integer> map = new HashMap<>(256);
         for (char c : charsOne) {
-            map.put(c,map.getOrDefault(c,0)+1);
+            map.put(c, map.getOrDefault(c, 0) + 1);
 
         }
-        System.out.println("map : "+map);
+        System.out.println("map : " + map);
         for (char c : charsTow) {
             if (map.containsKey(c)) {
                 Integer integer = map.get(c);
-                map.put(c,integer-1);
+                map.put(c, integer - 1);
             }
         }
 
         for (Map.Entry<Character, Integer> characterIntegerEntry : map.entrySet()) {
-            if (characterIntegerEntry.getValue()!=0) {
+            if (characterIntegerEntry.getValue() != 0) {
                 return false;
             }
         }
