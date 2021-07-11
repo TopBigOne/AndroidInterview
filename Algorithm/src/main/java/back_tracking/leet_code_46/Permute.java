@@ -22,12 +22,11 @@ public class Permute {
         }
 
         Deque<Integer> path = new ArrayDeque<>();
+        // 不能重复
         boolean[] used = new boolean[len];
 
         dfs(nums, len, 0, path, used, result);
         return result;
-
-
     }
 
     /**
@@ -36,11 +35,12 @@ public class Permute {
      * @param nums   输入的数组
      * @param len    数组的长度
      * @param depth  当前已经选择了几个数(表示当前递归到了第几层)
-     * @param path   从根节点到任意节点的列表
+     * @param path   从根节点到任意节点的列表，已经选了哪些数字
      * @param used   保存了当前的数，是否被选择；
      * @param result
      */
     private void dfs(int[] nums, int len, int depth, Deque<Integer> path, boolean[] used, List<List<Integer>> result) {
+        // 数字的个数已经选择够了
         if (depth == len) {
             // 添加对 path 的 copy
             result.add(new ArrayList<>(path));
@@ -60,8 +60,9 @@ public class Permute {
             used[i] = true;
             // 递归的考虑到下一层
             dfs(nums,len,depth+1,path,used,result);
-            // 回溯：做逆操作
+            // 回溯：回退操作
             path.removeLast();
+            // 回退以后，就是没有使用过
             used[i] = false;
         }
 
