@@ -7,8 +7,8 @@ import tree.TreeNode;
  * @version :
  * @Date :  2021/6/8 12:09
  * @Url :
- * @Level : easy medium hard
- * @Desc : leetcode :求二叉树的根节数字之和： https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/submissions/
+ * @Level :  medium
+ * @Desc : leetcode 129 :求二叉树的根节数字之和： https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/submissions/
  * @Counter : 10
  * @Answer :
  * https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/solution/0-ms-jiao-ke-shu-ji-jie-da-by-liuzhaoce/
