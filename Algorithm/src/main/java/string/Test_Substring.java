@@ -18,12 +18,7 @@ public class Test_Substring {
         String b = "34";
 
       int s =  Integer.parseInt(String.valueOf(a.charAt(0)));
-
-
-
-
         System.out.println("my_s: " + s);
-
     }
 
     private static void test1() {

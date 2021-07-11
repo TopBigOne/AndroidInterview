@@ -7,6 +7,8 @@ package string.leet_code_5;
  * @Desc : (字节，37次。)最长回文子串(https://leetcode-cn.com/problems/longest-palindromic-substring/)
  * <p>
  * https://leetcode-cn.com/problems/longest-palindromic-substring/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-bao-gu/
+ *
+ * https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/
  */
 public class LongestPalindrome {
     public String longestPalindrome(String s) {
