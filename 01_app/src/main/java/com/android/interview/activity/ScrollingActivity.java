@@ -4,15 +4,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.android.interview.R;
+import com.android.interview.event.OnTouchActivity;
+import com.android.interview.utils.Nav;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-public class ScrollingActivity extends AppCompatActivity  implements View.OnClickListener {
+public class ScrollingActivity extends AppCompatActivity implements View.OnClickListener {
+    private Button btnEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +24,21 @@ public class ScrollingActivity extends AppCompatActivity  implements View.OnClic
         setContentView(R.layout.activity_scrolling);
 
         initToolBar();
+        initView();
+        initEvent();
 
         initFloatingActionButton();
+
+    }
+
+    private void initEvent() {
+        btnEvent.setOnClickListener(this);
+    }
+
+
+    private void initView() {
+        btnEvent = findViewById(R.id.btn_dispatch_event);
+
 
     }
 
@@ -65,6 +82,13 @@ public class ScrollingActivity extends AppCompatActivity  implements View.OnClic
 
     @Override
     public void onClick(View v) {
+        int id = v.getId();
+        switch (id) {
+            case R.id.btn_dispatch_event:
+                Nav.goActivity(this, OnTouchActivity.class);
+                break;
+
+        }
 
     }
 }
