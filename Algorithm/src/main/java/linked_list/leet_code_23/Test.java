@@ -32,6 +32,7 @@ public class Test {
         rawNodes[2] = l3;
 
         ListNode result = mergeKList.mergeKLists3(rawNodes);
-        System.out.println("result : " + result);
+        System.out.println("result : " +
+                result);
     }
 }
