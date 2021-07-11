@@ -207,6 +207,7 @@ public class ReorderList {
         slow.next = null;
         // 第二个链表倒置
         newHead = doReverse(newHead);
+        int b = 10;
         while (newHead != null) {
             ListNode temp = newHead.next;
             newHead.next = head.next;
@@ -214,6 +215,7 @@ public class ReorderList {
             head = newHead.next;
             newHead = temp;
         }
+        int a= 10;
     }
 
 

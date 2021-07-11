@@ -20,7 +20,8 @@ public class Test {
             System.out.print(dummy.val + "-->");
             dummy = dummy.next;
         }
-        reorderList.reorderList1(head);
+        reorderList.reorderList6(head);
+
         System.out.println("\n|-------------------|");
         while (head != null) {
             System.out.print(head.val + "-->");
@@ -34,8 +35,8 @@ public class Test {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
-        head.next.next.next.next.next = new ListNode(6);
-        head.next.next.next.next.next.next = new ListNode(7);
+       // head.next.next.next.next.next = new ListNode(6);
+       // head.next.next.next.next.next.next = new ListNode(7);
         return head;
     }
 
