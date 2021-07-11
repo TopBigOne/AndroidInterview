@@ -1,5 +1,7 @@
 package stack.leet_code_20;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -38,13 +40,19 @@ public class IsValid {
         map.put('(', ')');
         map.put('?', '?');
 
-        if (s.length() > 0 && !map.containsKey(s.charAt(0))) return false;
-        LinkedList<Character> stack = new LinkedList<>();
+        if (s.length() > 0 && !map.containsKey(s.charAt(0))) {
+            return false;
+
+        }
+
+        Deque<Character> stack = new ArrayDeque<>();
         stack.add('?');
+
         for (char c : s.toCharArray()) {
             if (map.containsKey(c)) {
                 stack.addLast(c);
-            } else if (map.get(stack.removeLast()) != c) {
+            }
+            if (map.get(stack.removeLast()) != c) {
                 return false;
             }
         }
