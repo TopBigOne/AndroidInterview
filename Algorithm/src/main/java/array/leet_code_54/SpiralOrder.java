@@ -1,12 +1,7 @@
 package array.leet_code_54;
 
-import com.sun.org.apache.bcel.internal.generic.LDC_W;
-
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.List;
-
-import javafx.scene.chart.ValueAxis;
 
 /**
  * @author : dev

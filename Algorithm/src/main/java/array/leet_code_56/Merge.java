@@ -9,6 +9,7 @@ import java.util.List;
  * @version :
  * @Date :  4/26/21 8:15 PM
  * @Desc :  56:合并区间：题解：https://leetcode-cn.com/problems/merge-intervals/solution/chi-jing-ran-yi-yan-miao-dong-by-sweetiee/
+ * 题解：  https://www.youtube.com/watch?v=Og40pFaGCxs
  */
 public class Merge {
     /**
@@ -123,14 +124,18 @@ public class Merge {
             return intervals;
         }
         Arrays.sort(intervals, (v1, v2) -> v1[0] - v2[0]);
+
         List<int[]> result = new ArrayList<>();
+
         result.add(intervals[0]);
+
         for (int i = 1; i < intervals.length; i++) {
             int[] lastArray = result.get(result.size() - 1);
             if (lastArray[1] >= intervals[i][0]) {
                 lastArray[1] = Math.max(lastArray[1], intervals[i][1]);
                 continue;
             }
+
             result.add(intervals[i]);
         }
 

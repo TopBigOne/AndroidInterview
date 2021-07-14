@@ -10,6 +10,7 @@ package array.leet_code_31;
  * 高频题解： https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/
  */
 public class NextPermutation {
+
     public void nextPermutation(int[] nums) {
         int n = 0;
         if (nums == null || (n = nums.length) == 0) return;
@@ -48,8 +49,6 @@ public class NextPermutation {
         }
         return right;
     }
-
-
 
     private void reverse(int[] nums, int i, int j) {
         while (i < j) {
