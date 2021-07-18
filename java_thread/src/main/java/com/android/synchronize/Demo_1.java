@@ -8,6 +8,7 @@ package com.android.synchronize;
  */
 public class Demo_1 {
     private final Object object = new Object();
+
     public void test() {
         //用在代码块上
         synchronized (this) {
@@ -31,5 +32,7 @@ public class Demo_1 {
             // do sth
         }
     }
+
+
 
 }
