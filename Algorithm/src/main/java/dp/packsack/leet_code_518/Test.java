@@ -6,7 +6,8 @@ package dp.packsack.leet_code_518;
  * @Date :  2/4/21 10:45 PM
  * @Desc :
  *
- * 给定不同面额的硬币和一个总金额。写出函数来计算可以凑成总金额的硬币组合数。假设每一种面额的硬币有无限个。
+ * 给定不同面额的硬币和一个总金额。写出函数来计算可以凑成总金额的硬币组合数。
+ * 假设每一种面额的硬币有无限个。
  *
  *
  *
@@ -19,16 +20,14 @@ package dp.packsack.leet_code_518;
  * 5=1+1+1+1+1
  *
  *
- *
- *
  */
 public class Test {
 
     public static void main(String[] args) {
         int amount = 5;
-        int  [] coins = {1, 2, 5};
-        Solution solution = new Solution();
-        int result = solution.change5(amount, coins);
+        int  [] coins = {2, 1, 5};
+        Change change = new Change();
+        int result = change.change10(amount, coins);
         System.out.println("result : "+result);
 
     }
