@@ -1,8 +1,6 @@
-package com.android.java_thread.juc.fork_join;
+package com.android.fork_join;
 
 import java.util.concurrent.RecursiveTask;
-
-import sun.security.provider.Sun;
 
 /**
  * 当我们需要执行大量的小任务时，有经验的Java开发人员都会采用线程池来高效执行这些小任务。

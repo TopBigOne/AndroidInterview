@@ -1,4 +1,4 @@
-package com.android.java_thread.juc.fork_join;
+package com.android.fork_join;
 
 import java.util.HashSet;
 import java.util.Set;

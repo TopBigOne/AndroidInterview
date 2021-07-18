@@ -1,6 +1,5 @@
-package com.android.java_thread.juc.condition;
+package com.android.condition;
 
-import java.sql.Connection;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

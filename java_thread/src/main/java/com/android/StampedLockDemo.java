@@ -1,11 +1,8 @@
-package com.android.java_thread.juc;
+package com.android;
 
-import com.android.java_thread.juc.stamped.Point;
+import com.android.stamped.Point;
 
-import java.net.SocketTimeoutException;
 import java.util.Random;
-
-import javax.swing.ImageIcon;
 
 /**
  * @author : Jakarta

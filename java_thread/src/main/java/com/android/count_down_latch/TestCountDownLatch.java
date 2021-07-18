@@ -1,4 +1,4 @@
-package com.android.java_thread.juc.count_down_latch;
+package com.android.count_down_latch;
 
 import java.util.concurrent.CountDownLatch;
 

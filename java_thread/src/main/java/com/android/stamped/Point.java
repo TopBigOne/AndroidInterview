@@ -1,4 +1,4 @@
-package com.android.java_thread.juc.stamped;
+package com.android.stamped;
 
 import java.util.concurrent.locks.StampedLock;
 

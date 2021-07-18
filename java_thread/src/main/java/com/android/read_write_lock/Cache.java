@@ -1,11 +1,9 @@
-package com.android.java_thread.juc.read_write_lock;
+package com.android.read_write_lock;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-
-import sun.java2d.pipe.AAShapePipe;
 
 /**
  * @author : dev
