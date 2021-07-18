@@ -1,4 +1,4 @@
-package com.android.juc.lock.reentrant;
+package com.android.reentrant;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
@@ -15,7 +15,6 @@ public class Demo_01 {
         demo_01.test();
 
     }
-
 
     public void test() {
         ReentrantLock lock = new ReentrantLock(true);
