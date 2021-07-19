@@ -33,10 +33,13 @@ public class MaxPathSum {
         }
         // 获取左边的最大值，左边分支如果为负数，还不如不选择；
         int leftMax = Math.max(0, dfs(root.left));
+
         // 计算右边分支最大值，右边分支如果为辅助
         int rightMax = Math.max(0, dfs(root.right));
+
         // left->root->right 作为路径与已经算过历史最大值比较
         max = Math.max(max, root.val + leftMax + rightMax);
+
         // 返回经root 的单边最大分支给当前 root 的父节点 计算使用
         return root.val + Math.max(leftMax, rightMax);
 
