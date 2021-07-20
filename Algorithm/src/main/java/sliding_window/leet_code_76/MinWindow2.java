@@ -28,7 +28,6 @@ public class MinWindow2 {
             needs[c]++;
         }
 
-
         while (right < sLen) {
             char currChar = s.charAt(right);
             window[currChar]++;

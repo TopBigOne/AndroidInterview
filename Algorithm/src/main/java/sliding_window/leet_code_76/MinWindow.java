@@ -104,6 +104,7 @@ public class MinWindow {
         int count = 0;
         // 用来记录最短需要多少个字符
         int minLength = sLength + 1;
+
         while (right < sLength) {
             char ch = s.charAt(right);
             window[ch]++;
