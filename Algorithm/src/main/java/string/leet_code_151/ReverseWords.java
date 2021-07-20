@@ -39,8 +39,6 @@ public class ReverseWords {
         int end = s.length() - 1;
         while (s.charAt(start) == ' ') start++;
         while (s.charAt(end) == ' ') end--;
-
-
         StringBuilder sb = new StringBuilder();
         while (start <= end) {
             char c = s.charAt(start);
