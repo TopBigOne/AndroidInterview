@@ -18,8 +18,10 @@ import java.util.Arrays;
  */
 public class Swap {
     public int sc(int num) {
+
         char[] chars = String.valueOf(num).toCharArray();
         int len = chars.length;
+
         int[] nums = new int[len];
         int index = 0;
         for (char aChar : chars) {
