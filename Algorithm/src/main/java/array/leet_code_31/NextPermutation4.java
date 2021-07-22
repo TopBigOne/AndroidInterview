@@ -1,5 +1,7 @@
 package array.leet_code_31;
 
+import java.util.Arrays;
+
 /**
  * @author :  dev
  * @version :
@@ -11,6 +13,14 @@ package array.leet_code_31;
  * @Answer :
  */
 public class NextPermutation4 extends Base {
+    public static void main(String[] args) {
+        int[] nums = {1, 5, 3, 8, 5, 6, 7};
+        System.out.println("before : "+ Arrays.toString(nums));
+        NextPermutation4 next = new NextPermutation4();
+        next.nextPermutation(nums);
+        System.out.println("end    : "+ Arrays.toString(nums));
+    }
+
 
     public void nextPermutation(int[] nums) {
         int len;
@@ -43,7 +53,6 @@ public class NextPermutation4 extends Base {
             } else {
                 r = mid - 1;
             }
-
         }
         return r;
     }
