@@ -42,21 +42,21 @@ public class VolatileTest {
     }
 
     private void print() {
-        System.out.println("a:" + a + " b : " + b);
+        // System.out.println("a:" + a + " b : " + b);
         if (a == 1 && b == 2) {
-            //  System.out.println("a:" + a + " b : " + b);
+            System.out.println("a:" + a + " b : " + b);
             return;
         }
         if (a == 1 && b == 3) {
-            //  System.out.println("a:" + a + " b : " + b);
+            System.out.println("a:" + a + " b : " + b);
             return;
         }
         if (a == 3 && b == 2) {
-            //  System.out.println("a:" + a + "; b : " + b);
+            System.out.println("a:" + a + "; b : " + b);
             return;
         }
         if (a == 3 && b == 3) {
-            //   System.out.println("a:" + a + " b : " + b);
+            System.out.println("a:" + a + " b : " + b);
         }
 
     }
