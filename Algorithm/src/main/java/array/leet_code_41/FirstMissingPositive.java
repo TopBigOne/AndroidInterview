@@ -33,13 +33,29 @@ package array.leet_code_41;
  * 这个思想就相当于我们自己编写哈希函数，这个哈希函数的规则特别简单，那就是数值为 i 的数映射到下标为 i - 1 的位置。
  * <p>
  * 题解：https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/
+ *
+ * https://www.youtube.com/watch?v=jfb72FfxWKU
  */
 public class FirstMissingPositive {
+    public static void main(String[] args) {
+        int[] nums = {3, 4, -1, 10};
+        FirstMissingPositive first = new FirstMissingPositive();
+        int result = first.firstMissingPositive(nums);
+        System.out.println("result : " + result);
+
+    }
+
     public int firstMissingPositive(int[] nums) {
         int len = nums.length;
         for (int i = 0; i < len; i++) {
-            while (nums[i] > 0 && nums[i] <= len && nums[nums[i] - 1] != nums[i]) {
-                swap(nums, nums[i] - 1, i);
+            while (true) {
+                int curValue = nums[i];
+                if (!(curValue > 0 && curValue <= len && nums[curValue - 1] != curValue)) {
+                    break;
+                }
+                System.out.println(" i : " + i + " ,  curValue-1 ：" + curValue);
+
+                swap(nums, i, curValue - 1);
             }
         }
         for (int i = 0; i < len; i++) {
