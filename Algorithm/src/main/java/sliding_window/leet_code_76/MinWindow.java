@@ -24,7 +24,7 @@ import java.util.Map;
  * 一姐： https://www.youtube.com/watch?v=IzynHx-O4lE
  * https://www.youtube.com/watch?v=WtSq5lAdg7M
  * <p>
- * 伟伟：https://leetcode-cn.com/problems/minimum-window-substring/solution/zui-xiao-fu-gai-zi-chuan-by-leetcode-solution/
+ * 伟伟：https://leetcode-cn.com/problems/minimum-windo w-substring/solution/zui-xiao-fu-gai-zi-chuan-by-leetcode-solution/
  */
 public class MinWindow {
     public String minWindow(String s, String t) {
