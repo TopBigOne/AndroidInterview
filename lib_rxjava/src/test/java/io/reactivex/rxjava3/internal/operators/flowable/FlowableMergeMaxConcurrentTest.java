@@ -13,21 +13,24 @@
 
 package io.reactivex.rxjava3.internal.operators.flowable;
 
-import static org.junit.Assert.*;
-
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import org.junit.Test;
-import org.reactivestreams.*;
-
-import io.reactivex.rxjava3.core.*;
+import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.RxJavaTest;
 import io.reactivex.rxjava3.internal.schedulers.IoScheduler;
 import io.reactivex.rxjava3.internal.subscriptions.BooleanSubscription;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import io.reactivex.rxjava3.subscribers.TestSubscriber;
 import io.reactivex.rxjava3.testsupport.TestSubscriberEx;
+import org.junit.Test;
+import org.reactivestreams.Publisher;
+import org.reactivestreams.Subscriber;
+
+import java.util.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class FlowableMergeMaxConcurrentTest extends RxJavaTest {
 
@@ -149,10 +152,11 @@ public class FlowableMergeMaxConcurrentTest extends RxJavaTest {
 
     @Test
     public void simple() {
-        for (int i = 1; i < 100; i++) {
+        for (int i = 1; i < 20; i++) {
             TestSubscriberEx<Integer> ts = new TestSubscriberEx<>();
             List<Flowable<Integer>> sourceList = new ArrayList<>(i);
             List<Integer> result = new ArrayList<>(i);
+
             for (int j = 1; j <= i; j++) {
                 sourceList.add(Flowable.just(j));
                 result.add(j);
@@ -164,6 +168,10 @@ public class FlowableMergeMaxConcurrentTest extends RxJavaTest {
             ts.assertTerminated();
             ts.assertValueSequence(result);
         }
+
+
+
+
     }
 
     @Test

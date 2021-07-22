@@ -13,30 +13,48 @@
 
 package io.reactivex.rxjava3.internal.operators.flowable;
 
+import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.FlowableSubscriber;
+import io.reactivex.rxjava3.core.RxJavaTest;
+import io.reactivex.rxjava3.core.Scheduler;
+import io.reactivex.rxjava3.core.Scheduler.Worker;
+import io.reactivex.rxjava3.exceptions.TestException;
+import io.reactivex.rxjava3.functions.Action;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.functions.Function;
+import io.reactivex.rxjava3.functions.LongConsumer;
+import io.reactivex.rxjava3.internal.functions.Functions;
+import io.reactivex.rxjava3.internal.subscriptions.AsyncSubscription;
+import io.reactivex.rxjava3.internal.subscriptions.BooleanSubscription;
+import io.reactivex.rxjava3.internal.util.BackpressureHelper;
+import io.reactivex.rxjava3.internal.util.ExceptionHelper;
+import io.reactivex.rxjava3.plugins.RxJavaPlugins;
+import io.reactivex.rxjava3.processors.PublishProcessor;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+import io.reactivex.rxjava3.schedulers.TestScheduler;
+import io.reactivex.rxjava3.subscribers.DefaultSubscriber;
+import io.reactivex.rxjava3.subscribers.TestSubscriber;
+import io.reactivex.rxjava3.testsupport.TestHelper;
+import io.reactivex.rxjava3.testsupport.TestSubscriberEx;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.reactivestreams.Publisher;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+
 import static java.util.Arrays.asList;
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.*;
-
-import org.junit.*;
-import org.reactivestreams.*;
-
-import io.reactivex.rxjava3.core.*;
-import io.reactivex.rxjava3.core.Scheduler.Worker;
-import io.reactivex.rxjava3.exceptions.TestException;
-import io.reactivex.rxjava3.functions.*;
-import io.reactivex.rxjava3.internal.functions.Functions;
-import io.reactivex.rxjava3.internal.subscriptions.*;
-import io.reactivex.rxjava3.internal.util.*;
-import io.reactivex.rxjava3.plugins.RxJavaPlugins;
-import io.reactivex.rxjava3.processors.PublishProcessor;
-import io.reactivex.rxjava3.schedulers.*;
-import io.reactivex.rxjava3.subscribers.*;
-import io.reactivex.rxjava3.testsupport.*;
 
 public class FlowableMergeTest extends RxJavaTest {
 
@@ -98,6 +116,9 @@ public class FlowableMergeTest extends RxJavaTest {
         verify(stringSubscriber, times(2)).onNext("hello");
     }
 
+    /**
+     * 合并2个数组
+     */
     @Test
     public void mergeArray() {
         final Flowable<String> f1 = Flowable.unsafeCreate(new TestSynchronousFlowable());
@@ -105,6 +126,8 @@ public class FlowableMergeTest extends RxJavaTest {
 
         Flowable<String> m = Flowable.merge(f1, f2);
         m.subscribe(stringSubscriber);
+
+
 
         verify(stringSubscriber, never()).onError(any(Throwable.class));
         verify(stringSubscriber, times(2)).onNext("hello");

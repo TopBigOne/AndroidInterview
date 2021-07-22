@@ -13,6 +13,9 @@ import static org.junit.Assert.assertEquals;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
+
+        System.out.println("hello");
+
         assertEquals(4, 2 + 2);
     }
 }
