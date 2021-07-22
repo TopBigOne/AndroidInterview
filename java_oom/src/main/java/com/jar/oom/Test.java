@@ -12,7 +12,6 @@ import com.jar.oom.utils.LogUtils;
  */
 public class Test {
     public static void main(String[] args)  throws IllegalAccessException{
-
         // testHeapOOM();
        // testMetaspaceOOM();
       // testStackOverFlow();

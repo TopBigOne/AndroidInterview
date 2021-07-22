@@ -1,6 +1,6 @@
 package com.jar.oom;
 
-import javafx.scene.control.PasswordField;
+
 
 /**
  * @author : Jakarta
@@ -14,7 +14,5 @@ public class StackOverflowError implements Run {
     public void execute() {
         stackLenght++;
         execute();
-
-
     }
 }
