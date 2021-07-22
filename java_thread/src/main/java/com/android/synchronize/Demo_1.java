@@ -4,12 +4,13 @@ package com.android.synchronize;
  * @author : dev
  * @version :
  * @Date :  2021/5/8 15:57
- * @Desc :
+ * @Desc : synchronized 的使用方式
  */
 public class Demo_1 {
     private final Object object = new Object();
 
     public void test() {
+
         //用在代码块上
         synchronized (this) {
             // do sth
