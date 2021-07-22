@@ -25,7 +25,7 @@ public class ReverseWords6 {
         while(s.charAt(end)==' ') end--;
 
         StringBuilder sb = new StringBuilder();
-        while(start<end){
+        while(start<=end){
             char currChar = s.charAt(start);
             if(currChar!=' '||sb.charAt(sb.length()-1)!=' '){
                 sb.append(currChar);
@@ -61,7 +61,7 @@ public class ReverseWords6 {
             end = start+1;
         
         }
-
     }
+
 
 }
