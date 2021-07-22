@@ -34,17 +34,17 @@ public class SuShu {
         return result;
     }
 
-    public List<Integer> getSu(int start, int end) {
+    public List<Integer> getSu2(int start, int end) {
         List<Integer> result = new ArrayList<>();
         for (int i = start; i <= end; i++) {
-            for (int j = 2; j < i,j++){
+            for (int j = 2; j < i;j++){
                 // 被一个数整除了，ps:这个数不是1 和 i 本身哦
                 // 那就终止循环
                 if (i % j == 0) {
                     break;
                 }
 
-                if (i = j + 1) {
+                if (i == j + 1) {
                     result.add(i);
                 }
 
