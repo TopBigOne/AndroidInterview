@@ -1,14 +1,12 @@
 package tree.leet_code_124;
 
-import org.omg.CORBA.INTERNAL;
-
 import tree.TreeNode;
 
 /**
  * @author : dev
  * @version :
  * @Date :  2021/5/28 17:53
- * @Desc : 快手一面
+ * @Desc :  二叉树中的最大路径和 快手一面: https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/
  * 求打印出路径来
  */
 public class MaxPathSum3 {
