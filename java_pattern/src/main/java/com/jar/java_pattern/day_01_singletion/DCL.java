@@ -4,7 +4,7 @@ package com.jar.java_pattern.day_01_singletion;
  * @author : dev
  * @version :
  * @Date :  2021/4/28 11:02
- * @Desc :
+ * @Desc : 单例模式
  */
 public class DCL {
     // 通过volatile关键字来确保安全
