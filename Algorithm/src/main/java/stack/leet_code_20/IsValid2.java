@@ -3,13 +3,11 @@ package stack.leet_code_20;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-import javax.xml.ws.FaultAction;
-
 /**
  * @author : dev
  * @version :
  * @Date :  7/8/21 12:10 AM
- * @Desc :
+ * @Desc : leetcode 20 ： 有效括号：https://leetcode-cn.com/problems/valid-parentheses/
  * <p>
  * 题解：https://www.youtube.com/watch?v=o7lQWD8FiIA
  */
