@@ -1,5 +1,7 @@
 package dp.leet_code_354;
 
+import org.omg.PortableServer.AdapterActivator;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -8,7 +10,7 @@ import java.util.Comparator;
  * @version :
  * @Date :  2021/6/15 22:50
  * @Url : https://leetcode-cn.com/problems/russian-doll-envelopes/
- * @Level : easy medium hard
+ * @Level :   hard
  * @Desc : 俄罗斯套娃信封问题
  * @Counter : 13
  * @Answer : 题解：https://leetcode-cn.com/problems/russian-doll-envelopes/solution/liang-ge-wei-du-de-zui-chang-di-zeng-zi-ctbmd/
@@ -19,12 +21,16 @@ import java.util.Comparator;
  * 题解：https://leetcode-cn.com/problems/russian-doll-envelopes/solution/zui-chang-shang-sheng-zi-xu-lie-bian-xin-6s8d/
  */
 public class MaxEnvelope {
+
+
     public int maxEnvelopes(int[][] es) {
         int n = es.length;
         if (n == 0) return n;
         // 因为我们在找第 i 件物品的前一件物品时，
-        // 会对前面的 i - 1 件物品都遍历一遍，因此第二维（高度）排序与否都不影响
+        // （宽度）会对前面的 i - 1 件物品都遍历一遍，因此第二维（高度）排序与否都不影响
         Arrays.sort(es, Comparator.comparingInt(a -> a[0]));
+        System.out.println("排序以后的 es ：" + Arrays.deepToString(es));
+
         int[] f = new int[n]; // f(i) 为考虑前 i 个物品，并以第 i 个物品为结尾的最大值
         int ans = 1;
         for (int i = 0; i < n; i++) {
@@ -43,7 +49,14 @@ public class MaxEnvelope {
         return ans;
     }
 
+    /**
+     * @param es  信封
+     * @param mid
+     * @param i
+     * @return
+     */
     private boolean check(int[][] es, int mid, int i) {
+        // 长宽都小于 es[i]
         return es[mid][0] < es[i][0] && es[mid][1] < es[i][1];
     }
 
@@ -125,6 +138,7 @@ public class MaxEnvelope {
 
         int[] f = new int[length];
         int ans = 1;
+
         for (int i = 0; i < length; i++) {
             f[i] = 1;
             for (int j = i - 1; j >= 0; j--) {
@@ -183,20 +197,104 @@ public class MaxEnvelope {
 
     public int maxEnvelopes8(int[][] es) {
         int length = es.length;
-        if (length == 0) {
-            return length;
-        }
-        Arrays.sort(es, Comparator.comparingInt(value -> value[0]));
-        int ans = 1;
+        if (length == 0) return 0;
+        Arrays.sort(es, (a, b) -> a[0] - b[0]);
         int[] f = new int[length];
+        int ans = 1;
         for (int i = 0; i < length; i++) {
             f[i] = 1;
             for (int j = i - 1; j >= 0; j--) {
-                f[i] = Math.max(f[i], f[j] + 1);
+                if (check(es, j, i)) {
+                    f[i] = Math.max(f[i], f[j] + 1);
+                }
             }
             ans = Math.max(f[i], ans);
         }
         return ans;
+
+
+    }
+
+    public int maxEnvelopes9(int[][] es) {
+        int length = es.length;
+        if (length == 0) return 0;
+
+        Arrays.sort(es, (a, b) -> a[0] - b[0]);
+        int[] f = new int[length];
+
+        int ans = 1;
+        for (int i = 0; i < length; i++) {
+            f[i] = 1;
+
+            for (int j = i - 1; j >= 0; j--) {
+                if (check(es, j, i)) {
+                    f[i] = Math.max(f[i], f[j] + 1);
+                }
+            }
+            ans = Math.max(f[i], ans);
+        }
+
+        return ans;
+    }
+
+    /**
+     * 俄罗斯套娃，
+     *
+     * @param es
+     * @return
+     */
+    public int maxEnvelopes10(int[][] es) {
+        int length = es.length;
+        if (length == 0) return 0;
+        Arrays.sort(es, (a, b) -> a[0] - b[0]);
+        int[] f = new int[length];
+        int ans = 1;
+        for (int i = 0; i < length; i++) {
+            f[i] = 1;
+            for (int j = i - 1; j >= 0; j--) {
+                if (check(es, j, i)) {
+                    f[i] = Math.max(f[i], f[j] + 1);
+                }
+            }
+            ans = Math.max(f[i], ans);
+        }
+        return ans;
+    }
+
+    public int maxEnvelopes11(int[][] es) {
+        // 1： base corner
+        int length = es.length;
+        if (length == 0) {
+            return 0;
+        }
+
+        // do a sort;
+        Arrays.sort(es, (a, b) -> a[0] - b[0]);
+
+        // temp result
+        int[] f = new int[length];
+        // final result;
+        int ans = 1;
+
+        // core logic
+        for (int i = 0; i < length; i++) {
+            // init
+            f[i] = 1;
+            // reverse compare
+            for (int j = i - 1; j >= 0; j--) {
+                if (checkSize(es, j, i)) {
+                    f[i] = Math.max(f[i], f[j] + 1);
+                }
+            }
+            ans = Math.max(ans, f[i]);
+
+        }
+        return ans;
+
+    }
+
+    private boolean checkSize(int[][] es, int mid, int i) {
+        return es[mid][0] < es[i][0] && es[mid][1] < es[i][1];
     }
 
 
