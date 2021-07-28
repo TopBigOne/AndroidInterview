@@ -25,7 +25,7 @@ Java_com_jar_ndk_MainActivity_getTxt(JNIEnv *env, jobject) {
     cout << "zhou_size" << size << endl;
     printf("my_age %d", 34);
 
-    LOGI("Something size %s=d", size);
+   // LOGI("Something size %s=d", size);
 
     return env->NewStringUTF(hello.c_str());
 }
