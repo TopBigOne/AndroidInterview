@@ -1,4 +1,4 @@
-package ten_sort.lock;
+package com.jar.lock;
 
 /**
  * @author : dev

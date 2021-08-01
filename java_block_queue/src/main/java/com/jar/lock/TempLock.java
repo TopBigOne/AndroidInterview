@@ -1,4 +1,4 @@
-package ten_sort.lock;
+package com.jar.lock;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;

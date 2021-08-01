@@ -1,6 +1,6 @@
-package ten_sort.sort;
+package ten_sort.select;
 
-import java.util.Arrays;
+import ten_sort.BaseSort;
 
 /**
  * @author : Jakarta

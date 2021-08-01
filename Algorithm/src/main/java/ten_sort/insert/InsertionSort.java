@@ -1,4 +1,4 @@
-package ten_sort.quick_sort;
+package ten_sort.insert;
 
 import java.util.Arrays;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @version :
  * @Date :  2021/6/7 16:29
  * @Url :
- * @Level : easy medium hard
+ * @Level :  medium
  * @Desc : 插入排序
  * @Counter :
  * @Answer :

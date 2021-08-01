@@ -1,4 +1,4 @@
-package ten_sort.search;
+package ten_sort.binary_search.search;
 
 import java.util.Arrays;
 

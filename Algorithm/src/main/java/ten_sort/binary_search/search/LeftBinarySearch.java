@@ -1,6 +1,4 @@
-package ten_sort.search;
-
-import java.lang.annotation.Target;
+package ten_sort.binary_search.search;
 
 /**
  * @author : dev

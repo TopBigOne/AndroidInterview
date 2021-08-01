@@ -29,7 +29,6 @@ public class NumOfWays {
         }
         return (int) ((ABA + ABC) % mod);
 
-
     }
 
 

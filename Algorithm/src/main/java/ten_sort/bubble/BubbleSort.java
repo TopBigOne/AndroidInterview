@@ -1,4 +1,6 @@
-package ten_sort.sort;
+package ten_sort.bubble;
+
+import ten_sort.BaseSort;
 
 /**
  * @author : Jakarta

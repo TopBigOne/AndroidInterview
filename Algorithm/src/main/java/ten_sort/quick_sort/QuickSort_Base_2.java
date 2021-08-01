@@ -7,8 +7,8 @@ import java.util.Random;
  * @version :
  * @Date :  2021/6/7 15:25
  * @Url :
- * @Level : easy medium hard
- * @Desc :
+ * @Level :  medium
+ * @Desc : 快排
  * @Counter :
  * @Answer :
  */

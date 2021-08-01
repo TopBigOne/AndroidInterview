@@ -2,7 +2,7 @@ package tree.leet_code_297;
 
 import java.util.LinkedList;
 
-import ten_sort.lock.TempLock;
+import com.jar.lock.TempLock;
 import tree.TreeNode;
 
 /**

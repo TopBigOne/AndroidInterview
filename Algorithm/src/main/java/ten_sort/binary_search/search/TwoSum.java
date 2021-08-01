@@ -1,11 +1,7 @@
-package ten_sort.search;
+package ten_sort.binary_search.search;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.function.BiConsumer;
-
-import sun.security.provider.Sun;
 
 /**
  * @author : dev

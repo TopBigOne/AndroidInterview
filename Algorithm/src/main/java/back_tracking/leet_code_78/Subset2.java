@@ -17,12 +17,8 @@ public class Subset2 {
         Subset2 subset2 = new Subset2();
         int [] nums = new int[]{1,2,3};
         List<List<Integer>> result = subset2.subset(nums);
-        result.forEach(new Consumer<List<Integer>>() {
-            @Override
-            public void accept(List<Integer> integers) {
-                System.out.println(integers);
-            }
-        });
+
+        result.forEach(System.out::println);
 
     }
 
