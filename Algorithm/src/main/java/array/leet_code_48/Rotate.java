@@ -50,7 +50,6 @@ public class Rotate {
                 int rightUp = matrix[j][i];
                 System.out.println("  leftDown : " + leftDown + " , rightDown : " + rightUp);
                 System.out.println("|------------------------------------------------------------|");
-
                 int temp = leftDown;
                 matrix[i][j] = rightUp;
                 matrix[j][i] = temp;

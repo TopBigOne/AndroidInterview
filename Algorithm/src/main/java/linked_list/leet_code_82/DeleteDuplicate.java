@@ -6,7 +6,7 @@ import linked_list.ListNode;
  * @author : dev
  * @version :
  * @Date :  2021/5/18 20:50
- * @Desc :    leetcode 82: 删除排序链表中的重复元素：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/
+ * @Desc :    leetcode 82: 删除排序链表中的重复元素II：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/
  * <p>
  * 题解：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/solution/fu-xue-ming-zhu-di-gui-die-dai-yi-pian-t-wy0h/
  */

@@ -1,8 +1,5 @@
 package linked_list.leet_code_114;
 
-import sun.awt.geom.AreaOp;
-import sun.jvm.hotspot.debugger.remote.ppc.RemotePPCThread;
-import sun.security.acl.WorldGroupImpl;
 import tree.TreeNode;
 
 /**
