@@ -19,8 +19,6 @@ import androidx.annotation.RequiresApi;
 import com.hencoder.plus.R;
 import com.hencoder.plus.Utils;
 
-import java.util.Map;
-
 /**
  * @author : Jakarta
  * @version :
@@ -63,6 +61,7 @@ public class AvatarView extends View {
         options.inJustDecodeBounds = false;
         options.inDensity = options.outWidth;
         options.inTargetDensity = width;
+
         return BitmapFactory.decodeResource(getResources(), R.mipmap.li_jie, options);
     }
 
@@ -74,6 +73,7 @@ public class AvatarView extends View {
         // 画一个椭圆
         canvas.drawOval(PADDING, PADDING, PADDING + WIDTH, PADDING + WIDTH, mPaint);
         int saved = canvas.saveLayer(mSaveArea, mPaint);
+
         canvas.drawOval(PADDING + EDGE_WIDTH, PADDING + EDGE_WIDTH, PADDING + WIDTH - EDGE_WIDTH, PADDING + WIDTH - EDGE_WIDTH, mPaint);
         mPaint.setXfermode(mXfermode);
         canvas.drawBitmap(mBitmap, PADDING, PADDING, mPaint);

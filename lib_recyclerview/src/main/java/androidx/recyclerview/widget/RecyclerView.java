@@ -6076,7 +6076,9 @@ public class RecyclerView extends ViewGroup implements ScrollingView,
      * may be repositioned by a LayoutManager without remeasurement.</p>
      */
     public final class Recycler {
+        // 第一层缓存：作用于屏幕内 ，不可修改
         final ArrayList<ViewHolder> mAttachedScrap = new ArrayList<>();
+
         ArrayList<ViewHolder> mChangedScrap = null;
 
         final ArrayList<ViewHolder> mCachedViews = new ArrayList<ViewHolder>();
@@ -6084,14 +6086,18 @@ public class RecyclerView extends ViewGroup implements ScrollingView,
         private final List<ViewHolder>
                 mUnmodifiableAttachedScrap = Collections.unmodifiableList(mAttachedScrap);
 
+
+        static final int DEFAULT_CACHE_SIZE = 2;
+
+        // 第二层缓存；大小是2
         private int mRequestedCacheMax = DEFAULT_CACHE_SIZE;
         int mViewCacheMax = DEFAULT_CACHE_SIZE;
 
+        // 第4层缓存，大小是5
         RecycledViewPool mRecyclerPool;
 
         private ViewCacheExtension mViewCacheExtension;
 
-        static final int DEFAULT_CACHE_SIZE = 2;
 
         /**
          * Clear scrap views out of this recycler. Detached views contained within a
