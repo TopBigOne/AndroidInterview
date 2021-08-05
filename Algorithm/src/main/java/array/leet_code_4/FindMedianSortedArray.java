@@ -121,6 +121,7 @@ public class FindMedianSortedArray {
         if (n1 == 0) {
             return ((double) nums2[(n2 - 1) / 2] + (double) nums2[n2 / 2]) / 2;
         }
+
         int len = n1 + n2;
         int cutL = 0, cutR = n1;
         int cut1 = n1 >> 1;

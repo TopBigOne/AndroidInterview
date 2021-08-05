@@ -10,7 +10,7 @@ import java.util.Arrays;
  * @Level :    medium
  * @Desc : 下一个全排列
  * @Counter :
- * @Answer :
+ * @Answer :  *  * 高频题解： https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/
  */
 public class NextPermutation4 extends Base {
     public static void main(String[] args) {

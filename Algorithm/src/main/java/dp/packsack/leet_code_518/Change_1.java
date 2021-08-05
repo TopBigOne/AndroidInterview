@@ -5,6 +5,7 @@ package dp.packsack.leet_code_518;
  * @version :
  * @Date :  7/17/21 6:51 PM
  * @Desc :
+ * https://leetcode-cn.com/problems/coin-change-2/solution/
  * 这个题解，还是比较符合我自己的理解；
  * 定义：f[i][j]  为考虑前 i 个钱币凑成总和为 j 的方案数
  * https://leetcode-cn.com/problems/coin-change-2/solution/gong-shui-san-xie-xiang-jie-wan-quan-bei-6hxv/
@@ -158,6 +159,21 @@ public class Change_1 {
             for (int j = val; j <= amount; j++) {
                 dp[j]+=dp[j-val];
             }
+        }
+        return dp[amount];
+    }
+
+
+    public int change8(int amount,int [] coins){
+        int len = coins.length;
+        int [] dp = new int[amount+1];
+        dp[0] = 1;
+        for (int i = 1; i <=len; i++) {
+            int value  = coins[i-1];
+            for(int j = value;j<=amount;j++){
+                dp[j]+=dp[j-value];
+            }
+
         }
         return dp[amount];
     }

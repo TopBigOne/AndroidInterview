@@ -1,4 +1,4 @@
-package linked_list.leetcode_206;
+package linked_list.leet_code_206;
 
 import linked_list.ListNode;
 
@@ -319,7 +319,7 @@ public class ReverseLinkList {
 
         ListNode pre = null;
         ListNode curr = head;
-        while(curr!=null){
+        while (curr != null) {
             ListNode temp = curr.next;
             // 当前节点的下一个节点，指向上一个节点；
             curr.next = pre;
@@ -331,17 +331,32 @@ public class ReverseLinkList {
 
         return pre;
     }
-    public ListNode reverseListNode25(ListNode head){
-        if (head==null||head.next==null) {
+
+    public ListNode reverseListNode25(ListNode head) {
+        if (head == null || head.next == null) {
             return head;
         }
         ListNode pre = null;
         ListNode curr = head;
-        while (curr!=null){
+        while (curr != null) {
             ListNode temp = curr.next;
             curr.next = pre;
             pre = curr;
             curr = temp;
+        }
+        return pre;
+    }
+
+
+    public ListNode reverseListNode26(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur != null) {
+            ListNode temp = head.next;
+            head.next = pre;
+            pre = cur;
+            cur = temp;
+
         }
         return pre;
     }

@@ -7,7 +7,8 @@ import java.util.List;
  * @author : dev
  * @version :
  * @Date :  2021/4/22 17:58
- * @Desc :   螺旋矩阵 字节半年19次
+ * @Desc :   螺旋矩阵（顺时针打印矩阵） 字节半年19次
+ * https://leetcode-cn.com/problems/spiral-matrix/
  * 给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。
  * <p>
  * 题解：https://leetcode-cn.com/problems/spiral-matrix/solution/luo-xuan-ju-zhen-by-liao-tian-yi-jian/
@@ -113,6 +114,7 @@ public class SpiralOrder {
 
         }
         return list;
+
     }
 
 
@@ -126,6 +128,7 @@ public class SpiralOrder {
         int right = matrix[0].length - 1;
         int top = 0;
         int bottom = matrix.length - 1;
+
         while (left <= right && top <= bottom) {
             // 为啥敢写<=,因为 right减1了；
             for (int i = left; i <= right; i++) {
@@ -144,6 +147,7 @@ public class SpiralOrder {
                     int value = matrix[bottom][i];
                     res.add(value);
                 }
+
                 //从(bottom,left)--->(top-1,left)
                 for (int i = bottom; i > top; i--) {
                     int value = matrix[i][left];
@@ -184,14 +188,12 @@ public class SpiralOrder {
 
             // 会有相等的那一刻，要做换行或者换列处理
             if (top < bottom && left < right) {
-
                 for (int i = right - 1; i > left; i--) {
                     res.add(matrix[bottom][i]);
                 }
                 for (int i = bottom; i > top; i--) {
                     res.add(matrix[i][left]);
                 }
-
             }
 
             left++;
@@ -236,6 +238,8 @@ public class SpiralOrder {
             top++;
             bottom--;
         }
+
+        res.stream().mapToInt(value -> value).toArray();
 
         return res;
     }

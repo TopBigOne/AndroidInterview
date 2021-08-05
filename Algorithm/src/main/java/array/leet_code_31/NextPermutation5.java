@@ -4,55 +4,49 @@ package array.leet_code_31;
  * @author :  dev
  * @version :
  * @Date :   2021/7/15 15:15
- * @Url :
+ * @Url :下一个排列：（https://leetcode-cn.com/problems/next-permutation/）
  * @Level :    medium
  * @Desc :
  * @Counter :
  * @Answer :
+ * * 题解：
+ * * 一姐：https://www.youtube.com/watch?v=IbcQOdtmvpA
+ * * 高频题解： https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/
  */
 public class NextPermutation5 extends Base {
 
     public void nextPermutation(int[] nums) {
-        int len;
-        if (nums == null || (len = nums.length) == 0) {
-            return;
-        }
-
+        int len = nums.length;
         int index = len - 2;
-        // 1：找到那个突然降低的点；
         while (index >= 0 && nums[index] >= nums[index + 1]) {
             index--;
         }
         if (index >= 0) {
-            // 在 [index+1，len-1],找到一个nums[k]>nums[index]的值，返回它
-            // 的下标j；
             int j = binarySearch(nums, index + 1, len - 1, nums[index]);
-            // 做交换
             swap(nums, index, j);
         }
-
-        // 把index+1 到len-1 段的数组，做一下升序
         doPartReverse(nums, index + 1, len - 1);
     }
 
-    private void doPartReverse(int[] nums, int i, int j) {
-        while (i < j) {
-            swap(nums, i++, i--);
+    private void doPartReverse(int[] nums, int l, int r) {
+        while (l < r) {
+            swap(nums, l++, r--);
         }
     }
 
-    private int binarySearch(int[] nums, int low, int high, int target) {
-        while (low <= high) {
-            int mid = low + ((high - low) >> 1);
-            int curValue = nums[mid];
-            if (curValue > target) {
-                low = mid + 1;
+    private int binarySearch(int[] nums, int l, int r, int target) {
+
+        while (l <= r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] > target) {
+                l = mid + 1;
+
             } else {
-                high = mid - 1;
+                r = mid - 1;
             }
         }
-        return high;
 
+        return r;
     }
 
 

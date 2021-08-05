@@ -1,7 +1,5 @@
 package dp.leet_code_354;
 
-import org.omg.PortableServer.AdapterActivator;
-
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -21,7 +19,6 @@ import java.util.Comparator;
  * 题解：https://leetcode-cn.com/problems/russian-doll-envelopes/solution/zui-chang-shang-sheng-zi-xu-lie-bian-xin-6s8d/
  */
 public class MaxEnvelope {
-
 
     public int maxEnvelopes(int[][] es) {
         int n = es.length;

@@ -1,4 +1,4 @@
-package linked_list.leetcode_206;
+package linked_list.leet_code_206;
 
 import linked_list.ListNode;
 
@@ -68,11 +68,27 @@ public class ReverseLinkedList2 {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode curr = reverseListNode3(head);
+        ListNode curr = reverseListNode3(head.next);
         curr.next.next = head;
         head.next = null;
         return curr;
 
+    }
+
+    public ListNode reverseListNode4(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode lastNode = reverseListNode4(head.next);
+        head.next.next = head;
+        head.next = null;
+        return lastNode;
+    }
+
+    public ListNode reverseListNode5(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode lastNode  = reverseListNode5(head.next);
+        head.next.next = head;
+        head.next = null;
+        return lastNode;
     }
 
 

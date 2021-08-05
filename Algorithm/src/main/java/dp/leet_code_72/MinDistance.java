@@ -6,10 +6,11 @@ package dp.leet_code_72;
  * @Date :  6/8/21 11:50 PM
  * @Desc :  leetcode_72: 编辑距离：https://leetcode-cn.com/problems/edit-distance/submissions/
  *
- * 题解：https://leetcode-cn.com/problems/edit-distance/solution/dong-tai-gui-hua-java-by-liweiwei1419/
+ * 题解-1：https://leetcode-cn.com/problems/edit-distance/solution/dong-tai-gui-hua-java-by-liweiwei1419/
+ *
+ *题解-2 https://leetcode-cn.com/problems/edit-distance/solution/edit-distance-by-ikaruga/
  */
 public class MinDistance {
-
     /**
      * 只讨论 word1 → word2
      * @param word1

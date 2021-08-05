@@ -1,4 +1,4 @@
-package linked_list.leetcode_92;
+package linked_list.leet_code_92;
 
 import linked_list.ListNode;
 

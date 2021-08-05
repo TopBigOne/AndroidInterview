@@ -15,8 +15,6 @@ import java.util.List;
  * 题解：https://leetcode-cn.com/problems/permutations-ii/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liwe-2/
  */
 public class PermuteUnique {
-
-
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         int len;
@@ -25,6 +23,7 @@ public class PermuteUnique {
         }
         // 排序（升序或者降序都可以）为了剪枝方便
         Arrays.sort(nums);
+
 
         boolean[] used = new boolean[len];
         Deque<Integer> path = new ArrayDeque<>(len);
