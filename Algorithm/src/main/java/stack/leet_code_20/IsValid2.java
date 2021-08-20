@@ -15,7 +15,7 @@ public class IsValid2 {
     public boolean isValid(String s) {
         int len;
         // base corner
-        if (s == null || (len = s.length()) == 0 ||  (len&1)==0) {
+        if (s == null || (len = s.length()) == 0 || (len & 1) == 0) {
             return false;
         }
 
@@ -51,6 +51,48 @@ public class IsValid2 {
 
         // 栈，是否为空，空的话，就 ok 啦，，
         return stack.isEmpty();
+    }
+
+    public boolean isValid2(String str) {
+        int len;
+        // 1: base corner.
+        if (str == null || (len = str.length()) == 0 || (len & 1) == 1) {
+            return false;
+        }
+        // 2:put and check.
+        Deque<Character> stack = new ArrayDeque<>();
+        for (int i = 0; i < len; i++) {
+            char currChar = str.charAt(i);
+
+            if (currChar == '(' ||
+                    currChar == '[' ||
+                    currChar == '{') {
+                stack.push(currChar);
+                continue;
+            }
+
+
+            if (!stack.isEmpty() && currChar == ')' && stack.peek() == '(') {
+                stack.pop();
+                continue;
+            }
+            if (!stack.isEmpty() && currChar == ']' && stack.peek() == '[') {
+                stack.pop();
+                continue;
+            }
+            if (!stack.isEmpty() && currChar == '}' && stack.peek() == '{') {
+                stack.pop();
+                continue;
+            }
+
+            return false;
+
+        }
+
+        return stack.isEmpty();
+
 
     }
+
+
 }

@@ -19,8 +19,6 @@ public class Rotate {
         };
         Rotate rotate = new Rotate();
         rotate.rotate(matrix);
-
-
     }
 
     /**
@@ -40,22 +38,18 @@ public class Rotate {
      * [9,6,3]
      */
     public void rotate(int[][] matrix) {
-        System.out.println("|------------------------------------------------------------|");
+        System.out.println("|------------------------------------|");
         int n = matrix.length;
         for (int i = 0; i < n - 1; i++) {
-
             // 先以对角线为轴进行翻转
             for (int j = i + 1; j < n; j++) {
                 int leftDown = matrix[i][j];
                 int rightUp = matrix[j][i];
                 System.out.println("  leftDown : " + leftDown + " , rightDown : " + rightUp);
-                System.out.println("|------------------------------------------------------------|");
-                int temp = leftDown;
+                System.out.println("|--------------------------------------|");
                 matrix[i][j] = rightUp;
-                matrix[j][i] = temp;
-
+                matrix[j][i] = leftDown;
             }
-
         }
 
         int mid = n >> 1;
