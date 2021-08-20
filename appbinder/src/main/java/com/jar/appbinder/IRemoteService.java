@@ -44,6 +44,7 @@ public interface IRemoteService extends android.os.IInterface {
         /**
          * Cast an IBinder object into an com.jar.appbinder.IRemoteService interface,
          * generating a proxy if needed.
+         * asInterface 的作用就是就是判断参数，
          */
         public static IRemoteService asInterface(android.os.IBinder obj) {
             if ((obj == null)) {
