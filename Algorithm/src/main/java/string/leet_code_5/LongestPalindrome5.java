@@ -4,7 +4,7 @@ package string.leet_code_5;
  * @author : dev
  * @version :
  * @Date :  7/15/21 12:08 AM
- * @Desc :
+ * @Desc :  (字节，37次)最长回文子串(https://leetcode-cn.com/problems/longest-palindromic-substring/)
  */
 public class LongestPalindrome5 {
     public String longestPalindrome(String str) {

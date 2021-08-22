@@ -14,6 +14,7 @@ public class LongestPalindrome {
     public String longestPalindrome(String s) {
         if (s == null || s.length() < 1) return "";
         int start = 0, end = 0;
+
         for (int i = 0; i < s.length(); i++) {
             int len1 = expandAroundCenter(s, i, i);
             int len2 = expandAroundCenter(s, i, i + 1);

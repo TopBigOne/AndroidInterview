@@ -8,12 +8,12 @@ import java.util.HashMap;
  * @Date :  2021/7/2 10:47
  * @Desc :
  */
-public class LruCache5 {
+public class LRUCache5 {
     private HashMap<Integer,Node> map;
     private DoubleList cache;
     private int cap;
 
-    public LruCache5(int cap){
+    public LRUCache5(int cap){
         this.cap = cap;
         map = new HashMap<>();
         cache = new DoubleList();

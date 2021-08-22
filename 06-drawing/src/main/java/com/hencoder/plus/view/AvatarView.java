@@ -26,16 +26,17 @@ import com.hencoder.plus.Utils;
  * @Desc :
  */
 public class AvatarView extends View {
-    private static final float WIDTH      = Utils.dp2px(300);
-    private static final float PADDING    = Utils.dp2px(50);
+    private static final float WIDTH = Utils.dp2px(300);
+    private static final float PADDING = Utils.dp2px(50);
     private static final float EDGE_WIDTH = Utils.dp2px(10);
 
     // 留意这个类
-    Paint    mPaint    = new Paint(Paint.ANTI_ALIAS_FLAG);
+    Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    // 重叠类型
     Xfermode mXfermode = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
 
     Bitmap mBitmap;
-    RectF  mSaveArea = new RectF();
+    RectF mSaveArea = new RectF();
 
     public AvatarView(Context context) {
         super(context);
