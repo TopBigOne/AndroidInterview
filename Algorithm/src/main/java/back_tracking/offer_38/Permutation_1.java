@@ -8,7 +8,7 @@ import java.util.List;
  * @author :  dev
  * @version :
  * @Date :   2021/7/30 11:24
- * @Url :permutation
+ * @Url :https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof/
  * @Level :    medium
  * @Desc : 输入一个字符串，打印出该字符串中字符的所有排列。
  * 你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。
@@ -17,17 +17,14 @@ import java.util.List;
  * <p>
  * https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof/solution/hui-su-suan-fa-java-by-liweiwei1419/
  */
-public class permutation {
+public class Permutation_1 {
     public static void main(String[] args) {
-        permutation t = new permutation();
+        Permutation_1 t = new Permutation_1();
         //输入：s = "abc"
         /// 输出：["abc","acb","bac","bca","cab","cba"]
         String s = "abc";
         t.permutation(s);
-
-
     }
-
 
     //为了让递归函数添加结果方便，定义到函数之外，这样无需带到递归函数的参数列表中
     List<String> list = new ArrayList<>();
