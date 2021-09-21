@@ -1,20 +1,32 @@
 package ten_sort.binary_search.leet_code_240;
 
+
+import java.util.Arrays;
+
 /**
- * @author : dev
+ * @author :  dev
  * @version :
  * @Date :  6/20/21 11:25 PM
- * @Desc : leetcode 240 搜索二维矩阵 ： 字节 半年 11 次 ： https://leetcode-cn.com/problems/search-a-2d-matrix-ii/
- *
- *
+ * @Url :  https://leetcode-cn.com/problems/search-a-2d-matrix-ii/submissions/
+ * @Level :  medium
+ * @Desc : leetcode 240 搜索二维矩阵 ：
+ * 每行的元素从左到右升序排列。
+ * 每列的元素从上到下升序排列
+ * @Counter : 11
+ * @Answer : https://leetcode-cn.com/problems/search-a-2d-matrix-ii/
  */
+
 public class SearchMatrix {
     public boolean searchMatrix(int[][] matrix, int target) {
         if (matrix.length == 0 || matrix[0].length == 0) {
             return false;
         }
         for (int[] ints : matrix) {
-            if (ints[0] > target) {
+            System.out.println("ints:"+ Arrays.toString(ints));
+            int ints_0 = ints[0];
+            System.out.println("ints_0 : "+ints_0);
+
+            if (ints_0 > target) {
                 break;
             }
             if (ints[ints.length - 1] < target) {

@@ -82,8 +82,6 @@ public class Rob {
         return dp[length - 1];
     }
 
-
-
     /**
      * 将空间复杂度，由O(n) 优化到了O(1)
      *
