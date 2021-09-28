@@ -182,6 +182,7 @@ public class LongestCommonSubsequence {
 
     /**
      * 最长公共子序列
+     *
      * @param text1
      * @param text2
      * @return
@@ -206,7 +207,27 @@ public class LongestCommonSubsequence {
             }
         }
         return dp[m][n];
+    }
 
+    public int longestCommonSubseqence11(String text1, String text2) {
+        int m = text1.length();
+        int n = text2.length();
+        int[][] dp = new int[m + 1][n + 1];
+        for (int i = 0; i < m; i++) {
+            char c1 = text1.charAt(i);
+            for (int j = 0; j < n; j++) {
+                char c2 = text2.charAt(j);
+                if (c1 == c2) {
+                    // 去找它们前面各退一格的值+1 即可；
+                    dp[i + 1][j + 1] = dp[i][j] + 1;
+                    continue;
+                }
+
+                // 要么 text1 往后退一格，要么是 text2 往前退一格，然后取两个最大值
+                dp[i + 1][j + 1] = Math.max(dp[i][j + 1], dp[i + 1][j]);
+            }
+        }
+        return dp[m][n];
     }
 
 
