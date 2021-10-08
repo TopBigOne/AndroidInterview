@@ -1,17 +1,15 @@
 package stack.single_invoke_stack.leet_code_402;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 /**
  * @author : dev
  * @version :
  * @Date :  3/14/21 8:35 PM
  * @Desc : 移掉K位数字 https://leetcode-cn.com/problems/remove-k-digits/
+ * <p>
+ * https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/
  */
 public class RemoveKDigit {
     public String removeKdigits(String num, int k) {
-
         StringBuilder res = new StringBuilder();
         int length = num.length();
         int m = length - k;
@@ -178,7 +176,7 @@ public class RemoveKDigit {
         int length = num.length();
         int m = length - k;
         StringBuilder res = new StringBuilder();
-        int resLength ;
+        int resLength;
         for (char c : num.toCharArray()) {
             while (k != 0 && (resLength = res.length()) != 0
                     && res.charAt(resLength - 1) > c) {
@@ -192,28 +190,89 @@ public class RemoveKDigit {
             res.deleteCharAt(0);
         }
         return resLength == 0 ? "0" : res.toString();
+
+
     }
 
-    public  String removeKdigist3(String num,int k){
+    public String removeKdigist3(String num, int k) {
         int length = num.length();
-        int m = length-k;
+        int m = length - k;
         StringBuilder result = new StringBuilder();
-        int resLength ;
+        int resLength;
         for (char c : num.toCharArray()) {
-            while (k!=0&&(resLength=result.length())!=0&& result.charAt(resLength-1)>c){
-                result.deleteCharAt(resLength-1);
+            while (k != 0 && (resLength = result.length()) != 0 && result.charAt(resLength - 1) > c) {
+                result.deleteCharAt(resLength - 1);
                 k--;
             }
             result.append(c);
         }
-        result.delete(m,result.length());
-        while ((resLength= result.length())!=0&&result.charAt(0)=='0'){
+        result.delete(m, result.length());
+        while ((resLength = result.length()) != 0 && result.charAt(0) == '0') {
             result.deleteCharAt(0);
         }
 
-        return resLength==0? "0":result.toString();
+        return resLength == 0 ? "0" : result.toString();
+    }
 
+    public String removeKdigist8(String num, int k) {
+        int length = num.length();
+        int m = length - k;
+        StringBuilder res = new StringBuilder();
+        int resLenth;
+        for (char c : num.toCharArray()) {
+            while (k != 0 && (resLenth = res.length()) != 0
+                    && res.charAt(resLenth - 1) > c) {
+                res.deleteCharAt(resLenth - 1);
+                k--;
+            }
+            res.append(c);
+        }
+        res.delete(m, res.length());
+        while ((resLenth = res.length()) != 0 && res.charAt(0) == '0') {
+            res.deleteCharAt(0);
+        }
+        return resLenth == 0 ? "0" : res.toString();
+    }
 
+    public String removeKdigist9(String num, int k) {
+        int length = num.length();
+        int m = length - k;
+        StringBuilder res = new StringBuilder();
+        int resLength;
+        for (char c : num.toCharArray()) {
+            while (k != 0 && (resLength = res.length()) != 0 &&
+                    res.charAt(resLength - 1) > c) {
+                res.deleteCharAt(resLength - 1);
+                k--;
+            }
+            res.append(c);
+        }
+
+        res.delete(m, res.length());
+        while ((resLength = res.length()) != 0 && res.charAt(0) == '0') {
+            res.deleteCharAt(0);
+        }
+        return resLength == 0 ? "0" : res.toString();
+    }
+
+    public String removeKdigist10(String num, int k) {
+        int lenth = num.length();
+        int m = lenth - k;
+        StringBuilder res = new StringBuilder();
+        int resLength;
+        for (char c : num.toCharArray()) {
+            while (k != 0 && (resLength = res.length())!= 0 &&
+                    res.charAt(resLength - 1) > c) {
+                res.deleteCharAt(resLength - 1);
+                k--;
+            }
+            res.append(c);
+        }
+        res.delete(m, res.length());
+        while ((resLength = res.length()) != 0 && res.charAt(0) == '0') {
+            res.deleteCharAt(0);
+        }
+        return resLength == 0 ? "0" : res.toString();
     }
 
 
