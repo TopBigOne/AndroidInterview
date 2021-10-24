@@ -13,7 +13,6 @@ import tree.TreeNode;
  * @Answer :  https://leetcode-cn.com/problems/sum-of-left-leaves/solution/chao-ji-rong-yi-li-jie-qi-shi-he-qiu-quan-lu-jing-/
  */
 public class SumOfLeftLeaves {
-
     public int sumOfLeftLeaves(TreeNode root) {
         int[] sum = {0};
         getSum(root, sum, false);
