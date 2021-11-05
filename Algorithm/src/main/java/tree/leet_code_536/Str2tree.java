@@ -1,6 +1,5 @@
 package tree.leet_code_536;
 
-import tree.Node;
 import tree.TreeNode;
 
 import java.util.Stack;
@@ -48,7 +47,7 @@ public class Str2tree {
     public TreeNode str2tree2(String s) {
         int length = 0;
         if (s == null || (length = s.length()) == 0) return null;
-        Stack<Node> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         for (int i = 0; i < length; i++) {
             char currChar = s.charAt(i);
 

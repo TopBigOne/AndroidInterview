@@ -14,6 +14,7 @@ import tree.TreeNode;
  */
 public class IncreasingBST2 {
     public TreeNode increasingBST(TreeNode root) {
+        return  null;
 
     }
 
