@@ -1,6 +1,5 @@
 package dp.leet_code_300;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -165,6 +164,32 @@ public class LengthOfLIS {
             res = Math.max(dp[i], res);
         }
         return res;
+    }
+
+    public int lengthOfLIS7(int[] nums) {
+        int length = nums.length;
+        if (length < 2) {
+            return length;
+        }
+        int[] dp = new int[length];
+        Arrays.fill(dp, 1);
+        System.out.println(Arrays.toString(nums));
+        for (int rightIndex = 0; rightIndex < length; rightIndex++) {
+            for (int leftIndex = 0; leftIndex < rightIndex; leftIndex++) {
+                // 右边的数，大于左边的数，才有可能做+1 操作
+                if (nums[rightIndex] > nums[leftIndex]) {
+                    dp[rightIndex] = Math.max(dp[rightIndex], dp[leftIndex] + 1);
+                }
+
+            }
+        }
+
+        int res = 0;
+        for (int i = 0; i < length; i++) {
+            res = Math.max(res, dp[i]);
+        }
+        return res;
+
     }
 
 
