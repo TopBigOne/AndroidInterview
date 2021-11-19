@@ -1,7 +1,15 @@
 package sliding_window.leet_code_3;
 
+import java.awt.image.Kernel;
+import java.io.CharArrayReader;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.lang.model.type.ReferenceType;
+
+import array.leet_code_11.MaxArea;
+import linked_list.offer_22.GetKthFromEnd;
 
 /**
  * @author : dev
@@ -15,7 +23,7 @@ import java.util.Map;
  * <p>
  * 滑动窗口:
  * 题解：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/
- *
+ * <p>
  * 一姐:https://www.youtube.com/watch?v=EbemoR4LooA&t=137s
  */
 public class LengthOfLongestSubstring3 {
@@ -136,7 +144,7 @@ public class LengthOfLongestSubstring3 {
      * @param s
      * @return
      */
-    public int lengthOfLongestSubString(String s) {
+    public int lengthOfLongestSubstring6(String s) {
         int length;
         if (s == null || (length = s.length()) == 0) {
             return 0;
@@ -158,6 +166,67 @@ public class LengthOfLongestSubstring3 {
 
     }
 
+    public int lengthOfLongestSubstring7(String s) {
+        int length;
+        if (s == null || (length = s.length()) == 0) {
+            return 0;
+        }
+        int max = 0;
+        int left = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int right = 0; right < length; right++) {
+            char currChar = s.charAt(right);
+            if (map.containsKey(currChar)) {
+                left = Math.max(left, map.get(currChar) + 1);
+            }
+            // 不包含直接放入，并记录当前字符的 index
+            map.put(currChar, right);
+            // 每次做一下大小比较，right-left 获取一个范围
+            max = Math.max(max, right - left + 1);
+        }
+        return max;
+    }
+
+    public int lengthOfLongestSubstring8(String s) {
+        int length;
+        if (s == null || (length = s.length()) == 0) {
+            return 0;
+        }
+
+        int max = 0;
+        int left = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int right = 0; right < length; right++) {
+            char currChar = s.charAt(right);
+            if (map.containsKey(currChar)) {
+                left = Math.max(left, map.get(currChar) + 1);
+            }
+            map.put(currChar, right);
+
+            max = Math.max(max, right - left + 1);
+        }
+        return max;
+
+    }
+
+    public int lengthOfLongestSubstring9(String s) {
+        int length = 0;
+        if (s == null || (length = s.length()) == 0) {
+            return 0;
+        }
+        int max = 0;
+        int left = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int right = 0; right < length; right++) {
+            char c = s.charAt(right);
+            if (map.containsKey(c)) {
+                left = Math.max(left, map.get(c) + 1);
+            }
+            map.put(c, right);
+            max = Math.max(max, right - left + 1);
+        }
+        return max;
+    }
 
 
 }
