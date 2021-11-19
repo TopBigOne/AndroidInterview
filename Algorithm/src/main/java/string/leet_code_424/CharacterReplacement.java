@@ -168,3 +168,5 @@ public class CharacterReplacement {
 
         return result;
     }
+
+}
