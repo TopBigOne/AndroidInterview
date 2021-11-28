@@ -392,8 +392,8 @@ public class Search {
         int high = nums.length - 1;
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if(nums[mid]==target) return mid;
-            
+            if (nums[mid] == target) return mid;
+
             if (target >= nums[0]) {
                 // 在左边
                 if (nums[mid] < nums[0]) {
@@ -408,12 +408,42 @@ public class Search {
             if (nums[mid] > target) {
                 high = mid - 1;
             } else {
-                low = mid +1;
+                low = mid + 1;
             }
 
         }
 
         return -1;
+    }
+
+    public int search14(int[] nums, int target) {
+        int low = 0;
+        int high = nums.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            }
+
+            if (target >= nums[0]) {
+                if (nums[mid] < nums[0]) {
+                    nums[mid] = Integer.MAX_VALUE;
+                }
+
+            } else {
+                if (nums[mid] >= nums[0]) {
+                    nums[mid] = Integer.MIN_VALUE;
+                }
+            }
+            if (nums[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        return -1;
+
     }
 
 

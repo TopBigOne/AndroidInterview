@@ -109,14 +109,14 @@ public class NumDistinct {
         return dp[n][m];
     }
 
-    public int numDistnict4(String s, String t) {
+    public int numDistinct4(String s, String t) {
         int n = t.length();
         int m = s.length();
         if (m < n) {
             return 0;
         }
 
-        int dp[][] = new int[n + 1][m + 1];
+        int[][] dp = new int[n + 1][m + 1];
         for (int i = 0; i < m + 1; i++) {
             dp[0][i] = 1;
         }
@@ -132,6 +132,59 @@ public class NumDistinct {
             }
         }
         return dp[n][m];
+
+    }
+
+    public int numDistinct5(String s, String t) {
+        int n = t.length();
+        int m = s.length();
+        if (m < n) {
+            return 0;
+        }
+
+        int[][] dp = new int[n + 1][m + 1];
+        for (int i = 0; i < m + 1; i++) {
+            dp[0][i] = 1;
+        }
+
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 1; j < m + 1; j++) {
+                if (t.charAt(i - 1) == s.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1] + dp[i][j - 1];
+                    continue;
+                }
+                dp[i][j] = dp[i][j - 1];
+
+            }
+
+        }
+
+        return dp[n][m];
+
+    }
+
+    public int numDistinct6(String s, String t) {
+        int m = s.length();
+        int n = t.length();
+        if (m < n) return 0;
+        int[][] dp = new int[n + 1][m + 1];
+
+        for (int i = 0; i < m + 1; i++) {
+            dp[0][i] = 1;
+        }
+
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 1; j < m + 1; j++) {
+                if (t.charAt(i - 1) == s.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1] + dp[i][j - 1];
+                    continue;
+                }
+                dp[i][j] = dp[i][j - 1];
+            }
+        }
+
+        return dp[n][m];
+
 
     }
 
