@@ -17,6 +17,7 @@ public class LeastInterval {
      * @param tasks
      * @param n
      * @return
+     *
      */
     public int leastInterval(char[] tasks, int n) {
         int[] temp = new int[26];
