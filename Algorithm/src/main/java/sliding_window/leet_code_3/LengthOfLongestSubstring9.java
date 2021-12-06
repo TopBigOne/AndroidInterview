@@ -1,5 +1,7 @@
 package sliding_window.leet_code_3;
 
+import com.sun.jmx.snmp.SnmpNull;
+
 /**
  * @author : dev
  * @version :
@@ -13,12 +15,10 @@ package sliding_window.leet_code_3;
 
 public class LengthOfLongestSubstring9 {
     public static void main(String[] args) {
-
         String s = "pwwkew";
         LengthOfLongestSubstring9 sub = new LengthOfLongestSubstring9();
         int result = sub.lengthOfLongestSubstring(s);
         System.out.println("result:" + result);
-
     }
 
     /**
@@ -64,6 +64,7 @@ public class LengthOfLongestSubstring9 {
         int left = 0;
         int[] map = new int[256];
         char[] chars = s.toCharArray();
+
         for (int right = 0; right < len; right++) {
             char curChar = chars[right];
             map[curChar]++;
@@ -75,5 +76,54 @@ public class LengthOfLongestSubstring9 {
             result = Math.max(result, right - left + 1);
         }
         return result;
+    }
+
+    public int lengthOfLongestSubstring3(String s) {
+        int result = 0;
+        int len = 0;
+        // base corner
+        if (s == null || (len = s.length()) == 0) {
+            return result;
+        }
+
+        int left = 0;
+        int[] map = new int[256];
+        for (int right = 0; right < len; right++) {
+            char currChar = s.charAt(right);
+            // store it;
+            map[currChar]++;
+            while (map[currChar] > 1) {
+                char leftChar = s.charAt(left);
+                map[leftChar]--;
+                left++;
+            }
+            result = Math.max(result, right - left + 1);
+        }
+        return result;
+
+    }
+
+    public int lengthOfLongestSubstring4(String s) {
+        int result = 0;
+        int len = 0;
+        // base corner
+        if (s == null || (len = s.length()) == 0) {
+            return result;
+        }
+        int left = 0;
+        int[] map = new int[256];
+        for (int i = 0; i < len; i++) {
+            char currChar = s.charAt(i);
+            map[currChar]++;
+            // 存在重复
+            while (map[currChar] > 1) {
+                char leftChar = s.charAt(left);
+                map[leftChar]--;
+                left++;
+            }
+            result = Math.max(result, i - left + 1);
+        }
+        return result;
+
     }
 }
