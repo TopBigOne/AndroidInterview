@@ -13,5 +13,7 @@ package sliding_window.leet_code_992;
 public class SubarraysWithKDistinct {
     public int subarraysWithKDistinct(int[] nums, int k) {
 
+        return 0;
+
     }
 }

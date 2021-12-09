@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @author : dev
- * @version :
+ * @version : https://leetcode-cn.com/problems/maximum-sum-of-3-non-overlapping-subarrays/
  * @Date :  12/8/21 8:15 PM
  * @Desc : https://leetcode-cn.com/problems/maximum-sum-of-3-non-overlapping-subarrays/solution/gong-shui-san-xie-jie-he-qian-zhui-he-de-ancx/
  */
@@ -59,7 +59,7 @@ public class MaxSumOfThreeSubarrays {
         int[] ans = new int[3];
         int i = 1, j = 3, idx = 0;
         while (j > 0) {
-                 long temp = f[i + k][j - 1] + sum[i + k - 1] - sum[i - 1];
+            long temp = f[i + k][j - 1] + sum[i + k - 1] - sum[i - 1];
             if (f[i + 1][j] > temp) {
                 i++;
                 continue;
@@ -70,7 +70,44 @@ public class MaxSumOfThreeSubarrays {
 
         }
         return ans;
+    }
+
+    public int[] maxSumOfThreeSubarrays7(int[] nums, int k) {
+        int length = nums.length;
+        long[] sum = new long[length + 1];
+        for (int i = 1; i <= length; i++) {
+            int index = i - 1;
+            sum[i] = sum[index] + nums[index];
+        }
+
+        long[][] dp = new long[length + 10][4];
+        for (int i = length - k + 1; i >= 1; i--) {
+            for (int j = 1; j < 4; j++) {
+                long temp = dp[i + k][j - 1] + sum[i + k - 1] - sum[i - 1];
+                dp[i][j] = Math.max(dp[i + 1][j], temp);
+
+            }
+        }
+
+        int[] ans = new int[3];
+        int i = 1;
+        int j = 3;
+        int idx = 0;
+        while (j > 0) {
+            long temp = dp[i + k][j - 1] + sum[i + k - 1] - sum[i - 1];
+            if (dp[i + 1][j] > temp) {
+                i++;
+                continue;
+            }
+            ans[idx++] = i - 1;
+            i += k;
+            j--;
+        }
+
+        return ans;
 
 
     }
+
+
 }

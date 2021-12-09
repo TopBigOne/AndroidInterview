@@ -1,55 +1,41 @@
-package ten_sort.quick_sort;
+package ten_sort;
+
 
 /**
- * @author :  dev
+ * @author : dev
  * @version :
- * @Date :   7/31/21 9:35 PM
- * @Url :
- * @Level : easy medium hard
- * @Desc :
- * @Counter :
- * @Answer :
- * 1、学习算法的可视化网站：https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
+ * @Date :  12/9/21 11:20 PM
+ * @Desc : https://leetcode-cn.com/problems/sort-an-array/submissions/
  */
+public class MergeSort2 {
 
-public class QuickSort_Base_5 {
-    /**
-     * 列表啊小于或者等于 7，将优先使用插入排序
-     */
-    public static final int INSERT_SORT_THRESHOLD = 7;
+    int INSERT_SORT_THRESHOLD = 7;
 
     public int[] sortArray(int[] nums) {
         int len = nums.length;
         int[] temp = new int[len];
         mergeSort(nums, 0, len - 1, temp);
         return nums;
+
     }
 
-    /**
-     * 对数组 nums 的子区间 [left,right]进行归并排序
-     *
-     * @param nums
-     * @param left
-     * @param right
-     * @param temp  用于合并两个有序数组的辅助数组，全局使用一份，避免多次创建和销毁
-     */
     private void mergeSort(int[] nums, int left, int right, int[] temp) {
-        // 小区间使用插入排序
         if (right - left <= INSERT_SORT_THRESHOLD) {
             insertionSort(nums, left, right);
             return;
         }
-        // int mid = left + (right - left) >> 1;
         int mid = left + (right - left) / 2;
-
         mergeSort(nums, left, mid, temp);
         mergeSort(nums, mid + 1, right, temp);
+
         // 如果数组的这个子区间本身有序，就不需要合并
         if (nums[mid] <= nums[mid + 1]) {
             return;
         }
         mergeOfTwoSortedArray(nums, left, mid, right, temp);
+
     }
+
 
     private void insertionSort(int[] nums, int left, int right) {
         for (int i = left + 1; i <= right; i++) {
@@ -61,17 +47,15 @@ public class QuickSort_Base_5 {
             }
             nums[j] = temp;
         }
-
     }
 
     /**
-     * 合并 2 个已经排了序列的数组；先把值copy 到临时数组，再合并回去
+     * 合并 2 个已经排了序列的数组
      *
      * @param nums
      * @param left
-     * @param mid   [left,mid] 有序，[mid+1,right]有序
      * @param right
-     * @param temp  全局使用的临时数组
+     * @param temp
      */
     private void mergeOfTwoSortedArray(int[] nums, int left, int mid, int right, int[] temp) {
         System.arraycopy(nums, left, temp, left, right + 1 - left);
@@ -84,12 +68,10 @@ public class QuickSort_Base_5 {
             } else if (j == right + 1) {
                 nums[k] = temp[i];
                 i++;
-            } else if (temp[i] <= temp[j]) {
-                // 注意写成< 就丢失了稳定性（相同元素原来靠前的排序以后，依然靠前)
+            } else if (temp[i] < temp[j]) {
                 nums[k] = temp[i];
                 i++;
             } else {
-                // temp[i]>temp[j]
                 nums[k] = temp[j];
                 j++;
             }
