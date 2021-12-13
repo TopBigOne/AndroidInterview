@@ -15,7 +15,6 @@ import java.util.Stack;
  * https://leetcode-cn.com/problems/next-greater-element-ii/solution/cong-po-su-jie-fa-de-jiao-du-qu-li-jie-d-trht/
  */
 public class NextGreaterElement {
-
     public int[] nextGreaterElements(int[] nums) {
         int n = nums.length;
         int[] res = new int[n];
@@ -293,7 +292,8 @@ public class NextGreaterElement {
         Deque<Integer> stack = new ArrayDeque<>();
         int[] result = new int[length];
         Arrays.fill(result, -1);
-        for (int i = 0; i < length<<1; i++) {
+
+        for (int i = 0; i < length << 1; i++) {
             while (!stack.isEmpty() && nums[stack.peekLast()] < nums[i % length]) {
                 int u = stack.pollLast();
                 result[u] = nums[i % length];

@@ -28,8 +28,8 @@ public class MoveZero {
             if (nums[r] != 0) {
                 swap(nums, r, l);
                 l++;
+                System.out.println("每次移动以后的数组："+ Arrays.toString(nums));
             }
-            System.out.println("每次遍历："+ Arrays.toString(nums));
         }
     }
 
@@ -40,6 +40,18 @@ public class MoveZero {
             if (nums[r] != 0) {
                 swap(nums, r, l);
                 l++;
+            }
+        }
+    }
+
+    public void  moveZeros3(int [] nums){
+        int l = 0;
+        int length = nums.length;
+        for (int i = 0; i < length; i++) {
+            if(nums[1]!=0){
+                swap(nums,i,l);
+                l++;
+
             }
         }
     }

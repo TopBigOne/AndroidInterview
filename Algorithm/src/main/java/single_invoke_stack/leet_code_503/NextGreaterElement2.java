@@ -19,30 +19,30 @@ public class NextGreaterElement2 {
         NextGreaterElement2 nextGreaterElement = new NextGreaterElement2();
         int[] nums1 = {4, 1, 2};
         int[] nums2 = {1, 3, 4, 2};
-        int[] result = nextGreaterElement.nextGreaterElement(nums1, nums2);
-        System.out.println("result :"+ Arrays.toString(result));
-
+        nextGreaterElement.nextGreaterElements(nums2);
     }
 
-    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        int length = nums2.length;
+    public int[] nextGreaterElements(int[] nums) {
+        int length = nums.length;
         Deque<Integer> stack = new ArrayDeque<>();
-        int[] result = new int[nums1.length];
+        int[] result = new int[length];
         Arrays.fill(result, -1);
-
-        for (int i = 0; i < nums1.length; i++) {
-            for (int j = 0; j < length; j++) {
-                if (nums1[i] == nums2[j]) {
-                    while (!stack.isEmpty() && nums2[stack.peek()] < nums2[j]) {
-                        int index = stack.pop();
-                        result[index] = nums2[j];
-                    }
-                }
+        // length << 1 ,将length 加倍；
+        for (int i = 0; i < length << 1; i++) {
+            int modIndex = i % length;
+            System.out.println("i : " + i + ", modIndex : " + modIndex);
+            while (!stack.isEmpty() && nums[stack.peekLast()] < nums[modIndex]) {
+                int index = stack.pollLast();
+                result[index] = nums[modIndex];
             }
-            stack.push(i);
-        }
 
+
+            stack.addLast(modIndex);
+
+        }
         return result;
 
     }
+
+
 }

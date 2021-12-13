@@ -50,6 +50,21 @@ public class FinalPrices {
         }
 
         return prices;
+    }
+
+    public int[] finalPrices3(int[] prices) {
+        int length = prices.length;
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = 0; i < length; i++) {
+            int currValue = prices[i];
+            while (!stack.isEmpty() && prices[stack.peek()] >= currValue) {
+                Integer index = stack.pop();
+                prices[index] -= currValue;
+            }
+            stack.push(i);
+        }
+
+        return prices;
 
 
     }
