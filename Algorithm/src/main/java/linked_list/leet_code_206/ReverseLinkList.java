@@ -348,17 +348,37 @@ public class ReverseLinkList {
     }
 
 
-    public ListNode reverseListNode26(ListNode head) {
-        ListNode pre = null;
-        ListNode cur = head;
-        while (cur != null) {
-            ListNode temp = head.next;
-            head.next = pre;
-            pre = cur;
-            cur = temp;
-
+    public ListNode reverseList26(ListNode head) {
+        if (head == null) {
+            return null;
         }
+        ListNode pre = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode temp = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = temp;
+        }
+
         return pre;
+    }
+
+    public ListNode reverseList27(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode pre = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode temp = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = temp;
+        }
+
+        return pre;
+
     }
 
 

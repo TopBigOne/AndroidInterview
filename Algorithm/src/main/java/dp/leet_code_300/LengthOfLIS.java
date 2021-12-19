@@ -192,5 +192,28 @@ public class LengthOfLIS {
 
     }
 
+    public int lengthOfLIS8(int[] nums) {
+        int length = nums.length;
+        if (length < 2) {
+            return length;
+        }
+        int[] dp = new int[length];
+        Arrays.fill(dp, 1);
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(nums[i], nums[j] + 1);
+                }
+            }
+        }
+        int res = 0;
+        for (int i : dp) {
+            res = Math.max(res, i);
+        }
+
+
+        return res;
+    }
+
 
 }

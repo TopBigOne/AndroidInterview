@@ -3,8 +3,6 @@ package tan_xin.leet_code_630;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-import javafx.scene.layout.Priority;
-
 /**
  * @author : dev
  * @version :
@@ -33,9 +31,6 @@ public class ScheduleCourse {
         return queue.size();
     }
 
-    public int scheduleCourse2(int[][] courses) {
-        Arrays.sort(courses,(a,b)->b[1]-a[1]);
 
 
-    }
 }

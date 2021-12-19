@@ -55,6 +55,7 @@ public class ReorderList {
         return pre;
     }
 
+
     /**
      * 内部还包含了反转链表
      *
@@ -258,6 +259,7 @@ public class ReorderList {
         ListNode newHead = slow.next;
         slow.next  = null;
 
+        // 开始反转链表
         newHead = doReverse(newHead);
 
         // 连接
@@ -268,6 +270,8 @@ public class ReorderList {
             head = newHead.next;
             newHead = temp;
         }
+
+
 
     }
 
