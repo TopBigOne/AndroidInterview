@@ -115,6 +115,37 @@ public class Rob {
         return cur;
     }
 
+    public int rob6(int[] nums) {
+        // 当一家的金额
+        int pre = 0;
+        // 当前的金额
+        int cur = 0;
+        for (int num : nums) {
+            // pre + num ：站在中间视角，算一下偷上一家和下一家加一起来，
+            // 有没有现在偷的多......
+            int temp = Math.max(cur, pre + num);
+            pre = cur;
+            cur = temp;
+            System.out.println("pre : " + pre);
+            System.out.println("cur : " + cur);
+            System.out.println("------------------");
+        }
+
+        return cur;
+    }
+
+    public int rob67(int[] nums) {
+        int pre = 0;
+        int cur = 0;
+        for (int num : nums) {
+            int temp = Math.max(cur, pre + num);
+            pre = cur;
+            cur = temp;
+        }
+
+        return cur;
+
+    }
 
 
 }

@@ -2,9 +2,6 @@ package array.leet_code_611;
 
 import java.util.Arrays;
 
-import dp.leet_code_120.MinimumTotal;
-import jdk.nashorn.internal.objects.NativeNumber;
-
 /**
  * @author : dev
  * @version :
