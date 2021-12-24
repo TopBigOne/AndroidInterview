@@ -12,9 +12,6 @@ import java.util.Map;
  * @Desc : https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/solution/shua-chuan-lc-po-su-ha-xi-biao-jie-fa-hu-ml3x/
  */
 public class FindSubstring {
-
-
-
     public List<Integer> findSubstring(String s, String[] words) {
         List<Integer> ans = new ArrayList<>();
         if (words.length == 0) return ans;

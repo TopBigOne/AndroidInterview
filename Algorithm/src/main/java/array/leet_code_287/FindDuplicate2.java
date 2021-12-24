@@ -72,7 +72,7 @@ public class FindDuplicate2 {
 
     }
 
-    public int findDuplicate3(int[] nums) {
+    public int findDuplicate4(int[] nums) {
         int length = nums.length;
         int left = 1;
         int right = length - 1;
@@ -95,7 +95,7 @@ public class FindDuplicate2 {
 
     }
 
-    public int findDuplicate4(int[] nums) {
+    public int findDuplicate5(int[] nums) {
         int length = nums.length;
         int left = 1;
         int right = length - 1;
