@@ -1,18 +1,17 @@
 package string.leet_code_5;
 
 /**
- * @author : dev
+ * @author :  dev
  * @version :
- * @Date :  8/22/21 1:44 PM
- * @Desc : 最长回文串   (字节，37次)最长回文子串(https://leetcode-cn.com/problems/longest-palindromic-substring/)
+ * @Date :   2021/12/22 23:19
+ * @Url :
+ * @Level :  easy  medium hard
+ * @Desc :
+ * @Counter :
+ * @Answer :
  */
-public class LongestPalindrome6 {
-    /**
-     * 解法 4: 扩展中心
-     *
-     * @param s
-     * @return
-     */
+public class LongestPalindrome7 {
+
     public String longestPalindrome(String s) {
         int len;
         if (s == null || (len = s.length()) == 0) {
@@ -40,9 +39,8 @@ public class LongestPalindrome6 {
             l--;
             r++;
         }
+
         return r - l - 1;
-
     }
-
 
 }

@@ -147,5 +147,18 @@ public class Rob {
 
     }
 
+    public int rob68(int[] nums) {
+        int preValue = 0;
+        int currValue = 0;
+        for (int num : nums) {
+            int temp = Math.max(currValue,preValue+num);
+            preValue = currValue;
+            currValue = temp;
+        }
+
+        return currValue;
+
+    }
+
 
 }
