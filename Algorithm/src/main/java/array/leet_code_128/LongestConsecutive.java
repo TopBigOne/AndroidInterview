@@ -2,6 +2,8 @@ package array.leet_code_128;
 
 import java.util.HashSet;
 
+import array.leet_code_11.MaxArea;
+
 /**
  * @author :  dev
  * @version :
@@ -147,8 +149,30 @@ public class LongestConsecutive {
 
         int max = 0;
         for (int num : nums) {
+            if (!set.contains(num - 1)) {
+                int count = 0;
+                while (set.contains(num)) {
+                    count++;
+                    num += 1;
+                }
+
+                max = Math.max(max, count);
+            }
+        }
+        return max;
+
+    }
+
+    public int longestConsecutive7(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        int max = 0;
+        for (int num : nums) {
             // 不包含前一个
-            if (!set.contains(num)) {
+            if (!set.contains(num - 1)) {
                 int count = 0;
                 while (set.contains(num)) {
                     count++;
@@ -156,10 +180,10 @@ public class LongestConsecutive {
                 }
                 max = Math.max(max, count);
             }
+
         }
-
-
         return max;
+
 
     }
 
