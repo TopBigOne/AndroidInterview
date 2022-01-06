@@ -1,4 +1,4 @@
-package sliding_window.leet_code_239;
+package single_invoke_queue.leet_code_239;
 
 import java.util.LinkedList;
 

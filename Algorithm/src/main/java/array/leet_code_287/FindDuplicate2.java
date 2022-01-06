@@ -119,7 +119,7 @@ public class FindDuplicate2 {
 
     }
 
-    public int findDuplicate6(int[] nums) {
+    public int findDuplicate7(int[] nums) {
         int length = nums.length;
         int left = 1;
         int right = length - 1;

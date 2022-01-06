@@ -16,10 +16,9 @@ import java.util.*;
  * 主要考察3个知识点：
  * 1： 归并排序的整体思想，
  * 2：找到一个链表中间节点的方法；
- * 3：合并两个已经排序好饿链表，为
+ * 3：合并两个已经排序好饿链表，
  */
 public class SortList {
-
     /**
      * 没脑子的暴力的 借助第三方解法
      *
@@ -59,7 +58,7 @@ public class SortList {
     /**
      * @param head 当前节点
      * @param n    size
-     * @return
+     * @return  https://leetcode-cn.com/problems/sort-list/solution/148-pai-xu-lian-biao-bottom-to-up-o1-kong-jian-by-/
      */
     private ListNode cut(ListNode head, int n) {
         if (n <= 0) return head;
@@ -198,6 +197,35 @@ public class SortList {
             }
         }
         return dummy.next;
+    }
+
+    public ListNode sortList4(ListNode head) {
+        ListNode dummy = new ListNode(Integer.MIN_VALUE);
+        dummy.next = head;
+        ListNode p = dummy.next;
+        int len = 0;
+        while (p!=null){
+            len++;
+            p = p.next;
+        }
+        // 循环，切割，and 合并
+        for (int size = 0; size < len; size<<=1) {
+            ListNode curr = dummy.next;
+            ListNode tail = dummy;
+            while (curr!=null){
+                ListNode left = curr;
+                ListNode right = cut(curr,size);
+                // 剩下的返给cur
+                curr = cut(right,size);
+                tail.next = merge(left,right);
+                while (tail.next!=null){
+                    tail = tail.next;
+                }
+            }
+
+        }
+        return dummy.next;
+
     }
 
 }

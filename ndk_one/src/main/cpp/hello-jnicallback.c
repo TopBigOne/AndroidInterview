@@ -13,6 +13,7 @@ static const char *kTAG = "hello-jincallback";
   ((void)__android_log_print(ANDROID_LOG_WARN, kTAG, __VA_ARGS__))
 #define LOGE(...) \
   ((void)__android_log_print(ANDROID_LOG_ERROR, kTAG, __VA_ARGS__))
+
 // processing callback to handler class，上下文
 typedef struct tick_context {
     JavaVM *javaVM;

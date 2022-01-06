@@ -48,7 +48,6 @@ public class StringShift {
             } else {
                 s = s.substring(n - count) + s.substring(0, n - count);
             }
-
         }
         return s;
 
