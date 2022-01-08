@@ -2,4 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.base_lib">
 
+    <application>
+        <activity
+            android:name=".BaseMainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_base_main"
+            android:theme="@style/Theme.Interview.NoActionBar" />
+    </application>
+
 </manifest>

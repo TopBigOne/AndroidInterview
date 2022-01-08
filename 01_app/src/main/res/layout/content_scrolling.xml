@@ -47,6 +47,12 @@
             android:id="@+id/btn_anr"
             style="@style/main_item_txt_style"
             android:text="@string/anr" />
+        <Button
+            android:id="@+id/btn_activity_life"
+            style="@style/main_item_txt_style"
+            android:text="@string/lifestyle" />
+
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.android.interview.R;
+import com.android.interview.activity.life.ALifeActivity;
 import com.android.interview.event.OnTouchActivity;
 import com.android.interview.utils.Nav;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class ScrollingActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnEvent;
+    private Button btnActivityLife;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +35,13 @@ public class ScrollingActivity extends AppCompatActivity implements View.OnClick
 
     private void initEvent() {
         btnEvent.setOnClickListener(this);
+        btnActivityLife.setOnClickListener(this);
     }
 
 
     private void initView() {
         btnEvent = findViewById(R.id.btn_dispatch_event);
-
-
+        btnActivityLife = findViewById(R.id.btn_activity_life);
     }
 
     private void initToolBar() {
@@ -89,6 +89,11 @@ public class ScrollingActivity extends AppCompatActivity implements View.OnClick
             case R.id.btn_dispatch_event:
                 Nav.goActivity(this, OnTouchActivity.class);
                 break;
+
+            case R.id.btn_activity_life:
+                Nav.goActivity(this, ALifeActivity.class);
+                break;
+
 
         }
 
