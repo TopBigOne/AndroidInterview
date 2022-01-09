@@ -1,7 +1,5 @@
 package linked_list.leet_code_160;
 
-import java.util.List;
-
 import linked_list.ListNode;
 
 /**
@@ -11,6 +9,7 @@ import linked_list.ListNode;
  * @Desc : 字节 10次 ：相交链表 https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
  * <p>
  * 题解：https://leetcode-cn.com/problems/intersection-of-two-linked-lists/solution/tu-jie-xiang-jiao-lian-biao-by-user7208t/
+ * https://leetcode-cn.com/problems/intersection-of-two-linked-lists/solution/intersection-of-two-linked-lists-shuang-zhi-zhen-l/
  * <p>
  * 相似题目：
  * leetcode : 599 : 两个链表的最小索引总和： https://leetcode-cn.com/problems/minimum-index-sum-of-two-lists/
@@ -130,4 +129,21 @@ public class IntersectionNode {
         }
         return pA;
     }
+
+    public ListNode getINtersectionNode7(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+
+        // 判断等性的指针变量
+        ListNode pA = headA;
+        ListNode pB = headB;
+        while (pA != pB) {
+            pA = pA == null ? headB : pA.next;
+            pB = pB == null ? headA : pB.next;
+        }
+        return pA;
+    }
+
+
 }

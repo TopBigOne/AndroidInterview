@@ -32,6 +32,7 @@ public class DetectCycle {
             }
         }
 
+        // 保险可见
         if (fast == null || fast.next == null) {
             return null;
         }

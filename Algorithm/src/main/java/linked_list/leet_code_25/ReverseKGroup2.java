@@ -1,7 +1,5 @@
 package linked_list.leet_code_25;
 
-import java.util.List;
-
 import linked_list.ListNode;
 
 /**
@@ -9,6 +7,7 @@ import linked_list.ListNode;
  * @version :
  * @Date :  6/4/21 1:01 AM
  * @Desc : k 个一组反转链表
+ * https://labuladong.gitee.io/algo/2/16/17/
  */
 public class ReverseKGroup2 {
 

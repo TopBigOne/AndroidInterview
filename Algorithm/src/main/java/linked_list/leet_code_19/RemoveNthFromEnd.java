@@ -142,7 +142,7 @@ public class RemoveNthFromEnd {
         dummy.next = head;
         ListNode fast = dummy;
         ListNode slow = dummy;
-        for (int i = 0; i < n+1 && fast != null; i++) {
+        for (int i = 0; i < n + 1 && fast != null; i++) {
             fast = fast.next;
         }
 
@@ -156,6 +156,42 @@ public class RemoveNthFromEnd {
         delNode.next = null;
 
         return dummy.next;
+    }
+
+    public ListNode removeNthFromEnd7(ListNode head, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode fast = dummy;
+        ListNode slow = dummy;
+        for (int i = 0; i <= n; i++) {
+            fast = fast.next;
+        }
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        ListNode delNode = slow.next;
+        slow.next = delNode.next;
+        delNode.next = null;
+
+        return dummy.next;
+    }
+
+    public ListNode removeNthFromEnd8(ListNode head, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode fast = dummy;
+        ListNode slow = dummy;
+        for (int i = 0; i <= n; i++) {
+            fast  = fast.next;
+
+
+        }
+
+        return dummy.next;
+
+
     }
 
 

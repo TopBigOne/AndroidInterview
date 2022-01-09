@@ -10,6 +10,7 @@ import linked_list.ListNode;
  * 题解：https://leetcode-cn.com/problems/reverse-nodes-in-k-group/solution/tu-jie-kge-yi-zu-fan-zhuan-lian-biao-by-user7208t/
  * <p>
  * 视频：https://www.bilibili.com/video/BV1i44111721?from=search&seid=3623965927550448834
+ * https://labuladong.gitee.io/algo/2/16/17/
  */
 public class ReverseKGroup {
     public ListNode reverseKGroup(ListNode head, int k) {
@@ -50,7 +51,6 @@ public class ReverseKGroup {
             pre = start;
             // 反转结束，将end设置为下次需要反转链表的头节点的上一个节点，即：start；
             end = start;
-
         }
         return dummy.next;
 

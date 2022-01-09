@@ -44,6 +44,7 @@ public class ReverseBetween3 {
     public ListNode reverseBetween2(ListNode head, int left, int right) {
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
+
         ListNode preNode = dummy;
         for (int i = 0; i < left - 1; i++) {
             preNode = preNode.next;
@@ -57,10 +58,57 @@ public class ReverseBetween3 {
             cur.next = preNode.next;
             preNode.next = cur;
             cur = temp;
+
             tail.next = temp;
         }
 
         return dummy.next;
+    }
+
+    public ListNode reverseBetween3(ListNode head, int left, int right) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+
+        ListNode preNode = dummy;
+        for (int i = 0; i < left - 1; i++) {
+            preNode = preNode.next;
+        }
+        ListNode tail = preNode.next;
+        ListNode curr = tail.next;
+
+        for (int i = 0; i < right - left; i++) {
+            ListNode temp = curr.next;
+            curr.next = preNode.next;
+            preNode.next = curr;
+            curr = temp;
+            tail.next = temp;
+        }
+        return dummy.next;
+    }
+
+    public ListNode reverseBetween4(ListNode head, int left, int right) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode preNode = dummy;
+
+        for (int i = 0; i < left - 1; i++) {
+            preNode = preNode.next;
+        }
+
+        ListNode tailNode = preNode.next;
+        ListNode curr = tailNode.next;
+
+        for (int i = 0; i < right - left; i++) {
+            ListNode temp = curr.next;
+            curr.next = preNode.next;
+            preNode.next = curr;
+            curr = temp;
+            tailNode.next = curr;
+
+        }
+
+        return dummy.next;
+
     }
 
 
