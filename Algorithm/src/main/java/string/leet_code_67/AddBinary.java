@@ -1,4 +1,4 @@
-package string.leet_code_76;
+package string.leet_code_67;
 
 /**
  * @author : dev
