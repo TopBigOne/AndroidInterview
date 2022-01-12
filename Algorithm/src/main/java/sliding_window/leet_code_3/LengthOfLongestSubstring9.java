@@ -1,10 +1,14 @@
 package sliding_window.leet_code_3;
 
+import javax.swing.KeyStroke;
+
+import sun.text.normalizer.UBiDiProps;
+
 /**
  * @author : dev
  * @version :
  * @Date :  6/30/21 10:29 PM
- * @Desc : 无重复字符最长子串
+ * @Desc : 无重复字符最长子串：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
  * <p>
  * 输入: s = "abcabcbb"
  * 输出: 3
@@ -121,6 +125,29 @@ public class LengthOfLongestSubstring9 {
             }
             result = Math.max(result, i - left + 1);
         }
+        return result;
+
+    }
+
+    public int lengthOfLongestSubstring5(String s) {
+        int result = 0;
+        int len;
+        if (s == null || (len = s.length()) == 0) {
+            return result;
+        }
+        int left = 0;
+        int[] window = new int[256];
+        for (int i = 0; i < len; i++) {
+            char currChar = s.charAt(left);
+            window[currChar]++;
+            while (window[currChar] > 1) {
+                char leftChar = s.charAt(left);
+                window[leftChar]--;
+                left++;
+            }
+            result = Math.max(result, i - left + 1);
+        }
+
         return result;
 
     }

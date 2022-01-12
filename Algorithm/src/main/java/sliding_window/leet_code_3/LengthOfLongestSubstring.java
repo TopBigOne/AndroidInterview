@@ -1,6 +1,10 @@
 package sliding_window.leet_code_3;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 /**
  * @author : dev
  * @version :
@@ -9,11 +13,12 @@ import java.util.HashMap;
  * 输入: s = "abcabcbb"
  * 输出: 3
  * 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
- *
+ * <p>
  * 题解：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/
  */
 public class LengthOfLongestSubstring {
     public int lengthOfLongestSubstring(String s) {
+
         if (s.length() == 0) return 0;
         HashMap<Character, Integer> map = new HashMap<>();
         int max = 0;
