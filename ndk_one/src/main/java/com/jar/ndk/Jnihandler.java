@@ -1,5 +1,6 @@
 package com.jar.ndk;
 
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.util.Log;
 
@@ -39,4 +40,8 @@ public class Jnihandler {
     public long getRuntimeMemorySize() {
         return Runtime.getRuntime().freeMemory();
     }
+
+
+   // public native Bitmap generateBitmap(String str, int[] datas);
+    public native void generateBitmap(String str, int[] datas);
 }

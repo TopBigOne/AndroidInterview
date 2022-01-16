@@ -11,7 +11,6 @@ public class MainActivity extends AppCompatActivity {
 
     static {
         System.loadLibrary("native-lib");
-        System.loadLibrary("native-lib");
     }
    private TextView mainTv ;
 

@@ -7,6 +7,8 @@
 #include "android/log.h"
 #include <cstdlib>
 
+#
+
 
 using namespace std;
 
@@ -31,6 +33,7 @@ typedef struct tick_context {
     pthread_mutex_t lock;
     int done;
 } Tick_context;
+
 Tick_context g_ctx;
 
 
@@ -49,3 +52,17 @@ Java_com_jar_ndk_MainActivity_getTxt(JNIEnv *env, jobject) {
 
 
 
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_jar_ndk_Jnihandler_generateBitmap(JNIEnv *env, jobject thiz, jstring str,
+                                           jintArray datas) {
+
+    auto *ch = const_cast<jchar *>(env->GetStringChars(str, nullptr));
+
+    // 释放
+    env->ReleaseStringChars(str, reinterpret_cast<const jchar *>(ch));
+
+
+
+}
