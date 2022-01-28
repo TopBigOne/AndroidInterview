@@ -105,6 +105,12 @@ public class LengthOfLongestSubstring9 {
 
     }
 
+    /**
+     * leetcode 第三题：无重复最长子串
+     *
+     * @param s
+     * @return
+     */
     public int lengthOfLongestSubstring4(String s) {
         int result = 0;
         int len = 0;
@@ -127,6 +133,29 @@ public class LengthOfLongestSubstring9 {
         }
         return result;
 
+    }
+
+    public int lengthOfLongestSubstring5(String s) {
+        int result = 0;
+        int len = 0;
+        // step 1 : base corner
+        if (s == null || (len = s.length()) == 0) {
+            return result;
+        }
+
+        int left = 0;
+        int[] map = new int[256];
+        for (int i = 0; i < len; i++) {
+            char currChar = s.charAt(i);
+            map[currChar]++;
+            while (map[currChar] > 1) {
+                char leftChar = s.charAt(left);
+                map[leftChar]--;
+                left++;
+            }
+            result = Math.max(result, i - left + 1);
+        }
+        return result;
     }
 
     public int lengthOfLongestSubstring5(String s) {

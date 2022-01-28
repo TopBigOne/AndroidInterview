@@ -39,15 +39,14 @@ public class MinWindow4 {
                     count--;
                 }
 
-                if (right - left + 1 <= minLength) {
-                    minLength = right - left + 1;
+                int tempLength = right - left + 1;
+                if (tempLength <= minLength) {
+                    minLength = tempLength;
                     res = s.substring(left, right + 1);
                 }
                 window[currChar]--;
                 left++;
             }
-
-
             right++;
         }
 
