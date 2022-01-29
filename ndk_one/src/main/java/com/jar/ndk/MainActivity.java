@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.jar.ya.NativeLib;
+
 public class MainActivity extends AppCompatActivity {
 
     static {
         System.loadLibrary("native-lib");
     }
-   private TextView mainTv ;
+
+    private TextView mainTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String result = getTxt();
+
+                NativeLib nativeLib = new NativeLib();
+                int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
+                int lcsResult = nativeLib.nativeLcs(nums);
+                System.out.println("lcsResult : " + lcsResult);
+
                 mainTv.setText(result);
             }
         });
@@ -39,8 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
     public native String getTxt();
 
-    public native  String stringFromJNI();
+    public native String stringFromJNI();
+
     public native void startTicks();
+
     public native void StopTicks();
 
 }
