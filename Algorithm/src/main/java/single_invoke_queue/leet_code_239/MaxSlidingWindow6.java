@@ -5,20 +5,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author : dev
+ * @author :  dev
  * @version :
- * @Date :  2022/1/3 22:51
- * @Desc : 单调队列解决 滑动窗口问题
+ * @Date :   2022/1/29 17:39
+ * @Url :   https://leetcode-cn.com/problems/sliding-window-maximum/submissions/
+ * @Level :  easy  medium hard
+ * @Desc : leetcode : 239 滑动窗口最大值,字节：9 次；
+ * @Counter :
+ * @Answer :
  */
-public class MaxSlidingWindow5 {
-   public int[] maxSlidingWindow(int[] nums, int k) {
+public class MaxSlidingWindow6 {
+    public int[] maxSlidingWindow(int[] nums, int k) {
         Window window = new Window();
         List<Integer> res = new ArrayList<>();
-        int size = nums.length;
-
-        for (int i = 0; i < size; i++) {
+        int length = nums.length;
+        for (int i = 0; i < length; i++) {
             int currValue = nums[i];
-            //  i < k - 1: 保证窗口内一直是k个数
             if (i < k - 1) {
                 window.push(currValue);
                 continue;
@@ -26,23 +28,19 @@ public class MaxSlidingWindow5 {
             window.push(currValue);
             res.add(window.getMax());
             window.pop(nums[i - k + 1]);
-
         }
         return res.stream().mapToInt(v -> v).toArray();
-
     }
 
 
-    static class Window {
+    private static class Window {
         LinkedList<Integer> queue = new LinkedList<>();
-
         public void push(int n) {
-            while (!queue.isEmpty() && queue.getLast() < n) {
+            while (!queue.isEmpty() && n > queue.getLast()) {
                 queue.pollLast();
             }
             queue.addLast(n);
         }
-
 
         public int getMax() {
             return queue.getFirst();
@@ -54,4 +52,6 @@ public class MaxSlidingWindow5 {
             }
         }
     }
+
+
 }

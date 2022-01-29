@@ -1,9 +1,5 @@
 package sliding_window.leet_code_3;
 
-import javax.swing.KeyStroke;
-
-import sun.text.normalizer.UBiDiProps;
-
 /**
  * @author : dev
  * @version :
@@ -158,26 +154,31 @@ public class LengthOfLongestSubstring9 {
         return result;
     }
 
-    public int lengthOfLongestSubstring5(String s) {
-        int result = 0;
-        int len;
+    public int lengthOfLongestSubstring6(String s) {
+        int len = 0;
+        int res = 0;
         if (s == null || (len = s.length()) == 0) {
-            return result;
+            return res;
         }
+
         int left = 0;
-        int[] window = new int[256];
+        int[] windows = new int[256];
         for (int i = 0; i < len; i++) {
-            char currChar = s.charAt(left);
-            window[currChar]++;
-            while (window[currChar] > 1) {
+            char currChar = s.charAt(i);
+            windows[currChar]++;
+
+            while (windows[currChar] > 1) {
                 char leftChar = s.charAt(left);
-                window[leftChar]--;
+                windows[leftChar]--;
                 left++;
             }
-            result = Math.max(result, i - left + 1);
+
+            res = Math.max(res, i - left + 1);
         }
 
-        return result;
+        return res;
 
     }
+
+
 }
