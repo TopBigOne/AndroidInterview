@@ -1,9 +1,8 @@
 //
-// Created by Dev on 1/29/22.
+// Created by Dev on 1/29/22.  最长上升子序列
 //
 
 #include "LeetCode_300.h"
-
 
 #include <vector>
 #include <cmath>
@@ -23,6 +22,7 @@ int LeetCode_300::lcs(vector<int> &nums) {
                 dp[i] = max(dp[i], dp[j] + 1);
             }
         }
+        result = max(result, dp[i]);
     }
     return result;
 }

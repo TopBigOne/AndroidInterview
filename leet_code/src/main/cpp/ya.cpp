@@ -11,6 +11,8 @@ Java_com_jar_ya_NativeLib_stringFromJNI(
     std::string hello = "Hello from C++";
     return env->NewStringUTF(hello.c_str());
 }
+
+
 extern "C"
 JNIEXPORT jint JNICALL
 Java_com_jar_ya_NativeLib_nativeLcs(JNIEnv *env, jobject thiz, jintArray nums) {

@@ -5,6 +5,7 @@
 #ifndef INTERVIEW_LEETCODE_300_H
 #define INTERVIEW_LEETCODE_300_H
 #include <vector>
+#include <math.h>
 
 
 class LeetCode_300 {
