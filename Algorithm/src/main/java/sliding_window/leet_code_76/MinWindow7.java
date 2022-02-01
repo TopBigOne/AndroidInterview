@@ -51,6 +51,50 @@ public class MinWindow7 {
         }
 
         return res;
+
+
+    }
+
+    public String minWindow2(String s, String t) {
+        int sLength = s.length();
+        int tLength = t.length();
+        int left = 0;
+        int right = 0;
+        int[] needs = new int[256];
+        int[] windows = new int[256];
+        int minLength = sLength + 1;
+        String res = "";
+        int count = 0;
+        for (char c : t.toCharArray()) {
+            needs[c]++;
+        }
+        while (right < sLength) {
+            char currChar = s.charAt(right);
+            windows[currChar]++;
+            if (needs[currChar] > 0 && needs[currChar] >= windows[currChar]) {
+                count++;
+            }
+
+            while (count == tLength) {
+                char leftChar = s.charAt(left);
+                if (needs[leftChar] > 0 && needs[leftChar] >= windows[leftChar]) {
+                    count--;
+                }
+                int tempValue = right - left + 1;
+                if (tempValue < minLength) {
+                    minLength = tempValue;
+                    res = s.substring(left, right + 1);
+                }
+                windows[leftChar]--;
+                left++;
+
+            }
+
+            right++;
+        }
+
+        return res;
+
     }
 
 

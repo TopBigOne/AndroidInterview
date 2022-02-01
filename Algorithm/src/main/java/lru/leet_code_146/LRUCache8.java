@@ -4,18 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author : dev
+ * @author :  dev
  * @version :
- * @Date :  8/22/21 11:21 AM
- * @Desc : 练习一下 LRU
+ * @Date :   2022/1/31 14:50
+ * @Url :
+ * @Level :    medium
+ * @Desc :
+ * @Counter :
+ * @Answer :
  */
-
-public class LRUCache7 {
+public class LRUCache8 {
     private final Map<Integer, Node> map;
     private final DoubleList cache;
     private final int capacity;
 
-    public LRUCache7(int capacity) {
+    public LRUCache8(int capacity) {
         this.capacity = capacity;
         cache = new DoubleList();
         map = new HashMap<>();
@@ -50,7 +53,7 @@ public class LRUCache7 {
         private Node tail;
 
         public void addFirst(Node node) {
-            // 1: only one node;
+            // 1: only one node
             if (head == null) {
                 head = tail = node;
                 size++;
@@ -65,47 +68,39 @@ public class LRUCache7 {
             size++;
         }
 
+
         public Node removeLast() {
             Node temp = tail;
             remove(tail);
             return temp;
-
         }
 
-        /**
-         * 删除节点：
-         * NOTE: 1: 就一个节点
-         * 2: 删除的是头节点
-         * 3: 删除的是尾节点
-         * 4:删除的中间节点
-         *
-         * @param node
-         */
         private void remove(Node node) {
-            // case 1;
+            // case 1:
             if (node == head && node == tail) {
                 head = null;
                 tail = null;
                 size--;
                 return;
-
             }
-            // case 2:   delete :1; node 1->2->3->4
+
+            // case 2: delete :1,node 1-2-3-4;
             if (node == head) {
                 node.next.pre = null;
                 head = node.next;
                 size--;
                 return;
             }
-            // cese 3:
+
+            // case 3:  delete : 4,node is :1-2-3-4
             if (node == tail) {
                 node.pre.next = null;
                 tail = node.pre;
                 size--;
                 return;
             }
-            // case 4:
 
+            // case 4: delete : 3 ,the node is 1-2-3-4
             node.pre.next = node.next;
             node.next.pre = node.pre;
             size--;
@@ -126,7 +121,7 @@ public class LRUCache7 {
             this.key = key;
             this.val = val;
         }
-
     }
+
 
 }

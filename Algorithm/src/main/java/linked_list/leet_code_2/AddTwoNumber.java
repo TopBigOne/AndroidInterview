@@ -2,12 +2,6 @@ package linked_list.leet_code_2;
 
 import linked_list.ListNode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Currency;
-import java.util.List;
-import java.util.function.Predicate;
-
 /**
  * @author : dev
  * @version :
@@ -155,23 +149,26 @@ public class AddTwoNumber {
 
         return dummy.next;
 
+
     }
 
     public ListNode addTwoNumber5(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(-1);
-        ListNode pre = dummy;
         ListNode p1 = l1;
         ListNode p2 = l2;
+        ListNode curr = dummy;
+        // 进位
         int carry = 0;
-
         while (p1 != null || p2 != null) {
-            int x = l1 == null ? 0 : l1.val;
-            int y = l2 == null ? 0 : l2.val;
+            int x = p1 == null ? 0 : p1.val;
+            int y = p2 == null ? 0 : p2.val;
             int sum = carry + x + y;
+            // 新的进位
             carry = sum / 10;
-            pre.next = new ListNode(sum % 10);
-
-            pre = pre.next;
+            // 对sum取余
+            sum %= 10;
+            curr.next = new ListNode(sum);
+            curr = curr.next;
 
             if (p1 != null) {
                 p1 = p1.next;
@@ -181,10 +178,46 @@ public class AddTwoNumber {
             }
 
         }
+
         if (carry > 0) {
-            pre.next = new ListNode(carry);
+            curr.next = new ListNode(carry);
         }
 
+        return dummy.next;
+
+    }
+
+    public ListNode addTwoNumber6(ListNode l1, ListNode l2) {
+        ListNode p1 = l1;
+        ListNode p2 = l2;
+        ListNode dummy = new ListNode(-1);
+        ListNode curr = dummy;
+
+        // 进位
+        int carry = 0;
+
+        while (p1 != null || p2 != null) {
+            int x = p1 == null ? 0 : p1.val;
+            int y = p2 == null ? 0 : p2.val;
+
+            int sum = carry + x + y;
+
+            carry = sum / 10;
+            sum %= 10;
+            curr.next = new ListNode(sum);
+            curr = curr.next;
+
+            if (p1 != null) {
+                p1 = p1.next;
+            }
+            if (p2 != null) {
+                p2 = p2.next;
+            }
+        }
+
+        if (carry > 0) {
+            curr.next = new ListNode(carry);
+        }
         return dummy.next;
 
     }

@@ -25,9 +25,6 @@ public class LinkedListEqual {
         l2.next.next = new ListNode(3);
         l2.next.next.next = new ListNode(5);
 
-        if (l1==l2) {
-            return true;
-        }
-        return false;
+        return l1 == l2;
     }
 }

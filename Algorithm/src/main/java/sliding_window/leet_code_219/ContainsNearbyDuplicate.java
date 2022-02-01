@@ -13,6 +13,13 @@ import java.util.HashSet;
  * @Answer : https://leetcode-cn.com/problems/contains-duplicate-ii/solution/hua-jie-suan-fa-219-cun-zai-zhong-fu-yuan-su-ii-by/
  */
 public class ContainsNearbyDuplicate {
+    public static void main(String[] args) {
+        int[] nums = {1, 0, 1, 1};
+        ContainsNearbyDuplicate duplicate = new ContainsNearbyDuplicate();
+        boolean result = duplicate.containsNearbyDuplicate4(nums, 1);
+        System.out.println("result : " + result);
+    }
+
     /**
      * 1：维护一个hash表，里面始终最多包含k个元素，当出现重复值时，则说明在k距离内，存在重复元素；
      * 2：每次遍历一个元素则将其加入hash表中，如果hash表的大小小于k，则移除最前面的数字；
@@ -28,9 +35,11 @@ public class ContainsNearbyDuplicate {
                 return true;
             }
             set.add(nums[i]);
+            // 保证窗口一直是k---start
             if (set.size() > k) {
                 set.remove(nums[i - k]);
             }
+            // 保证窗口一直是k---end
         }
         return false;
     }
@@ -80,7 +89,6 @@ public class ContainsNearbyDuplicate {
             }
         }
         return false;
-
 
 
     }
