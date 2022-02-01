@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.jar.ya.NativeLib;
 
+import java.util.concurrent.FutureTask;
+
 public class MainActivity extends AppCompatActivity {
 
     static {

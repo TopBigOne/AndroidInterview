@@ -14,7 +14,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake{
-                abiFilters "armeabi-v7a",  "x86"
+                ndk.abiFilters  'x86', 'x86_64'
             }
         }
     }

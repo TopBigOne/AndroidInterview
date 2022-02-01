@@ -1,5 +1,6 @@
 package linked_list.leet_code_23;
 
+import java.util.List;
 import java.util.PriorityQueue;
 
 import linked_list.ListNode;
@@ -12,7 +13,7 @@ import linked_list.ListNode;
  * 题解：https://www.bilibili.com/video/BV1u54y1U7gv?from=search&seid=2939987306071276907
  */
 public class MergeKList {
-    public ListNode mergeKLists3(ListNode[] lists) {
+    public ListNode mergeKLists(ListNode[] lists) {
         PriorityQueue<ListNode> minHeap = new PriorityQueue<>((o1, o2) -> o1.val - o2.val);
         for (ListNode list : lists) {
             if (list != null) {
@@ -58,10 +59,11 @@ public class MergeKList {
 
     /**
      * 一姐的思路，我的注释
+     *
      * @param lists
      * @return
      */
-    public ListNode mergeKLists(ListNode[] lists) {
+    public ListNode mergeKLists3(ListNode[] lists) {
         // 优先级队列， 用 ListNode[] 数组中，每个链表的头结点的 val 做比较；
         // 小的放前面，大的放后面 （是不是有点像冒泡排序？）
         PriorityQueue<ListNode> minHeap = new PriorityQueue<>((a, b) -> a.val - b.val);
@@ -105,6 +107,30 @@ public class MergeKList {
 
     }
 
+    public ListNode mergeKLists4(ListNode[] lists) {
+        PriorityQueue<ListNode> minHeap = new PriorityQueue<>((a, b) -> a.val - b.val);
+        for (ListNode list : lists) {
+            if (list == null) {
+                continue;
+            }
+            minHeap.add(list);
+        }
+        ListNode dummy = new ListNode(-1);
+        ListNode curr = dummy;
+        while (!minHeap.isEmpty()) {
+            ListNode minNode = minHeap.remove();
+            curr.next = minNode;
+            curr = curr.next;
+            if (curr.next != null) {
+                minHeap.add(minNode.next);
+            }
+
+        }
+
+        return dummy.next;
+
+
+    }
 
 
 }

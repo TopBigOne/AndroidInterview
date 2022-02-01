@@ -96,6 +96,7 @@ public class ReverseBetween3 {
         }
 
         ListNode tailNode = preNode.next;
+
         ListNode curr = tailNode.next;
 
         for (int i = 0; i < right - left; i++) {
@@ -103,6 +104,7 @@ public class ReverseBetween3 {
             curr.next = preNode.next;
             preNode.next = curr;
             curr = temp;
+
             tailNode.next = curr;
 
         }

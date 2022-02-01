@@ -12,7 +12,7 @@ import linked_list.ListNode;
  * 视频：https://www.bilibili.com/video/BV1i44111721?from=search&seid=3623965927550448834
  * https://labuladong.gitee.io/algo/2/16/17/
  */
-public class ReverseKGroup {
+public class ReverseKGroup extends BaseOperation {
     public ListNode reverseKGroup(ListNode head, int k) {
         if (head == null || head.next == null) {
             return head;
@@ -193,35 +193,7 @@ public class ReverseKGroup {
             pre = start;
             end = pre;
         }
-
         return dummy.next;
-
-
     }
-
-
-    /**
-     * 链表翻转
-     *
-     * @param head 头节点
-     * @return 反转以后的链表
-     */
-    private ListNode reverse(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode pre = null;
-        ListNode cur = head;
-        while (cur != null) {
-            ListNode temp = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = temp;
-        }
-        return pre;
-
-
-    }
-
 
 }

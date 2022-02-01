@@ -1,6 +1,5 @@
 package tree.offer_36;
 
-import javafx.beans.property.ReadOnlyObjectProperty;
 import tree.Node;
 
 /**

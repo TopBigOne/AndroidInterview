@@ -11,7 +11,7 @@
 class LeetCode_300 {
 
 public:
-    int lcs(std::vector<int> &nums);
+    int lcs(std::vector<int> &num);
 
 };
 
