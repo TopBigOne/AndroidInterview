@@ -1,9 +1,9 @@
 package com.jar.oom;
 
+import javassist.CannotCompileException;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import javassist.CannotCompileException;
 
 /**
  * @author : dev
@@ -11,7 +11,7 @@ import javassist.CannotCompileException;
  * @Date :  2/18/21 6:16 PM
  * @Desc :   方法区 oom：不间断的调用 intern();
  */
-public class MethordAreaOOMByIntern implements Run {
+public class MethodAreaOOMByIntern implements Run {
 
     String str = "test_jar_jar";
     static javassist.ClassPool cp = javassist.ClassPool.getDefault();
@@ -56,8 +56,8 @@ public class MethordAreaOOMByIntern implements Run {
 
 
     public static void main(String[] args) {
-        MethordAreaOOMByIntern methordAreaOOMByIntern = new MethordAreaOOMByIntern();
-        methordAreaOOMByIntern.execute();
+        MethodAreaOOMByIntern methodAreaOOMByIntern = new MethodAreaOOMByIntern();
+        methodAreaOOMByIntern.execute();
 
     }
 

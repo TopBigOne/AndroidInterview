@@ -1,11 +1,8 @@
 package com.jar.oom;
 
-import java.lang.reflect.Field;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-
-import sun.misc.Unsafe;
 
 
 /**
@@ -29,8 +26,6 @@ public class DirectMemoryOOM implements Run {
     public void execute() {
 
     }
-
-
     public static void main(String[] args) {
         DirectMemoryOOM directMemoryOOM = new DirectMemoryOOM();
         // directMemoryOOM.tt1();
