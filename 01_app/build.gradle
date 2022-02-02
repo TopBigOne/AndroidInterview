@@ -5,12 +5,12 @@ def lib = rootProject.ext.supportDependencies
 
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "29.0.3"
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
     defaultConfig {
         applicationId "com.android.interview"
-        minSdkVersion 19
-        targetSdkVersion 30
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

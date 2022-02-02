@@ -1,14 +1,17 @@
 
 apply plugin: 'com.android.application'
 
+def config = rootProject.ext.android
+def lib = rootProject.ext.supportDependencies
+
 android {
-    compileSdkVersion 29
-    buildToolsVersion "30.0.2"
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
 
     defaultConfig {
         applicationId "com.jar.ndk"
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
         versionCode 1
         versionName "1.0"
         ndk.abiFilters  'x86', 'x86_64'
@@ -45,13 +48,16 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation project(path: ':Algorithm')
     implementation project(path: ':leet_code')
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation lib.appcompat
+    implementation lib.material
+    implementation lib.junit
+
+    androidTestImplementation lib.extJunit
+    androidTestImplementation lib.espresso_core
+    implementation lib.constraintlayout
 
 }

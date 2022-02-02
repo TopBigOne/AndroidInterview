@@ -77,8 +77,8 @@ public class IntersectionNode {
         ListNode pA = headA;
         ListNode pB = headB;
         while (pA != pB) {
-            pA = pA == null ? headA : pA.next;
-            pB = pB == null ? headB : pB.next;
+            pA = pA == null ? headB : pA.next;
+            pB = pB == null ? headA : pB.next;
 
         }
         return pA;
@@ -97,6 +97,7 @@ public class IntersectionNode {
 
         }
         return pA;
+
     }
 
     public ListNode getIntersectionNode5(ListNode headA, ListNode headB) {
@@ -143,6 +144,20 @@ public class IntersectionNode {
             pB = pB == null ? headA : pB.next;
         }
         return pA;
+    }
+
+    public ListNode getINtersectionNode8(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        ListNode pA = headA;
+        ListNode pB = headB;
+        while (pA != pB) {
+            pA = pA == null ? headB : pA.next;
+            pB = pB == null ? headA : pB.next;
+        }
+        return pA;
+
     }
 
 

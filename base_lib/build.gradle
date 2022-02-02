@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
 }
+def config = rootProject.ext.android
+def lib = rootProject.ext.supportDependencies
 
 android {
     compileSdkVersion 30

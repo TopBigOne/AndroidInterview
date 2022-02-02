@@ -36,6 +36,69 @@ public class ReverseBetween5 {
 
         return dummy.next;
 
+    }
+
+    public ListNode reverseBetween2(ListNode head, int m, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        // m 前一个位置
+        ListNode guard = dummy;
+        // m 位置
+        ListNode point = guard.next;
+
+        for (int i = 0; i < m - 1; i++) {
+            guard = guard.next;
+            point = point.next;
+        }
+        for (int i = 0; i < n - m; i++) {
+            ListNode removeNode = point.next;
+            point.next = point.next.next;
+            removeNode.next = guard.next;
+            guard.next = removeNode;
+        }
+
+        return dummy.next;
+
+    }
+    public ListNode reverseBetween3(ListNode head, int m, int n) {
+        ListNode dummy =  new ListNode(0);
+        dummy.next  = head;
+        ListNode guard = dummy;
+        ListNode point = guard.next;
+        for (int i = 0; i < m-1; i++) {
+            guard = guard.next;
+            point = point.next;
+        }
+
+        for (int i = 0; i < n-m; i++) {
+            ListNode removeNode = point.next;
+            point.next =point.next.next;
+            removeNode.next =guard.next;
+            guard.next = removeNode;
+        }
+
+        return dummy.next;
+
+    }
+
+    public ListNode reverseBetween4(ListNode head, int m, int n) {
+        ListNode dummy =  new ListNode(0);
+        dummy.next  = head;
+        ListNode guard = dummy;
+        ListNode point = guard.next;
+        for (int i = 0; i < m-1; i++) {
+            guard = guard.next;
+            point = point.next;
+        }
+
+        for (int i = 0; i < n-m; i++) {
+           ListNode removeNode  = point.next;
+           point.next = point.next.next;
+           removeNode.next = guard.next;
+           guard.next = removeNode;
+        }
+
+        return dummy.next;
 
     }
 }
