@@ -18,7 +18,6 @@ public class SynchronizedExample {
     public synchronized void reader() {
         if (flag) {
             int i = a;
-
         }
     }
 }
