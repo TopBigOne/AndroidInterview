@@ -51,7 +51,6 @@ public class Demo_01 {
             try {
                 if (lock.tryLock(100, TimeUnit.MICROSECONDS)) {
                     // do sth....
-
                 }
             } catch (Exception e) {
                 e.printStackTrace();
