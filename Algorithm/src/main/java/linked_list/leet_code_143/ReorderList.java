@@ -217,7 +217,7 @@ public class ReorderList {
             head = newHead.next;
             newHead = temp;
         }
-        int a= 10;
+        int a = 10;
     }
 
 
@@ -246,31 +246,30 @@ public class ReorderList {
 
     }
 
-    public void recordList8(ListNode head){
-       if(head==null||head.next==null||head.next.next==null){
-           return ;
-       }
+    public void recordList8(ListNode head) {
+        if (head == null || head.next == null || head.next.next == null) {
+            return;
+        }
         ListNode fast = head;
         ListNode slow = head;
-        while (fast.next!=null&&fast.next.next!=null){
+        while (fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
         ListNode newHead = slow.next;
-        slow.next  = null;
+        slow.next = null;
 
         // 开始反转链表
         newHead = doReverse(newHead);
 
         // 连接
-        while(newHead!=null){
+        while (newHead != null) {
             ListNode temp = newHead.next;
             newHead.next = head.next;
             head.next = newHead;
             head = newHead.next;
             newHead = temp;
         }
-
 
 
     }

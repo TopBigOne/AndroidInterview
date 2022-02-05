@@ -30,10 +30,9 @@ TickContext g_ctx;
  * A helper function to wrap java JniHelper::updateStatus(String msg)
  * JNI allow us to call this function via an instance even it is
  * private function.
-发送一个Java的消息
+  * 发送一个Java的消息
  */
-void sendJavaMsg(JNIEnv *env, jobject instance,
-                 jmethodID func, const char *msg) {
+void sendJavaMsg(JNIEnv *env, jobject instance, jmethodID func, const char *msg) {
     jstring javaMsg = (*env)->NewStringUTF(env, msg);
     (*env)->CallVoidMethod(env, instance, func, javaMsg);
     (*env)->DeleteLocalRef(env, javaMsg);
@@ -42,10 +41,7 @@ void sendJavaMsg(JNIEnv *env, jobject instance,
 
 JNIEXPORT jstring JNICALL
 Java_com_jar_ndk_MainActivity_stringFromJNI(JNIEnv *env, jobject thiz) {
-    //  return (*env)->NewStringUTF(env, "Hello from JNI !  Compiled with ABI " ABI ".");
-
     return (*env)->NewStringUTF(env, "Hell0 from JNI");
-
 }
 
 
@@ -68,9 +64,7 @@ void *UpdateTicks(void *context) {
         }
     }
 
-    jmethodID statusId = (*env)->GetMethodID(env, pctx->jniHelperClz,
-                                             "updateStatus",
-                                             "(Ljava/lang/String;)V");//获取方法
+    jmethodID statusId = (*env)->GetMethodID(env, pctx->jniHelperClz,"updateStatus","(Ljava/lang/String;)V");//获取方法
     //发送消息正在初始化
     sendJavaMsg(env, pctx->jniHelperObj, statusId, "TickerThread status: initializing...");
 

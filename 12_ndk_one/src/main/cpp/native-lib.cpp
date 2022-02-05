@@ -55,10 +55,10 @@ Java_com_jar_ndk_MainActivity_getTxt(JNIEnv *env, jobject) {
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_jar_ndk_Jnihandler_generateBitmap(JNIEnv *env, jobject thiz, jstring str,
+Java_com_jar_ndk_JniHandler_generateBitmap(JNIEnv *env, jobject thiz, jstring str,
                                            jintArray datas) {
 
-    auto *ch = const_cast<jchar *>(env->GetStringChars(str, nullptr));
+    auto *ch = const_cast<jchar *>(env->GetStringChars(str, JNI_FALSE));
 
     // 释放
     env->ReleaseStringChars(str, reinterpret_cast<const jchar *>(ch));

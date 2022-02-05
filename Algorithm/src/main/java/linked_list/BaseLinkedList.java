@@ -10,7 +10,7 @@ package linked_list;
  * @Counter :
  * @Answer :
  */
-public class BaseOperation {
+public class BaseLinkedList {
     public static ListNode generateListNode(int... node) {
         ListNode dummy = new ListNode(-1);
         ListNode curr = dummy;

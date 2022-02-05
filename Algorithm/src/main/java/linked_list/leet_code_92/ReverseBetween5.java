@@ -60,21 +60,22 @@ public class ReverseBetween5 {
         return dummy.next;
 
     }
+
     public ListNode reverseBetween3(ListNode head, int m, int n) {
-        ListNode dummy =  new ListNode(0);
-        dummy.next  = head;
-        ListNode guard = dummy;
-        ListNode point = guard.next;
-        for (int i = 0; i < m-1; i++) {
-            guard = guard.next;
-            point = point.next;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = pre.next;
+        for (int i = 0; i < m - 1; i++) {
+            pre = pre.next;
+            curr = curr.next;
         }
 
-        for (int i = 0; i < n-m; i++) {
-            ListNode removeNode = point.next;
-            point.next =point.next.next;
-            removeNode.next =guard.next;
-            guard.next = removeNode;
+        for (int i = 0; i < n - m; i++) {
+            ListNode removeNode = curr.next;
+            curr.next = curr.next.next;
+            removeNode.next = pre.next;
+            pre.next = removeNode;
         }
 
         return dummy.next;
@@ -82,23 +83,140 @@ public class ReverseBetween5 {
     }
 
     public ListNode reverseBetween4(ListNode head, int m, int n) {
-        ListNode dummy =  new ListNode(0);
-        dummy.next  = head;
+
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
         ListNode guard = dummy;
         ListNode point = guard.next;
-        for (int i = 0; i < m-1; i++) {
+        for (int i = 0; i < m - 1; i++) {
             guard = guard.next;
             point = point.next;
         }
 
-        for (int i = 0; i < n-m; i++) {
-           ListNode removeNode  = point.next;
-           point.next = point.next.next;
-           removeNode.next = guard.next;
-           guard.next = removeNode;
+        for (int i = 0; i < n - m; i++) {
+            ListNode removeNode = point.next;
+            point.next = point.next.next;
+            removeNode.next = guard.next;
+            guard.next = removeNode;
+        }
+
+        return dummy.next;
+    }
+
+    public ListNode reverseBetween5(ListNode head, int m, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = pre.next;
+        for (int i = 0; i < m - 1; i++) {
+            pre = pre.next;
+            curr = curr.next;
+        }
+
+        for (int i = 0; i < n - m; i++) {
+            ListNode removeNode = curr.next;
+            curr.next = curr.next.next;
+            removeNode.next = pre.next;
+            pre.next = removeNode;
+        }
+        return dummy.next;
+    }
+
+    public ListNode reverseBetween6(ListNode head, int m, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = pre.next;
+        for (int i = 0; i < m - 1; i++) {
+            pre = pre.next;
+            curr = curr.next;
+        }
+        for (int i = 0; i < n - m; i++) {
+            ListNode removeNode = curr.next;
+            curr.next = curr.next.next;
+            removeNode.next = pre.next;
+            pre.next = removeNode;
+        }
+        return dummy.next;
+    }
+
+    public ListNode reverseBetween7(ListNode head, int m, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = pre.next;
+        for (int i = 0; i < m - 1; i++) {
+            pre = pre.next;
+            curr = curr.next;
+        }
+        for (int i = 0; i < n - m; i++) {
+            ListNode removeNode = curr.next;
+            curr.next = curr.next.next;
+            removeNode.next = pre.next;
+            pre.next = removeNode;
+        }
+
+        return dummy.next;
+    }
+
+    public ListNode reverseBetween8(ListNode head, int m, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = pre.next;
+        for (int i = 0; i < m - 1; i++) {
+            pre = pre.next;
+            curr = curr.next;
+        }
+        for (int i = 0; i < n - m; i++) {
+            ListNode removeNode = curr.next;
+            curr.next = curr.next.next;
+            removeNode.next = pre.next;
+            pre.next = removeNode;
+        }
+        return dummy.next;
+
+    }
+
+    public ListNode reverseBetween9(ListNode head, int m, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = pre.next;
+        for (int i = 0; i < m - 1; i++) {
+            pre = pre.next;
+            curr = curr.next;
+        }
+        for (int i = 0; i < n - m; i++) {
+            // 4-5-6
+            ListNode removeNode = curr.next;
+            curr.next = curr.next.next;
+            removeNode.next = pre.next;
+            pre.next = removeNode;
+        }
+        return dummy.next;
+    }
+
+    public ListNode reverseBetween10(ListNode head, int m, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode curr = pre.next;
+        for (int i = 0; i < m - 1; i++) {
+            pre = pre.next;
+            curr = curr.next;
+        }
+        for (int i = 0; i < n - m; i++) {
+            ListNode removeNode = curr.next;
+            curr.next = curr.next.next;
+            removeNode.next = pre.next;
+            pre.next = removeNode;
         }
 
         return dummy.next;
 
+
     }
+
+
 }

@@ -13,6 +13,12 @@ import linked_list.ListNode;
  * @Answer :
  */
 public class BaseOperation {
+    /**
+     * 反转链表
+     *
+     * @param head
+     * @return
+     */
     public ListNode reverseListNode(ListNode head) {
         if (head == null) {
             return head;
@@ -25,8 +31,18 @@ public class BaseOperation {
             pre = curr;
             curr = temp;
         }
-
         return pre;
+    }
+
+    public ListNode reverseListNode2(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode last = reverseListNode2(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
 
 
     }

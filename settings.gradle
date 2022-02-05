@@ -42,3 +42,6 @@ include ':11_aidl'
 include ':lib_base_env'
 include ':leet_code'
 include ':03_workmanager'
+include ':native_lib_tip_ip'
+
+include ':13_ndk_two'

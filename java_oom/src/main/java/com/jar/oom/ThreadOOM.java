@@ -13,10 +13,12 @@ package com.jar.oom;
 public class ThreadOOM {
     /**
      * 不断的创建线程
+     *
      * @param args
      */
     public static void main(String[] args) {
-        for (int i = 0; ; i++) {
+        int i = 0;
+        while (true) {
             System.out.println("======i " + i);
             new Thread(new Runnable() {
                 @Override
@@ -28,8 +30,7 @@ public class ThreadOOM {
                     }
                 }
             }).start();
-
-
+            i++;
         }
     }
 }

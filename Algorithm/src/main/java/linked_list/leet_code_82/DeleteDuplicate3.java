@@ -1,19 +1,19 @@
 package linked_list.leet_code_82;
 
-import linked_list.BaseOperation;
+import linked_list.BaseLinkedList;
 import linked_list.ListNode;
 
 /**
  * @author :  dev
  * @version :
  * @Date :   2022/2/1 23:28
- * @Url :
+ * @Url : https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/
  * @Level :    medium
- * @Desc :
+ * @Desc :leetcode 82: 删除排序链表中的重复元素II
  * @Counter : 7
  * @Answer : https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/solution/fu-xue-ming-zhu-di-gui-die-dai-yi-pian-t-wy0h/
  */
-public class DeleteDuplicate3 extends BaseOperation {
+public class DeleteDuplicate3 extends BaseLinkedList {
 
     public static void main(String[] args) {
         ListNode node = generateListNode(1, 2, 2, 2);

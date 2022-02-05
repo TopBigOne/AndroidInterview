@@ -10,9 +10,9 @@ import androidx.annotation.Keep;
  * @author : dev
  * @version :
  * @Date :  12/13/21 11:31 AM
- * @Desc :
+ * @Desc : https://blog.csdn.net/yuzhiqiang666/article/details/101124117
  */
-public class Jnihandler {
+public class JniHandler {
     /*
      * Print out status to logcat
      */
