@@ -9,7 +9,7 @@ import java.util.Random;
  * @Desc : 快速排序：基本写法
  * 题解：https://leetcode-cn.com/problems/sort-an-array/solution/fu-xi-ji-chu-pai-xu-suan-fa-java-by-liweiwei1419/
  */
-public class QuickSort_Base_1 {
+public class QuickSort_Base_1 extends BaseOperation{
     // /'θreʃəʊld/
     public static final int INSERTION_SORT_THRESHOLD = 7;
     private static final Random RANDOM = new Random();
@@ -69,11 +69,6 @@ public class QuickSort_Base_1 {
         return lt;
     }
 
-    private void swap(int[] nums, int index1, int index2) {
-        int temp = nums[index1];
-        nums[index1] = nums[index2];
-        nums[index2] = temp;
-    }
 
 
 

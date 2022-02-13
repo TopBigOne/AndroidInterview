@@ -1,6 +1,9 @@
 package linked_list.interview_02_01;
 
+import com.top.jar.chapter_004.GeneralFib;
+
 import linked_list.ListNode;
+import sun.security.acl.WorldGroupImpl;
 
 /**
  * @author : dev
@@ -35,7 +38,42 @@ public class RemoveDuplicateNode {
             cur = cur.next;
         }
         return head;
+    }
 
+    public ListNode removeDuplicateNodes2(ListNode head) {
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode temp = curr;
+            while (temp.next != null) {
+                if (curr.val == temp.next.val) {
+                    temp.next = temp.next.next;
+                } else {
+                    temp = temp.next;
+                }
+            }
+
+            curr = curr.next;
+        }
+
+        return head;
+
+    }
+
+    public ListNode removeDuplicateNodes3(ListNode head) {
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode temp = curr;
+            while (temp.next != null) {
+                if (temp.next.val == curr.val) {
+                    temp.next = temp.next.next;
+                } else {
+                    temp = temp.next;
+                }
+            }
+            curr = curr.next;
+        }
+
+        return head;
 
     }
 
