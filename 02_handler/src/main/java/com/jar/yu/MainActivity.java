@@ -9,9 +9,11 @@ import android.os.*;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.jar.yu.dialog.QuestionDialog;
 
 import java.lang.reflect.InvocationTargetException;
@@ -51,9 +53,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.e(TAG, "onCreate:----- ");
+
+        Log.d(TAG, "TestLoop :-----  current thread name : " + Thread.currentThread().getName());
         initThread();
         System.out.println();
+        testLoop();
 
         buttonOne = (Button) findViewById(R.id.btn_one);
         buttonTwo = (Button) findViewById(R.id.btn_two);
@@ -77,22 +81,37 @@ public class MainActivity extends AppCompatActivity {
         initEvent();
         initWorkThreadHandler();
 
+        new Thread(new TestLoopThread()).start();
+
     }
 
-    class SubThread implements Runnable{
+    private void testLoop() {
+        Looper mainLooper = Looper.getMainLooper();
+        Looper queue = Looper.myLooper();
+        System.out.println(" is Main Thread :" + (mainLooper == queue));
+    }
+
+    class SubThread implements Runnable {
         @Override
         public void run() {
-            System.out.println("jar--A:current thread:"+Thread.currentThread().getName());
+            System.out.println("jar--A:current thread:" + Thread.currentThread().getName());
 
-            
 
         }
 
         public void run2() {
-            System.out.println("run2#jar--A:current thread:"+Thread.currentThread().getName());
+            System.out.println("run2#jar--A:current thread:" + Thread.currentThread().getName());
         }
     }
 
+
+    class TestLoopThread implements Runnable {
+        @Override
+        public void run() {
+            Log.d(TAG, "TestLoop :-----  current thread name : " + Thread.currentThread().getName());
+            testLoop();
+        }
+    }
 
     /**
      * 初始化工作线程
@@ -411,12 +430,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public Bitmap sourceBitmap(){
+    public Bitmap sourceBitmap() {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test);
         Matrix matrix = new Matrix();
         matrix.postRotate(-90);
 
-        Bitmap tempBitmap = Bitmap.createBitmap(bitmap,0,0,3,2,matrix,false);
+        Bitmap tempBitmap = Bitmap.createBitmap(bitmap, 0, 0, 3, 2, matrix, false);
         return tempBitmap;
 
     }
@@ -424,7 +443,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * 座位状态
      */
-    enum SeatStatus{
+    enum SeatStatus {
         /*可选*/
         ENABLE,
         /*锁定*/
@@ -432,7 +451,6 @@ public class MainActivity extends AppCompatActivity {
         /*占用*/
         EXCLUSIVE
     }
-
 
 
 }

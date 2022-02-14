@@ -45,3 +45,4 @@ include ':03_workmanager'
 include ':native_lib_tip_ip'
 
 include ':13_ndk_two'
+include ':14_1_fibonacciclient'
