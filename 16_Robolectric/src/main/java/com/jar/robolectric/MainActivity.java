@@ -1,10 +1,12 @@
-package com.jar.test.junit;
-
-import android.os.Bundle;
-import android.os.Trace;
+package com.jar.robolectric;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+
+/**
+ * https://blog.csdn.net/lyabc123456/article/details/89481000
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
