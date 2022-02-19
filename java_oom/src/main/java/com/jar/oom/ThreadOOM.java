@@ -5,7 +5,7 @@ package com.jar.oom;
  * @version :
  * @Date :   2022/2/3 02:35
  * @Url :
- * @Level :  easy  medium hard
+ * @Level :  easy
  * @Desc :
  * @Counter :
  * @Answer :
