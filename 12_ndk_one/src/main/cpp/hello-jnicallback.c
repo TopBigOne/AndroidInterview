@@ -110,10 +110,12 @@ void queryRuntimeInfo(JNIEnv *env, jobject instance) {
     jstring buildVersion = (*env)->CallStaticObjectMethod(env,
                                                           g_ctx.jniHelperClz, versionFunc);
     const char *version = (*env)->GetStringUTFChars(env, buildVersion, NULL);
+
     if (!version) {
         LOGE("Unable to get version string @ line %d", __LINE__);
         return;
     }
+
     LOGI("Android Version - %s", version);
     (*env)->ReleaseStringUTFChars(env, buildVersion, version);
 

@@ -1,7 +1,7 @@
+package linked_list;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import linked_list.ListNode;
 
 /**
  * @author : dev

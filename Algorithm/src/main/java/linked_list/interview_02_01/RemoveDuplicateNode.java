@@ -1,9 +1,6 @@
 package linked_list.interview_02_01;
 
-import com.top.jar.chapter_004.GeneralFib;
-
 import linked_list.ListNode;
-import sun.security.acl.WorldGroupImpl;
 
 /**
  * @author : dev

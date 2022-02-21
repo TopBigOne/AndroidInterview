@@ -8,6 +8,9 @@
 
 using namespace std;
 
+/**
+ * leet code 300 ：最长无重复子串；
+ */
 class LCS {
 public:
     int lengthOfLongestSubstring(string s) {

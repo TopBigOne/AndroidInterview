@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
 
     private TextView output; // destination for fibonacci result
 
-    private IFibonacciService service; // reference to our service
+    private IFibonaccixService service; // reference to our service
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
