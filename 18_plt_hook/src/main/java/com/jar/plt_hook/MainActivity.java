@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+/**
+ * https://juejin.cn/post/6868916019746996237
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

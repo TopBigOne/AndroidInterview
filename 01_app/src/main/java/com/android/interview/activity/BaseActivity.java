@@ -10,6 +10,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
+        String s= "232";
+        s.contains();
+        s.indexOf(s)
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.substring();
+
+        stringBuilder.indexOf()
+        stringBuilder.
 
         initView();
         initEvent();

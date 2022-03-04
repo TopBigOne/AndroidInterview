@@ -19,6 +19,8 @@ public class IsValid {
         map.put('?', '?');
 
 
+
+
         if (s.length() > 0 && !map.containsKey(s.charAt(0))) return false;
         LinkedList<Character> stack = new LinkedList<Character>() {{
             add('?');

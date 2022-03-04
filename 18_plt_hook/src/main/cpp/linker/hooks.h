@@ -23,26 +23,26 @@
 using HookId = uint32_t;
 
 namespace facebook {
-namespace linker {
-namespace hooks {
+    namespace linker {
+        namespace hooks {
 
-struct HookInfo {
-  HookId out_id;
-  uintptr_t got_address;
-  void* new_function;
-  void* previous_function;
-};
+            struct HookInfo {
+                HookId out_id;
+                uintptr_t got_address;
+                void *new_function;
+                void *previous_function;
+            };
 
-enum HookResult {
-  WRONG_HOOK_INFO = -1,
-  NEW_HOOK = 1,
-  ALREADY_HOOKED_APPENDED = 2,
-  REMOVED_STILL_HOOKED = 3,
-  REMOVED_TRIVIAL = 4, // only one item left in the run list
-  REMOVED_FULLY = 5,
-};
+            enum HookResult {
+                WRONG_HOOK_INFO = -1,
+                NEW_HOOK = 1,
+                ALREADY_HOOKED_APPENDED = 2,
+                REMOVED_STILL_HOOKED = 3,
+                REMOVED_TRIVIAL = 4, // only one item left in the run list
+                REMOVED_FULLY = 5,
+            };
 
-HookResult add(HookInfo&);
+            HookResult add(HookInfo &);
 
 /**
  * Only uses new_function and got_address from HookInfo.
@@ -56,14 +56,14 @@ HookResult add(HookInfo&);
  * Returns REMOVED_FULLY if all information about this hook has been removed.
  * Returns WRONG_HOOK_INFO otherwise.
  */
-HookResult remove(HookInfo&);
+            HookResult remove(HookInfo &);
 
-bool is_hooked(uintptr_t got_address);
+            bool is_hooked(uintptr_t got_address);
 
-ssize_t list_size(HookId);
+            ssize_t list_size(HookId);
 
-std::vector<void*> get_run_list(HookId id);
+            std::vector<void *> get_run_list(HookId id);
 
-} // namespace hooks
-} // namespace linker
+        } // namespace hooks
+    } // namespace linker
 } // namespace facebook

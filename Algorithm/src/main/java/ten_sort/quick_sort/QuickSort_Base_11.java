@@ -5,22 +5,22 @@ import java.util.Random;
 /**
  * @author :  dev
  * @version :
- * @Date :   2022/2/14 10:15
+ * @Date :   2022/2/21 17:52
  * @Url :
- * @Level :    medium
+ * @Level :  easy  medium hard
  * @Desc :
  * @Counter :
  * @Answer :
  */
-public class QuickSort_Base_10 extends BaseOperation {
+public class QuickSort_Base_11 extends BaseOperation {
     int insertion = 7;
     Random RANDOM = new Random();
 
     public void sortArray(int[] nums) {
-        quickSort(nums, 0, nums.length-1);
+        quickSort(nums, 0, nums.length - 1);
     }
 
-    private void quickSort(int[] nums, int left, int right) {
+    public void quickSort(int[] nums, int left, int right) {
         if (right - left <= insertion) {
             insertSort(nums, left, right);
             return;
@@ -38,7 +38,6 @@ public class QuickSort_Base_10 extends BaseOperation {
                 nums[j] = nums[j - 1];
                 j--;
             }
-            nums[j] = temp;
         }
     }
 
@@ -56,4 +55,24 @@ public class QuickSort_Base_10 extends BaseOperation {
         swap(nums, left, lt);
         return lt;
     }
+
+    private int partion2(int[] nums, int left, int right) {
+        int randomIndex = RANDOM.nextInt(right - left) + left;
+        swap(nums, left, randomIndex);
+        int lt = left;
+        int pivot = nums[left];
+
+        for (int i = left + 1; i <= right; i++) {
+            if (nums[i] < pivot) {
+                lt++;
+                swap(nums, i, lt);
+            }
+
+        }
+        swap(nums, left, lt);
+        return lt;
+
+    }
+
+
 }
