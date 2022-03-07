@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void tt(){
         // GC使用的总耗时，单位是毫秒
-        Debug.getRuntimeStat("art.gc.gc-time");
+        String runtimeStat = Debug.getRuntimeStat("art.gc.gc-time");
         // 阻塞式GC的总耗时
-        Debug.getRuntimeStat("art.gc.blocking-gc-time");
+        String gcBlockingTime = Debug.getRuntimeStat("art.gc.blocking-gc-time");
     }
 }

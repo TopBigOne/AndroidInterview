@@ -26,7 +26,8 @@ public class Permute3 {
         return result;
     }
 
-    private void dfs(int[] nums, int len, int depth, Deque<Integer> path, boolean[] used, List<List<Integer>> result) {
+    private void dfs(int[] nums, int len, int depth, Deque<Integer> path,
+                     boolean[] used, List<List<Integer>> result) {
         if (depth == len) {
             result.add(new ArrayList<>(path));
             return;
