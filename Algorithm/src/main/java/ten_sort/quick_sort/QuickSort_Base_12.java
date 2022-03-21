@@ -1,9 +1,5 @@
 package ten_sort.quick_sort;
 
-import com.sun.deploy.panel.ITreeNode;
-
-import org.omg.CORBA.INTERNAL;
-
 import java.util.Random;
 
 /**

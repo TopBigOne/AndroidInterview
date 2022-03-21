@@ -9,7 +9,7 @@ package math.leet_code_07;
  * （https://leetcode-cn.com/problems/reverse-integer/solution/hua-jie-suan-fa-7-zheng-shu-fan-zhuan-by-guanpengc/）
  * <p>
  * https://leetcode-cn.com/problems/reverse-integer/solution/chi-xiao-dou-li-jie-gong-shi-tui-dao-jav-aauv/
- *
+ * <p>
  * 不错的题解
  * https://leetcode-cn.com/problems/reverse-integer/solution/tu-jie-7-zheng-shu-fan-zhuan-by-wang_ni_ma/
  */
@@ -162,6 +162,25 @@ public class Reverse {
             result = result * 10 + digit;
         }
         return result;
+
+    }
+
+    public int reverse9(int x) {
+        int result = 0;
+        int digit = 0;
+        while (x != 0) {
+            if (result < Integer.MIN_VALUE / 10 || result > Integer.MAX_VALUE / 10) {
+                return 0;
+
+            }
+            digit = x % 10;
+            x /= 10;
+            result = result * 10 + digit;
+
+        }
+
+        return result;
+
 
     }
 

@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 /**
  * https://juejin.cn/post/6868916019746996237
+ * https://github.com/AndroidAdvanceWithGeektime
  */
 public class MainActivity extends AppCompatActivity {
 

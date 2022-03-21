@@ -1,9 +1,5 @@
 package sliding_window.leet_code_76;
 
-import string.leet_code_1427.StringShift;
-import tan_xin.leet_code_630.ScheduleCourse;
-import tree.IncreaseTreeNode;
-
 /**
  * @author : dev
  * @version :
@@ -18,7 +14,7 @@ public class MinWindow8 {
         String t = "ABC";
         MinWindow8 minWindow = new MinWindow8();
         String resut = minWindow.minWindow(s, t);
-        boolean testResult = resut == "BANC"
+        boolean testResult = resut == "BANC";
         System.out.println("testResult :" + testResult);
 
     }

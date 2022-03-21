@@ -93,22 +93,75 @@ public class MinMeetingRoom {
         return minHeap.size();
     }
 
-    public int minMeetRooms3 (int [][] interval){
-        Arrays.sort(interval,(a,b)->a[0]-b[0]);
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>((a,b)-> a-b);
+    public int minMeetRooms3(int[][] interval) {
+        Arrays.sort(interval, (a, b) -> a[0] - b[0]);
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> a - b);
         minHeap.add(interval[0][1]);
         for (int i = 1; i < interval.length; i++) {
             int startTime = interval[i][0];
-            int peekTime = minHeap.peek();
-            if(startTime>=peekTime){
+            int peekEndTime = minHeap.peek();
+
+            if (startTime >= peekEndTime) {
                 minHeap.poll();
             }
             int endTime = interval[i][1];
             minHeap.add(endTime);
 
         }
+        return minHeap.size();
+    }
+
+    public int minMeetRooms4(int[][] interval) {
+        Arrays.sort(interval, (a, b) -> a[0] - b[0]);
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> a - b);
+        minHeap.add(interval[0][1]);
+
+        for (int i = 1; i < interval.length; i++) {
+            int startTime = interval[i][0];
+            int peekEndTime = minHeap.peek();
+            if (startTime >= peekEndTime) {
+                minHeap.poll();
+            }
+            int endTime = interval[i][1];
+            minHeap.add(endTime);
+        }
+        return minHeap.size();
+    }
+
+    /**
+     * 最少会议室
+     *
+     * @param interval
+     * @return
+     */
+    public int minMeetRooms5(int[][] interval) {
+        Arrays.sort(interval, Comparator.comparingInt(a -> a[0]));
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        // add the first meeting end time;
+        minHeap.add(interval[0][1]);
+        for (int i = 1; i < interval.length; i++) {
+            if (interval[i][0] >= minHeap.peek()) {
+                minHeap.poll();
+            }
+            minHeap.add(interval[i][1]);
+        }
+        return minHeap.size();
+    }
+
+    public int minMeetRooms6(int[][] interval) {
+        Arrays.sort(interval, (a, b) -> a[0] - b[0]);
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> a - b);
+        minHeap.add(interval[0][1]);
+        for (int i = 1; i < interval.length; i++) {
+            if (interval[i][0] > minHeap.peek()) {
+                minHeap.poll();
+            }
+            minHeap.add(interval[i][1]);
+
+        }
 
         return minHeap.size();
+
 
     }
 

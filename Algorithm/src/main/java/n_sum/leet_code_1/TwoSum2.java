@@ -33,13 +33,13 @@ public class TwoSum2 {
      */
     public boolean find(int value) {
         for (Integer key : freq.keySet()) {
-            int other  = value-key;
+            int other = value - key;
             // case 1:
-            if(other==key&&freq.get(key)>1){
+            if (other == key && freq.get(key) > 1) {
                 return true;
             }
             // case 2:
-            if(other!=key&&freq.containsKey(other)){
+            if (other != key && freq.containsKey(other)) {
                 return true;
 
             }

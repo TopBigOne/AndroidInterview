@@ -15,10 +15,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
-            cmake{
+            cmake {
                 cppFlags "-std=c++11"
                 arguments "-DANDROID_TOOLCHAIN=gcc"
-                ndk.abiFilters  'x86', 'x86_64'
+                ndk.abiFilters
+                abiFilters "armeabi-v7a", "x86", 'x86_64'
             }
         }
     }
@@ -33,7 +34,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    externalNativeBuild{
+    externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
         }
