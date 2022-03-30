@@ -14,7 +14,7 @@ public class MinWindow8 {
         String t = "ABC";
         MinWindow8 minWindow = new MinWindow8();
         String resut = minWindow.minWindow(s, t);
-        boolean testResult = resut == "BANC";
+        boolean testResult = resut.equals("BANC");
         System.out.println("testResult :" + testResult);
 
     }
@@ -24,7 +24,9 @@ public class MinWindow8 {
         int sLength = s.length();
         int tLength = t.length();
         int[] needs = new int[256];
+
         int[] windows = new int[256];
+       //  count来表示目前窗口中已经找到了多少个字符。
         int count = 0;
         int minLength = s.length() + 1;
         int left = 0;
