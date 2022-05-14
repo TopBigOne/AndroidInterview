@@ -14,7 +14,7 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
  */
 public class LeeLock {
 
-    private Sync sync = new Sync();
+    private final Sync sync = new Sync();
 
     public void lock() {
         sync.acquire(1);

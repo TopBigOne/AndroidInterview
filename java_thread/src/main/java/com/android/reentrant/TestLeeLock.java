@@ -33,20 +33,17 @@ public class TestLeeLock {
         }
     }
 
-    static Runnable runnable =new Runnable() {
-        @Override
-        public void run() {
-            lock.lock();
-            for (int i = 0; i < 10000; i++) {
-                count++;
-                try {
-                    Thread.sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+    static Runnable runnable = () -> {
+        lock.lock();
+        for (int i = 0; i < 10000; i++) {
+            count++;
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            lock.release();
-
         }
+        lock.release();
+
     };
 }
