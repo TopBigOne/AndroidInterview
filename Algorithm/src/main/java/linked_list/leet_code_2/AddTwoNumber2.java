@@ -14,29 +14,28 @@ import linked_list.ListNode;
  */
 public class AddTwoNumber2 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(-1);
+
+        ListNode dummy = new ListNode();
         ListNode curr = dummy;
-        ListNode p1 = l1;
-        ListNode p2 = l2;
+
         int carry = 0;
-        while (p1 != null || p2 != null) {
-            int x = p1 == null ? 0 : p1.val;
-            int y = p2 == null ? 0 : p2.val;
+        while (l1 != null || l2 != null) {
+            int x = l1 == null ? 0 : l1.val;
+            int y = l2 == null ? 0 : l2.val;
             int sum = x + y + carry;
-
             carry = sum / 10;
-            curr.next = new ListNode(sum % 10);
+            sum %= 10;
+            curr.next = new ListNode(sum);
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+
+            if (l2 != null) {
+                l2 = l2.next;
+            }
             curr = curr.next;
-            if (p1 != null) {
-                p1 = p1.next;
-            }
-            if (p2 != null) {
-                p2 = p2.next;
-            }
-
         }
-
-        if(carry>0){
+        if (carry > 0) {
             curr.next = new ListNode(carry);
         }
 
