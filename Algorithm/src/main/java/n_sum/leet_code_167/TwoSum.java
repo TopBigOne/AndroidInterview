@@ -50,8 +50,11 @@ public class TwoSum {
         int left = 0;
         // 一定要减 1啊....
         int right = nums.length - 1;
+
         while (left < right) {
+
             int sum = nums[left] + nums[right];
+
             if (sum == target) {
                 return new int[]{left + 1, right + 1};
             }
@@ -65,6 +68,8 @@ public class TwoSum {
             }
         }
         return null;
+
+
     }
 
     /**
@@ -88,6 +93,7 @@ public class TwoSum {
     }
 
     private int binarySearch(int[] nums, int left, int right, int target) {
+
         while (left <= right) {
             int mid = (right + left) >>> 1;
             int curr = nums[mid];
