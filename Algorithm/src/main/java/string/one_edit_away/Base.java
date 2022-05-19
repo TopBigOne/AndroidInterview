@@ -32,7 +32,7 @@ public class Base {
     }
 
     private void calculate(OneEditAway oneEditAway, String first, String second) {
-        boolean result = oneEditAway.oneEditAway5(first, second);
+        boolean result = oneEditAway.oneEditAway(first, second);
         System.out.println("first  : " + first);
         System.out.println("second : " + second);
         System.out.println("result : " + result);
