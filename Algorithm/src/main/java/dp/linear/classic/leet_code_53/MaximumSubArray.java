@@ -1,6 +1,11 @@
 package dp.linear.classic.leet_code_53;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+import tree.IncreaseTreeNode;
 
 /**
  * @author : dev
@@ -207,28 +212,38 @@ public class MaximumSubArray {
 
     /**
      * 使用累加的方式
+     *
      * @param nums
      * @return
      */
-    public int maxSubArray13(int [] nums){
+    public int maxSubArray13(int[] nums) {
         int length = nums.length;
         // 为了处理负数情况
         int sum = nums[0];
+        List<Integer> temp = new LinkedList<>();
 
         // 结果，初始值为 数组的第 0 位置的值；
         int result = nums[0];
         for (int i = 1; i < length; i++) {
+            System.out.println("----------------------");
+            int tempSum = nums[i] + sum;
+            int currValue = nums[i];
+            System.out.println("currValue : " + currValue);
+            System.out.println("tempSum   : " + tempSum);
             // 每次累加，都取最大值；
-            sum = Math.max(nums[i]+sum,nums[i]);
+            sum = Math.max(tempSum, currValue);
+            System.out.println("final Sum : " + sum);
+            System.out.println("----------------------");
+            System.out.println("");
             // 每次获取的最大值，还是要和当前结果做比较，若是sum 较大，就将 result 的值替换成 sum；
-            if(sum>result){
+            if (sum > result) {
+                temp.add(currValue);
                 result = sum;
             }
         }
+        System.out.println("符合题意的元素：" + Arrays.toString(temp.toArray()));
         return result;
     }
-
-
 
 
 }
