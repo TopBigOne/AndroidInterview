@@ -2,6 +2,7 @@ package com.jar.yu;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -15,6 +16,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.jar.yu.dialog.QuestionDialog;
+import com.jar.yu.handle_thread.HandleThreadActivity;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Handler mHandler = new Handler();
     private Handler mWorkThreadHandler;
 
-    private DialogThred mDialogThred;
+    private DialogThred mDialogThread;
     private Button buttonTwo;
     private Button buttonThree;
     private Button buttonFive;
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonEight;
     private Button buttonNine;
     private Button buttonTen;
+    private Button btnEnterHandleThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         buttonEight = (Button) findViewById(R.id.btn_eight);
         buttonNine = (Button) findViewById(R.id.btn_nine);
         buttonTen = (Button) findViewById(R.id.btn_ten);
+        btnEnterHandleThread = (Button) findViewById(R.id.btn_enter_handle_thread);
         mDialogThredTwo.start();
         mReceiveMsgFromMainThread.start();
         SubThread subThread = new SubThread();
@@ -139,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initThread() {
-        mDialogThred = new DialogThred(this);
+        mDialogThread = new DialogThred(this);
         mDirectCreateHandlerThread = new DirectCreateHandlerThread();
         mDialogThredTwo = new UpdateTextThreadTwoThread(this);
         mCreateHandlerWithLooperThread = new CreateHandlerWithLooperThread();
@@ -150,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDialogThred.start();
+                mDialogThread.start();
             }
         });
         buttonTwo.setOnClickListener(new View.OnClickListener() {
@@ -244,6 +248,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+        btnEnterHandleThread.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HandleThreadActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

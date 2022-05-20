@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Handler Crash Demo</string>
+    <string name="test_message_start">start</string>
+    <string name="test_message_stop">stop</string>
 </resources>

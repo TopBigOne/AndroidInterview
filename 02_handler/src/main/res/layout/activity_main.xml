@@ -140,6 +140,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_seven"
         app:layout_editor_absoluteY="391dp" />
+     <Button
+        android:id="@+id/btn_enter_handle_thread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="测试handle thread"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ten"
+        app:layout_editor_absoluteY="391dp" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
