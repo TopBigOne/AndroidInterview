@@ -62,6 +62,7 @@ public class MyAtoi {
         return res;
     }
 
+
     public int myAtoi2(String str) {
         int len = str.length();
         char[] charArray = str.toCharArray();

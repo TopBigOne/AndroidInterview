@@ -33,4 +33,18 @@ public class ReplaceSpace {
         }
         return sb.toString();
     }
+
+    public String replaceSpace2(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (c == ' ') {
+                sb.append("%20");
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+
+
+    }
 }

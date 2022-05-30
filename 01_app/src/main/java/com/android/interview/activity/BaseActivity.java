@@ -1,8 +1,13 @@
 package com.android.interview.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.RadioGroup;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -10,18 +15,29 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        String s= "232";
-        s.contains();
-        s.indexOf(s)
-
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.substring();
-
-        stringBuilder.indexOf()
-        stringBuilder.
-
         initView();
         initEvent();
+
+        init();
+
+    }
+
+    private void init() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.registerFragmentLifecycleCallbacks(new FragmentManager.FragmentLifecycleCallbacks() {
+
+            @Override
+            public void onFragmentResumed(@NonNull FragmentManager fm, @NonNull Fragment f) {
+                super.onFragmentResumed(fm, f);
+                onSingleFragmentResumed(fm, f);
+            }
+
+        }, false);
+    }
+
+
+    protected void onSingleFragmentResumed(FragmentManager fm, Fragment f) {
+
     }
 
     protected abstract void initView();
@@ -34,7 +50,30 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (str == null) {
             return;
         }
+        RadioGroup radioGroup;
 
-        System.out.println(str);
+/*
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case  "智能模式的rb is":
+                        selectSamrtMode();
+                        break;
+                        case  "快速浏览模式的rb is":
+                        selectBrowerMode();
+                        break;
+                    case "video模式的rb is":
+                        selectVideotMode();
+                        break;
+
+                }
+
+            }
+        });
+
+*/
+
     }
 }

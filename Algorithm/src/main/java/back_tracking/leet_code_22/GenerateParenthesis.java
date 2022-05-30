@@ -8,8 +8,8 @@ import java.util.List;
  * @version :
  * @Date :  6/5/21 11:50 PM
  * @Desc :  leetcode 22 括号生成# 字节半年 24 次 https://leetcode-cn.com/problems/generate-parentheses/
- *
- *
+ * <p>
+ * <p>
  * 题解：https://leetcode-cn.com/problems/generate-parentheses/solution/zui-jian-dan-yi-dong-de-dong-tai-gui-hua-bu-lun-da/
  */
 public class GenerateParenthesis {
@@ -39,7 +39,6 @@ public class GenerateParenthesis {
             result.add(temp);
         }
         return result.get(n);
-
 
 
     }

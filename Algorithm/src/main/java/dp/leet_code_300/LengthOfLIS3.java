@@ -79,12 +79,15 @@ public class LengthOfLIS3 {
         Arrays.fill(dp, 1);
         for (int right = 0; right < len; right++) {
             int currValue = nums[right];
+
             for (int left = 0; left < right; left++) {
                 if (currValue > nums[left]) {
                     dp[right] = Math.max(dp[right], dp[left] + 1);
                 }
             }
         }
+
+
         System.out.println("dp : " + Arrays.toString(dp));
         int res = 0;
         for (int i = 0; i < len; i++) {

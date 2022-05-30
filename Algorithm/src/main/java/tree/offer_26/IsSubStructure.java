@@ -15,7 +15,7 @@ import tree.TreeNode;
  */
 public class IsSubStructure {
     /**
-     *  B 树是不是A树的子树
+     * B 树是不是A树的子树
      *
      * @param A
      * @param B
@@ -27,12 +27,17 @@ public class IsSubStructure {
                 || isSubStructure(A.right, B)
         );
     }
+
     boolean recur(TreeNode A, TreeNode B) {
-        if(B == null) return true;
-        if(A == null || !A.val.equals(B.val)) return false;
+        if (B == null) {
+            return true;
+        }
+        if (A == null || !A.val.equals(B.val)) {
+            return false;
+        }
+
         return recur(A.left, B.left) && recur(A.right, B.right);
     }
-
 
 
 }

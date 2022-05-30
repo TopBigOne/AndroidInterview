@@ -91,22 +91,26 @@ public class Trap3 {
                 peakIndex = i;
             }
         }
-        // step 2: calcute the left part.
+        // step 2: calculate the left part.
         int leftMostBar = 0;
         for (int i = 0; i < peakIndex; i++) {
             if (height[i] > leftMostBar) {
                 leftMostBar = height[i];
             } else {
-                water = water + leftMostBar - height[i];
+                int leftTemp = leftMostBar - height[i];
+                System.out.println("leftTemp : " + leftTemp);
+                water += (leftMostBar - height[i]);
             }
         }
-        // step 3: calcute the right part.
+        // step 3: calculate the right part.
         int rightBar = 0;
         for (int i = length - 1; i > peakIndex; i--) {
             if (height[i] > rightBar) {
                 rightBar = height[i];
             } else {
-                water = water + rightBar - height[i];
+                int rightTemp = rightBar - height[i];
+                System.out.println("rightTemp : " + rightTemp);
+                water = water + rightTemp;
             }
         }
         return water;

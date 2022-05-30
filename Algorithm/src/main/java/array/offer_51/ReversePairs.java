@@ -22,7 +22,6 @@ public class ReversePairs {
         }
         // 离散化，是数字更紧凑，节约树状
 
-
         return 0;
 
 

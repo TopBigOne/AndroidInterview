@@ -15,9 +15,11 @@ public class IsMatch5 {
         }
         // 2： 判断首字符是否相等
         boolean isHeadMatch = !s.isEmpty() && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.');
+
         if (p.length() >= 2 && p.charAt(1) == '*') {
             return isMatch(s, p.substring(2)) || (isHeadMatch && isMatch(s.substring(1), p));
         }
+
         if (isHeadMatch) {
             return isMatch(s.substring(1), p.substring(1));
         }

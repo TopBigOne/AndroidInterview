@@ -14,8 +14,6 @@ import tree.TreeNode;
  */
 public class IsSubStructure2 {
     public boolean isSubStructure(TreeNode A, TreeNode B) {
-
-
         return (A != null && B != null) && (recur(A, B)
                 || isSubStructure(A.left, B)
                 || isSubStructure(A.right, B));

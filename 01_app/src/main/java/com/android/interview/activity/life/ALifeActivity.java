@@ -17,7 +17,7 @@ public class ALifeActivity extends AppCompatActivity {
 
     private static final String TAG = "XIAO  ALifeActivity  ";
 
-    Button btnOne;
+   private Button btnOne;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +66,11 @@ public class ALifeActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.d(TAG, "onStop: ");
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
     }
 
 

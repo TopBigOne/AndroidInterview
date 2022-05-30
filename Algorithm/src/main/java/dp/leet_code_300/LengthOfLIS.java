@@ -95,18 +95,21 @@ public class LengthOfLIS {
         }
         int[] dp = new int[length];
         Arrays.fill(dp, 1);
-        System.out.println(Arrays.toString(nums));
+
 
         for (int rightIndex = 1; rightIndex < length; rightIndex++) {
-
             System.out.println("|---------------------------------------------------------------------|");
-
+            int rightValue = nums[rightIndex];
+            System.out.println("raw data : " + Arrays.toString(nums));
+            System.out.println("   right value : " + rightValue);
             for (int leftIndex = 0; leftIndex < rightIndex; leftIndex++) {
+
                 // 右边的数，大于左边的数，才有可能做 +1 操作
-                if (nums[rightIndex] > nums[leftIndex]) {
+                int leftValue = nums[leftIndex];
+                if (rightValue > leftValue) {
                     dp[rightIndex] = Math.max(dp[rightIndex], dp[leftIndex] + 1);
                 }
-                System.out.println("第" + leftIndex + "次: " + "nums[" + rightIndex + "]:" + nums[rightIndex] + ", nums[" + leftIndex + "]:" + nums[leftIndex] + ",  当前 dp 状态：" + Arrays.toString(dp));
+                System.out.println("   left index : " + leftIndex + ", left value :" + leftValue + ",  当前 dp 状态：" + Arrays.toString(dp));
             }
         }
 

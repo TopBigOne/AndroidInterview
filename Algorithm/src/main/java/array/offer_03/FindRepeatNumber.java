@@ -142,7 +142,9 @@ public class FindRepeatNumber {
 
     public int findRepeatNumber9(int[] nums) {
         int temp;
+
         for (int i = 0; i < nums.length; i++) {
+
             while (nums[i] != i) {
                 if (nums[i] == nums[nums[i]]) {
                     return nums[i];

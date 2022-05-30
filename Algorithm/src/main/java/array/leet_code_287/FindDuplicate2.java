@@ -125,12 +125,15 @@ public class FindDuplicate2 {
         int right = length - 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
+
             int cnt = 0;
+
             for (int num : nums) {
                 if (num <= mid) {
                     cnt += 1;
                 }
             }
+
 
             if (cnt > mid) {
                 right = mid;

@@ -5,7 +5,7 @@ package tree;
  * @version :
  * @Date :  2/12/21 5:03 PM
  * @Desc :
- *  TreeNode root = TreeNodeFactory.build("2,1,4,#,#,3,5");
+ * TreeNode root = TreeNodeFactory.build("2,1,4,#,#,3,5");
  * XYLog.d(root);
  */
 

@@ -39,6 +39,7 @@ public class SingleNumber {
 
     /**
      * 异或
+     *
      * @param nums
      * @return
      */
@@ -52,5 +53,17 @@ public class SingleNumber {
         return ans;
 
 
+    }
+
+    public int singleNumber3(int[] nums) {
+        int res = nums[0];
+        int len = nums.length;
+        if (len <= 1) {
+            return res;
+        }
+        for (int i = 1; i < len; i++) {
+            res = res ^ nums[i];
+        }
+        return res;
     }
 }
