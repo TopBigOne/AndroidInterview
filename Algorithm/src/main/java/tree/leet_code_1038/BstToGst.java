@@ -8,7 +8,7 @@ import tree.TreeNode;
  * @Date :   2021/12/20 00:02
  * @Url :
  * @Level :  easy  medium hard
- * @Desc :
+ * @Desc : 从二叉搜索树到更大和树
  * @Counter :
  * @Answer : https://leetcode-cn.com/problems/binary-search-tree-to-greater-sum-tree/solution/1038-cong-er-cha-sou-suo-shu-dao-geng-da-he-shu-fa/
  */
@@ -17,7 +17,7 @@ public class BstToGst {
 
     public TreeNode bstToGst(TreeNode root) {
         if (root == null) {
-            return root;
+            return null;
         }
         bstToGst(root.right);
         sum = sum + root.val;
