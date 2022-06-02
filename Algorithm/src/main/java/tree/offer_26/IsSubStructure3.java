@@ -6,7 +6,7 @@ import tree.TreeNode;
  * @author : dev
  * @version :
  * @Date :  2022/5/29 14:51
- * @Desc :
+ * @Desc :  树的子结构
  * https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/solution/yi-pian-wen-zhang-dai-ni-chi-tou-dui-che-uhgs/
  */
 public class IsSubStructure3 {
