@@ -217,6 +217,7 @@ public class DeleteNode {
             root.right = deleteNode(root.right, key);
         } else if (key < root.val) {
             root.left = deleteNode(root.left, key);
+
         } else {
             if (root.left == null) {
                 return root.right;
