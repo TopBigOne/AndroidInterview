@@ -1,4 +1,4 @@
-package string.leet_code_151;
+package two_point.leet_code_151;
 
 /**
  * @author :  dev
@@ -12,14 +12,14 @@ package string.leet_code_151;
  */
 public class ReverseWords9 {
     public static void main(String[] args) {
-        String s = " ";
+        String s = "  hello world!  ";
         ReverseWords9 reverseWords9 = new ReverseWords9();
         String result = reverseWords9.reverseWords(s);
-        System.out.println("result : "+result);
+        System.out.println("result : " + result);
     }
 
     public String reverseWords(String s) {
-        if(s==null || s.length()==0){
+        if (s == null || s.length() == 0) {
             return s;
         }
 
@@ -32,7 +32,7 @@ public class ReverseWords9 {
         return sb.toString();
     }
 
-    private StringBuilder removeUnusedSpace(String s) {
+    private StringBuilder removeUnusedSpace(String s) { // " "
         int start = 0;
         int end = s.length() - 1;
         while (s.charAt(start) == ' ') {

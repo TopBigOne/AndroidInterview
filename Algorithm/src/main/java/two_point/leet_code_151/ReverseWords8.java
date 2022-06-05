@@ -1,4 +1,4 @@
-package string.leet_code_151;
+package two_point.leet_code_151;
 
 import java.util.Arrays;
 
