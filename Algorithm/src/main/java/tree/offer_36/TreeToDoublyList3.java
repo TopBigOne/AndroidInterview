@@ -5,44 +5,42 @@ import tree.Node;
 /**
  * @author : dev
  * @version :
- * @Date :  8/4/21 1:08 AM
+ * @Date :  2022/6/6 20:14
  * @Desc :
+ * <p>
+ * NOTE :二叉搜索树的中序遍历为 递增序列 。
  */
-public class TreeToDoublyList2 {
-
+public class TreeToDoublyList3 {
 
     private Node pre;
     private Node head;
 
     public Node treeToDoublyList(Node root) {
-        if (root == null) {
-            return null;
-        }
-
+        if (root == null) return null;
         dfs(root);
+
         head.left = pre;
         pre.right = head;
-
         return head;
-
     }
 
-    private void dfs(Node curr) {
-        if (curr == null) {
+    void dfs(Node cur) {
+        if (cur == null) {
             return;
         }
-        dfs(curr.left);
+        dfs(cur.left);
 
         if (pre == null) {
-            head = curr;
+            head = cur;
         } else {
-            pre.right = curr;
+            pre.right = cur;
         }
 
-        curr.left = pre;
-        pre = curr;
+        cur.left = pre;
 
-        dfs(curr.right);
+        pre = cur;
+
+        dfs(cur.right);
     }
 
 

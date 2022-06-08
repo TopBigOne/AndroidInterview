@@ -1,7 +1,5 @@
 package dp.leet_code_70;
 
-import ten_sort.select.SelectSort;
-
 /**
  * @author : dev
  * @version :
