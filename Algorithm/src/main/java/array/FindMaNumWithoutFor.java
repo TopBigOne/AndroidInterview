@@ -11,16 +11,17 @@ package array;
 public class FindMaNumWithoutFor {
     int[] rawsData = {4, 6, 4, 1, 3, 7, 9, 0, 33, 21, 8};
     int length = rawsData.length;
-    int max = 0;
+    int max = Integer.MIN_VALUE;
 
     void findMax(int index) {
         if (rawsData[index] > max) {
             max = rawsData[index];
         }
         if (index < length - 1) {
+            // 利用递归，代替了循环
             findMax(index + 1);
         } else {
-            System.out.println("max:" + max);
+            System.err.println("max value : " + max);
         }
     }
 

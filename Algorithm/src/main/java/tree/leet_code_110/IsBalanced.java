@@ -14,11 +14,19 @@ import tree.TreeNode;
  */
 public class IsBalanced {
 
+    /**
+     * 1: 左右平衡；
+     * 2: 当下平衡；
+     *
+     * @param root
+     * @return
+     */
     public boolean isBalanced(TreeNode root) {
         if (root == null) {
             return true;
         }
-        return Math.abs(depth(root.left) - depth(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+        return Math.abs(depth(root.left) - depth(root.right)) <= 1 &&
+                isBalanced(root.left) && isBalanced(root.right);
     }
 
     private int depth(TreeNode root) {
