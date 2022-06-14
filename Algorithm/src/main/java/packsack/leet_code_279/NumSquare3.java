@@ -1,4 +1,4 @@
-package dp.leet_code_279;
+package packsack.leet_code_279;
 
 import java.util.Arrays;
 
@@ -11,6 +11,7 @@ import java.util.Arrays;
  * @Desc :
  * @Counter :
  * @Answer :
+ * 题解：https://leetcode.cn/problems/perfect-squares/solution/gong-shui-san-xie-xiang-jie-wan-quan-bei-nqes/
  */
 public class NumSquare3 {
     /**

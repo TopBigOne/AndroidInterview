@@ -1,4 +1,4 @@
-package array.leet_code_560;
+package array.sub_array.leet_code_560;
 
 /**
  * @author : dev

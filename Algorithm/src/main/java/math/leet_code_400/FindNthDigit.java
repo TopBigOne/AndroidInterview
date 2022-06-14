@@ -9,6 +9,12 @@ package math.leet_code_400;
  * https://leetcode-cn.com/problems/nth-digit/solution/wei-ruan-zhao-pin-ing-400-di-n-wei-shu-z-hb7i/
  */
 public class FindNthDigit {
+    public static void main(String[] args) {
+        FindNthDigit findNthDigit = new FindNthDigit();
+        int nthDigit = findNthDigit.findNthDigit(12);
+        System.err.println("the  digit  is : " + nthDigit);
+    }
+
     public int findNthDigit(int n) {
         long N = n;
         // 位数

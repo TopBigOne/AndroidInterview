@@ -26,7 +26,7 @@ public class MyPow {
             x = 1 / x;
             b = -b;
         }
-
+        // if((b&1)==1){
         while (b > 0) {
             // 判断最后一位是否为1。
             if ((b & 1) == 1) {
@@ -71,7 +71,9 @@ public class MyPow {
             x = 1 / x;
             b = -b;
         }
+
         double res = 1.0;
+
         while (b > 0) {
             if ((b & 1) == 1) {
                 res *= x;
@@ -81,6 +83,50 @@ public class MyPow {
         }
         return res;
 
+
+    }
+
+    public double myPow4(double x, int n) {
+
+        double res = 1.0;
+        long b = n;
+
+        if (b < 0) {
+            x = 1 / x;
+            b = -b;
+        }
+        while (b != 0) {
+            if ((b & 1) == 1) {
+                res *= x;
+            }
+            x *= x;
+            b >>= 1;
+        }
+        return res;
+
+    }
+
+    public double myPow5(double x, int n) {
+        if (x == 0) {
+            return 0;
+        }
+        long b = n;
+        if (b < 0) {
+            x = 1 / x;
+            b = -b;
+        }
+
+        double res = 1.0;
+        while (b != 0) {
+            if ((b & 1) == 1) {
+                res *= x;
+            }
+            x *= x;
+            b >>= 1;
+
+        }
+
+        return res;
 
     }
 }

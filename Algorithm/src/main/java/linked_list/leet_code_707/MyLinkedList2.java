@@ -42,6 +42,7 @@ public class MyLinkedList2 {
         if (index < 0) {
             index = 0;
         }
+
         ++size;
         ListNode pre = dummy;
         for (int i = 0; i < index; ++i) {
