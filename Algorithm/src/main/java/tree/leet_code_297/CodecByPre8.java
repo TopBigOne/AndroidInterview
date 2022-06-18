@@ -15,9 +15,9 @@ public class CodecByPre8 {
     public static final String NULL = "#";
     public static final String SEP = ",";
 
-    public String serialize(TreeNode root){
+    public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
-        serialize(root,sb);
+        serialize(root, sb);
         return sb.toString();
     }
 
@@ -27,10 +27,11 @@ public class CodecByPre8 {
             return;
         }
         sb.append(root.val).append(SEP);
-        serialize(root.left,sb);
-        serialize(root.right,sb);
+        serialize(root.left, sb);
+        serialize(root.right, sb);
     }
-    public TreeNode deserialize(String data){
+
+    public TreeNode deserialize(String data) {
         LinkedList<String> nodes = new LinkedList<>();
         for (String s : data.split(SEP)) {
             nodes.addLast(s);

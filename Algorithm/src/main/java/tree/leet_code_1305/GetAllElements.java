@@ -1,9 +1,9 @@
 package tree.leet_code_1305;
 
+import tree.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import tree.TreeNode;
 
 /**
  * @author : dev
