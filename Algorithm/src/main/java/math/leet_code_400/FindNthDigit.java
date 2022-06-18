@@ -7,6 +7,8 @@ package math.leet_code_400;
  * @Desc :
  * <p>
  * https://leetcode-cn.com/problems/nth-digit/solution/wei-ruan-zhao-pin-ing-400-di-n-wei-shu-z-hb7i/
+ *
+ * 题解：https://leetcode.cn/problems/nth-digit/solution/wei-rao-li-lun-mo-ni-ti-xian-ji-suan-gai-egzo/
  */
 public class FindNthDigit {
     public static void main(String[] args) {

@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class SumSubArrayMin {
 
-
     public static void main(String[] args) {
         int[] arr = {1, 2, 3};
         SumSubArrayMin sumSubArrayMin = new SumSubArrayMin();
@@ -35,6 +34,14 @@ public class SumSubArrayMin {
         return 0;
     }
 
+    /**
+     * 稳固一下全排列
+     * @param arr
+     * @param depth
+     * @param path
+     * @param used
+     * @param result
+     */
     private void dfs(int[] arr, int depth, Deque<Integer> path, boolean[] used, List<List<Integer>> result) {
         if (depth == arr.length) {
             result.add(new ArrayList<>(path));
