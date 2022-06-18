@@ -26,7 +26,7 @@ public class Insert {
             int currValue = cur.val;
             int nextVal = cur.next.val;
 
-            if (nextVal < currValue) {
+            if (currValue > nextVal) {
                 if (nextVal >= insertVal) {
                     // 最小值
                     // [3,5,1] 0 ==> [3,5,0,1]

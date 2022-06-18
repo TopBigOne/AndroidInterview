@@ -12,6 +12,12 @@ package linked_list.offer_029;
  * https://leetcode.cn/problems/4ueAj6/solution/cai-keng-liu-lei-leng-jing-fen-xi-by-che-n8u9/
  */
 public class Insert2 {
+
+    /**
+     * @param head      随便一个head值
+     * @param insertVal
+     * @return
+     */
     public Node insert(Node head, int insertVal) {
         Node insertNode = new Node(insertVal);
         // 头结点为空
@@ -29,27 +35,34 @@ public class Insert2 {
             int nextNodeValue = cur.next.val;
 
             // 可插入
-            if (nextNodeValue >= insertVal && currNodeValue <= insertVal) {
-                break;
-            }
-            if (nextNodeValue < currNodeValue) {
-                if (insertVal >= currNodeValue || insertVal <= nextNodeValue) {
-                    break;
-                }
-            }
-            if (cur.next == head) {
+            // currNodeValue : 3
+            // insertVal     :  4
+            // nextNodeValue :  6
+            if (currNodeValue <= insertVal && nextNodeValue >= insertVal) {
                 break;
             }
 
+            // 可插入
+            // currNodeValue : 8
+            // nextNodeValue :  5
+            if (currNodeValue > nextNodeValue) {
+                // insertVal     :  9
+                // insertVal     : 4
+                if (currNodeValue <= insertVal || nextNodeValue >= insertVal) {
+                    break;
+                }
+            }
+            // 相等
+            if (cur.next == head) {
+                break;
+            }
             cur = cur.next;
         }
 
         Node next = cur.next;
         cur.next = insertNode;
         insertNode.next = next;
-
         return head;
     }
-
 
 }
