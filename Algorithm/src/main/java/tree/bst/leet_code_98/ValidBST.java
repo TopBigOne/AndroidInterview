@@ -1,4 +1,4 @@
-package tree.leet_code_98;
+package tree.bst.leet_code_98;
 
 import tree.TreeNode;
 
@@ -7,6 +7,7 @@ import tree.TreeNode;
  * @version :
  * @Date :  2/19/21 6:19 PM
  * @Desc : 验证二叉搜索树（https://leetcode-cn.com/problems/validate-binary-search-tree/）
+ *  中序遍历时，判断当前节点是否大于中序遍历的前一个节点，如果大于，说明满足 BST，继续遍历；否则直接返回 false。
  */
 public class ValidBST {
     public boolean isValidBST(TreeNode root) {
