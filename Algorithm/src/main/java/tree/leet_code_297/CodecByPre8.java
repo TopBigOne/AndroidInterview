@@ -11,6 +11,9 @@ import tree.TreeNode;
  * @Desc :通过 前序遍历 的方式实现 二叉树的 序列化与反序列化（https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/）
  */
 public class CodecByPre8 {
+    public static void main(String[] args) {
+        CodecByPre8 codecByPre = new CodecByPre8();
+    }
 
     public static final String NULL = "#";
     public static final String SEP = ",";
@@ -23,7 +26,8 @@ public class CodecByPre8 {
 
     private void serialize(TreeNode root, StringBuilder sb) {
         if (root == null) {
-            sb.append(NULL).append(SEP);
+            sb.append(NULL)
+                    .append(SEP);
             return;
         }
         sb.append(root.val).append(SEP);

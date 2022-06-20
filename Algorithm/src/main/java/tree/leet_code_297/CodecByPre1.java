@@ -11,8 +11,10 @@ import tree.TreeNode;
  * @Desc :通过 前序遍历 的方式实现 二叉树的 序列化与反序列化（https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/）
  */
 public class CodecByPre1 {
-    public static final String SEP = ",";
-    public static final String NULL = "#";
+
+
+    public static final String emptyNode = "#";
+    public static final String dot = ",";
 
     /**
      * 把一棵二叉树序列化成字符串
@@ -28,11 +30,11 @@ public class CodecByPre1 {
 
     private void serialize(TreeNode root, StringBuilder sb) {
         if (root == null) {
-            sb.append(NULL).append(SEP);
+            sb.append(emptyNode).append(dot);
             return;
         }
         // 前序遍历位置 -- start
-        sb.append(root.val).append(SEP);
+        sb.append(root.val).append(dot);
         // 前序遍历位置 -- end
 
         serialize(root.left, sb);
@@ -47,7 +49,7 @@ public class CodecByPre1 {
      */
     public TreeNode deserialize(String data) {
         LinkedList<String> nodes = new LinkedList<>();
-        for (String s : data.split(SEP)) {
+        for (String s : data.split(dot)) {
             // 尾插法
             nodes.addLast(s);
         }
@@ -66,7 +68,7 @@ public class CodecByPre1 {
         }
         // 前序遍历位置----start
         String first = nodes.removeFirst();
-        if (first.equals(NULL)) {
+        if (first.equals(emptyNode)) {
             return null;
         }
         TreeNode root = new TreeNode(Integer.parseInt(first));

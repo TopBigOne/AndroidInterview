@@ -9,8 +9,14 @@ import tree.TreeNode;
  * @version :
  * @Date :  2022/6/18 16:53
  * @Desc : https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/solution/
+ * 通过 前序遍历 的方式实现 二叉树的 序列化与反序列化（https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/）
  */
 public class CodecByPre9 {
+    public static void main(String[] args) {
+        CodecByPre9 codecByPre = new CodecByPre9();
+
+    }
+
     // 空节点
     String emptyNode = "#";
     // 节点分割点
@@ -28,10 +34,11 @@ public class CodecByPre9 {
             sb.append(dot);
             return;
         }
-        sb.append(root.val).append(emptyNode);
+        sb.append(root.val).append(dot);
         serialize(root.left, sb);
         serialize(root.right, sb);
     }
+
 
     public TreeNode deserialize(String data) {
         LinkedList<String> linkedList = new LinkedList<>();

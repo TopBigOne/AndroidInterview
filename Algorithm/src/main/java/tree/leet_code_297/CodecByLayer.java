@@ -2,7 +2,6 @@ package tree.leet_code_297;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.concurrent.LinkedBlockingDeque;
 
 import tree.TreeNode;
 
@@ -17,6 +16,13 @@ import tree.TreeNode;
  * 序列化与反序列化（https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/）
  */
 public class CodecByLayer {
+
+    public static void main(String[] args) {
+        CodecByLayer codecByPre = new CodecByLayer();
+        TreeNode root = codecByPre.deserialize("1#2##");
+
+    }
+
     public static final String SEP = ",";
     public static final String NULL = "#";
 
@@ -94,5 +100,7 @@ public class CodecByLayer {
         return root;
 
     }
+
+
 
 }
