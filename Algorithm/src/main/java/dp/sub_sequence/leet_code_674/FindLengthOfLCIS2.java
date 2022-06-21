@@ -1,4 +1,4 @@
-package dp.leet_code_674;
+package dp.sub_sequence.leet_code_674;
 
 import java.util.Arrays;
 

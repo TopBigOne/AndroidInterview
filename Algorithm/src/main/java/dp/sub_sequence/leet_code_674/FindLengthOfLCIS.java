@@ -1,4 +1,4 @@
-package dp.leet_code_674;
+package dp.sub_sequence.leet_code_674;
 
 /**
  * @author :  dev
@@ -37,12 +37,27 @@ public class FindLengthOfLCIS {
                 // 只要发现了不相等，就回归为0；
                 count = 1;
             }
-
             res = Math.max(res, count);
 
         }
         return res;
 
+    }
+
+    public int findLengthOfLCIS3(int[] nums) {
+        int len = nums.length;
+        int count = 1;
+        int res = 1;
+        for (int i = 0; i < len - 1; i++) {
+            if (nums[i + 1] > nums[i]) {
+                count++;
+            } else {
+                count = 1;
+            }
+            res = Math.max(res, count);
+
+        }
+        return res;
 
     }
 }
