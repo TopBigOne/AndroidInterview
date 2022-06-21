@@ -1,4 +1,4 @@
-package dp.leet_code_300;
+package dp.sub_sequence.leet_code_300;
 
 /**
  * @author : dev
