@@ -1,4 +1,4 @@
-package dp.leet_code_1143;
+package dp.sub_sequence.leet_code_1143;
 
 /**
  * @author : dev
@@ -213,6 +213,7 @@ public class LongestCommonSubsequence {
         int m = text1.length();
         int n = text2.length();
         int[][] dp = new int[m + 1][n + 1];
+
         for (int i = 0; i < m; i++) {
             char c1 = text1.charAt(i);
             for (int j = 0; j < n; j++) {
