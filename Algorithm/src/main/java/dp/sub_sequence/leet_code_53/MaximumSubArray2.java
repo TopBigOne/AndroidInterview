@@ -1,4 +1,4 @@
-package array.sub_array.leet_code_53;
+package dp.sub_sequence.leet_code_53;
 
 /**
  * @author : dev
