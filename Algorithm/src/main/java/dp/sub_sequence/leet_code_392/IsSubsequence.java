@@ -1,4 +1,4 @@
-package string.leet_code_392;
+package dp.sub_sequence.leet_code_392;
 
 /**
  * @author :  dev
@@ -7,6 +7,8 @@ package string.leet_code_392;
  * @Url : https://leetcode-cn.com/problems/is-subsequence/submissions/
  * @Level :  easy
  * @Desc : 给定字符串 s 和 t ，判断 s 是否为 t 的子序列。
+ * 输入：s = "abc", t = "ahbgdc"
+ * 输出：true
  * @Counter :
  * @Answer :https://leetcode-cn.com/problems/is-subsequence/solution/javati-jie-he-hou-xu-tiao-zhan-by-lil-q/
  */
