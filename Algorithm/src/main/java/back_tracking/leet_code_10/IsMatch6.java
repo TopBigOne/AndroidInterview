@@ -28,8 +28,8 @@ public class IsMatch6 {
      * *********** 1: if p.charAt(j-1) != .charAt(i) : dp[i][j] = dp[i][j-2] // int this case ,a* only counts as empty;
      * *********** 2: if the p.charAt(j-1) == s.charAt(i) or p.charAt(j-1) == '.';
      * ***************** dp[i][j] = dp[i][j-1] // in this case ,a* counts as single a;
-     * ***************** dp[i][j] = dp[i-1][j] // in this case ,a* counts as single multiple a;
      * ***************** dp[i][j] = dp[i][j-2] // in this case ,a* counts as empty;
+     * ***************** dp[i][j] = dp[i-1][j] // in this case ,a* counts as single multiple a;
      * <p>
      * .  : 匹配任意单一字符；
      * *  : 匹配0个或者多个前面已经记录的字符；
@@ -151,7 +151,7 @@ public class IsMatch6 {
 
         for (int j = 0; j < pLength; j++) {
             if (j > 0 && p.charAt(j) == star && dp[0][j - 1]) {
-                dp[0][j] = true;
+                dp[0][j+1] = true;
             }
         }
 
@@ -160,23 +160,29 @@ public class IsMatch6 {
                 char sChar = s.charAt(i);
                 char pChar = p.charAt(j);
 
+                // case 1: 字符相等
                 if (sChar == pChar) {
                     dp[i + 1][j + 1] = dp[i][j];
                 }
+                // case 2: 是点
                 if (pChar == dot) {
                     dp[i + 1][j + 1] = dp[i][j];
                 }
 
+                // case 3: 字符相等
                 if (pChar == star && j > 0) {
                     char lastPChar = p.charAt(j - 1);
 
                     if (lastPChar != sChar && lastPChar != dot) {
+                        // /in this case, a* only counts as empty
                         // p 的上一个位置
                         dp[i + 1][j + 1] = dp[i + 1][j - 1];
+
                     } else {
-                        dp[i + 1][j + 1] = dp[i + 1][j]// p 中上一个字符
-                                || dp[i + 1][j - 1] // p 中，上2个字符
-                                || dp[i][j + 1]; // s 中上一个字符
+                        dp[i + 1][j + 1] =
+                                dp[i + 1][j] // p 中上一个字符
+                                        || dp[i + 1][j - 1] // p 中，上2个字符
+                                        || dp[i][j + 1]; // s 中上一个字符
 
                     }
                 }

@@ -12,18 +12,30 @@ public class IsMatch {
 
     public boolean isMatch(String s, String p) {
         //如果正则串p为空字符串s也为空这匹配成功，如果正则串p为空但是s不是空则说明匹配失败
-        if (p.isEmpty()) return s.isEmpty();
+        if (p.isEmpty()) {
+            return s.isEmpty();
+        }
+
+
         //判断s和p的首字符是否匹配，注意要先判断s不为空
-        boolean headMatched = !s.isEmpty() && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.');
-        if (p.length() >= 2 && p.charAt(1) == '*') {//如果p的第一个元素的下一个元素是*
+        boolean isEqual = !s.isEmpty() && s.charAt(0) == p.charAt(0);
+        boolean isDot = !s.isEmpty() && p.charAt(0) == '.';
+        boolean isHeadMatched = (isEqual || isDot);
+
+        // case 1://如果p的第一个元素的下一个元素是*
+        if (p.length() >= 2 && p.charAt(1) == '*') {
+            // s：bc
+            // p：a*bc
             //则分别对两种情况进行判断
             return isMatch(s, p.substring(2)) ||
-                    (headMatched && isMatch(s.substring(1), p));
+                    (isHeadMatched && isMatch(s.substring(1), p));
 
 
-        } else if (headMatched) {//否则，如果s和p的首字符相等
+        } else if (isHeadMatched) {
+            //  case 2:否则，如果s和p的首字符相等
             return isMatch(s.substring(1), p.substring(1));
         } else {
+            // case 3
             return false;
         }
     }
