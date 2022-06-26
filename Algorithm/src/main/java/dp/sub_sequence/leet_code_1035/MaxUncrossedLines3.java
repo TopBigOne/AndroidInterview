@@ -22,7 +22,7 @@ public class MaxUncrossedLines3 {
                 //下面是递推公式
                 if (nums1[i - 1] == nums2[j - 1]) {
                     dp[j] = last + 1;
-                } else{
+                } else {
                     dp[j] = Math.max(dp[j - 1], dp[j]);
                 }
                 last = temp;
