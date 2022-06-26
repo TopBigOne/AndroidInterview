@@ -1,4 +1,8 @@
-package array.find_duplicate.leet_code_41;
+package array.drawer.leet_code_41;
+
+import java.util.Arrays;
+
+import array.drawer.Base;
 
 /**
  * @author : dev
@@ -33,15 +37,18 @@ package array.find_duplicate.leet_code_41;
  * 这个思想就相当于我们自己编写哈希函数，这个哈希函数的规则特别简单，那就是数值为 i 的数映射到下标为 i - 1 的位置。
  * <p>
  * 题解：https://leetcode-cn.com/problems/first-missing-positive/solution/tong-pai-xu-python-dai-ma-by-liweiwei1419/
- *
+ * <p>
  * https://www.youtube.com/watch?v=jfb72FfxWKU
  */
-public class FirstMissingPositive {
+public class FirstMissingPositive  extends Base {
     public static void main(String[] args) {
-        int[] nums = {3, 4, -1, 10};
+        int[] nums = {3, 1,4, -1, 10};
+        //  int[] nums = {7, 8, 9, 11, 12};
         FirstMissingPositive first = new FirstMissingPositive();
-        int result = first.firstMissingPositive(nums);
-        System.out.println("result : " + result);
+        System.out.println("original data   : " + Arrays.toString(nums));
+        int result = first.firstMissPositive6(nums);
+        System.out.println("after swap data : " + Arrays.toString(nums));
+        System.out.println("result          : " + result);
 
     }
 
@@ -53,8 +60,8 @@ public class FirstMissingPositive {
                 if (!(curValue > 0 && curValue <= len && nums[curValue - 1] != curValue)) {
                     break;
                 }
-                System.out.println(" i : " + i + " ,  curValue-1 ：" + curValue);
 
+                System.err.println(" i : " + i + " ,  curr index ：" + (curValue - 1));
                 swap(nums, i, curValue - 1);
             }
         }
@@ -66,11 +73,7 @@ public class FirstMissingPositive {
         return len + 1;
     }
 
-    private void swap(int[] nums, int index1, int index2) {
-        int temp = nums[index1];
-        nums[index1] = nums[index2];
-        nums[index2] = temp;
-    }
+
 
     public int firstMissPositive2(int[] nums) {
         int len = nums.length;
@@ -153,6 +156,8 @@ public class FirstMissingPositive {
         }
         return len + 1;
     }
+
+
 
 
 }
