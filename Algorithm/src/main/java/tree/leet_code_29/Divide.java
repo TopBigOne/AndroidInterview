@@ -46,8 +46,8 @@ public class Divide {
             count <<= 1;
         }
 
-        sum>>=1;
-        count>>>=1;
+        sum >>= 1;
+        count >>>= 1;
         // 此时dividend >= sum
         // 将count个divisor 从dividend 消耗掉，剩下的还需要多少个divisor 交由递归函数处理
         return count + divide(dividend - sum, divisor);
