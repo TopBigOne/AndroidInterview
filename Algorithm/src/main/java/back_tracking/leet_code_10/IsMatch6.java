@@ -112,8 +112,6 @@ public class IsMatch6 {
 
                 // case 3: pchar 是 *
                 if (pChar == '*') {
-
-
                     // j =     * 的位置
                     // "baab","bc*aab"
                     // 把"c*" 删除以后，我们需要看b的状态[j-1]
