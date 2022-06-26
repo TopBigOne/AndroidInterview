@@ -1,4 +1,4 @@
-package dp.leet_code_673;
+package dp.sub_sequence.leet_code_673;
 
 import java.util.Arrays;
 
@@ -33,7 +33,9 @@ public class FindNumberOfLIS {
             int rightValue = nums[i];
             for (int j = 0; j < i; j++) {
                 int leftValue = nums[j];
+
                 if (rightValue > leftValue) {
+
                     if (dp[j] + 1 > dp[i]) {
                         dp[i] = dp[j] + 1;
                         count[i] = count[j];
