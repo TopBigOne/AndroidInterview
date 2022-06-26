@@ -11,6 +11,15 @@ package sliding_window.leet_code_76;
  * @Answer :
  */
 public class MinWindow4 {
+    public static void main(String[] args) {
+        MinWindow4 minWindow = new MinWindow4();
+        String s = "ADOBECODEBANC";
+        String t = "ABC";
+        String result = minWindow.minWindow3(s, t);
+        System.err.println("result : " + result);
+
+    }
+
     public String minWindow(String s, String t) {
         String res = "";
         int sLength = s.length();
@@ -93,5 +102,49 @@ public class MinWindow4 {
 
         }
         return res;
+    }
+
+    public String minWindow3(String s, String t) {
+        int sLength = s.length();
+        int tLength = t.length();
+        int[] needs = new int[256];
+        int[] windows = new int[256];
+        int minLength = sLength;
+        int left = 0;
+        int right = 0;
+        String res = "";
+        int count = 0;
+        for (char c : t.toCharArray()) {
+            needs[c]++;
+        }
+
+        while (right < sLength) {
+            char rightChar = s.charAt(right);
+            windows[rightChar]++;
+            if (needs[rightChar] > 0 && windows[rightChar] <= needs[rightChar]) {
+                count++;
+            }
+            while (count == tLength) {
+                char leftChar = s.charAt(left);
+                if (needs[leftChar] > 0 && windows[leftChar] <= needs[leftChar]) {
+                    count--;
+                }
+
+                // 当两个串相等时，也做一下截取！
+                if (right - left + 1 <= minLength) {
+                    minLength = right - left + 1;
+                    res = s.substring(left, right + 1);
+                }
+                windows[leftChar]--;
+                left++;
+            }
+
+            right++;
+        }
+
+
+        return res;
+
+
     }
 }
