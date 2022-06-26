@@ -1,4 +1,4 @@
-package array.find_duplicate.leet_code_442;
+package array.drawer.leet_code_442;
 
 
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package array.find_duplicate.leet_code_442;
+package array.drawer.leet_code_442;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import array.find_duplicate.Base;
+import array.drawer.Base;
 
 /**
  * @author :  dev
