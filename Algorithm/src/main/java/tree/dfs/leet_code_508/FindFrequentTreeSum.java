@@ -48,7 +48,7 @@ public class FindFrequentTreeSum {
         return res.stream().mapToInt(a -> a).toArray();
     }
 
-    private int postDfs(TreeNode root, Map<Integer, Integer> map) d{
+    private int postDfs(TreeNode root, Map<Integer, Integer> map) {
         if (root == null) {
             return 0;
         }
