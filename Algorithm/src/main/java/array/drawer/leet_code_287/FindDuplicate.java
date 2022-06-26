@@ -1,4 +1,4 @@
-package array.find_duplicate.leet_code_287;
+package array.drawer.leet_code_287;
 
 import java.util.HashSet;
 
@@ -7,8 +7,8 @@ import java.util.HashSet;
  * @version :
  * @Date :   2021/12/12 20:55
  * @Url :
- * @Level :    medium
- * @Desc :
+ * @Level :     medium
+ * @Desc :287. 寻找重复数
  * @Counter :
  * @Answer :https://leetcode-cn.com/problems/find-the-duplicate-number/solution/er-fen-fa-si-lu-ji-dai-ma-python-by-liweiwei1419/
  *
