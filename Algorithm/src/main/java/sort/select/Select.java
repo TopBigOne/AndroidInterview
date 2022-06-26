@@ -7,28 +7,27 @@ import sort.BaseOperation;
  * @version :
  * @Date : 2020-06-29 10:23
  * @Desc :
+ * https://www.bilibili.com/video/BV1Jg411M7Lp?spm_id_from=333.337.search-card.all.click&vd_source=48ebba24d97534cb7fc891ea4972fffa
  */
 public class Select extends BaseOperation {
     public static void main(String[] args) {
-        sortData1(arr);
-        sortData2(arr);
     }
-    private static void sortData2(int[] arr) {
+    private  void sortData2(int[] arr) {
         int length = arr.length;
         for (int i = 0; i < length - 1; i++) {
-            int minPos = i;
+            int minIndex = i;
             for (int j = i + 1; j < length; j++) {
-                minPos = arr[j]<arr[minPos] ? j:minPos;
-
+                if (arr[j]<arr[minIndex]){
+                    minIndex =j;
+                }
             }
-            int temp = arr[i];
-            arr[i] = arr[minPos];
-            arr[minPos] = temp;
+
+           swap(arr,minIndex,i);
         }
         printResult(arr);
     }
 
-    private static void sortData1(int[] arr) {
+    private  void sortData1(int[] arr) {
         int length = arr.length;
         for (int i = 0; i < length - 1; i++) {
             int minPos = i;

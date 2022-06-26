@@ -1,4 +1,4 @@
-package array.find_duplicate;
+package array.drawer;
 
 /**
  * @author :  dev
