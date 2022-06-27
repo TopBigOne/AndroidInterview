@@ -45,6 +45,25 @@ public class ReverseInt {
             x /= 10;
         }
         return res;
+    }
+
+    public int reverse3(int x) {
+        int res = 0;
+        while (x != 0) {
+            int carry = x % 10;
+            // 处理越界
+            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && carry > 7)) {
+                return 0;
+            }
+            if (res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && carry < -8)) {
+                return 0;
+            }
+
+            res = res * 10 + carry;
+            x /= 10;
+        }
+
+        return res;
 
 
     }
