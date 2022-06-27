@@ -1,4 +1,4 @@
-package stack.leet_code_7;
+package math.leet_code_7;
 
 /**
  * @author : dev
