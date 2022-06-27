@@ -12,29 +12,29 @@ public class MyAtoi3 {
     public static void main(String[] args) {
         String s = "+-12";
         MyAtoi3 myAtoi3 = new MyAtoi3();
-        int result = myAtoi3.myAtoi2(s);
+        int result = myAtoi3.myAtoi(s);
         System.err.println("result : " + result);
     }
 
     public int myAtoi(String str) {
-        int len = str.length();
+        int len;
         // str.charAt(i) 方法回去检查下标的合法性，一般先转换成字符数组
-        char[] charArray = str.toCharArray();
-
-        // 1、去除前导空格
-        int index = 0;
-        while (index < len && charArray[index] == ' ') {
-            index++;
+        if (str == null || (len = str.length()) == 0) {
+            return 0;
         }
+        // 1、去除前导空格
+        str = str.trim();
 
         // 2、如果已经遍历完成（针对极端用例 "      "）
-        if (index == len) {
+        if ((len = str.length()) == 0) {
             return 0;
         }
 
+        char[] charArray = str.toCharArray();
         // 3、如果出现符号字符，仅第 1 个有效，并记录正负
         int sign = 1;
-        char firstChar = charArray[index];
+        int index = 0;
+        char firstChar = str.charAt(index);
         if (firstChar == '+') {
             index++;
         } else if (firstChar == '-') {
@@ -46,7 +46,7 @@ public class MyAtoi3 {
         // 不能使用 long 类型，这是题目说的
         int res = 0;
         while (index < len) {
-            char currChar = charArray[index];
+            char currChar = str.charAt(index);
             // 4.1 先判断不合法的情况
             if (currChar > '9' || currChar < '0') {
                 break;
@@ -65,78 +65,6 @@ public class MyAtoi3 {
             index++;
         }
         return res;
-
-    }
-
-    public int myAtoi2(String str) {
-        // 1: 去除空格
-        str = str.trim();
-        int len = str.length();
-        if (len == 0) {
-            return 0;
-        }
-
-        if (str.startsWith("w")||str.startsWith(".")) {
-            return 0;
-        }
-        if (str.startsWith(".")) {
-           // str = str.substring(1);
-
-        }
-
-        StringBuilder stringBuilder = new StringBuilder(str);
-        int left = 0;
-        int right = stringBuilder.length();
-
-        // 2： 删除不是 0-9的字符
-        while (left < right) {
-            char itemChar = stringBuilder.charAt(left);
-            // 处理小数点
-            if (itemChar == '.') {
-                stringBuilder.delete(left, right);
-                String temp = stringBuilder.toString();
-                if (Integer.MAX_VALUE < Long.parseLong(temp)) {
-                    return Integer.MAX_VALUE - 1;
-                }
-                if (Integer.MIN_VALUE > Long.parseLong(temp)) {
-                    return Integer.MIN_VALUE;
-                }
-                return Integer.parseInt(temp);
-            }
-
-
-            if (itemChar != '-' && (itemChar < '0' || itemChar > '9')) {
-                stringBuilder.deleteCharAt(left);
-                left = 0;
-                right = stringBuilder.length();
-                continue;
-            }
-            left++;
-        }
-
-        // 删除开头是0的字符：000009；
-        left = 0;
-        right = stringBuilder.length() - 1;
-        while (left < right) {
-            char itemChar = stringBuilder.charAt(left);
-            if (itemChar != '0') {
-                break;
-            }
-            // 防止把 9 也删除了；
-            stringBuilder.deleteCharAt(left);
-            left++;
-        }
-
-        String temp = stringBuilder.toString();
-        if (Integer.MAX_VALUE < Long.parseLong(temp)) {
-            return Integer.MAX_VALUE ;
-        }
-        if (Integer.MIN_VALUE > Long.parseLong(temp)) {
-            return Integer.MIN_VALUE;
-        }
-
-        return Integer.parseInt(temp);
-
 
     }
 
