@@ -5,6 +5,8 @@ package string.leet_code_5;
  * @version :
  * @Date :  2022/5/17 15:41
  * @Desc :
+ *
+ * https://leetcode.cn/problems/longest-palindromic-substring/submissions/
  */
 public class LongestPalindrome9 {
 
@@ -25,8 +27,6 @@ public class LongestPalindrome9 {
             int[] odd = centerSpread(s, i, i);
             // 偶数
             int[] even = centerSpread(s, i, i + 1);
-
-
             int[] max = odd[1] > even[1] ? odd : even;
 
             if (max[1] > maxLen) {

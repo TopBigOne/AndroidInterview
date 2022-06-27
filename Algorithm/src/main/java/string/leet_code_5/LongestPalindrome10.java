@@ -1,7 +1,5 @@
 package string.leet_code_5;
 
-import java.util.Arrays;
-
 /**
  * @author : dev
  * @version :
@@ -11,32 +9,25 @@ import java.util.Arrays;
 public class LongestPalindrome10 {
 
     public String longestPalindrome(String s) {
-
         int len = s.length();
-        if (len <2) {
+        if (len < 2) {
             return s;
         }
-        int[] res = new int[2];
         int maxLen = 0;
-
+        // 0 index : 记录起始位置；
+        // 1 index : 记录回文长度；
+        int[] res = new int[2];
         for (int i = 0; i < len; i++) {
             int[] odd = centerSpread(s, i, i);
             int[] even = centerSpread(s, i, i + 1);
-
-            int[] temp = odd[1] > even[1] ? odd : even;
-
-            if (temp[1] > maxLen) {
-                maxLen = temp[1];
-                res = temp;
+            int [] max = odd[1] >even[1] ? odd :even;
+            if(max[1]>maxLen){
+                maxLen = max[1];
+                res = max;
             }
-            System.out.println(" res 变化："+ Arrays.toString(res));
         }
+        return s.substring(res[0],res[0]+res[1]);
 
-        int start = res[0];
-        int end = res[0] + res[1];
-
-
-        return s.substring(start, end);
     }
 
     private int[] centerSpread(String s, int start, int end) {
