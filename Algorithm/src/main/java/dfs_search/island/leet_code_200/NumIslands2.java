@@ -10,14 +10,19 @@ package dfs_search.island.leet_code_200;
  * 李伟伟：bfs 解法：https://leetcode-cn.com/problems/number-of-islands/solution/dfs-bfs-bing-cha-ji-python-dai-ma-java-dai-ma-by-l/
  */
 public class NumIslands2 {
+
+    private char LAND = '1';
+
     public int numIslands(char[][] grid) {
         int res = 0;
         int row = grid.length;
         int column = grid[0].length;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
-                dfsGrid(grid, i, j);
-                res++;
+                if (grid[i][j]==LAND){
+                    dfsGrid(grid, i, j);
+                    res++;
+                }
             }
         }
         return res;
@@ -27,7 +32,7 @@ public class NumIslands2 {
         if (row < 0 || column < 0 || row >= grid.length || column >= grid[0].length) {
             return;
         }
-        if (grid[row][column] != '1') {
+        if (grid[row][column] != LAND) {
             return;
         }
 
@@ -37,8 +42,9 @@ public class NumIslands2 {
         dfsGrid(grid, row, column+1);
         dfsGrid(grid, row, column-1);
 
-
     }
+
+
 
 
 }

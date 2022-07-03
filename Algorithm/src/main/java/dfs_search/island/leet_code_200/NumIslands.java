@@ -14,49 +14,53 @@ package dfs_search.island.leet_code_200;
  * 一姐：https://www.youtube.com/watch?v=Ft0AmONMYyM&t=5s
  */
 public class NumIslands {
+
+    private final char LAND = '1';
+
     /**
      * DFS 解法
      * 0: 表示"陆地"；
      * 1: 表示"水域"；
+     *
      * @param grid
      * @return
      */
     public int numIslands(char[][] grid) {
         int res = 0;
-        int row = grid.length;
-        int column = grid[0].length;
-        char land = '1';
+
 
         //1：两层 for 循环就是为了找小岛
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-
-                if (grid[i][j] == land) {
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == LAND) {
                     // 只要找到了一个land，就要把此时 land 水平和竖直方向的 land 都找到；
-                    dfsGird(grid, i, j);
+                    dfs(grid, i, j);
                     res++;
                 }
-
             }
         }
         return res;
     }
 
-    private void dfsGird(char[][] grid, int row, int column) {
-        if (row >= grid.length || column >= grid[0].length || row < 0 || column < 0) {
+    private void dfs(char[][] grid, int i, int j) {
+        // 边界条件
+        if (i >= grid.length || j >= grid[0].length || i < 0 || j < 0) {
             return;
         }
 
-        if (grid[row][column] != '1') {
+        //  不是陆地
+        if (grid[i][j] != LAND) {
             return;
         }
 
-        // 标注：走过；
-        grid[row][column] = '2';
-        dfsGird(grid, row - 1, column);
-        dfsGird(grid, row + 1, column);
-        dfsGird(grid, row, column - 1);
-        dfsGird(grid, row, column + 1);
+        // 标注：表示走过；
+        grid[i][j] = '2';
+        dfs(grid, i - 1, j);
+        dfs(grid, i + 1, j);
+        dfs(grid, i, j - 1);
+        dfs(grid, i, j + 1);
 
     }
+
+
 }
