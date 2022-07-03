@@ -1,4 +1,4 @@
-package array.leet_code_33;
+package binary_search.leet_code_33;
 
 /**
  * @author : dev
@@ -11,6 +11,8 @@ package array.leet_code_33;
  * 题解：https://leetcode-cn.com/problems/search-in-rotated-sorted-array/solution/duo-si-lu-wan-quan-gong-lue-bi-xu-miao-dong-by-swe/
  * <p>
  * 可以再看看：153，1095，852；
+ *
+ * 一姐：https://www.youtube.com/watch?v=IQyJX5ddEx0
  */
 public class Search {
     public int search(int[] nums, int target) {
@@ -435,6 +437,7 @@ public class Search {
                     nums[mid] = Integer.MIN_VALUE;
                 }
             }
+
             if (nums[mid] < target) {
                 low = mid + 1;
             } else {
