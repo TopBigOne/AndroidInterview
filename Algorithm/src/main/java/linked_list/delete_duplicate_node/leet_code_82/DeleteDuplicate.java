@@ -1,4 +1,4 @@
-package linked_list.leet_code_82;
+package linked_list.delete_duplicate_node.leet_code_82;
 
 import linked_list.ListNode;
 

@@ -1,4 +1,4 @@
-package linked_list.leet_code_83;
+package linked_list.delete_duplicate_node.leet_code_83;
 
 import linked_list.ListNode;
 
@@ -33,6 +33,7 @@ public class DeleteDuplicate {
 
     /**
      * 当前链表与下一个链表做比较，相等的话就断开，然后连接当前链表的下一个的下一个；
+     *
      * @param head
      * @return
      */
