@@ -1,7 +1,8 @@
-package array.leet_code_56;
+package array.interval.leet_code_56;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -12,12 +13,15 @@ import java.util.List;
  * 题解：  https://www.youtube.com/watch?v=Og40pFaGCxs
  */
 public class Merge {
+
+
+
     /**
      * @param intervals 间隔
      */
     public int[][] merge(int[][] intervals) {
         // 从小到大进行排序
-        Arrays.sort(intervals, (v1, v2) -> v1[0] - v2[0]);
+        Arrays.sort(intervals, Comparator.comparingInt(v -> v[0]));
         // 遍历区间
         int[][] res = new int[intervals.length][2];
         int idx = -1;
