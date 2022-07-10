@@ -1,4 +1,4 @@
-package array.interval.leet_code_1288;
+package interval.leet_code_1288;
 
 import java.util.Arrays;
 

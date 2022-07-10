@@ -1,4 +1,4 @@
-package stack.leet_code_253;
+package interval.leet_code_253;
 
 import java.util.Arrays;
 import java.util.Comparator;

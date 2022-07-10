@@ -1,4 +1,4 @@
-package array.interval.leet_code_56;
+package interval.leet_code_56;
 
 import java.util.ArrayList;
 import java.util.Arrays;

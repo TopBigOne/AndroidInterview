@@ -1,4 +1,4 @@
-package array.interval.leet_code_252;
+package interval.leet_code_252;
 
 import java.util.Arrays;
 
@@ -17,17 +17,19 @@ public class CanAttendMeeting {
     }
 
     public boolean canAttendMeetings(int[][] intervals) {
+        // 按照会议的开始时间，从小到大排序
         Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
         for (int i = 1; i < intervals.length; i++) {
-            int[] curr = intervals[i];
+            // 上一个会议时间
             int[] pre = intervals[i - 1];
+            // 当前会议的时间
+            int[] curr = intervals[i];
+            // 当前会议的开始时间，小于上一个会议的结束时间，就表明有重合
             if (curr[0] < pre[1]) {
                 return false;
             }
         }
         return true;
-
-
     }
 
 

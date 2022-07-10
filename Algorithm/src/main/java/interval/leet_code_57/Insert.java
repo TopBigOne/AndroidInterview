@@ -1,4 +1,4 @@
-package array.interval.leet_code_57;
+package interval.leet_code_57;
 
 import java.util.Arrays;
 
@@ -17,6 +17,11 @@ import java.util.Arrays;
  * 甜姨：https://leetcode.cn/problems/insert-interval/solution/bi-xu-miao-dong-li-kou-qu-jian-ti-mu-zhong-die-qu-/
  */
 public class Insert {
+    public static void main(String[] args) {
+        int[][] intervals = {{1, 3}, {6, 9}};
+        int[] newInterval = {2, 5};
+    }
+
     public int[][] insert(int[][] intervals, int[] newInterval) {
         int[][] res = new int[intervals.length + 1][2];
         int idx = 0;
