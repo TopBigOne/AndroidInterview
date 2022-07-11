@@ -13,21 +13,27 @@ import java.util.List;
  * @Counter :
  * @Answer :
  */
-public class SuShu {
+public class PrimeNumber {
     public static void main(String[] args) {
-        SuShu suShu = new SuShu();
-        System.out.println("suShu : " + suShu.getSu(200, 300));
+        PrimeNumber primeNumber = new PrimeNumber();
+        System.err.println("suShu : " + primeNumber.getSu(210, 212));
+
     }
 
     public List<Integer> getSu(int start, int end) {
         List<Integer> result = new ArrayList<>();
-        for (int i = start; i < end; i++) {
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
+        // step 1 : 将start 到end 范围内的数，都列出来；
+        for (int curNum = start; curNum < end; curNum++) {
+            // 开始校验
+            // 从 2开始除
+            for (int j = 2; j < curNum; j++) {
+                // 能整除，curNum就不会素数，中断对currNum的操作
+                if (curNum % j == 0) {
                     break;
                 }
-                if (i == j + 1) {
-                    result.add(i);
+                // 达到边界，符合条件做一下累加
+                if (curNum == j + 1) {
+                    result.add(curNum);
                 }
             }
         }
@@ -71,5 +77,23 @@ public class SuShu {
         }
         return result;
 
+    }
+
+    public List<Integer> getSu4(int start, int end) {
+
+        List<Integer> result = new ArrayList<>();
+        for (int i = start; i < end; i++) {
+
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    break;
+                }
+                if (i == j + 1) {
+                    result.add(i);
+
+                }
+            }
+        }
+        return result;
     }
 }
