@@ -1,4 +1,4 @@
-package array.leet_code_912;
+package sort.quick_sort.leet_code_912;
 
 import java.util.Arrays;
 
