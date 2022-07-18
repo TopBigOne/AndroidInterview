@@ -1,4 +1,4 @@
-package array.remove_element.leet_code_27;
+package array.remove_duplicate_element.leet_code_27;
 
 import java.util.Arrays;
 
