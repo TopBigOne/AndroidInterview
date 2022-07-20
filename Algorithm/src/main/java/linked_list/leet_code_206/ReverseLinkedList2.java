@@ -76,7 +76,9 @@ public class ReverseLinkedList2 {
     }
 
     public ListNode reverseListNode4(ListNode head) {
-        if (head == null || head.next == null) return head;
+        if (head == null || head.next == null) {
+            return head;
+        }
         ListNode lastNode = reverseListNode4(head.next);
         head.next.next = head;
         head.next = null;
@@ -84,11 +86,25 @@ public class ReverseLinkedList2 {
     }
 
     public ListNode reverseListNode5(ListNode head) {
-        if (head == null || head.next == null) return head;
-        ListNode lastNode  = reverseListNode5(head.next);
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode lastNode = reverseListNode5(head.next);
         head.next.next = head;
         head.next = null;
         return lastNode;
+    }
+
+    public ListNode reverseListNode6(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode last = reverseListNode6(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
+
+
     }
 
 

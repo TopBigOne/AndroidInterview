@@ -376,9 +376,34 @@ public class ReverseLinkList {
             pre = curr;
             curr = temp;
         }
-
         return pre;
 
+    }
+
+    public ListNode reverseList28(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode pre = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode temp = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = temp;
+
+        }
+        return pre;
+    }
+
+    public ListNode reverseList29(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode last = reverseList29(head.next);
+        head.next.next = head;
+        head.next = null;
+        return head;
     }
 
 
