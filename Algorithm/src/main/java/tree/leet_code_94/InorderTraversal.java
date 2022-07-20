@@ -1,11 +1,11 @@
 package tree.leet_code_94;
 
-import tree.TreeNode;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
+
+import tree.TreeNode;
 
 /**
  * @author :  dev
@@ -44,11 +44,14 @@ public class InorderTraversal {
                 stack.push(root);
                 root = root.left;
             }
+
             root = stack.pop();
             result.add(root.val);
             root = root.right;
         }
         return result;
+
+
     }
 
     public List<Integer> inorderTraversal3(TreeNode root) {
