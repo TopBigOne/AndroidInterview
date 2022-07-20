@@ -1,11 +1,11 @@
-package string.leet_code_415;
+package math.leet_code_415;
 
 /**
  * @author : dev
  * @version :
  * @Date :  5/30/21 11:16 PM
  * @Desc : leetcode  415 :字符串相加：字节半年 10 次：https://leetcode-cn.com/problems/add-strings/
- *
+ * <p>
  * 题解：https://leetcode-cn.com/problems/add-strings/solution/add-strings-shuang-zhi-zhen-fa-by-jyd/
  */
 public class AddString {
@@ -72,6 +72,29 @@ public class AddString {
         }
 
         return res.reverse().toString();
+    }
+
+    public String addStrings3(String num1, String num2) {
+        int i = num1.length() - 1;
+        int j = num2.length() - 1;
+        StringBuilder stringBuilder = new StringBuilder();
+        int carry = 0;
+        while (i >= 0 || j >= 0) {
+            int x = i >= 0 ? num1.charAt(i) - '0' : 0;
+            int y = j >= 0 ? num2.charAt(j) - '0' : 0;
+            int sum = x + y + carry;
+            carry = sum / 10;
+            stringBuilder.append(sum % 10);
+            i--;
+            j--;
+
+        }
+        if (carry > 0) {
+            stringBuilder.append(carry);
+        }
+        return stringBuilder.reverse().toString();
+
+
     }
 
 }
