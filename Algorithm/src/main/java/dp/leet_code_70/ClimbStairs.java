@@ -19,7 +19,7 @@ public class ClimbStairs {
      */
     public int climbStairs(int n) {
         int len = n + 1;
-        int[] dp = new int[len+1];
+        int[] dp = new int[len + 1];
         dp[0] = dp[1] = 1;
 
         for (int i = 2; i <= len; i++) {
@@ -66,6 +66,45 @@ public class ClimbStairs {
 
         return second;
 
+
+    }
+
+    public int climbStairs4(int n) {
+        int len = n + 1;
+        int[] dp = new int[len + 1];
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i = 2; i <= len; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
+
+    public int climbStairs5(int n) {
+
+        // 扩展：不能爬到7及7的倍数——2021.3 字节跳动-教育-后端-一面
+        // %7==0,
+        // dp=0;i%7!=0,
+        // dp[i]=dp[i-1]+dp[i-2]
+
+
+        int len = n + 1;
+        int[] dp = new int[len + 1];
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            // 扩展：不能爬到7及7的倍数——2021.3 字节跳动-教育-后端-一面
+           /*
+            if (i % 7 == 0) {
+                dp[i] = 0;
+            } else {
+                dp[i] = dp[i - 1] + dp[i - 2];
+            }
+*/
+
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
 
     }
 
