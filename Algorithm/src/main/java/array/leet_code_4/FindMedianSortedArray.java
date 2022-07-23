@@ -4,7 +4,7 @@ package array.leet_code_4;
  * @author : dev
  * @version :
  * @Date :  2021/4/20 10:19
- * @Desc : 寻找两个正序数组的中位数
+ * @Desc : 04-寻找两个正序数组的中位数
  * <p>
  * 题解：https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-2/
  * <p>
