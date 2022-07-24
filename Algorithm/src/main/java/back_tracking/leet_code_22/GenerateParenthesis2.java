@@ -9,6 +9,8 @@ import java.util.List;
  * @Date :  2022/5/29 21:09
  * @Desc :
  * 题解：https://www.jiakaobo.com/leetcode/22.%20Generate%20Parentheses.html
+ * <p>
+ * 视频：https://www.youtube.com/watch?v=SwyEvjkUnPU
  */
 public class GenerateParenthesis2 {
     public static void main(String[] args) {
@@ -26,20 +28,29 @@ public class GenerateParenthesis2 {
 
     }
 
-    private void helper(List<String> result, String curr, int left, int right) {
+    /**
+     * @param result     结果
+     * @param curr       当前括号；
+     * @param leftCount  左括号的数量，
+     * @param rightCount 右括号的数量
+     */
+    private void helper(List<String> result, String curr, int leftCount, int rightCount) {
         System.out.println("curr : " + curr);
-        if (left == 0 && right == 0) {
+        if (leftCount == 0 && rightCount == 0) {
             System.out.println("start to add.");
             result.add(curr);
             return;
         }
 
-        if (left > 0) {
-            helper(result, curr + "(", left - 1, right);
+        if (leftCount > 0) {
+            helper(result, curr + "(", leftCount - 1, rightCount);
         }
 
-        if (right > 0 && right > left) {
-            helper(result, curr + ")", left, right - 1);
+        /**
+         * 特殊判断： 有括号的数量，大于左边括号的数量才符合条件
+         */
+        if (rightCount > 0 && rightCount > leftCount) {
+            helper(result, curr + ")", leftCount, rightCount - 1);
         }
     }
 
