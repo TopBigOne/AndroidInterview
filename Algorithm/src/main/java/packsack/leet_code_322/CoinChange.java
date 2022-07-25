@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author : dev
  * @version :
  * @Date :  1/28/21 10:39 PM
- * @Desc :给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。
+ * @Desc :  leetcode 322： 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。
  * 如果没有任何一种硬币组合能组成总金额，返回 -1。
  * <p>
  * 输入：coins = [1, 2, 5], amount = 11
@@ -19,8 +19,6 @@ import java.util.Arrays;
  * -----: 题解：https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-shi-yong-wan-quan-bei-bao-wen-ti-/
  * <p>
  * 贪心 + dfs
- * 执行用时：4 ms, 在所有 Java 提交中击败了97.87%的用户
- * 内存消耗：35.9 MB, 在所有 Java 提交中击败了96.52%的用户
  */
 public class CoinChange {
     int res = Integer.MAX_VALUE;

@@ -50,8 +50,11 @@ public class CoinChange2 {
         Arrays.fill(dp, amount + 1);
         dp[0] = 0;
 
+        // i 代表面值，
         for (int i = 1; i <= amount; i++) {
             for (int coin : coins) {
+                // i:当前所需要的面值；
+                // coin : 当前硬币的面值
                 int dynamic = i - coin;
                 if (dynamic < 0) continue;
 
