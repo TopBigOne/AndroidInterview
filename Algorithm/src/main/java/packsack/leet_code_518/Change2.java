@@ -10,12 +10,12 @@ package packsack.leet_code_518;
  * 定义：f[i][j]  为考虑前 i 个钱币凑成总和为 j 的方案数
  * https://leetcode-cn.com/problems/coin-change-2/solution/gong-shui-san-xie-xiang-jie-wan-quan-bei-6hxv/
  */
-public class Change_1 {
+public class Change2 {
 
     public static void main(String[] args) {
         int amount = 5;
-        int[] coins = {2, 1, 5};
-        Change_1 change = new Change_1();
+        int[] coins = {1, 2, 5};
+        Change2 change = new Change2();
         int result = change.change(amount, coins);
         System.out.println("result : " + result);
     }
@@ -37,9 +37,11 @@ public class Change_1 {
         for (int i = 1; i <= len; i++) {
             int currCoinValue = coins[i - 1];
             for (int j = 0; j <= amount; j++) {
+                // 注意：j 此时是变的；
+                // case 1 :i-1 的意思是不使用 当前i
                 f[i][j] = f[i - 1][j];
                 for (int k = 1; k * currCoinValue <= j; k++) {
-                    f[i][j] += f[i - 1][j - k * currCoinValue];
+                    f[i][j] = f[i][j] + f[i - 1][j - k * currCoinValue];
                 }
             }
         }
@@ -55,7 +57,6 @@ public class Change_1 {
             for (int j = 0; j <= amount; j++) {
                 // 转移一下
                 f[i][j] = f[i - 1][j];
-
                 for (int k = 1; k * currCoinValue <= j; k++) {
                     f[i][j] += f[i - 1][j - k * currCoinValue];
                 }
@@ -103,9 +104,10 @@ public class Change_1 {
         for (int i = 1; i <= len; i++) {
             int currValue = coins[i - 1];
             for (int j = 0; j <= amount; j++) {
+                //
                 dp[i][j] = dp[i - 1][j];
                 for (int k = 1; k * currValue <= j; k++) {
-                    dp[i][j] += dp[i - 1][j - k * currValue];
+                    dp[i][j] = dp[i][j] + dp[i - 1][j - coins[i - 1] * k];
                 }
             }
 
@@ -137,41 +139,41 @@ public class Change_1 {
         return dp[amount];
     }
 
-    public int chage7(int amount,int[] coins){
+    public int chage7(int amount, int[] coins) {
         int len = coins.length;
-        int [] dp = new int[amount+1];
+        int[] dp = new int[amount + 1];
         dp[0] = 1;
         for (int i = 1; i <= len; i++) {
-            int val =coins[i-1];
+            int val = coins[i - 1];
             for (int j = val; j <= amount; j++) {
-                dp[j] +=dp[j-val];
+                dp[j] += dp[j - val];
             }
         }
         return dp[amount];
     }
 
-    public int change7(int amount ,int [] coins){
+    public int change7(int amount, int[] coins) {
         int len = coins.length;
-        int [] dp =  new int[amount+1];
+        int[] dp = new int[amount + 1];
         dp[0] = 1;
         for (int i = 1; i <= len; i++) {
-            int val = coins[i-1];
+            int val = coins[i - 1];
             for (int j = val; j <= amount; j++) {
-                dp[j]+=dp[j-val];
+                dp[j] += dp[j - val];
             }
         }
         return dp[amount];
     }
 
 
-    public int change8(int amount,int [] coins){
+    public int change8(int amount, int[] coins) {
         int len = coins.length;
-        int [] dp = new int[amount+1];
+        int[] dp = new int[amount + 1];
         dp[0] = 1;
-        for (int i = 1; i <=len; i++) {
-            int value  = coins[i-1];
-            for(int j = value;j<=amount;j++){
-                dp[j]+=dp[j-value];
+        for (int i = 1; i <= len; i++) {
+            int value = coins[i - 1];
+            for (int j = value; j <= amount; j++) {
+                dp[j] += dp[j - coins[i - 1]];
             }
 
         }
