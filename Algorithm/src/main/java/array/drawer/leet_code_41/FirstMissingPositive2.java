@@ -52,8 +52,6 @@ public class FirstMissingPositive2 extends Base {
     }
 
     public int firstMissingPositive2(int[] nums) {
-
-
         int len = nums.length;
         for (int i = 0; i < len; i++) {
             while (nums[i] > 0 && nums[i] <= len && nums[i] != nums[nums[i] - 1]) {
@@ -68,6 +66,59 @@ public class FirstMissingPositive2 extends Base {
         }
 
         return len + 1;
+    }
+
+    public int firstMissingPositive3(int[] nums) {
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            while (true) {
+                int currValue = nums[i];
+
+                if (!(currValue > 0 && currValue <= len && currValue != nums[currValue - 1])) break;
+                swap(nums, i, currValue - 1);
+            }
+        }
+        for (int i = 0; i < len; i++) {
+            if (i + 1 != nums[i]) {
+                return i + 1;
+            }
+        }
+        return len + 1;
+    }
+
+    public int firstMissingPositive4(int[] nums) {
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            while (true) {
+                int currValue = nums[i];
+                if (!(currValue > 0 && currValue <= len && currValue != nums[currValue - 1])) break;
+                swap(nums, i, currValue - 1);
+            }
+
+        }
+        for (int i = 0; i < len; i++) {
+            if (nums[i] != i + 1) {
+                return i + 1;
+            }
+        }
+        return len + 1;
+    }
+
+    public int firstMissingPositive5(int[] nums) {
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+
+            while (nums[i] > 0 && nums[i] <= len && nums[i] != nums[nums[i] - 1]) {
+                swap(nums, i, nums[i] - 1);
+            }
+        }
+        for (int i = 0; i < len; i++) {
+            if (nums[i] != i + 1) {
+                return i + 1;
+            }
+        }
+        return len + 1;
+
 
     }
 
