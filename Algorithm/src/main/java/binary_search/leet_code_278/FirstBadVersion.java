@@ -1,4 +1,4 @@
-package string.leet_code_278;
+package binary_search.leet_code_278;
 
 /**
  * @author :  dev
@@ -7,7 +7,7 @@ package string.leet_code_278;
  * @Url :
  * @Level :  easy  medium hard
  * @Desc :
- * @Counter :
+ * @Counter : 二分的左值问题；
  * @Answer : https://leetcode-cn.com/problems/first-bad-version/solution/gong-shui-san-xie-shi-yong-jiao-hu-han-s-8hpv/
  */
 public class FirstBadVersion extends VersionControl {
@@ -65,6 +65,22 @@ public class FirstBadVersion extends VersionControl {
             }
         }
         return r;
+
+    }
+
+    public int firstBadVersion4(int n) {
+        int l = 1;
+        int r = n;
+        while (l < r) {
+            int mid = (l + r) >>> 1;
+
+            if (isBadVersion(mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
 
     }
 

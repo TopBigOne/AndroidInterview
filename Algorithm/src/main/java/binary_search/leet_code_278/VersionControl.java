@@ -1,4 +1,4 @@
-package string.leet_code_278;
+package binary_search.leet_code_278;
 
 /**
  * @author :  dev

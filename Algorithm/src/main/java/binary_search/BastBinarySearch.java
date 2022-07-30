@@ -7,6 +7,7 @@ package binary_search;
  * @Desc :
  */
 public class BastBinarySearch {
+
     public int binarySearch(int[] nums, int l, int r, int target) {
         while (l <= r) {
             int mid = (l + r) >>> 1;
@@ -22,6 +23,29 @@ public class BastBinarySearch {
             }
         }
         return -1;
+    }
 
+    /**
+     * 寻找左边界
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int leftBound(int[] nums, int target) {
+        int left = 0;
+        // 注意不 -1；
+        int right = nums.length;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (nums[mid] == target) {
+                right = mid;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid;
+            }
+        }
+        return left;
     }
 }
