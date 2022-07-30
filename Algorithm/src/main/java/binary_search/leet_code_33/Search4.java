@@ -18,6 +18,12 @@ public class Search4 extends BastBinarySearch {
         System.out.println("result : "+result);
     }
 
+    /**
+     * 一姐
+     * @param nums
+     * @param target
+     * @return
+     */
     public int search(int[] nums, int target) {
         int len;
         if (nums == null || (len = nums.length) == 0) {

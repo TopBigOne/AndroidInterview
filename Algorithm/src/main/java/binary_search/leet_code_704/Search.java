@@ -15,7 +15,7 @@ public class Search {
         int low = 0;
         // 1: 注意 数组是从 0 开始的；
         int high = nums.length - 1;
-        while (low <=high) {
+        while (low <= high) {
             // 2： >> 和 + ,优先级问题；
             int mid = low + (high - low) >> 1;
             int currValue = nums[mid];
@@ -32,6 +32,28 @@ public class Search {
         }
         // 4： 没有找到合适的值；
         return -1;
+    }
+
+    public int search2(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + ((right - left) >>> 1);
+            int midValue = nums[mid];
+            if (midValue == target) {
+                return mid;
+            }
+            if (midValue < target) {
+                left = mid + 1;
+                continue;
+            }
+            if (midValue > target) {
+                right = mid - 1;
+            }
+        }
+        return -1;
+
+
     }
 
 }

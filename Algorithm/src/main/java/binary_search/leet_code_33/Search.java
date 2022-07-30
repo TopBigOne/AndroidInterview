@@ -286,9 +286,11 @@ public class Search {
         int mid = 0;
         while (low <= high) {
             mid = low + ((high - low) >> 1);
+
             if (nums[mid] == target) {
                 return mid;
             }
+
             if (nums[mid] >= nums[low]) {
                 if (target >= nums[low] && target < nums[mid]) {
                     high = mid - 1;

@@ -8,6 +8,12 @@ package binary_search.leet_code_33;
  */
 public class Search5 {
 
+    /**
+     * 一姐
+     * @param nums
+     * @param target
+     * @return
+     */
     public int search(int[] nums, int target) {
         int len;
         if (nums == null || (len = nums.length) == 0) {
