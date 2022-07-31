@@ -54,6 +54,7 @@ class HandleThreadActivity : AppCompatActivity() {
     private fun initBackThread() {
         mHandleThread = HandlerThread("check-message-coming")
         mHandleThread?.start()
+
         mHandleThread?.let {
             mCheckMsgHandler = object : Handler(it.looper) {
                 override fun handleMessage(msg: Message) {
