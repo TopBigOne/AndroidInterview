@@ -21,7 +21,6 @@ public class Subset5 {
 
         return res;
 
-
     }
 
     private void dfs(int[] nums, int len, int depth, Deque<Integer> path, List<List<Integer>> res) {
