@@ -33,6 +33,7 @@ public class IsBalanced {
         if (root == null) {
             return 0;
         }
+        // +1 ,是为了包含root 节点
         return Math.max(depth(root.left), depth(root.right)) + 1;
     }
 
