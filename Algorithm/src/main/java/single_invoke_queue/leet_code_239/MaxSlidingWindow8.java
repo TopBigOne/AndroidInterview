@@ -24,10 +24,12 @@ public class MaxSlidingWindow8 extends Base {
         for (int i = 0; i < nums.length; i++) {
 
             int currValue = nums[i];
+            // 还没有到边界
             if (i < k - 1) {
                 window.push(currValue);
                 continue;
             }
+
             window.push(currValue);
             int maxValue = window.getMax();
             result.add(maxValue);
@@ -45,18 +47,19 @@ public class MaxSlidingWindow8 extends Base {
     }
 
     public static class Window {
-
         Deque<Integer> queue = new ArrayDeque<>();
 
-
         public void push(int num) {
+            // 保证单调性
             while (queue.size() > 0 && queue.peekLast() < num) {
                 queue.pollLast();
             }
             queue.addLast(num);
         }
 
+
         public int getMax() {
+            // 在队列的头部获取最大值
             return queue.getFirst();
         }
 
