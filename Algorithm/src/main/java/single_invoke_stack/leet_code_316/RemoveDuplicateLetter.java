@@ -7,7 +7,7 @@ import java.util.Deque;
  * @author : dev
  * @version :
  * @Date :  3/12/21 9:07 PM
- * @Desc : 去除重复字母
+ * @Desc : leetcode 316 ： 去除重复字母 https://leetcode.cn/problems/remove-duplicate-letters/
  * 题解： https://leetcode-cn.com/problems/remove-duplicate-letters/solution/zhan-by-liweiwei1419/
  */
 
