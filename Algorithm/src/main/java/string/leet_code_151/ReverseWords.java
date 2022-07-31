@@ -12,7 +12,7 @@ package string.leet_code_151;
  */
 public class ReverseWords {
     public static void main(String[] args) {
-        String rawStr = " I love  you ";
+        String rawStr = "    I    love  you ";
         ReverseWords reverse = new ReverseWords();
         String result = reverse.reverseWords(rawStr);
         System.out.println("result: " + result);
@@ -69,11 +69,16 @@ public class ReverseWords {
         }
     }
 
+    /**
+     * 反转每一个单词
+     * @param sb
+     */
     private void reverseEachWord(StringBuilder sb) {
         int start = 0;
         int end = 1;
         int n = sb.length();
         while (start < n) {
+            // 找到当钱需要反转 单词的起始下标
             while (end < n && sb.charAt(end) != ' ') {
                 end++;
             }
