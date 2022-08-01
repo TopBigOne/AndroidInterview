@@ -22,12 +22,13 @@ public class MaxDepthOfBinaryTree3 {
         while (!deque.isEmpty()) {
             //每一层的个数
             int size = deque.size();
+            // 遍历每一层；
             while (size-- > 0) {
                 TreeNode cur = deque.pop();
-                if (cur.left != null){
+                if (cur.left != null) {
                     deque.addLast(cur.left);
                 }
-                if (cur.right != null){
+                if (cur.right != null) {
                     deque.addLast(cur.right);
                 }
             }
