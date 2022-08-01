@@ -1,10 +1,10 @@
-package string.leet_code_43;
+package math.leet_code_43;
 
 /**
  * @author :  dev
  * @version :
  * @Date :   2021/10/31 22:27
- * @Url : https://leetcode-cn.com/problems/multiply-strings/
+ * @Url : 字符串相乘 https://leetcode-cn.com/problems/multiply-strings/
  * @Level :    medium
  * @Desc : 字符串相乘
  * @Counter :
