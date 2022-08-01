@@ -1,19 +1,18 @@
 package tree.leet_code_113;
 
-import tree.TreeNode;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
-import java.util.TooManyListenersException;
+
+import tree.TreeNode;
 
 /**
  * @author : dev
  * @version :
  * @Date :  2021/4/14 11:34
  * @Desc :  字节半年 9次：路径总和：https://leetcode-cn.com/problems/path-sum-ii/solution/
- *  回溯算法的体现
+ * 回溯算法的体现
  * 题解：https://leetcode-cn.com/problems/path-sum-ii/solution/hui-su-suan-fa-shen-du-you-xian-bian-li-zhuang-tai/
  */
 public class PathSum {
@@ -50,50 +49,47 @@ public class PathSum {
     }
 
     /**
-     *
      * @param root
      * @param sum
      * @param path 可以转换成 List 集合的；这个要记住哦；
      * @param res
      */
-    private void pathSum2(TreeNode root,int sum,Deque<Integer> path,List<List<Integer>> res){
+    private void pathSum2(TreeNode root, int sum, Deque<Integer> path, List<List<Integer>> res) {
         if (root == null) {
             return;
         }
 
-        sum -=root.val;
+        sum -= root.val;
         path.add(root.val);
-        if(sum==0&&root.left==null&&root.right==null){
+        if (sum == 0 && root.left == null && root.right == null) {
             res.add(new ArrayList<>(path));
             path.removeLast();
             return;
         }
-        pathSum2(root.left,sum,path,res);
-        pathSum2(root.right,sum,path,res);
+        pathSum2(root.left, sum, path, res);
+        pathSum2(root.right, sum, path, res);
         // 减枝操作
         path.removeLast();
 
     }
 
-    private  void pathSum3(TreeNode root,int sum,Deque<Integer> path,List<List<Integer>> res){
-        if (root==null) {
+    private void pathSum3(TreeNode root, int sum, Deque<Integer> path, List<List<Integer>> res) {
+        if (root == null) {
             // 1：在处理过程中，root 直接就是空了，需要终止递归操作
             return;
         }
-        sum-= root.val;
+        sum -= root.val;
         path.add(root.val);
-        if(sum==0&&root.left==null&&root.right==null){
+        if (sum == 0 && root.left == null && root.right == null) {
 
             res.add(new ArrayList<>(path));
             path.removeLast();
             return;
         }
-        pathSum3(root.left,sum,path,res);
-        pathSum3(root.right,sum,path,res);
+        pathSum3(root.left, sum, path, res);
+        pathSum3(root.right, sum, path, res);
         path.removeLast();
     }
-
-
 
 
 }
