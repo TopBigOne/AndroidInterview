@@ -27,20 +27,20 @@ import tree.TreeNode;
 public class DiameterOfBinaryTree2 {
     int result = 0;
 
-    public int diameterOfBinaryTree(TreeNode root){
-         depth(root);
-         return result;
+    public int diameterOfBinaryTree(TreeNode root) {
+        depth(root);
+        return result;
 
     }
 
-    private int  depth(TreeNode root) {
-        if(root==null){
-            return  0;
+    private int depth(TreeNode root) {
+        if (root == null) {
+            return 0;
         }
         int leftDepth = depth(root.left);
-        int rigthDepth = depth(root.right);
-        result = Math.max(result,leftDepth+rigthDepth);
-        return Math.max(leftDepth,rigthDepth)+1;
+        int rightDepth = depth(root.right);
+        result = Math.max(result, leftDepth + rightDepth);
+        return Math.max(leftDepth, rightDepth) + 1;
 
     }
 
