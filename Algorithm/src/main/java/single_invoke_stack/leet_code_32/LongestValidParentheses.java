@@ -25,6 +25,15 @@ import java.util.Stack;
  * 输出：0
  */
 public class LongestValidParentheses {
+
+    public static void main(String[] args) {
+        LongestValidParentheses longestValidParentheses = new LongestValidParentheses();
+        String s = ")()";
+         s = ")()())";
+        int result = longestValidParentheses.longestValidParentheses3(s);
+        System.err.println("result :" + result);
+    }
+
     /**
      * 如果遇到左括号我们就把他的下标压栈，如果遇到右括号说明和栈顶元素匹配，
      * 那么栈顶元素，比如m出栈，用当前元素的下标减去新的栈顶元素的值，
@@ -85,93 +94,36 @@ public class LongestValidParentheses {
     }
 
 
-    public int longestValidParentheses3(String s){
-       int max = 0;
-       Stack<Integer> stack = new Stack<>();
-       stack.push(-1);
+    public int longestValidParentheses3(String s) {
+        int max = 0;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+
         for (int i = 0; i < s.length(); i++) {
-            char curChar = s.charAt(i);
-            if(curChar=='('){
+            char currChar = s.charAt(i);
+            // 左括号
+            if (currChar == '(') {
                 stack.push(i);
                 continue;
             }
 
-            stack.pop();
-            if (stack.isEmpty()) {
-                stack.push(i);
-                continue;
-            }
-            max = Math.max(max,i-stack.peek());
+            // 右括号
+            // 栈顶元素匹配
+            if (currChar == ')') {
+                // 弹出左括号的 index 或者兜底的下标-1
+                stack.pop();
 
+                if (stack.empty()) {
+                    stack.push(i);
+                } else {
+                    max = Math.max(max, i - stack.peek());
+                }
+            }
         }
-       return  max;
+        return max;
+
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
