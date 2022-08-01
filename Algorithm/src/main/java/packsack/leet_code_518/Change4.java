@@ -4,7 +4,7 @@ package packsack.leet_code_518;
  * @author : dev
  * @version :
  * @Date :  2022/7/26 01:06
- * @Desc :
+ * @Desc : leet code 518 零钱兑换： https://leetcode-cn.com/problems/coin-change-2/solution/
  */
 public class Change4 {
     int change(int amount, int[] coins) {
@@ -56,16 +56,60 @@ public class Change4 {
     }
 
     int change4(int amount, int[] coins) {
-        int [] dp = new int[amount+1];
+        int[] dp = new int[amount + 1];
         dp[0] = 1;
         for (int coin : coins) {
             for (int j = 1; j <= amount; j++) {
-                if(j-coin>=0){
-                    dp[j] = dp[j] + dp[j-coin];
+                if (j - coin >= 0) {
+                    dp[j] = dp[j] + dp[j - coin];
                 }
             }
         }
         return dp[amount];
+    }
+
+    int change5(int amount, int[] coins) {
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+        for (int coin : coins) {
+
+            for (int i = 1; i <= amount; i++) {
+                if (i - coin >= 0) {
+                    dp[i] = dp[i] + dp[i - coin];
+                }
+            }
+        }
+        return dp[amount];
+    }
+
+    int change6(int amount, int[] coins) {
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+        for (int coin : coins) {
+            for (int i = 1; i <= amount; i++) {
+                if (i - coin >= 0) {
+                    dp[i] = dp[i] + dp[i - coin];
+                }
+
+            }
+        }
+        return dp[amount];
+
+    }
+
+    int change7(int amount, int[] coins) {
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+        for (int coin : coins) {
+            for (int i = 1; i <= amount; i++) {
+                if (i < coin) {
+                    continue;
+                }
+                dp[i] = dp[i] + dp[i - coin];
+            }
+        }
+        return dp[amount];
+
 
     }
 }
