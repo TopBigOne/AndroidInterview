@@ -7,8 +7,8 @@ import java.util.LinkedList;
  * @version :
  * @Date :   2022/1/2 23:56
  * @Url :
- * @Level :  easy  medium hard
- * @Desc : 394. 字符串解码 https://leetcode.cn/problems/decode-string/
+ * @Level :    medium
+ * @Desc :  394. 字符串解码 https://leetcode.cn/problems/decode-string/
  * @Counter :
  * @Answer :https://leetcode-cn.com/problems/decode-string/solution/decode-string-fu-zhu-zhan-fa-di-gui-fa-by-jyd/
  */
