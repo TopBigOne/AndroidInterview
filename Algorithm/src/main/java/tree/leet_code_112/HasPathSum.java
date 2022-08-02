@@ -1,7 +1,6 @@
 package tree.leet_code_112;
 
 import java.util.Stack;
-import java.util.TreeMap;
 
 import tree.TreeNode;
 
@@ -9,7 +8,7 @@ import tree.TreeNode;
  * @author : dev
  * @version :
  * @Date :  4/10/21 12:41 AM
- * @Desc : 路径总和：https://leetcode-cn.com/problems/path-sum/
+ * @Desc : 112 路径总和：https://leetcode-cn.com/problems/path-sum/
  */
 public class HasPathSum {
     public boolean hasPathSum(TreeNode root, int targetSum) {
