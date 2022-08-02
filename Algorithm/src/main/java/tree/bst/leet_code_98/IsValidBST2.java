@@ -9,7 +9,7 @@ import tree.TreeNode;
  * @Desc : BST 树
  * 题解：https://leetcode.cn/problems/validate-binary-search-tree/solution/zhong-xu-bian-li-qing-song-na-xia-bi-xu-miao-dong-/
  */
-public class ValidBST2 {
+public class IsValidBST2 {
     long preVal = Long.MIN_VALUE;
 
     public boolean isValidBST(TreeNode root) {
