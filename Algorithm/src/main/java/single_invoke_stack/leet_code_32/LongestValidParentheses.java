@@ -6,7 +6,7 @@ import java.util.Stack;
  * @author : dev
  * @version :
  * @Date :  3/14/21 7:50 PM
- * @Desc : 最长有效括号（https://leetcode-cn.com/problems/longest-valid-parentheses/）
+ * @Desc : 32: 最长有效括号（https://leetcode-cn.com/problems/longest-valid-parentheses/）
  * 题解：https://leetcode-cn.com/problems/longest-valid-parentheses/solution/javadai-ma-de-ji-chong-jie-fa-by-sdwwld/
  * <p>
  * 示例 1：

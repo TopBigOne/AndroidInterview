@@ -16,7 +16,7 @@ public class LongestValidParentheses3 {
         for (int i = 0; i < s.length(); i++) {
             char currChar = s.charAt(i);
             if (currChar == '(') {
-                stack.push(i);
+                stack.push(i);LongestValidParentheses2
                 continue;
             }
             if (currChar == ')') {
