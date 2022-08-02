@@ -1,10 +1,10 @@
-package array.leet_code_470;
+package math.leet_code_470;
 
 /**
  * @author : dev
  * @version :
  * @Date :  6/27/21 11:44 PM
- * @Desc : 用 Rand7() 实现 Rand10()
+ * @Desc : 470  用 Rand7() 实现 Rand10() https://leetcode.cn/problems/implement-rand10-using-rand7/
  * 已有方法 rand7 可生成 1 到 7 范围内的均匀随机整数，试写一个方法 rand10 生成 1 到 10 范围内的均匀随机整数。
  * <p>
  * 不要使用系统的 Math.random() 方法。
