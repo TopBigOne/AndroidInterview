@@ -1,7 +1,5 @@
 package tree.leet_code_226;
 
-import java.util.LinkedList;
-
 import tree.TreeNode;
 
 /**
@@ -31,8 +29,6 @@ public class InvertTree2 {
         return root;
 
     }
-
-
 
 
     /**
