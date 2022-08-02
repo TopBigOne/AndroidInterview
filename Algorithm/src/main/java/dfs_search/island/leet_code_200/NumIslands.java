@@ -4,7 +4,7 @@ package dfs_search.island.leet_code_200;
  * @author : dev
  * @version :
  * @Date :  3/24/21 1:35 AM
- * @Desc : 岛屿的数量 字节：35 次  https://leetcode-cn.com/problems/number-of-islands/solution/
+ * @Desc : 200: 岛屿的数量 字节：35 次  https://leetcode-cn.com/problems/number-of-islands/solution/
  * 200. 岛屿数量      （Easy）
  * 463. 岛屿的周长        （Easy）
  * 695. 岛屿的最大面积    （Medium）

@@ -32,6 +32,8 @@ public class NumIslands6 {
             return;
         }
 
+
+
         grid[i][j] = '*';
 
         dfs(grid, i + 1, j);
