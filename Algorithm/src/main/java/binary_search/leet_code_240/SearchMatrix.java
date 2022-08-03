@@ -3,11 +3,13 @@ package binary_search.leet_code_240;
 
 import java.util.Arrays;
 
+import binary_search.Base;
+
 /**
  * @author :  dev
  * @version :
  * @Date :  6/20/21 11:25 PM
- * @Url :  https://leetcode-cn.com/problems/search-a-2d-matrix-ii/submissions/
+ * @Url : leetcode 240 搜索二维矩阵  https://leetcode-cn.com/problems/search-a-2d-matrix-ii/submissions/
  * @Level :  medium
  * @Desc : leetcode 240 搜索二维矩阵 ：
  * 每行的元素从左到右升序排列。
@@ -16,15 +18,15 @@ import java.util.Arrays;
  * @Answer : https://leetcode-cn.com/problems/search-a-2d-matrix-ii/
  */
 
-public class SearchMatrix {
+public class SearchMatrix  extends Base {
     public boolean searchMatrix(int[][] matrix, int target) {
         if (matrix.length == 0 || matrix[0].length == 0) {
             return false;
         }
         for (int[] ints : matrix) {
-            System.out.println("ints:"+ Arrays.toString(ints));
+            System.out.println("ints:" + Arrays.toString(ints));
             int ints_0 = ints[0];
-            System.out.println("ints_0 : "+ints_0);
+            System.out.println("ints_0 : " + ints_0);
 
             if (ints_0 > target) {
                 break;
@@ -39,6 +41,8 @@ public class SearchMatrix {
         }
         return false;
     }
+
+
 
     private int binarySearch(int[] nums, int target) {
         int start = 0;
