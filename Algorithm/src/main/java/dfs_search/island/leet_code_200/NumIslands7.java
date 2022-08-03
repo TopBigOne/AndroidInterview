@@ -4,7 +4,7 @@ package dfs_search.island.leet_code_200;
  * @author : dev
  * @version :
  * @Date :  2022/8/2 19:23
- * @Desc :
+ * @Desc : 200: 岛屿的数量 字节：35 次  https://leetcode-cn.com/problems/number-of-islands/solution/
  */
 public class NumIslands7 {
 
