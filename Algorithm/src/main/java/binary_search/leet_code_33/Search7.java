@@ -6,7 +6,7 @@ import binary_search.Base;
  * @author : dev
  * @version :
  * @Date :  2022/7/30 17:54
- * @Desc :
+ * @Desc : 33 搜索旋转排序数组：https://leetcode-cn.com/problems/search-in-rotated-sorted-array/submissions/
  */
 public class Search7 extends Base {
     public static void main(String[] args) {
