@@ -43,6 +43,7 @@ public class Exist2 {
     private boolean dfs(char[][] board, int i, int j, int depth,
                         boolean[][] visited, String word) {
         System.err.println("depth : " + depth);
+
         if (depth == word.length() - 1) {
 
             return board[i][j] == word.charAt(depth);
@@ -53,6 +54,7 @@ public class Exist2 {
 
             // 左 ，下，右,上
             int[][] directions = {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
+
             for (int[] direction : directions) {
                 int newX = i + direction[0];
                 int newY = j + direction[1];

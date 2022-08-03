@@ -4,15 +4,10 @@ package dfs_search.leet_code_79;
  * @author : dev
  * @version :
  * @Date :  6/10/21 11:54 PM
- * @Desc :
- * <p>
- * <p>
- * <p>
+ * @Desc : 79. 单词搜索 : https://leetcode.cn/problems/word-search/
  * 题解：https://leetcode-cn.com/problems/word-search/solution/zai-er-wei-ping-mian-shang-shi-yong-hui-su-fa-pyth/
  */
 public class Exist {
-
-
     public boolean exist(char[][] board, String word) {
         int rows = board.length;
         if (rows == 0) {
@@ -46,6 +41,7 @@ public class Exist {
                 {0, 1},
                 {1, 0}
         };
+
         if (board[i][j] == word.charAt(depth)) {
             visited[i][j] = true;
             // 四个方向不断的探索
