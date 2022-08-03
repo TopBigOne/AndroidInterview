@@ -41,8 +41,10 @@ public class MaxAreaOfIsland {
 
 
         if (grid[row][col] != 1) {
+            // 白加
             return 0;
         }
+        // 表示遍历过
         grid[row][col] = 2;
 
         return 1
