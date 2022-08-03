@@ -11,6 +11,7 @@ import linked_list.ListNode;
  * @Desc :
  * @Counter :
  * @Answer :https://leetcode-cn.com/problems/reverse-linked-list-ii/solution/java-shuang-zhi-zhen-tou-cha-fa-by-mu-yi-cheng-zho/
+ * 视频：https://www.youtube.com/watch?v=ecZ-_NqWRBo
  */
 public class ReverseBetween5 {
     public ListNode reverseBetween(ListNode head, int m, int n) {
@@ -197,24 +198,90 @@ public class ReverseBetween5 {
         return dummy.next;
     }
 
+    /**
+     * 1-2- 3-4-5-6-7  -8-9
+     * 反转：3-4-5-6-7
+     *
+     * @param head
+     * @param m
+     * @param n
+     * @return
+     */
     public ListNode reverseBetween10(ListNode head, int m, int n) {
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
         ListNode pre = dummy;
         ListNode curr = pre.next;
+        // 找到left 节点
         for (int i = 0; i < m - 1; i++) {
             pre = pre.next;
             curr = curr.next;
         }
+        // 开始做反转操作
         for (int i = 0; i < n - m; i++) {
+            ListNode temp = curr.next;
+            curr.next = curr.next.next;
+
+            temp.next = pre.next;
+            pre.next = temp;
+
+        }
+        return dummy.next;
+
+
+    }
+
+    public ListNode reverseBetween11(ListNode head, int left, int right) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        for (int i = 0; i < left - 1; i++) {
+            pre = pre.next;
+
+        }
+        ListNode curr = pre.next;
+        for (int i = 0; i < right - left; i++) {
             ListNode removeNode = curr.next;
             curr.next = curr.next.next;
             removeNode.next = pre.next;
             pre.next = removeNode;
         }
-
         return dummy.next;
+    }
 
+    public ListNode reverseBetween12(ListNode head, int left, int right) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        for (int i = 0; i < left-1; i++) {
+            pre = pre.next;
+        }
+        ListNode curr = pre.next;
+        for (int i = 0; i < right-left; i++) {
+            ListNode removeNode = curr.next;
+            curr.next  = curr.next.next;
+            removeNode.next = pre.next;
+            pre.next = removeNode;
+        }
+        return dummy.next;
+    }
+
+    public ListNode reverseBetween13(ListNode head, int left, int right) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        for (int i = 0; i < left-1; i++) {
+            pre = pre.next;
+        }
+        ListNode curr = pre.next;
+        for (int i = 0; i < right-left; i++) {
+            ListNode removeNode = curr.next;
+            curr.next = curr.next.next;
+            removeNode.next = pre.next;
+            pre.next = removeNode;
+
+        }
+        return dummy.next;
 
     }
 

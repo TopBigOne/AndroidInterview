@@ -198,9 +198,11 @@ public class ReorderList {
         if (head == null || head.next == null || head.next.next == null) {
             return;
         }
+
         ListNode fast = head;
         ListNode slow = head;
-        while (fast.next != null && fast.next.next != null) {
+        //  while (fast.next != null && fast.next.next != null) {
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
@@ -209,15 +211,22 @@ public class ReorderList {
         slow.next = null;
         // 第二个链表倒置
         newHead = doReverse(newHead);
+
         int b = 10;
         while (newHead != null) {
             ListNode temp = newHead.next;
+
             newHead.next = head.next;
             head.next = newHead;
+
+            // 后移一位，便于下次连接其他节点
             head = newHead.next;
+
             newHead = temp;
         }
         int a = 10;
+
+
     }
 
 
@@ -252,7 +261,7 @@ public class ReorderList {
         }
         ListNode fast = head;
         ListNode slow = head;
-        while (fast.next != null && fast.next.next != null) {
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
@@ -271,6 +280,33 @@ public class ReorderList {
             newHead = temp;
         }
 
+
+    }
+
+    public void reorderList9(ListNode head) {
+        if (head == null || head.next == null || head.next.next == null) {
+            return;
+        }
+
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        ListNode newHead = slow.next;
+        slow.next = null;
+
+        newHead = doReverse(newHead);
+
+        while (newHead != null) {
+            ListNode temp = newHead.next;
+            newHead.next = head.next;
+            head.next = newHead;
+            head = newHead.next;
+            newHead = temp;
+        }
 
     }
 

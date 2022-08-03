@@ -36,10 +36,12 @@ public class ReorderList4 extends BaseOperation {
             ListNode temp = newHead.next;
             // 连接
             newHead.next = head.next;
+
             head.next = newHead;
 
             //交换
             head = newHead.next;
+
             newHead = temp;
         }
     }

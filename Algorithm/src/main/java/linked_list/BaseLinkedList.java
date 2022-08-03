@@ -21,4 +21,23 @@ public class BaseLinkedList {
         }
         return dummy.next;
     }
+
+    public static void printlnListNode(ListNode head) {
+        if (head == null) {
+            return;
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        while (head != null) {
+            stringBuilder.append(head.val).append("->");
+            head = head.next;
+        }
+        String string = stringBuilder.substring(0, stringBuilder.length() - 2);
+
+        System.err.println(string);
+
+    }
+
+
+
+
 }

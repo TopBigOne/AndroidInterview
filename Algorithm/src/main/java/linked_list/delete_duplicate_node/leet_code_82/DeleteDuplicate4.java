@@ -23,115 +23,55 @@ public class DeleteDuplicate4 {
         head.next.next.next.next.next = new ListNode(4);
         head.next.next.next.next.next.next = new ListNode(5);
         DeleteDuplicate4 deleteDuplicate = new DeleteDuplicate4();
-        deleteDuplicate.deleteDuplicates3(head);
-
+        deleteDuplicate.deleteDuplicates(head);
     }
 
     public ListNode deleteDuplicates(ListNode head) {
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
         ListNode pre = dummy;
-        ListNode curr = pre.next;
-
-        if (head == null || head.next == null) {
-            return head;
-        }
+        ListNode curr = head;
         while (curr != null) {
-            while (curr.next != null && curr.next.val == curr.val) {
-                pre = pre.next;
+            while (curr.next != null && curr.val == curr.next.val) {
+                curr = curr.next;
             }
-            if (curr == pre.next) {
+            if (pre.next == curr) {
                 pre = pre.next;
             } else {
                 pre.next = curr.next;
             }
-
             curr = curr.next;
         }
         return dummy.next;
     }
 
     public ListNode deleteDuplicates2(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
         ListNode pre = dummy;
-        ListNode curr = pre.next;
-
+        ListNode curr = head;
         while (curr != null) {
-            while (curr.next != null && curr.next.val == curr.val) {
+            while (curr.next != null && curr.val == curr.next.val) {
                 curr = curr.next;
             }
-
             if (pre.next == curr) {
                 pre = pre.next;
+
             } else {
                 pre.next = curr.next;
             }
             curr = curr.next;
         }
+
         return dummy.next;
+
     }
 
     public ListNode deleteDuplicates3(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
-
-        ListNode pre = dummy;
-        ListNode curr = pre.next;
-        while (curr != null) {
-            while (curr.next != null && curr.val == curr.next.val) {
-                curr = curr.next;
-            }
-
-            // 前一个节点的下一个节点，与当前节点相等，前一个节点，就向后移动！
-            if (pre.next == curr) {
-                pre = pre.next;
-            } else {
-                // 断开重复的节点
-                pre.next = curr.next;
-            }
-
-            curr = curr.next;
-        }
-        return dummy.next;
-    }
-
-    public ListNode deleteDuplicates5(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
         ListNode pre = dummy;
-        ListNode curr = pre.next;
-        while (curr != null) {
-            while (curr.next != null && curr.val == curr.next.val) {
-                curr = curr.next;
-            }
-            if (pre.next == curr) {
-                pre = pre.next;
-            } else {
-                pre.next = curr.next;
-            }
-
-            curr = curr.next;
-        }
-
-        return dummy.next;
-    }
-
-    public ListNode deleteDuplicates6(ListNode head) {
-
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
-        ListNode pre = dummy;
-        ListNode curr = pre.next;
+        ListNode curr = head;
         while (curr != null) {
             while (curr.next != null && curr.val == curr.next.val) {
                 curr = curr.next;
@@ -143,6 +83,10 @@ public class DeleteDuplicate4 {
             }
             curr = curr.next;
         }
+
         return dummy.next;
+
     }
+
+
 }
