@@ -1,4 +1,4 @@
-package array.offer_03;
+package array.drawer.offer_03;
 
 import java.util.Arrays;
 

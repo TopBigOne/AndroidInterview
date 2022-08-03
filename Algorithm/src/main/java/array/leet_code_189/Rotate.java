@@ -2,6 +2,8 @@ package array.leet_code_189;
 
 import java.util.Arrays;
 
+import array.BaseFun;
+
 /**
  * @author :  dev
  * @version :
@@ -12,14 +14,13 @@ import java.util.Arrays;
  * @Counter :
  * @Answer : https://leetcode-cn.com/problems/rotate-array/solution/shu-zu-fan-zhuan-xuan-zhuan-shu-zu-by-de-5937/
  */
-public class Rotate {
+public class Rotate extends BaseFun {
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5, 6, 7};
-        int k = 3;
+        int[] nums = generateArray(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        int k = 100;
         Rotate rotate = new Rotate();
-        rotate.rotate2(nums, k);
-        System.out.println("result: " + Arrays.toString(nums));
-
+        rotate.rotate(nums, k);
+        System.err.println("result: " + Arrays.toString(nums));
 
     }
 
@@ -28,8 +29,13 @@ public class Rotate {
         k = k % length;
         System.out.println("K : " + k);
         reverse(nums, 0, length - 1);
+        System.out.println("step 1 : " + Arrays.toString(nums));
+
         reverse(nums, 0, k - 1);
+        System.out.println("step 2 : " + Arrays.toString(nums));
+
         reverse(nums, k, length - 1);
+        System.out.println("step 3 : " + Arrays.toString(nums));
     }
 
     private void reverse(int[] nums, int start, int end) {
@@ -44,10 +50,10 @@ public class Rotate {
 
     public void rotate2(int[] nums, int k) {
         int length = nums.length;
-        k %=length;
-        reverse(nums,0,length-1);
-        reverse(nums,0,k-1);
-        reverse(nums,k,length-1);
+        k %= length;
+        reverse(nums, 0, length - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, length - 1);
 
 
     }
