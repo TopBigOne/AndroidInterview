@@ -4,9 +4,9 @@ package dp.count.leet_code_62;
  * @author : dev
  * @version :
  * @Date :  1/17/21 1:24 AM
- * @Desc : 计数型的动态规划--唯一路径
+ * @Desc : 62： 唯一路径 https://leetcode-cn.com/problems/unique-paths/
  * <p>
- * https://leetcode-cn.com/problems/unique-paths/
+ *
  * 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
  * <p>
  * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
