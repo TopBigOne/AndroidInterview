@@ -4,7 +4,7 @@ package string.leet_code_14;
  * @author : dev
  * @version :
  * @Date :  2021/5/26 20:19
- * @Desc :
+ * @Desc :  14. 最长公共前缀 ：https://leetcode.cn/problems/longest-common-prefix/
  * <p>
  * 题解：
  * 视频：https://www.bilibili.com/video/BV1my4y1B7V6?from=search&seid=8531705894344549116
@@ -85,7 +85,7 @@ public class LongestCommonPrefix {
             String currStr = strs[i];
             max = Math.min(currStr.length() - 1, max);
             // 以max大小为范围，进行遍历
-            for (int j = 0; j <=max; j++) {
+            for (int j = 0; j <= max; j++) {
                 if (currStr.charAt(j) != firstStr.charAt(j)) {
                     if (j == 0) {
                         return "";
