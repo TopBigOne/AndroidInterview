@@ -29,6 +29,7 @@ public class WidthOfBinaryTree {
             return;
         }
 
+        // 对于每一个深度，第一个遇到的节点是最左边的节点，最后一个到达的节点是最右边的节点。
         left.computeIfAbsent(depth, x -> pos);
 
         ans = Math.max(ans, pos - left.get(depth) + 1);
