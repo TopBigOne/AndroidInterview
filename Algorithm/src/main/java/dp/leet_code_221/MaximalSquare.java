@@ -4,7 +4,7 @@ package dp.leet_code_221;
  * @author :  dev
  * @version :
  * @Date :   2021/7/28 18:40
- * @Url :    https://leetcode-cn.com/problems/maximal-square/
+ * @Url :    leetcode-221:最大正方形 ：https://leetcode-cn.com/problems/maximal-square/
  * @Level :    medium
  * @Desc :   leetcode-221:最大正方形在一个由 '0' 和 '1' 组成的二维矩阵内，找到只包含 '1' 的最大正方形，并返回其面积。
  * @Counter :  9
@@ -37,7 +37,6 @@ public class MaximalSquare {
 //              dp[row + 1][col + 1] = Math.min(Math.min(dp[row + 1][col], dp[row][col + 1]), dp[row][col]) + 1;
 
                     dp[col + 1] = Math.min(Math.min(dp[col], dp[col + 1]), northwest) + 1;
-
 //              maxSide = Math.max(maxSide, dp[row + 1][col + 1]);
                     maxSide = Math.max(maxSide, dp[col + 1]);
                 } else {
@@ -82,14 +81,14 @@ public class MaximalSquare {
         int height = 0;
         int width = 0;
         // 1: base corner
-        if (matrix == null || (height = matrix.length) < 1 || (width = matrix[0].length) < 1) return 0;
+        if (matrix == null || (height = matrix.length) < 1 || (width = matrix[0].length) < 1)
+            return 0;
 
         int maxSide = 0;
         int[] dp = new int[width + 1];
         // 西北角：左上角
         int northWest = 0;
         // 行遍历：一行一行的遍历，第一层遍历得到是chars[] 数组
-
 
 
         for (char[] chars : matrix) {
@@ -100,7 +99,7 @@ public class MaximalSquare {
                 // 当前字符
                 char currChar = chars[col];
                 if (currChar == '1') {
-                    dp[col + 1] = Math.min(Math.min(dp[col], dp[col + 1]),northWest)+1;
+                    dp[col + 1] = Math.min(Math.min(dp[col], dp[col + 1]), northWest) + 1;
                     maxSide = Math.max(maxSide, dp[col + 1]);
                 } else {
                     dp[col + 1] = 0;
