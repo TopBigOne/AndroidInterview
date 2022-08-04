@@ -22,13 +22,28 @@ public class MaxProfit {
     public int maxProfit(int[] prices) {
         int profit = 0;
         for (int i = 1; i < prices.length; i++) {
+
             int todayPrice = prices[i];
             int yesterdayPrice = prices[i - 1];
+
             // 如果今天的价格大于昨天的价格，那么就在：昨天买，今天卖；
             if (todayPrice > yesterdayPrice) {
                 profit += todayPrice - yesterdayPrice;
             }
         }
+        return profit;
+    }
+
+    public int maxProfit2(int[] prices) {
+        int profit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            int yesterdayPrice = prices[i - 1];
+            int todayPrice = prices[i];
+            if (todayPrice > yesterdayPrice) {
+                profit += todayPrice - yesterdayPrice;
+            }
+        }
+
         return profit;
     }
 }

@@ -1,4 +1,4 @@
-package dp.offer_63;
+package dp.stock_problems.offer_63;
 
 import java.util.Arrays;
 
