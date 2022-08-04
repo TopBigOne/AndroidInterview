@@ -29,7 +29,6 @@ public class SortArray2 extends BaseOperation {
         int pIndex = partition(nums, left, right);
         quickSort(nums, left, pIndex - 1);
         quickSort(nums, pIndex + 1, right);
-
     }
 
     private void insertSort(int[] nums, int left, int right) {
@@ -92,21 +91,39 @@ public class SortArray2 extends BaseOperation {
         return lt;
 
     }
+
     private int partition4(int[] nums, int left, int right) {
-        int randomIndex =random.nextInt(right-left +1)+left;
-        swap(nums,left,randomIndex);
+        int randomIndex = random.nextInt(right - left + 1) + left;
+        swap(nums, left, randomIndex);
         int pivot = nums[left];
         int lt = left;
-        for (int i = left+1; i <= right; i++) {
-            if(nums[left]<nums[pivot]){
+        for (int i = left + 1; i <= right; i++) {
+            if (nums[left] < nums[pivot]) {
                 lt++;
-                swap(nums,i,lt);
+                swap(nums, i, lt);
             }
 
         }
-        swap(nums,left,lt);
+        swap(nums, left, lt);
 
         return lt;
+    }
+
+
+    private int partition5(int[] nums, int left, int right) {
+        int randomIndex = random.nextInt(right - left + 1) + left;
+        swap(nums, left, randomIndex);
+        int pivot = nums[left];
+        int lt = left;
+        for (int i = left + 1; i <= right; i++) {
+            if (nums[i] < pivot) {
+                lt++;
+                swap(nums, i, lt);
+            }
+        }
+        swap(nums, left, lt);
+        return lt;
+
     }
 
 
