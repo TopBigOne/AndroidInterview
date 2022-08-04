@@ -114,6 +114,39 @@ public class FindMin extends Base {
         }
         return left;
 
+    }
+
+    // 456 7 123
+    public int findMin7(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = (right + left) >>> 1;
+            if (nums[mid] > nums[right]) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        return nums[left];
+
+    }
+
+    // 456 7 123
+    public int findMin8(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = (right + left) >>> 1;
+            if(nums[mid]>nums[right]){
+                left = mid+1;
+            }else {
+                right = mid;
+            }
+
+        }
+        return nums[left];
+
 
     }
 }
