@@ -4,8 +4,8 @@ package dp.stock_problems.leet_code_121;
  * @author :  dev
  * @version :
  * @Date :  2021/4/27 10:58
- * @Url : https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/submissions/
- * @Level : easy medium hard
+ * @Url :  121-买卖股票的最佳时机 https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/submissions/
+ * @Level : easy
  * @Desc :121-买卖股票的最佳时机
  * @Counter : 28
  * @Answer :
@@ -100,9 +100,9 @@ public class MaxProfit {
         int maxProfit = 0;
         // 2: 找到股票的最低价格
         int minPrice = Integer.MAX_VALUE;
-        for (int price : prices) {
-            minPrice = Math.min(minPrice, price);
-            maxProfit = Math.max(maxProfit, price - minPrice);
+        for (int currPrice : prices) {
+            minPrice = Math.min(minPrice, currPrice);
+            maxProfit = Math.max(maxProfit, currPrice - minPrice);
         }
         return maxProfit;
     }
