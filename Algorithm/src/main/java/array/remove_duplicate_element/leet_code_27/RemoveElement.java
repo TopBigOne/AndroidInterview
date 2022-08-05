@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author :  dev
  * @version :
  * @Date :   2021/8/2 11:01
- * @Url :https://leetcode-cn.com/problems/remove-element/
+ * @Url : https://leetcode-cn.com/problems/remove-element/
  * @Level :  easy
  * @Desc :
  * @Counter :
