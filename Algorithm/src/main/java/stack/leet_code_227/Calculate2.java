@@ -28,6 +28,7 @@ public class Calculate2 {
     public int calculate(String s) {
         // 将所有的空格去掉
         s = s.replaceAll(" ", "");
+
         char[] cs = s.toCharArray();
         int n = s.length();
         // 存放所有的数字
@@ -42,6 +43,7 @@ public class Calculate2 {
                 ops.addLast(c);
                 continue;
             }
+
             if (c == ')') {
                 // 计算到最近一个左括号为止
                 while (!ops.isEmpty()) {
