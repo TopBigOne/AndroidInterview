@@ -8,22 +8,26 @@ import java.util.List;
 /**
  * @author : dev
  * @version :
- * @Date :  2022/7/27 21:59
- * @Desc :leet code 93:复原IP地址 字节：10 次；https://leetcode-cn.com/problems/restore-ip-addresses/
+ * @Date :  2022/8/5 19:18
+ * @Desc :
  */
-public class RestoreIpAddresses5 {
+public class RestoreIpAddresses7 {
+    public static void main(String[] args) {
+        String s = "25525511135";
+        RestoreIpAddresses7 restoreIpAddresses = new RestoreIpAddresses7();
+        List<String> result = restoreIpAddresses.restoreIpAddresses(s);
+        System.err.println("result :" + result);
+    }
 
     public List<String> restoreIpAddresses(String s) {
-        int len = s.length();
+        int len;
         List<String> res = new ArrayList<>();
-        if (len < 4 || len > 12) {
+        if (s == null || (len = s.length()) == 0 || len < 4 || len > 12) {
             return res;
         }
         Deque<String> path = new ArrayDeque<>();
-
         dfs(s, len, 0, 4, path, res);
         return res;
-
     }
 
     private void dfs(String s, int len, int begin, int reside, Deque<String> path, List<String> res) {
@@ -34,11 +38,9 @@ public class RestoreIpAddresses5 {
             return;
         }
         for (int i = begin; i < begin + 3; i++) {
-
             if (i >= len) {
                 break;
             }
-            // 分段所需长度 和 字符串剩余长度
             if (reside * 3 < len - i) {
                 continue;
             }
@@ -47,24 +49,23 @@ public class RestoreIpAddresses5 {
                 dfs(s, len, i + 1, reside - 1, path, res);
                 path.removeLast();
             }
+
         }
 
     }
 
-    private boolean judgeIpSegment(String s, int left, int right) {
-        int len = right - left + 1;
-        // 大于 1 位的时候，不能以 0 开头
-        if (len > 1 && s.charAt(left) == '0') {
+    private boolean judgeIpSegment(String s, int start, int end) {
+        int len = end - start + 1;
+        if (len > 1 && s.charAt(start) == '0') {
             return false;
         }
         int res = 0;
-        while (left <= right) {
-
-            res = res * 10 + s.charAt(left) - '0';
-
-            left++;
+        while (start <= end) {
+            res = res * 10 + s.charAt(start) - '0';
+            start++;
         }
         return res >= 0 && res <= 255;
     }
+
 
 }

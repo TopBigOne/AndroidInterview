@@ -8,19 +8,18 @@ import java.util.List;
 /**
  * @author : dev
  * @version :
- * @Date :  2022/7/27 21:59
- * @Desc :leet code 93:复原IP地址 字节：10 次；https://leetcode-cn.com/problems/restore-ip-addresses/
+ * @Date :  2022/8/5 19:51
+ * @Desc :
  */
-public class RestoreIpAddresses5 {
+public class RestoreIpAddresses8 {
 
     public List<String> restoreIpAddresses(String s) {
-        int len = s.length();
         List<String> res = new ArrayList<>();
-        if (len < 4 || len > 12) {
+        int len = 0;
+        if (s == null || (len = s.length()) == 0 || len < 4 || len > 12) {
             return res;
         }
         Deque<String> path = new ArrayDeque<>();
-
         dfs(s, len, 0, 4, path, res);
         return res;
 
@@ -34,11 +33,9 @@ public class RestoreIpAddresses5 {
             return;
         }
         for (int i = begin; i < begin + 3; i++) {
-
             if (i >= len) {
                 break;
             }
-            // 分段所需长度 和 字符串剩余长度
             if (reside * 3 < len - i) {
                 continue;
             }
@@ -48,23 +45,20 @@ public class RestoreIpAddresses5 {
                 path.removeLast();
             }
         }
-
     }
 
-    private boolean judgeIpSegment(String s, int left, int right) {
-        int len = right - left + 1;
-        // 大于 1 位的时候，不能以 0 开头
-        if (len > 1 && s.charAt(left) == '0') {
+    private boolean judgeIpSegment(String s, int start, int end) {
+        int len = end - start + 1;
+        if (len > 1 && s.charAt(start) == '0') {
             return false;
         }
         int res = 0;
-        while (left <= right) {
-
-            res = res * 10 + s.charAt(left) - '0';
-
-            left++;
+        while (start <= end) {
+            res = res * 10 + s.charAt(start) - '0';
+            start++;
         }
         return res >= 0 && res <= 255;
     }
+
 
 }
