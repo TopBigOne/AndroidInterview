@@ -8,7 +8,7 @@ import java.util.HashSet;
  * @Date :   2021/12/12 20:55
  * @Url :
  * @Level :     medium
- * @Desc :287. 寻找重复数
+ * @Desc : 287. 寻找重复数 https://leetcode-cn.com/problems/find-the-duplicate-number/solution/er-fen-fa-si-lu-ji-dai-ma-python-by-liweiwei1419/
  * @Counter :
  * @Answer :https://leetcode-cn.com/problems/find-the-duplicate-number/solution/er-fen-fa-si-lu-ji-dai-ma-python-by-liweiwei1419/
  *
