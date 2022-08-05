@@ -4,7 +4,7 @@ package dp.leet_code_152;
  * @author : dev
  * @version :
  * @Date :  2022/8/5 11:21
- * @Desc :
+ * @Desc : 152 : 乘积最大子数组 https://leetcode-cn.com/problems/maximum-product-subarray/submissions/
  */
 public class MaxProduct2 {
 
@@ -44,6 +44,22 @@ public class MaxProduct2 {
         }
 
         return res;
+    }
+
+    public int maxProduct3(int[] nums) {
+        int max = nums[0];
+        int min = nums[0];
+        int res = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            int currValue = nums[i];
+            int temp = max;
+            max = Math.max(Math.max(max * currValue, min * currValue), currValue);
+            min = Math.min(Math.min(max * currValue, min * currValue), currValue);
+            res = Math.max(res, max);
+        }
+        return res;
+
     }
 
 
