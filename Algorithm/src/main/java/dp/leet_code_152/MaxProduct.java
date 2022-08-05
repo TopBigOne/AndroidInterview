@@ -4,7 +4,7 @@ package dp.leet_code_152;
  * @author :  dev
  * @version :
  * @Date :  2021/6/28 19:52
- * @Url : https://leetcode-cn.com/problems/maximum-product-subarray/submissions/
+ * @Url : 152 : 乘积最大子数组 https://leetcode-cn.com/problems/maximum-product-subarray/submissions/
  * @Level :  medium
  * @Desc : 乘积最大子数组
  * @Counter :10
@@ -55,9 +55,10 @@ public class MaxProduct {
             return 0;
         }
 
-        int max = Integer.MIN_VALUE;
+        int resultMax = Integer.MIN_VALUE;
         int iMax = 1;
         int iMin = 1;
+
         for (int i = 0; i < len; i++) {
             System.out.println("|------------------------------------|");
             int curr = nums[i];
@@ -73,8 +74,8 @@ public class MaxProduct {
             String explain = "    当与" + curr + "相乘后，最大值：" + iMax + " ; 最小值：" + iMin;
             System.out.println(explain);
 
-            max = Math.max(max, iMax);
+            resultMax = Math.max(resultMax, iMax);
         }
-        return max;
+        return resultMax;
     }
 }
