@@ -20,4 +20,9 @@ public class Node {
         this.next = null;
         this.random = null;
     }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
