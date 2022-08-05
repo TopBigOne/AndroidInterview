@@ -6,7 +6,8 @@ import java.util.Arrays;
  * @author : dev
  * @version :
  * @Date :  2022/5/25 19:23
- * @Desc :
+ * @Desc : 80. 删除有序数组中的重复项 II : https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii/
+ * 使得出现次数超过两次的元素只出现两次 ，返回删除后数组的新长度。
  * <p>
  * https://leetcode.cn/problems/two-sum/solution/suo-you-ti-jie-de-mu-lu-lian-jie-si-wei-ecnoo/
  */
@@ -30,7 +31,7 @@ public class RemoveDuplicate {
         }
 
         System.out.println("我期望的数组：" + Arrays.toString(nums));
-        System.out.println("我期望的数组的长度：" +nums.length);
+        System.out.println("我期望的数组的长度：" + nums.length);
 
         // From index 0 to slow-1, 每个元素都不相等；
         return slow;
