@@ -7,21 +7,14 @@ import tree.TreeNode;
 /**
  * @author : dev
  * @version :
- * @Date :  2/14/21 9:10 PM
- * @Desc :通过 前序遍历 的方式实现 二叉树的 序列化与反序列化（https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/）
+ * @Date :  2022/8/6 13:50
+ * @Desc :
  */
-public class CodecByPre1 {
+public class CodecByPre10 {
 
+    public static final String EMPTYNODE = "#";
+    public static final String DOT = ",";
 
-    public static final String emptyNode = "#";
-    public static final String dot = ",";
-
-    /**
-     * 把一棵二叉树序列化成字符串
-     *
-     * @param root
-     * @return
-     */
     public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         serialize(root, sb);
@@ -30,49 +23,32 @@ public class CodecByPre1 {
 
     private void serialize(TreeNode root, StringBuilder sb) {
         if (root == null) {
-            sb.append(emptyNode).append(dot);
+            sb.append(EMPTYNODE).append(DOT);
             return;
         }
-        // 前序遍历位置 -- start
-        sb.append(root.val).append(dot);
-        // 前序遍历位置 -- end
-
+        sb.append(root.val).append(DOT);
         serialize(root.left, sb);
         serialize(root.right, sb);
     }
 
-    /**
-     * 把字符串反序列化成二叉树
-     *
-     * @param data
-     * @return
-     */
+
     public TreeNode deserialize(String data) {
         LinkedList<String> nodes = new LinkedList<>();
-        for (String s : data.split(dot)) {
-            // 尾插法
+        for (String s : data.split(DOT)) {
             nodes.addLast(s);
         }
         return deserialize(nodes);
     }
 
-    /**
-     * 辅助函数，通过 nodes 到列表构造二叉树
-     *
-     * @param nodes
-     * @return
-     */
     private TreeNode deserialize(LinkedList<String> nodes) {
         if (nodes.isEmpty()) {
             return null;
         }
-        // 前序遍历位置----start
         String first = nodes.removeFirst();
-        if (first.equals(emptyNode)) {
+        if (first.equals(EMPTYNODE)) {
             return null;
         }
         TreeNode root = new TreeNode(Integer.parseInt(first));
-        // 前序遍历位置----end
         root.left = deserialize(nodes);
         root.right = deserialize(nodes);
         return root;
