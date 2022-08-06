@@ -5,26 +5,22 @@ import tree.Node;
 /**
  * @author : dev
  * @version :
- * @Date :  8/4/21 1:08 AM
- * @Desc : 剑指 Offer 36. 二叉搜索树与双向链表
+ * @Date :  2022/8/6 23:31
+ * @Desc :
  */
-public class TreeToDoublyList2 {
+public class TreeToDoublyList4 {
 
-
-    private Node pre;
-    private Node head;
+    Node head = null;
+    Node tail = null;
 
     public Node treeToDoublyList(Node root) {
         if (root == null) {
             return null;
         }
-
         dfs(root);
-        head.left = pre;
-        pre.right = head;
-
+        head.left = tail;
+        tail.right = head;
         return head;
-
     }
 
     private void dfs(Node curr) {
@@ -32,15 +28,13 @@ public class TreeToDoublyList2 {
             return;
         }
         dfs(curr.left);
-
-        if (pre == null) {
+        if (tail == null) {
             head = curr;
         } else {
-            pre.right = curr;
+            tail.right = curr;
         }
-
-        curr.left = pre;
-        pre = curr;
+        curr.left = tail;
+        tail = curr;
 
         dfs(curr.right);
     }

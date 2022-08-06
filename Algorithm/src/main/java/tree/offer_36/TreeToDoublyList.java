@@ -23,8 +23,8 @@ public class TreeToDoublyList {
 
     }
 
-    private Node pre;
-    private Node head;
+    private Node tail = null;
+    private Node head = null;
 
     public Node treeToDoublyList(Node root) {
         if (root == null) {
@@ -33,8 +33,8 @@ public class TreeToDoublyList {
         dfs(root);
 
         // 首尾串起来
-        head.left = pre;
-        pre.right = head;
+        head.left = tail;
+        tail.right = head;
         return head;
     }
 
@@ -45,41 +45,38 @@ public class TreeToDoublyList {
 
         dfs(cur.left);
 
-        if (pre == null) {
+        if (tail == null) {
             head = cur;
-
         } else {
-            pre.right = cur;
+            tail.right = cur;
         }
 
-        cur.left = pre;
-        // pre 右移一位.
-        pre = cur;
+        cur.left = tail;
+        // tail 右移一位.
+        tail = cur;
 
         dfs(cur.right);
     }
 
 
     private void dfs2(Node cur) {
-        if(cur==null){
+        if (cur == null) {
             return;
         }
 
         dfs2(cur.left);
 
-        if(pre==null){
+        if (tail == null) {
             head = cur;
+        } else {
+            tail.right = cur;
         }
-        else {
-            pre.right=cur;
-        }
-        cur.left = pre;
-        pre = cur;
+        cur.left = tail;
+        tail = cur;
         dfs2(cur.right);
 
 
     }
-
 
 
 }
