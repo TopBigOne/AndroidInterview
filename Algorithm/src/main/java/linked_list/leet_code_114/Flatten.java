@@ -84,16 +84,16 @@ public class Flatten {
         }
     }
 
-    public void flatten4(TreeNode root){
-        while(root!=null){
-            if(root.left==null){
+    public void flatten4(TreeNode root) {
+        while (root != null) {
+            if (root.left == null) {
                 root = root.right;
                 continue;
             }
 
             // 左子树中，最右边的那个节点
             TreeNode pre = root.left;
-            while (pre.right!=null){
+            while (pre.right != null) {
                 pre = pre.right;
             }
 
