@@ -7,7 +7,7 @@ import java.util.Map;
  * @author :  dev
  * @version :
  * @Date :   2021/12/23 21:31
- * @Url : https://leetcode-cn.com/problems/single-number/solution/
+ * @Url : 136. 只出现一次的数字 https://leetcode-cn.com/problems/single-number/solution/
  * @Level :  easy
  * @Desc :
  * @Counter : 12
@@ -65,5 +65,19 @@ public class SingleNumber {
             res = res ^ nums[i];
         }
         return res;
+    }
+
+    public int singleNumber4(int[] nums) {
+        int len = nums.length;
+        int res = nums[0];
+        if(len<=1){
+            return res;
+        }
+        for (int i = 1; i < len; i++) {
+            res = res^nums[i];
+        }
+
+        return res;
+
     }
 }
