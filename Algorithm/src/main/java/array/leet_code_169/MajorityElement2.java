@@ -32,6 +32,7 @@ public class MajorityElement2 {
             if (count == 0) {
                 res = num;
             }
+
             if (res != num) {
                 count--;
             } else {
