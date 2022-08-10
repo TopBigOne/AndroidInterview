@@ -9,7 +9,7 @@ import java.util.List;
  * @Date :   2021/10/26 00:15
  * @Url : https://leetcode-cn.com/problems/word-break/
  * @Level :    medium
- * @Desc :  给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。
+ * @Desc :  给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定s 是否可以被空格拆分为一个或多个在字典中出现的单词。
  * <p>
  * 说明：
  * <p>
@@ -18,7 +18,14 @@ import java.util.List;
  * @Counter :  13
  * @Answer : https://leetcode-cn.com/problems/word-break/solution/dong-tai-gui-hua-ji-yi-hua-hui-su-zhu-xing-jie-shi/
  */
-public class WordBreak {
+public class WordBreak extends Base {
+    public static void main(String[] args) {
+        WordBreak wordBreak = new WordBreak();
+        String s = "leetcode";
+        boolean result = wordBreak.wordBreak(s, wordBreak.listOne());
+        System.err.println("result : " + result);
+    }
+
     public boolean wordBreak(String s, List<String> wordDict) {
         int len = s.length();
         boolean[] dp = new boolean[len + 1];
@@ -35,9 +42,14 @@ public class WordBreak {
             // (这个子串的长度和当前循环的word相等，即：s[i-1:j]),如果这个子串恰好与当前word相同
             // 那么子串s[0:j]也都是能拆分的，重复以上过程
             for (String word : wordDict) {
-                int j = i - 1 + word.length();
+
+                int wordLength = word.length();
+                int j = i - 1 + wordLength;
+
+                String subWord = s.substring(i - 1, wordLength);
+                System.err.println("subWord : " + subWord);
                 // 指针j不能越界，
-                if (j <= len && s.substring(i - 1, word.length()).equals(word)) {
+                if (j <= len && subWord.equals(word)) {
                     dp[j] = true;
                 }
             }
