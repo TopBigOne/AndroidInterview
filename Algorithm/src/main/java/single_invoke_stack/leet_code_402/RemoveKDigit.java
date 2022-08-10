@@ -9,26 +9,34 @@ package single_invoke_stack.leet_code_402;
  * https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/
  */
 public class RemoveKDigit {
+    public static void main(String[] args) {
+        String num = "1432219";
+        int k = 3;
+        RemoveKDigit removeKDigit = new RemoveKDigit();
+        String result = removeKDigit.removeKdigits(num, 3);
+        System.err.println("result : " + result);
+
+    }
+
     public String removeKdigits(String num, int k) {
-        StringBuilder res = new StringBuilder();
+        StringBuilder stack = new StringBuilder();
         int length = num.length();
-        int m = length - k;
+        int remain = length - k;
+        int stackLen;
         for (char c : num.toCharArray()) {
-            while (k != 0
-                    && res.length() != 0
-                    && res.charAt(res.length() - 1) > c) {
-                res.deleteCharAt(res.length() - 1);
-                --k;
+            while (k != 0 && (stackLen = stack.length()) != 0 && stack.charAt(stackLen - 1) > c) {
+                stack.deleteCharAt(stackLen - 1);
+                k--;
             }
-            res.append(c);
+            stack.append(c);
         }
 
-        res.delete(m, res.length());
+        stack.delete(remain, stack.length());
         // 去掉向导 0
-        while (res.length() != 0 && res.charAt(0) == '0') {
-            res.deleteCharAt(0);
+        while ((stackLen = stack.length()) != 0 && stack.charAt(0) == '0') {
+            stack.deleteCharAt(0);
         }
-        return res.length() == 0 ? "0" : res.toString();
+        return stackLen == 0 ? "0" : stack.toString();
 
     }
 
@@ -261,7 +269,7 @@ public class RemoveKDigit {
         StringBuilder res = new StringBuilder();
         int resLength;
         for (char c : num.toCharArray()) {
-            while (k != 0 && (resLength = res.length())!= 0 &&
+            while (k != 0 && (resLength = res.length()) != 0 &&
                     res.charAt(resLength - 1) > c) {
                 res.deleteCharAt(resLength - 1);
                 k--;
