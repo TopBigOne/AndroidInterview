@@ -7,21 +7,24 @@ import java.util.Stack;
  * @version :
  * @Date :  11/13/21 7:54 PM
  * @Desc :  基本计算器： https://leetcode-cn.com/problems/basic-calculator/submissions/
- *
+ * <p>
  * 题解：https://leetcode-cn.com/problems/basic-calculator/solution/shuang-zhan-shuang-90-by-cyingenohalt-eoy3/
  */
 public class Calculate2 {
-    char SYMBOL_ADD = '+';
-    char SYMBOL_SUB = '-';
-    char C_NINE = '9';
-    char C_ZERO = '0';
-    char C_EMPTY = ' ';
-    char BRACKRT_LEFT = '(';
-    char BRACKET_RIGHT = ')';
+    public static void main(String[] args) {
+        String s = "2147483647";
+        Calculate2 calculate = new Calculate2() ;
+        int result = calculate.calculate(s);
+        System.err.println("result : "+result);
+
+
+    }
 
     public int calculate(String s) {
+        s = s.replace(" ", "");
         int ans = 0;
         char[] strs = s.toCharArray();
+
         int len = strs.length;
         Stack<Integer> stNums = new Stack<>();
         Stack<Integer> stSigns = new Stack<>();
@@ -30,40 +33,39 @@ public class Calculate2 {
         int sign = 1;
         for (int i = 0; i < len; i++) {
             char curChar = strs[i];
-            // if the current char is null, continue the loop;
-            if (curChar == C_EMPTY) {
-                continue;
-            }
-            if (curChar == SYMBOL_ADD || curChar == SYMBOL_SUB) {
-                sign = curChar == SYMBOL_ADD ? 1 : -1;
+            // case 1:
+            if (curChar == '+' || curChar == '-') {
+                sign = curChar == '+' ? 1 : -1;
                 // 接着循环
                 continue;
             }
-            // 字符在 0-9；
-            if (curChar >= C_ZERO && curChar <= C_NINE) {
+            // case 2:
+            if (Character.isDigit(curChar)) {
                 // 转成 int 类型的值
-                int num = curChar - C_ZERO;
-                while (i < len - 1 && strs[i + 1] >= C_ZERO && strs[i + 1] <= C_NINE) {
-                    num = num * 10 + (strs[++i] - C_ZERO);
+                int num = curChar - '0';
+                char nextChar;
+                while (i < len - 1 && Character.isDigit((nextChar = strs[i + 1]))) {
+                    num = num * 10 + (nextChar - '0');
+                    i++;
                 }
                 ans += sign * num;
                 continue;
             }
-
-            // 左括号
-            if (curChar == BRACKRT_LEFT) {
+            // case 3:
+            if (curChar == '(') {
                 stNums.push(ans);
                 stSigns.push(sign);
                 ans = 0;
                 sign = 1;
                 continue;
             }
-            // 右括号
-            if (curChar == BRACKET_RIGHT) {
+            // case 4:
+            // 开始做累加操作
+            if (curChar == ')') {
+                //  ans * stSigns.pop(): 是加 还是减，就看这里的符号了；
                 ans = stNums.pop() + ans * stSigns.pop();
             }
         }
-
         return ans;
     }
 }
