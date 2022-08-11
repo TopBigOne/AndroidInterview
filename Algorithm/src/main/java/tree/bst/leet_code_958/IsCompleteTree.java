@@ -1,14 +1,14 @@
 package tree.bst.leet_code_958;
 
-import tree.TreeNode;
-
 import java.util.LinkedList;
+
+import tree.TreeNode;
 
 /**
  * @author :  dev
  * @version :
  * @Date :  2021/6/11 23:10
- * @Url : https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree/
+ * @Url : 958. 二叉树的完全性检验 : https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree/
  * @Level :  medium
  * @Desc : 958. 二叉树的完全性检验
  * @Counter :  3
@@ -52,16 +52,16 @@ public class IsCompleteTree {
         }
         LinkedList<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        boolean isNull = false;
+        boolean isHadNull = false;
         while (!queue.isEmpty()) {
             TreeNode currNode = queue.poll();
 
             // 已经出现了为空的子树，就不能再出现为空的
-            if (currNode != null && isNull) {
+            if (currNode != null && isHadNull) {
                 return false;
             }
             if (currNode == null) {
-                isNull = true;
+                isHadNull = true;
                 continue;
             }
             queue.offer(currNode.left);
