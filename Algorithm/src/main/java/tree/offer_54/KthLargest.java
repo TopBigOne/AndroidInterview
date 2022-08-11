@@ -9,7 +9,9 @@ import tree.TreeNode;
  * @author : dev
  * @version :
  * @Date :  2022/6/6 22:32
- * @Desc : https://leetcode.cn/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/solution/
+ * @Desc :  剑指  Offer 54. 二叉搜索树的第k大节点: https://leetcode.cn/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/
+ *
+ * 题解：https://leetcode.cn/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/solution/
  */
 public class KthLargest {
     public int kthLargest(TreeNode root, int k) {

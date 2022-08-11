@@ -14,9 +14,6 @@ import tree.TreeNode;
 public class KthLargest2 {
 
     public int kthLargest(TreeNode root, int k) {
-
-
-
         int res = 0;
         dfs(root, k, res);
         return res;
