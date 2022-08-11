@@ -6,7 +6,7 @@ package array.jump.leet_code_55;
  * @Date :  2021/6/17 21:40
  * @Url : https://leetcode-cn.com/problems/jump-game/
  * @Level :  medium
- * @Desc : 跳跃游戏
+ * @Desc : leetcode 55 : 跳跃游戏 https://leetcode-cn.com/problems/jump-game/
  * @Counter : 15
  * @Answer : https://leetcode-cn.com/problems/jump-game/solution/55-by-ikaruga/
  */
@@ -32,6 +32,25 @@ public class CanJump {
         }
         // 最远距离k不再改变，且没有尾部元素
         return false;
+    }
+
+    public boolean canJump2(int[] nums) {
+        int length;
+        if (nums == null || (length = nums.length) == 0) {
+            return false;
+        }
+        int max = 0;
+        for (int i = 0; i < length; i++) {
+            if (i > max) {
+                return false;
+            }
+            int curr = i + nums[i];
+            max = Math.max(max, curr);
+
+        }
+        return max >= nums[length - 1];
+
+
     }
 
 
