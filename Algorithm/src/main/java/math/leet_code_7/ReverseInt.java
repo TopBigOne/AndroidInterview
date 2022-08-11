@@ -4,7 +4,7 @@ package math.leet_code_7;
  * @author : dev
  * @version :
  * @Date :  3/14/21 9:58 PM
- * @Desc :   整数 反转：https://leetcode.cn/problems/reverse-integer/solution/
+ * @Desc :   leet code 7 : 整数 反转：https://leetcode.cn/problems/reverse-integer/solution/
  * <p>
  * 题解：https://leetcode.cn/problems/reverse-integer/solution/hua-jie-suan-fa-7-zheng-shu-fan-zhuan-by-guanpengc/
  */
