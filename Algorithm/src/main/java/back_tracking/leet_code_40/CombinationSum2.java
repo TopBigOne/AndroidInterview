@@ -6,8 +6,8 @@ import java.util.*;
  * @author :  dev
  * @version :
  * @Date :   2021/10/23 23:28
- * @Url : https://leetcode-cn.com/problems/combination-sum-ii/
- * @Level :  easy  medium hard
+ * @Url : leetcode 40：组合总和2 https://leetcode-cn.com/problems/combination-sum-ii/
+ * @Level :    medium
  * @Desc :  给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
  * <p>
  * candidates 中的每个数字在每个组合中只能使用一次。
