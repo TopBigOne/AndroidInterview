@@ -8,7 +8,7 @@ import java.util.Queue;
  * @author : dev
  * @version :
  * @Date :  11/10/21 1:34 PM
- * @Desc : 课程表： https://leetcode-cn.com/problems/course-schedule/
+ * @Desc :207:课程表： https://leetcode-cn.com/problems/course-schedule/
  * <p>
  * 你这个学期必须选修 numCourses 门课程，记为0到numCourses - 1 。
  * <p>
