@@ -28,7 +28,7 @@ public class CoinChange7 {
                 if (i < coin) {
                     continue;
                 }
-                dp[i] = Math.min(dp[i], dp[i - coin]);
+                dp[i] = Math.min(dp[i], dp[i - coin]+1);
             }
 
         }
