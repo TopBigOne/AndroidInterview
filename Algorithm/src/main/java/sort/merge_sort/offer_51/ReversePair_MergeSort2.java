@@ -19,8 +19,8 @@ public class ReversePair_MergeSort2 {
 
         System.arraycopy(nums, 0, copy, 0, len);
 
-        int[] temp = new int[len];
-        return reversePairs(copy, 0, len - 1, temp);
+        int[] helpArray = new int[len];
+        return reversePairs(copy, 0, len - 1, helpArray);
     }
 
     private int reversePairs(int[] nums, int left, int right, int[] temp) {

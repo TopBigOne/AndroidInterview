@@ -4,7 +4,7 @@ package sort.merge_sort.offer_51;
  * @author : dev
  * @version :
  * @Date :  6/27/21 2:22 PM
- * @Desc :  数组中的逆序对，字节半年 10 次  https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
+ * @Desc :  offer51:数组中的逆序对，字节半年 10 次  https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
  */
 public class ReversePair_Default {
     public static void main(String[] args) {
