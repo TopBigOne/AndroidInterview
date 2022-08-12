@@ -7,8 +7,8 @@ import java.util.Deque;
  * @author :  dev
  * @version :
  * @Date :   2021/12/5 16:59
- * @Url :https://leetcode-cn.com/problems/daily-temperatures/submissions/
- * @Level :  easy  medium hard
+ * @Url :leetcode 739 : 每日温度 https://leetcode-cn.com/problems/daily-temperatures/submissions/
+ * @Level :    medium
  * @Desc : 每日温度
  * @Counter : 7
  * @Answer :
@@ -59,6 +59,34 @@ public class DailyTemperature {
         }
         return result;
 
+    }
+
+    public int[] dailyTemperatures4(int[] temperatures) {
+        int length = temperatures.length;
+        int[] result = new int[length];
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = 0; i < length; i++) {
+            while (!stack.isEmpty() && temperatures[stack.peek()] < temperatures[i]) {
+                int popIndex = stack.pop();
+                result[popIndex] = i - popIndex;
+            }
+            stack.push(i);
+        }
+        return result;
+    }
+
+    public int[] dailyTemperatures5(int[] temperatures) {
+        int length = temperatures.length;
+        int[] result = new int[length];
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = 0; i < length; i++) {
+            while (!stack.isEmpty() && temperatures[stack.peek()] < temperatures[i]) {
+                int popIdx = stack.pop();
+                result[popIdx] = i - popIdx;
+            }
+            stack.push(i);
+        }
+        return result;
     }
 
 
