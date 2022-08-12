@@ -1,9 +1,13 @@
 package tree.leet_code_145;
 
 
-import tree.TreeNode;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Stack;
 
-import java.util.*;
+import tree.TreeNode;
 
 /**
  * @author :  dev
@@ -36,6 +40,7 @@ public class PostorderTraversal2 {
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             result.add(node.val);
+
             TreeNode left = node.left;
             if (left != null) {
                 stack.push(left);
