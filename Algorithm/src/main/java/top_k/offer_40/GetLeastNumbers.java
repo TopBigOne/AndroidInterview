@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author : dev
  * @version :
  * @Date :  2/12/22 3:45 PM
- * @Desc :   最小的 k 个数： https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
+ * @Desc :  offer 40 ： 最小的 k 个数： https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
  */
 public class GetLeastNumbers {
 
