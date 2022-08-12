@@ -60,6 +60,5 @@ public class MaxSubArray2 {
         System.err.println("DP : " + Arrays.toString(dp));
         return res;
 
-
     }
 }
