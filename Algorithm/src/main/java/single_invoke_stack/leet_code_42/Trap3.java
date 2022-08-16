@@ -11,6 +11,13 @@ package single_invoke_stack.leet_code_42;
  * https://www.youtube.com/watch?v=bu1quf2rOp8
  */
 public class Trap3 {
+    public static void main(String[] args) {
+        int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        Trap3 trap = new Trap3();
+        int result = trap.trap(height);
+        System.out.println("result : " + result);
+    }
+
     public int trap(int[] height) {
         int length = height.length;
         int peakIndex = 0;
@@ -19,22 +26,26 @@ public class Trap3 {
                 peakIndex = i;
             }
         }
-        int leftMostBar = 0;
+        System.err.println("peakIndex : " + peakIndex);
+
         int water = 0;
+        int leftMostBar = 0;
         for (int i = 0; i < peakIndex; i++) {
+            // 更新
             if (height[i] > leftMostBar) {
                 leftMostBar = height[i];
             } else {
-                water = water + leftMostBar - height[i];
+                water += leftMostBar - height[i];
             }
         }
 
         int rightMostBar = 0;
+
         for (int i = length - 1; i > peakIndex; i--) {
             if (height[i] > rightMostBar) {
                 rightMostBar = height[i];
             } else {
-                water = water + rightMostBar - height[i];
+                water += rightMostBar - height[i];
             }
         }
         return water;
@@ -85,7 +96,7 @@ public class Trap3 {
         int length = height.length;
         int water = 0;
         int peakIndex = 0;
-        // step 1: find the max heigh index;
+        // step 1: find the max height index;
         for (int i = 0; i < length; i++) {
             if (height[i] > height[peakIndex]) {
                 peakIndex = i;
