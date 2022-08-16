@@ -44,7 +44,7 @@ public class SearchMatrix  extends Base {
 
 
 
-    private int binarySearch(int[] nums, int target) {
+    public int binarySearch(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
         while (start <= end) {

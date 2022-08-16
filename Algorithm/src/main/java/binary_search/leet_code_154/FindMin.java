@@ -94,21 +94,41 @@ public class FindMin extends Base {
         // 4 5 6 7 8  1 2 3
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if(nums[mid]>nums[right]){
+            if (nums[mid] > nums[right]) {
                 // 一步一步小心的向右边界推进
-                left = mid+1;
-            }else if(nums[mid]<nums[right]){
+                left = mid + 1;
+            } else if (nums[mid] < nums[right]) {
                 // 根据二段性原则：
                 // 这个时候，我们 要么在 左边的单调区域，要么在右边的单调区域；
                 // 为什么不用mid-1,防止 漏掉 nums[mid] 区间数据,一步步的向左边界推进；
                 right = mid;
-            }else if (nums[mid]==nums[right]){
+            } else if (nums[mid] == nums[right]) {
                 right--;
             }
 
         }
         return nums[left];
 
+    }
+
+    public int findMin5(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            int midValue = nums[mid];
+            if (midValue > nums[right]) {
+                left = mid + 1;
+            } else if (midValue < nums[right]) {
+                right = mid;
+            } else if (midValue == nums[right]) {
+                right--;
+
+            }
+
+
+        }
+        return nums[left];
 
     }
 }
