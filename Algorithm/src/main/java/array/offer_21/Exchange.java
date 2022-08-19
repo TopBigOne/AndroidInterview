@@ -52,8 +52,24 @@ public class Exchange extends Base {
             fast++;
         }
         return nums;
+    }
 
-
+    public int[] exchange3(int[] nums) {
+        int len;
+        if (nums == null || (len = nums.length) == 0) {
+            return new int[0];
+        }
+        int fast = 0;
+        int slow = 0;
+        while (fast < len) {
+            int fastValue = nums[fast];
+            if ((fastValue & 1) == 1) {
+                swap(nums, slow, fast);
+                slow++;
+            }
+            fast++;
+        }
+        return nums;
     }
 
 
