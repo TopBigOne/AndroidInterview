@@ -1,7 +1,5 @@
 package linked_list.leet_code_61;
 
-import java.awt.HeadlessException;
-
 import linked_list.ListNode;
 
 /**
@@ -12,35 +10,6 @@ import linked_list.ListNode;
  * 字节：12 次；
  */
 public class RotateRight {
-    /**
-     * @param head
-     * @param k
-     * @return
-     */
-    public ListNode wrongRotateRight(ListNode head, int k) {
-        ListNode fast = head;
-        ListNode slow = head;
-
-        for (int i = 0; i < k + 1; i++) {
-            fast = fast.next;
-            slow = slow.next;
-        }
-        ListNode newHead = slow.next;
-        ;
-        slow.next = null;
-        System.out.println("head    : " + head);
-        System.out.println("newHead : " + newHead);
-
-        ListNode temp = newHead;
-
-        while (temp.next != null) {
-            temp = temp.next;
-        }
-        temp.next = head;
-
-        System.out.println("newHead2 : " + newHead);
-        return newHead;
-    }
 
 
     public ListNode rotateRight(ListNode head, int k) {
