@@ -4,7 +4,7 @@ package dp.stock_problems.leet_code_123;
  * @author :  dev
  * @version :
  * @Date :  2021/6/26 17:27
- * @Url :  https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/
+ * @Url :  leet code 123 : 买卖股票：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/
  * @Level :  hard
  * @Desc :
  * @Counter : 6
@@ -49,7 +49,7 @@ public class MaxProfit {
         if (len < 2) {
             return 0;
         }
-        int dp[][][] = new int[len][3][2];
+        int[][][] dp = new int[len][3][2];
         dp[0][1][1] = -prices[0];
         dp[0][2][1] = Integer.MIN_VALUE;
 
