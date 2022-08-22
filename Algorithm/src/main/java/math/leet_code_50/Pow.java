@@ -6,7 +6,7 @@ package math.leet_code_50;
  * @Date :  2021/6/28 21:28
  * @Url : https://leetcode-cn.com/problems/powx-n/
  * @Level : easy medium hard
- * @Desc : 实现 pow(x, n) ，即计算 x 的 n 次幂函数（即，x的n次方）。
+ * @Desc : leetcode 50 : 实现 pow(x, n) ，即计算 x 的 n 次幂函数（即，x的n次方）。
  * @Counter : 5
  * @Answer :
  */
