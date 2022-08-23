@@ -29,10 +29,12 @@ public class ReversePair_MergeSort5 {
         return leftCount + rightCount + crossCount;
     }
 
+
     private int mergeAndCalculate(int[] nums, int left, int mid, int right, int[] helpArray) {
         if (right - left + 1 >= 0) {
             System.arraycopy(nums, left, helpArray, left, right - left + 1);
         }
+
         int i = left;
         int j = mid + 1;
         int count = 0;
@@ -48,7 +50,7 @@ public class ReversePair_MergeSort5 {
                 nums[k] = helpArray[i];
                 i++;
 
-            } else {
+            } else if (helpArray[i] > helpArray[j]) {
                 nums[k] = helpArray[j];
                 j++;
                 count += (mid - i + 1);
@@ -56,6 +58,39 @@ public class ReversePair_MergeSort5 {
         }
 
         return count;
+    }
+
+    private int mergeAndCalculate2(int[] nums, int left, int mid, int right, int[] helpArray) {
+        if (right - left + 1 > 0) {
+            System.arraycopy(nums, left, helpArray, left, right - left + 1);
+        }
+        int i = left;
+        int j = mid + 1;
+        int count = 0;
+        for (int k = left; k <= right; k++) {
+            // 处理i ,j越界问题；
+            if (i == mid + 1) {
+                nums[i] = helpArray[j];
+                j++;
+
+            }
+            if (j == right + 1) {
+                nums[i] = helpArray[i];
+                i++;
+            }
+
+            if (helpArray[i] <= helpArray[j]) {
+                nums[i] = helpArray[i];
+                i++;
+            } else if (helpArray[i] > helpArray[j]) {
+                nums[i] = helpArray[j];
+                j++;
+                count += (mid - i + 1);
+            }
+        }
+        return count;
+
+
     }
 
 }
