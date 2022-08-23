@@ -1,4 +1,4 @@
-package back_tracking.leet_code_17;
+package binary_search.leet_code_74;
 
 /**
  * @author :  dev
