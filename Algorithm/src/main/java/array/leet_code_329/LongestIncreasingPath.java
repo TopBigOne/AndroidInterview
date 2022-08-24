@@ -11,7 +11,11 @@ package array.leet_code_329;
  * @Answer : https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/solution/tong-ge-lai-shua-ti-la-yi-ti-si-jie-bfs-agawl/
  */
 public class LongestIncreasingPath {
-    int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    int[][] dirs = new int[][]{
+            {1, 0},
+            {-1, 0},
+            {0, 1},
+            {0, -1}};
 
     public int longestIncreasingPath(int[][] matrix) {
         // 从每一个点出发，往下深搜，看它最远能到哪儿
@@ -25,7 +29,7 @@ public class LongestIncreasingPath {
         int ans = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                // 已经遍历过的即不用遍历了
+                // 0 : 表示没有遍历过：已经遍历过的即不用遍历了
                 if (memo[i][j] == 0) {
                     ans = Math.max(ans, dfs(matrix, m, n, i, j, memo));
                 }
@@ -50,7 +54,11 @@ public class LongestIncreasingPath {
         for (int[] dir : dirs) {
             int nextI = i + dir[0];
             int nextJ = j + dir[1];
-            if (nextI >= 0 && nextJ >= 0 && nextI < m && nextJ < n && matrix[nextI][nextJ] > matrix[i][j]) {
+            if (nextI >= 0 &&
+                    nextJ >= 0 &&
+                    nextI < m &&
+                    nextJ < n &&
+                    matrix[nextI][nextJ] > matrix[i][j]) {
                 ans = Math.max(ans, dfs(matrix, m, n, nextI, nextJ, memo) + 1);
             }
         }
@@ -59,4 +67,6 @@ public class LongestIncreasingPath {
         return ans;
 
     }
+
+
 }
