@@ -6,7 +6,7 @@ import tree.TreeNode;
  * @author : dev
  * @version :
  * @Date :  2/13/21 7:04 PM
- * @Desc : https://leetcode-cn.com/problems/delete-node-in-a-bst/solution/450-shan-chu-er-cha-sou-suo-shu-zhong-de-jie-dia-6/
+ * @Desc : leetcode 450 删除树中的一个节点 ： https://leetcode-cn.com/problems/delete-node-in-a-bst/solution/450-shan-chu-er-cha-sou-suo-shu-zhong-de-jie-dia-6/
  */
 public class DeleteNode {
     public TreeNode deleteNode(TreeNode root, int key) {
