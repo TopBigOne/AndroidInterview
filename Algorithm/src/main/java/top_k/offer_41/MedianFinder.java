@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
  * @author : dev
  * @version :
  * @Date :  2022/6/8 16:13
- * @Desc : 数据流中的中位数
+ * @Desc : offer 41 数据流中的中位数：https://leetcode.cn/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/solution/dai-tu-xiang-jie-jian-zhi-offer-41-shu-j-y3d6/
  * <p>
  * <p>
  * 题解：https://leetcode.cn/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/solution/dai-tu-xiang-jie-jian-zhi-offer-41-shu-j-y3d6/
