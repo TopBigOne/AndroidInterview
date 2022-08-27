@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mHandler.postDelayed(null,3000);
+
         Log.d(TAG, "TestLoop :-----  current thread name : " + Thread.currentThread().getName());
         initThread();
         System.out.println();

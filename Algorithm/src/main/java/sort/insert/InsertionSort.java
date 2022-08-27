@@ -69,25 +69,25 @@ public class InsertionSort {
 
     }
 
-    public void insertFour(int [] nums,int left,int right){
+    public void insertFour(int[] nums, int left, int right) {
         for (int i = 0; i < right; i++) {
             int temp = nums[i];
-            int j= i;
-            while (j>0&&nums[j-1]>temp){
-                nums[j] = nums[j-1];
+            int j = i;
+            while (j > 0 && nums[j - 1] > temp) {
+                nums[j] = nums[j - 1];
                 j--;
             }
             nums[j] = temp;
         }
     }
 
-    public void insertFive(int [] nums,int left,int right){
+    public void insertFive(int[] nums, int left, int right) {
         for (int i = 0; i < right; i++) {
             int temp = nums[i];
             int j = i;
             // 后面的比前面的大
-            while (j>0&&nums[j-1]>temp){
-                nums[j] = nums[j-1];
+            while (j > 0 && nums[j - 1] > temp) {
+                nums[j] = nums[j - 1];
                 j--;
             }
             nums[j] = temp;

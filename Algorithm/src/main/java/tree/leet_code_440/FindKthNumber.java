@@ -17,7 +17,7 @@ public class FindKthNumber {
         k = k - 1;
         while (k > 0) {
             int num = getNode(n, cur, cur + 1);
-            if (num <=k) {
+            if (num <= k) {
                 // 第k个数不在以cur为根节点的树上
                 cur += 1;
                 // cur 在字典序数组中 从左往右移动

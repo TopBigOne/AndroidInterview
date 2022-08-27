@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.android.interview.R;
 import com.android.interview.activity.BaseActivity;
 
-import java.util.HashMap;
-
 public class OnTouchActivity extends BaseActivity implements View.OnClickListener, View.OnTouchListener {
     private static final String TAG = "OnTouchActivity: ";
 
@@ -34,7 +32,6 @@ public class OnTouchActivity extends BaseActivity implements View.OnClickListene
         sb = new StringBuffer();
 
 
-
     }
 
     @Override
@@ -44,7 +41,6 @@ public class OnTouchActivity extends BaseActivity implements View.OnClickListene
         Log.d(TAG, "Activity 的 onTouchEvent : " + actionValue);
         return false;
     }
-
 
 
     @Override
@@ -110,7 +106,6 @@ public class OnTouchActivity extends BaseActivity implements View.OnClickListene
         sb.append("|--------------------|").append("\n");
         tvResult.setText(sb.toString());
     }
-
 
 
 }

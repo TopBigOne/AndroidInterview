@@ -54,7 +54,24 @@ public class Rotate extends BaseFun {
         reverse(nums, 0, length - 1);
         reverse(nums, 0, k - 1);
         reverse(nums, k, length - 1);
-
-
     }
+
+    public void rotate3(int[] nums, int k) {
+        int len = nums.length;
+        k %= len;
+        reverse(nums, 0, len - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, len - 1);
+    }
+
+    public void rotate4(int[] nums, int k) {
+        int len = nums.length;
+        k%=len;
+        reverse(nums,0,len-1);
+        reverse(nums,0, k-1);
+        reverse(nums,k, len-1);
+        
+    }
+
+
 }

@@ -31,17 +31,17 @@ public class MinWindow2 {
         while (right < sLen) {
             char currChar = s.charAt(right);
             window[currChar]++;
-            if(needs[currChar]>0&&needs[currChar]>=window[currChar]){
+            if (needs[currChar] > 0 && needs[currChar] >= window[currChar]) {
                 count++;
             }
-            while (count==targetCount){
+            while (count == targetCount) {
                 currChar = s.charAt(left);
-                if(needs[currChar]>0&&needs[currChar]>=window[currChar]){
+                if (needs[currChar] > 0 && needs[currChar] >= window[currChar]) {
                     count--;
                 }
-                if(minLength>right-left+1){
-                    minLength= right-left+1;
-                    result = s.substring(left,right+1);
+                if (minLength > right - left + 1) {
+                    minLength = right - left + 1;
+                    result = s.substring(left, right + 1);
                 }
                 window[currChar]--;
                 left++;

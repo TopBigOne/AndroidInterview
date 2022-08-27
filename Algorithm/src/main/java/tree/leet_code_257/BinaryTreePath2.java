@@ -15,20 +15,21 @@ import tree.TreeNode;
  * 题解：https://leetcode-cn.com/problems/binary-tree-paths/solution/bie-wen-wen-jiu-shi-dfs-by-lyl0724-2/https://leetcode-cn.com/problems/binary-tree-paths/solution/bie-wen-wen-jiu-shi-dfs-by-lyl0724-2/
  */
 public class BinaryTreePath2 {
-    private List<String> ans = new ArrayList<>();
+    private List<String> res = new ArrayList<>();
     private LinkedList<Integer> path = new LinkedList<>();
 
     public List<String> binaryTreePaths(TreeNode root) {
-        dfs(root);
-        return ans;
+        preOrder(root);
+        return res;
 
     }
-    private void dfs(TreeNode root) {
+    private void preOrder(TreeNode root) {
         if (root == null) {
             return;
         }
 
         path.add(root.val);
+
         if (root.left == null && root.right == null) {
             StringBuilder temp = new StringBuilder();
             int size = path.size();
@@ -38,10 +39,10 @@ public class BinaryTreePath2 {
                     temp.append("->");
                 }
             }
-            ans.add(temp.toString());
+            res.add(temp.toString());
         }
-        dfs(root.left);
-        dfs(root.right);
+        preOrder(root.left);
+        preOrder(root.right);
         path.removeLast();
     }
 

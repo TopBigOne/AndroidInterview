@@ -11,13 +11,13 @@ package array.remove_duplicate_element.leet_code_283;
 public class MoveZero2 {
     public void moveZeroes(int[] nums) {
         int len;
-        if (nums == null||(len = nums.length)==0) {
+        if (nums == null || (len = nums.length) == 0) {
             return;
         }
         int start = 0;
         for (int i = 0; i < len; i++) {
-            if(nums[i]!=0){
-                nums[start] =nums[i];
+            if (nums[i] != 0) {
+                nums[start] = nums[i];
                 start++;
             }
         }

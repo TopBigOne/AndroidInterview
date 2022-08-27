@@ -289,16 +289,18 @@ public class WordBreak {
     }
 
     public boolean wordBreak15(String s, List<String> wordDict) {
-        for(String word :wordDict){
-            hash.put(word,true);
+
+        for (String word : wordDict) {
+            hash.put(word, true);
         }
+
         int length = s.length();
-        boolean[] dp = new boolean [length+1];
+        boolean[] dp = new boolean[length + 1];
         dp[0] = true;
-        for(int i = 1;i<=length;i++){
-            for(int j = i-1;j>=0;j--){
-                dp[i] = dp[j]&&check(s.substring(j,i));
-                if(dp[i]){
+        for (int i = 1; i <= length; i++) {
+            for (int j = i - 1; j >= 0; j--) {
+                dp[i] = dp[j] && check(s.substring(j, i));
+                if (dp[i]) {
                     break;
                 }
             }
