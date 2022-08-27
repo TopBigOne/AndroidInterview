@@ -1,4 +1,4 @@
-package math.leet_code_09;
+package palindrome.leet_code_09;
 
 /**
  * @author : dev
