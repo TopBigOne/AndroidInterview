@@ -1,4 +1,4 @@
-package sort;
+package sort.merge_sort;
 
 
 /**
@@ -6,6 +6,7 @@ package sort;
  * @version :
  * @Date :  12/9/21 11:20 PM
  * @Desc : https://leetcode-cn.com/problems/sort-an-array/submissions/
+ * 归并排序
  */
 public class MergeSort2 {
 
@@ -21,6 +22,7 @@ public class MergeSort2 {
 
     /**
      * merge sort core
+     *
      * @param nums
      * @param left
      * @param right
@@ -54,6 +56,21 @@ public class MergeSort2 {
             }
             nums[j] = temp;
         }
+
+    }
+
+    private void insertionSort2(int[] nums, int left, int right) {
+        for (int i = left + 1; i < right; i++) {
+            int leftValue = nums[i];
+            int j = i;
+            while (j > left && nums[j - 1] > leftValue) {
+                nums[i] = nums[j - 1];
+                j--;
+            }
+            nums[j] = leftValue;
+
+        }
+
     }
 
     /**
