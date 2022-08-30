@@ -8,7 +8,7 @@ import java.util.Queue;
  * @author : dev
  * @version :
  * @Date :  11/10/21 1:34 PM
- * @Desc :207:课程表： https://leetcode-cn.com/problems/course-schedule/
+ * @Desc : 207:课程表： https://leetcode-cn.com/problems/course-schedule/
  * <p>
  * 你这个学期必须选修 numCourses 门课程，记为0到numCourses - 1 。
  * <p>
@@ -27,7 +27,7 @@ public class CanFinish {
     /**
      * 算法流程：
      * <p>
-     * 1、在开始排序前，扫描对应的存储空间（使用邻接表），将入度为 00 的结点放入队列。
+     * 1、在开始排序前，扫描对应的存储空间（使用邻接表），将入度为 0 的结点放入队列。
      * <p>
      * 2、只要队列非空，就从队首取出入度为 00 的结点，将这个结点输出到结果集中，
      * 并且将这个结点的所有邻接结点（它指向的结点）的入度减 11，在减 11 以后，如果这个被减 11 的结点的入度为 00 ，就继续入队。

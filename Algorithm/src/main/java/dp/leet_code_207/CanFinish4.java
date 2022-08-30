@@ -10,26 +10,24 @@ import java.util.Queue;
 /**
  * @author : dev
  * @version :
- * @Date :  2022/8/11 15:37
+ * @Date :  2022/8/30 12:38
  * @Desc :
  */
-public class CanFinish2 {
+public class CanFinish4 {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        // step 1:
         int[] inDegree = new int[numCourses];
         Map<Integer, List<Integer>> graph = new HashMap<>();
+        // step 1:
         for (int[] prerequisite : prerequisites) {
-            // 当前的课程
-            int currCourses = prerequisite[0];
-            // 统计当前课程的限制次数
-            inDegree[currCourses]++;
-            // 学习当前课程，必须要修完的课程
+            int currCourse = prerequisite[0];
+            inDegree[currCourse]++;
             int needPrerequisite = prerequisite[1];
+
             if (graph.containsKey(needPrerequisite)) {
-                graph.get(needPrerequisite).add(currCourses);
+                graph.get(needPrerequisite).add(currCourse);
             } else {
                 List<Integer> list = new ArrayList<>();
-                list.add(currCourses);
+                list.add(currCourse);
                 graph.put(needPrerequisite, list);
             }
         }
@@ -49,41 +47,42 @@ public class CanFinish2 {
             if (toTake == null) {
                 continue;
             }
-            for (int i = 0; i < toTake.size(); i++) {
-                int currCourses = toTake.get(i);
-                inDegree[currCourses]--;
-                if (inDegree[currCourses] == 0) {
-                    queue.add(currCourses);
+
+            for (Integer currCourse : toTake) {
+                inDegree[currCourse]--;
+                if (inDegree[currCourse] == 0) {
+                    queue.add(currCourse);
                 }
             }
         }
 
         // step 4:
-        for (int i = 0; i < numCourses; i++) {
-            if (inDegree[i] != 0) {
+        for (int i : inDegree) {
+            if (i != 0) {
                 return false;
             }
         }
         return true;
-
     }
 
     public boolean canFinish2(int numCourses, int[][] prerequisites) {
-        Map<Integer, List<Integer>> graph = new HashMap<>();
         int[] inDegree = new int[numCourses];
         // step 1:
+        Map<Integer, List<Integer>> graph = new HashMap<>();
         for (int[] prerequisite : prerequisites) {
             int currCourse = prerequisite[0];
-            inDegree[currCourse]++;
             int needPrerequisite = prerequisite[1];
+            inDegree[currCourse]++;
+
             if (graph.containsKey(needPrerequisite)) {
                 graph.get(needPrerequisite).add(currCourse);
-                continue;
+            } else {
+                List<Integer> list = new ArrayList<>();
+                list.add(currCourse);
+                graph.put(needPrerequisite, list);
             }
-            List<Integer> list = new ArrayList<>();
-            list.add(currCourse);
-            graph.put(needPrerequisite, list);
         }
+
         // step 2:
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < numCourses; i++) {
@@ -91,10 +90,11 @@ public class CanFinish2 {
                 queue.add(i);
             }
         }
+
         // step 3:
         while (!queue.isEmpty()) {
-            int currZeroIndex = queue.poll();
-            List<Integer> toTake = graph.get(currZeroIndex);
+            int curr = queue.poll();
+            List<Integer> toTake = graph.get(curr);
             if (toTake == null) {
                 continue;
             }
@@ -106,7 +106,7 @@ public class CanFinish2 {
             }
         }
 
-        // step 4: check;
+        // step 4:
         for (int i : inDegree) {
             if (i != 0) {
                 return false;
@@ -117,8 +117,8 @@ public class CanFinish2 {
 
     public boolean canFinish3(int numCourses, int[][] prerequisites) {
         int[] inDegree = new int[numCourses];
+        // step 1：
         Map<Integer, List<Integer>> graph = new HashMap<>();
-        // step 1:
         for (int[] prerequisite : prerequisites) {
             int currCourse = prerequisite[0];
             inDegree[currCourse]++;
@@ -126,24 +126,26 @@ public class CanFinish2 {
             if (graph.containsKey(needPrerequisite)) {
                 graph.get(needPrerequisite).add(currCourse);
             } else {
-                List<Integer> list = new ArrayList<>();
+                List<Integer> list = new LinkedList<>();
                 list.add(currCourse);
                 graph.put(needPrerequisite, list);
             }
         }
-        // step 2:
-        LinkedList<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < numCourses; i++) {
+        // step 2：
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < inDegree.length; i++) {
             if (inDegree[i] == 0) {
                 queue.add(i);
             }
         }
+
         // step 3:
         while (!queue.isEmpty()) {
-            int currZeroIndex = queue.poll();
-            List<Integer> toTake = graph.get(currZeroIndex);
+            int curr = queue.poll();
+            List<Integer> toTake = graph.get(curr);
             if (toTake == null) {
                 continue;
+
             }
             for (Integer currCourse : toTake) {
                 inDegree[currCourse]--;
@@ -153,6 +155,7 @@ public class CanFinish2 {
             }
         }
 
+        // step 4:
         for (int i : inDegree) {
             if (i != 0) {
                 return false;
@@ -162,13 +165,13 @@ public class CanFinish2 {
     }
 
     public boolean canFinish4(int numCourses, int[][] prerequisites) {
+        // step 1:
         int[] inDegree = new int[numCourses];
         Map<Integer, List<Integer>> graph = new HashMap<>();
-        // step 1:
         for (int[] prerequisite : prerequisites) {
             int currCourse = prerequisite[0];
-            int needPrerequisite = prerequisite[1];
             inDegree[currCourse]++;
+            int needPrerequisite = prerequisite[1];
             if (graph.containsKey(needPrerequisite)) {
                 graph.get(needPrerequisite).add(currCourse);
             } else {
@@ -178,16 +181,16 @@ public class CanFinish2 {
             }
         }
         // step 2:
-        LinkedList<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < numCourses; i++) {
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < inDegree.length; i++) {
             if (inDegree[i] == 0) {
                 queue.add(i);
             }
         }
         // step 3:
         while (!queue.isEmpty()) {
-            int currZeroIndex = queue.poll();
-            List<Integer> toTake = graph.get(currZeroIndex);
+            int curr = queue.poll();
+            List<Integer> toTake = graph.get(curr);
             if (toTake == null) {
                 continue;
             }
@@ -196,14 +199,17 @@ public class CanFinish2 {
                 if (inDegree[currCourse] == 0) {
                     queue.add(currCourse);
                 }
+
             }
         }
+        // step 4:
         for (int i : inDegree) {
             if (i != 0) {
                 return false;
             }
         }
         return true;
+
 
     }
 }
