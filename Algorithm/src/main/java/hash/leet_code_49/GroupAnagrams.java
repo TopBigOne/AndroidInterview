@@ -36,7 +36,7 @@ public class GroupAnagrams {
             }
 
             String key = sb.toString();
-            List<String> list = map.getOrDefault(key, new ArrayList<String>());
+            List<String> list = map.getOrDefault(key, new ArrayList<>());
             list.add(str);
             map.put(key, list);
 

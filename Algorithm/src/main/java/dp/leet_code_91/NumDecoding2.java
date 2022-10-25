@@ -120,8 +120,8 @@ public class NumDecoding2 {
         int pre = 1;
         int curr = 1;
         for (int i = 1; i < len; i++) {
-            int currChar = s.charAt(i);
             int preChar = s.charAt(i - 1);
+            int currChar = s.charAt(i);
             if (currChar == '0') {
                 curr = 0;
             }
