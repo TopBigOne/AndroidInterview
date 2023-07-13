@@ -6,6 +6,7 @@
  */
 public class Test {
     public static void main(String[] args) {
+        System.out.println("测试");
         new HelloB();
     }
 
@@ -16,11 +17,11 @@ public class Test {
         }
 
         static {
-            System.out.println("static A");
+            System.out.println("static A ： 静态代码块");
         }
 
         {
-            System.out.println(" I am HelloA");
+            System.out.println(" I am HelloA ： 实例初始化块");
         }
     }
 
