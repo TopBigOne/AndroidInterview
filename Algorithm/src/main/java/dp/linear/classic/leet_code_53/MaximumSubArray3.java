@@ -8,6 +8,11 @@ package dp.linear.classic.leet_code_53;
  */
 public class MaximumSubArray3 {
 
+    /**
+     * 使用DP；
+     * @param nums
+     * @return
+     */
     public int maxSubArray(int[] nums) {
         // step 1: corner base;
         int len = nums.length;
