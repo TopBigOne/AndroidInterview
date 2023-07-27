@@ -30,6 +30,7 @@ public class CoinChange8 {
 
     public int coinChange2(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
+        //
         Arrays.fill(dp, amount + 1);
         for (int i = 1; i <= amount; i++) {
             for (int coin : coins) {
@@ -43,6 +44,7 @@ public class CoinChange8 {
         if (dp[amount] == amount + 1) {
             return -1;
         }
+        // 11
         return dp[amount];
     }
 }
