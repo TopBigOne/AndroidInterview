@@ -29,6 +29,7 @@ public class MemoryManager {
             channel = FileChannel.open(Paths.get(filePath), StandardOpenOption.READ, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
 
             mappedByteBuffer = channel.map(FileChannel.MapMode.READ_WRITE, 0, BUFFER_SIZE).load();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -69,7 +70,7 @@ public class MemoryManager {
     }
 
     public static void main(String[] args) {
-        System.out.println("test.");
+        System.out.println("MAX_VALUE :"+ Integer.MAX_VALUE);
     }
 
 

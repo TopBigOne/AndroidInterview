@@ -15,13 +15,13 @@ import java.net.Socket;
  * @Counter :
  * @Answer :
  */
-public class IOServer {
+public class BIOServer {
     public static void main(String[] args) {
         try {
             ServerSocket serverSocket = new ServerSocket(8082);
             new Thread(() -> {
                 try {
-                    System.out.println("server 已经开始运行，并等待连接...");
+                    System.err.println("    server 已经开始运行，并等待连接...");
                     // 获取新的连接
                     Socket socket = serverSocket.accept();
                     // 每一个新的连接，都需要创建线程，负责读取数据
@@ -33,7 +33,7 @@ public class IOServer {
                                 byte[] data = new byte[1024];
                                 InputStream inputStream = socket.getInputStream();
                                 while ((len = inputStream.read(data)) != -1) {
-                                    System.out.println(new String(data, 0, len));
+                                    System.err.println(new String(data, 0, len));
                                 }
                             } catch (IOException e) {
                                 e.printStackTrace();

@@ -23,7 +23,7 @@ public class IOClient {
                     Socket socket = new Socket("127.0.0.1", 8082);
                     int index = 0;
                     while (true) {
-                        System.out.println("client start connection....");
+                        System.err.println("    @@@ client start connection....");
                         byte[] bytes = (index + " : 世佳").getBytes();
                         socket.getOutputStream().write(bytes);
                         index++;

@@ -6,6 +6,8 @@ import java.nio.channels.CompletionHandler;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -16,58 +18,82 @@ import java.util.concurrent.CountDownLatch;
  */
 public class AIO {
 
-    static String filePath = "/Users/dev/Documents/Android_work/AndroidInterview-master/java_io/src/main/java/com/jar/BufferDemo.java";
+    public static String javaFilePath = "/Users/dev/Documents/Android_work/AndroidInterview-master/java_io/src/main/java/com/jar/aio/AIO.java";
 
     public static void main(String[] args) {
-        Path filePath = Paths.get("/Users/dev/Documents/Android_work/AndroidInterview-master/java_io/src/main/java/com/jar/BufferDemo.java");
+        startReadFullFile();
+
+    }
+
+
+    public static void startReadFullFile() {
+        Path filePath = Paths.get(javaFilePath);
         AsynchronousFileChannel fileChannel = null;
         try {
             fileChannel = AsynchronousFileChannel.open(filePath, StandardOpenOption.READ);
 
 
-            ByteBuffer buffer = ByteBuffer.allocate(1024);
+            long fileSize = fileChannel.size();
+            ByteBuffer buffer = ByteBuffer.allocate((int) fileSize);
 
-            CountDownLatch latch = new CountDownLatch(1); // 创建一个CountDownLatch，初始值为1
+            CountDownLatch latch = new CountDownLatch(1);
+            List<ByteBuffer> bufferList = new ArrayList<>();
 
-            fileChannel.read(buffer, 0, null, new CompletionHandler<Integer, Void>() {
+            AsynchronousFileChannel finalFileChannel = fileChannel;
+            fileChannel.read(buffer, 0, buffer, new CompletionHandler<Integer, ByteBuffer>() {
                 @Override
-                public void completed(Integer bytesRead, Void attachment) {
-                    buffer.flip();
-                    byte[] data = new byte[buffer.remaining()];
-                    buffer.get(data);
-                    String content = new String(data);
-                    System.out.println("Read complete. Content: " + content);
+                public void completed(Integer bytesRead, ByteBuffer attachment) {
+                    if (bytesRead > 0) {
+                        attachment.flip();
+                        ByteBuffer copyBuffer = ByteBuffer.allocate(attachment.remaining());
+                        copyBuffer.put(attachment);
+                        bufferList.add(copyBuffer);
+                        attachment.clear();
 
-                    // 处理读取的结果
-                    processData(content);
-
-                    buffer.clear(); // 清空缓冲区，为下一次读取做准备
-
-                    latch.countDown(); // 完成读取后，减少CountDownLatch的计数
+                        long newPosition = bytesRead + attachment.position();
+                        finalFileChannel.read(attachment, newPosition, attachment, this);
+                    } else {
+                        latch.countDown();
+                    }
                 }
 
                 @Override
-                public void failed(Throwable exc, Void attachment) {
-                    System.out.println("Read failed: " + exc.getMessage());
-
-                    latch.countDown(); // 读取失败时，也需要减少CountDownLatch的计数
+                public void failed(Throwable exc, ByteBuffer attachment) {
+                    exc.printStackTrace();
+                    latch.countDown();
                 }
             });
 
-            latch.await(); // 等待CountDownLatch的计数减为0，即异步操作完成
+            latch.await();
+
+            byte[] mergedData = mergeBuffers(bufferList);
+
+            // 将字节数组转换为字符串或进行其他处理
+            String content = new String(mergedData);
+            System.out.println(content);
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println(" ERROR  : " + e.getMessage());
         }
 
-        // 继续执行其他操作...
-    }
 
-    private static void processData(String content) {
-        // 处理读取的数据
-        System.out.println("Processing data: " + content);
     }
 
 
+    private static byte[] mergeBuffers(List<ByteBuffer> bufferList) {
+        int totalBytes = bufferList.stream().mapToInt(ByteBuffer::remaining).sum();
+        byte[] mergedData = new byte[totalBytes];
+
+        int offset = 0;
+        for (ByteBuffer buffer : bufferList) {
+            int length = buffer.remaining();
+            buffer.get(mergedData, offset, length);
+            offset += length;
+        }
+
+        return mergedData;
+    }
 }
+
+
+

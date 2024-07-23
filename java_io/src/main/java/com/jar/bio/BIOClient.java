@@ -14,13 +14,13 @@ import java.util.Date;
  * @Counter :
  * @Answer :
  */
-public class IOClient {
+public class BIOClient {
     public static void main(String[] args) {
         new Thread(() -> {
             try {
                 Socket socket = new Socket("127.0.0.1", 8082);
                 while (true) {
-                    byte[] bytes = (new Date() + ": hello world").getBytes();
+                    byte[] bytes = (new Date() + ": hello ，this is client.").getBytes();
                     socket.getOutputStream().write(bytes);
                     Thread.sleep(3000);
                 }

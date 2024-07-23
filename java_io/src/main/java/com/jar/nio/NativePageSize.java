@@ -12,11 +12,6 @@ import sun.misc.Unsafe;
  */
 public class NativePageSize {
 
-    static class Person {
-        int age;
-        String name;
-
-    }
 
     public static void main(String[] args) {
         try {

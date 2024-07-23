@@ -68,6 +68,7 @@ public class NIOServer {
             } catch (IOException ignored) {
             }
         }).start();
+
         new Thread(() -> {
             try {
                 while (true) {
