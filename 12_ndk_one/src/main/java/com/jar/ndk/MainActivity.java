@@ -1,15 +1,12 @@
 package com.jar.ndk;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.PendingIntent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
-import com.jar.ya.NativeLib;
-
-import java.util.concurrent.FutureTask;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,43 +14,58 @@ public class MainActivity extends AppCompatActivity {
         System.loadLibrary("native-lib");
     }
 
-    private TextView mainTv;
+    private Button btnMmapWrite;
+    private Button btnMmapRead;
+    private EditText etUserEnter;
+    private TextView tvLogContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Logdog.getInstance().i("MainActivity.onCreate invoked");
         initView();
         initEvent();
     }
 
     private void initView() {
-        mainTv = (TextView) findViewById(R.id.tv_main);
+        btnMmapWrite = (Button) findViewById(R.id.btn_write_mmap);
+        btnMmapRead = (Button) findViewById(R.id.btn_read);
+        etUserEnter = (EditText) findViewById(R.id.et);
+        tvLogContent = (TextView) findViewById(R.id.tv);
     }
 
     private void initEvent() {
-        mainTv.setOnClickListener(new View.OnClickListener() {
+        btnMmapWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String result = getTxt();
 
-                NativeLib nativeLib = new NativeLib();
-                int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
-                int lcsResult = nativeLib.nativeLcs(nums);
-                System.out.println("lcsResult : " + lcsResult);
-
-                mainTv.setText(result);
+                writeInputWithMMAP();
             }
         });
 
+
+        btnMmapRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                readFile();
+
+            }
+        });
     }
 
-    public native String getTxt();
+    public void writeInputWithMMAP() {
+        Logdog.getInstance().w(etUserEnter.getText().toString().trim());
+        etUserEnter.setText("");
 
-    public native String stringFromJNI();
+    }
 
-    public native void startTicks();
+    public void readFile() {
+        String read = Logdog.getInstance().read();
+        tvLogContent.setText(read);
 
-    public native void StopTicks();
+
+    }
+
 
 }

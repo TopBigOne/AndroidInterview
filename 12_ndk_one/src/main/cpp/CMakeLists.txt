@@ -16,14 +16,10 @@ add_library( # Sets the name of the library.
         # Sets the library as a shared library.
         SHARED
 
-        # Provides a relative path to your source file(s).
-        hello-jnicallback.c native-lib.cpp my_log.cpp IMyService.h LCS.cpp)
 
-# Searches for a specified prebuilt library and stores the path as a
-# variable. Because CMake includes system libraries in the search path by
-# default, you only need to specify the name of the public NDK library
-# you want to add. CMake verifies that the library exists before
-# completing its build.
+        Buffer.cpp  base64.cpp native-lib.cpp  FileOption.cpp another/mmap_util.cpp)
+
+
 
 find_library( # Sets the name of the path variable.
         log-lib

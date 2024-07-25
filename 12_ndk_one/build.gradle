@@ -14,7 +14,7 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        ndk.abiFilters  'x86', 'x86_64'
+//        ndk.abiFilters  'x86', 'x86_64'
 // ...
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -48,8 +48,8 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':Algorithm')
-    implementation project(path: ':leet_code')
+//    implementation project(path: ':Algorithm')
+//    implementation project(path: ':leet_code')
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     implementation lib.appcompat
