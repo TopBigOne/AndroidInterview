@@ -179,17 +179,25 @@ public class RemoveNthFromEnd {
     }
 
     public ListNode removeNthFromEnd8(ListNode head, int n) {
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
-        ListNode fast = dummy;
-        ListNode slow = dummy;
+        ListNode dummyNode = new ListNode(-1);
+        dummyNode.next = head;
+        ListNode fast = dummyNode;
+        ListNode slow = dummyNode;
         for (int i = 0; i <= n; i++) {
-            fast  = fast.next;
-
-
+            if (fast == null) {
+                break;
+            }
+            fast = fast.next;
+        }
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
         }
 
-        return dummy.next;
+        ListNode delNode = slow.next;
+        slow.next = delNode.next;
+        delNode.next = null;
+        return dummyNode.next;
 
 
     }

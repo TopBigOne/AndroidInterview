@@ -23,7 +23,7 @@ public class Test {
 
         RemoveNthFromEnd removeNthFromEnd = new RemoveNthFromEnd();
         //  倒数第二个
-        removeNthFromEnd.removeNthFromEnd(listNode, 2);
+        removeNthFromEnd.removeNthFromEnd(listNode, 3);
 
     }
 }
