@@ -58,6 +58,7 @@ public class LargestRectangleArea {
             res = Math.max(res, curHeight * curWidth);
         }
         return res;
+
     }
 
     public int largestRectangleArea2(int[] heights) {

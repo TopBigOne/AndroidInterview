@@ -16,15 +16,22 @@ package io.reactivex.rxjava3.android.schedulers;
 import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
+
+import java.util.concurrent.TimeUnit;
+
 import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.plugins.RxJavaPlugins;
-import java.util.concurrent.TimeUnit;
 
 final class HandlerScheduler extends Scheduler {
     private final Handler handler;
     private final boolean async;
 
+    /**
+     *
+     * @param handler 主线程的handler
+     * @param async
+     */
     HandlerScheduler(Handler handler, boolean async) {
         this.handler = handler;
         this.async = async;

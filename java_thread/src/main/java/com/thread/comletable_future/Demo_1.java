@@ -19,7 +19,6 @@ public class Demo_1 {
     public static void main(String[] args) {
         submit();
         execute();
-
     }
 
 
@@ -27,6 +26,7 @@ public class Demo_1 {
      * submit 是有返回值的
      */
     private static void submit() {
+        System.out.println("test submit: ");
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Future<?> submit = executorService.submit(() -> {
             try {
@@ -52,6 +52,7 @@ public class Demo_1 {
      * execute 没有返回值
      */
     private static void execute() {
+        System.out.println("execute: ");
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(new Runnable() {
             @Override

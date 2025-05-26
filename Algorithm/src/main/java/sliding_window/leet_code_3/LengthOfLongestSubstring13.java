@@ -11,6 +11,7 @@ public class LengthOfLongestSubstring13 {
     public static void main(String[] args) {
         LengthOfLongestSubstring13 lengthOfLongestSubstring = new LengthOfLongestSubstring13();
         String s = "pwwkew";
+         s = " ";
 
         int result = lengthOfLongestSubstring.lengthOfLongestSubstring2(s);
         System.err.println("result : " + result);
@@ -27,7 +28,7 @@ public class LengthOfLongestSubstring13 {
         int[] windows = new int[256];
         int left = 0;
         int right = 0;
-        while (right < len - 1) {
+        while (right < len) {
             char rightChar = s.charAt(right);
             windows[rightChar]++;
 

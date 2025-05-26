@@ -6,6 +6,7 @@ package com.thread.reentrant;
  * @Date :  2023/4/29 18:23
  * @Desc :
  */
+
 public class Log {
     static void d(String tag, String content) {
         System.err.println(tag + content);

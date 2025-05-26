@@ -21,17 +21,17 @@ public abstract class FlowControl {
     public FlowControl() {
     }
 
-    /**
-     * 数据
-     *
-     * @return
-     */
     abstract Condition getConsumerCondition();
 
     abstract Condition getProducerCondition();
 
     abstract ReentrantLock getReentrantLock();
 
+    /**
+     * 数据
+     *
+     * @return
+     */
     abstract LinkedList<byte[]> getCommonQueue();
 
     public byte[] takeByte() {

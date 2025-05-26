@@ -46,7 +46,7 @@ public class GenerateParenthesis2 {
             helper(result, curr + "(", leftCount - 1, rightCount);
         }
 
-        /**
+        /*
          * 特殊判断： 有括号的数量，大于左边括号的数量才符合条件
          */
         if (rightCount > 0 && rightCount > leftCount) {

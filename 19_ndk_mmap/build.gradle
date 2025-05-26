@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+def config = rootProject.ext.android
+def lib = rootProject.ext.supportDependencies
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+
+    defaultConfig {
+        namespace "com.david.a19_ndk_mmap"
+        applicationId "com.david.a19_ndk_mmap"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation lib.appcompat
+    implementation lib.material
+    implementation lib.junit
+
+    androidTestImplementation lib.extJunit
+    androidTestImplementation lib.espresso_core
+    implementation lib.constraintlayout
+}

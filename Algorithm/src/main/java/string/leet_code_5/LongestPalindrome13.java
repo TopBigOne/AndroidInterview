@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class LongestPalindrome13 {
 
     public static void main(String[] args) {
-        String s = "babad";
+        String s = "cbbd";
         LongestPalindrome13 longestPalindrome = new LongestPalindrome13();
         String result = longestPalindrome.longestPalindrome(s);
         System.err.println("result : " + result);
@@ -31,6 +31,7 @@ public class LongestPalindrome13 {
             int[] old = centerSpread(s, i, i);
             int[] even = centerSpread(s, i, i + 1);
             int[] temp = even[1] > old[1] ? even : old;
+            System.err.println("old  : " + Arrays.toString(old));
             System.err.println("even : " + Arrays.toString(even));
             System.err.println("temp : " + Arrays.toString(temp));
             System.err.println("-----------------------");
@@ -38,6 +39,7 @@ public class LongestPalindrome13 {
                 max = temp;
             }
         }
+        System.err.println("finally max : " + Arrays.toString(max));
         return s.substring(max[0], max[0] + max[1]);
     }
 

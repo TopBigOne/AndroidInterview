@@ -35,7 +35,7 @@ public class ThreadLocalDemo4 {
                         int afterInt = myData.threadLocalField.get();
                         System.err.println(Thread.currentThread().getName() + " beforeInt : " + beforeInt);
                         System.err.println(Thread.currentThread().getName() + " afterInt  : " + afterInt);
-                        System.err.println("|------------------------------------------------|");
+                        System.err.println("|-------------------- ----------------------------|");
                     } finally {
                         myData.threadLocalField.remove();
                     }

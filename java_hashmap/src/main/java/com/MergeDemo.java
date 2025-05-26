@@ -11,8 +11,24 @@ import java.util.function.BiFunction;
  */
 public class MergeDemo {
     public static void main(String[] args) {
-       // test_One();
-        test_two();
+        // test_One();
+//        test_two();
+        testThree();
+
+    }
+
+    private static void testThree() {
+        int a = 10;
+        int b = 20;
+        if (a == 10) {
+            System.err.println("return   ------1");
+            return;
+        } else {
+
+            System.err.println("listener.onSuccess(); ---2");
+        }
+
+        System.err.println(" SharedPerferencesDataUtils.getInstance().putLocalInstallPlugin(pluginId, pluginInfo)---3");
 
     }
 
@@ -34,7 +50,7 @@ public class MergeDemo {
     }
 
 
-    private static void  test_two () {
+    private static void test_two() {
         HashMap<String, Integer> prices = new HashMap<>();
         prices.put("Shoes", 100);
         prices.put("Bag", 230);
@@ -43,7 +59,7 @@ public class MergeDemo {
         Integer newPant = prices.merge("Pant", 90, new BiFunction<Integer, Integer, Integer>() {
             @Override
             public Integer apply(Integer integer, Integer integer2) {
-                System.out.println("         integer : "+integer+", integer2 : "+integer2);
+                System.out.println("         integer : " + integer + ", integer2 : " + integer2);
                 return integer + integer2;
             }
         });
