@@ -20,7 +20,7 @@
 void
 mmap_write(const char *src_ptr, const int32_t len, const char *path_ptr, const char *name_ptr) {
     if (!src_ptr || !path_ptr || !name_ptr || len <= 0) {
-        LOG("非法参数");
+        LOGE("非法参数");
         return;
     }
     char name[256] = {0};
@@ -30,7 +30,7 @@ mmap_write(const char *src_ptr, const int32_t len, const char *path_ptr, const c
 
     _fd = open(name, O_RDWR | O_CREAT, 0644);//打开或创建指定绝对文件名对应的文件并赋予当前用户可读可写权限
     if (_fd == -1) {
-        LOG("打开文件失败");
+        LOGE("打开文件失败");
         return;
     }
 #if 1
@@ -38,14 +38,14 @@ mmap_write(const char *src_ptr, const int32_t len, const char *path_ptr, const c
     ftruncate(_fd, len);
     _ptr = (int8_t *) mmap(0, 4097, PROT_READ | PROT_WRITE, MAP_SHARED, _fd, 0);
     if (_ptr == MAP_FAILED) {
-        LOG("映射失败");
+        LOGE("映射失败");
         return;
     }
     memcpy(_ptr, src_ptr, len);
     msync(_ptr, len, MS_SYNC);
     munmap(_ptr, 12);
 #endif
-    LOG("写入数据成功");
+    LOGI("写入数据成功");
     // close(_fd);
 }
 
@@ -57,13 +57,13 @@ void mmap_write(const std::string src, const std::string path, const std::string
     std::string file = path + name;
     _fd = open(file.data(), O_RDWR | O_CREAT, 0644);//打开或创建指定绝对文件名对应的文件并赋予当前用户可读可写权限
     if (_fd == -1) {
-        LOG("打开文件失败");
+        LOGE("打开文件失败");
         return;
     }
     ftruncate(_fd, len);
     _ptr = (int8_t *) mmap(0, len, PROT_READ | PROT_WRITE, MAP_SHARED, _fd, 0);
     if (_ptr == MAP_FAILED) {
-        LOG("映射失败");
+        LOGE("映射失败");
         return;
     }
     memcpy(_ptr, src.data(), len);
@@ -81,7 +81,7 @@ void mmap_write(const std::string src, const std::string path, const std::string
 void
 mmap_write(const void *src_ptr, const int32_t len, const char *path_ptr, const char *name_ptr) {
     if (!src_ptr || !path_ptr || !name_ptr || len <= 0) {
-        LOG("非法参数");
+        LOGE("非法参数");
         return;
     }
     char name[256] = {0};
@@ -92,7 +92,7 @@ mmap_write(const void *src_ptr, const int32_t len, const char *path_ptr, const c
     _fd = open(name, O_RDWR | O_CREAT, 0644);//打开或创建指定绝对文件名对应的文件并赋予当前用户可读可写权限
 
     if (_fd == -1) {
-        LOG("打开位图文件失败");
+        LOGE("打开位图文件失败");
         return;
     }
 #if 1
@@ -100,12 +100,12 @@ mmap_write(const void *src_ptr, const int32_t len, const char *path_ptr, const c
     ftruncate(_fd, len);
     _ptr = (int8_t *) mmap(0, len, PROT_READ | PROT_WRITE, MAP_SHARED, _fd, 0);
     if (_ptr == MAP_FAILED) {
-        LOG("映射位图失败");
+        LOGE("映射位图失败");
         return;
     }
     memcpy(_ptr, src_ptr, len);
     msync(_ptr, len, MS_SYNC);
     munmap(_ptr, len);
 #endif
-    LOG("写入位图数据成功");
+    LOGI("写入位图数据成功");
 }
